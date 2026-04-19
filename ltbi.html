@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Latent Tuberculosis Infection – 10 Marks Answer</title>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=DM+Mono:wght@400;500&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #faf6ef;
+    --ink: #1a1208;
+    --rust: #8b3a1a;
+    --rust-light: #c4581f;
+    --gold: #b8860b;
+    --gold-light: #d4a843;
+    --sage: #4a6741;
+    --sage-light: #6d9b64;
+    --slate: #2c3e50;
+    --muted: #7a6a55;
+    --border: #d4c4a8;
+    --highlight: #fff3cd;
+    --box-bg: #f5ede0;
+    --red-bg: #fdf0ec;
+    --green-bg: #edf5ec;
+    --blue-bg: #edf0f8;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Crimson Pro', serif;
+    font-size: 17px;
+    line-height: 1.75;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 36px 80px;
+  }
+  .doc-header {
+    border-top: 4px solid var(--rust);
+    border-bottom: 2px solid var(--border);
+    padding: 28px 0 22px;
+    margin-bottom: 36px;
+  }
+  .doc-header::before {
+    content: "RESPIRATORY MEDICINE · EXAMINATION ANSWER";
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 10px;
+  }
+  .doc-header h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--rust);
+    line-height: 1.25;
+  }
+  .meta { display:flex; gap:16px; margin-top:10px; flex-wrap:wrap; }
+  .badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    background: var(--rust);
+    color: white;
+    padding: 3px 10px;
+    border-radius: 2px;
+    letter-spacing: 1px;
+  }
+  .badge.gold { background: var(--gold); }
+  .badge.sage { background: var(--sage); }
+
+  h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--rust);
+    background: var(--box-bg);
+    border-left: 4px solid var(--rust);
+    padding: 8px 14px;
+    margin: 32px 0 14px;
+  }
+  h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--slate);
+    margin: 20px 0 8px;
+    border-bottom: 1px dashed var(--border);
+    padding-bottom: 4px;
+  }
+  p { margin-bottom: 10px; }
+
+  ul { list-style:none; padding-left:0; margin:8px 0 14px; }
+  ul li { padding:4px 0 4px 22px; position:relative; }
+  ul li::before { content:"▸"; position:absolute; left:0; color:var(--rust-light); font-size:13px; top:6px; }
+  ul.sub { margin-left:20px; }
+  ul.sub li::before { content:"–"; color:var(--gold); }
+
+  .table-wrap { overflow-x:auto; margin:18px 0; }
+  table { width:100%; border-collapse:collapse; font-size:15px; }
+  th { background:var(--rust); color:white; font-family:'Outfit',sans-serif; font-weight:600; font-size:13px; letter-spacing:0.5px; padding:9px 13px; text-align:left; }
+  td { padding:8px 13px; border-bottom:1px solid var(--border); vertical-align:top; }
+  tr:nth-child(even) td { background:var(--box-bg); }
+  tr:hover td { background:#f0e6d4; }
+
+  .callout { border-left:4px solid var(--gold); background:var(--highlight); padding:12px 16px; margin:16px 0; font-size:15.5px; border-radius:0 4px 4px 0; }
+  .callout strong { color:var(--rust); }
+  .box-red   { background:var(--red-bg);   border-left:4px solid var(--rust); }
+  .box-green { background:var(--green-bg); border-left:4px solid var(--sage); }
+  .box-blue  { background:var(--blue-bg);  border-left:4px solid var(--slate); }
+
+  /* FLOW */
+  .flow { margin:20px auto; max-width:680px; font-family:'Outfit',sans-serif; }
+  .flow-box {
+    background:white; border:2px solid var(--rust); border-radius:6px;
+    padding:10px 16px; font-size:14px; font-weight:600; color:var(--ink); line-height:1.4;
+  }
+  .flow-box .sub-text { font-weight:400; font-size:12.5px; color:var(--muted); display:block; margin-top:3px; }
+  .flow-box.hi { background:var(--rust); color:white; }
+  .flow-box.hi .sub-text { color:#f5d0bb; }
+  .flow-box.green { background:var(--green-bg); border-color:var(--sage); }
+  .flow-box.red   { background:var(--red-bg);   border-color:var(--rust); }
+  .flow-box.blue  { background:var(--blue-bg);  border-color:var(--slate); }
+  .flow-arrow { text-align:center; font-size:20px; color:var(--rust-light); padding:3px 0; }
+  .flow-branch { display:flex; gap:14px; margin-top:4px; }
+  .flow-branch-box { flex:1; border-radius:6px; border:2px solid; padding:10px 14px; font-size:13px; font-family:'Outfit',sans-serif; font-weight:500; }
+  .flow-branch-box.left  { border-color:var(--sage); background:var(--green-bg); }
+  .flow-branch-box.right { border-color:var(--rust); background:var(--red-bg); }
+  .flow-branch-box .label { font-weight:700; font-size:11px; letter-spacing:1px; text-transform:uppercase; margin-bottom:4px; }
+  .flow-branch-box.left .label  { color:var(--sage); }
+  .flow-branch-box.right .label { color:var(--rust); }
+  .branch-label { text-align:center; font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); margin:6px 0; letter-spacing:1px; }
+
+  /* STEPS */
+  .step { display:flex; gap:14px; margin-bottom:14px; align-items:flex-start; }
+  .step-num { flex-shrink:0; width:30px; height:30px; background:var(--rust); color:white; font-family:'Outfit',sans-serif; font-weight:700; font-size:14px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-top:2px; }
+  .step-content { flex:1; }
+  .step-content strong { color:var(--rust); font-style:italic; }
+
+  /* SPECTRUM BAR */
+  .spectrum { margin:20px 0; }
+  .spectrum-bar { display:flex; border-radius:6px; overflow:hidden; height:38px; }
+  .spectrum-bar div { display:flex; align-items:center; justify-content:center; font-family:'Outfit',sans-serif; font-size:12px; font-weight:600; color:white; flex:1; text-align:center; padding:0 6px; }
+  .spectrum-labels { display:flex; margin-top:6px; }
+  .spectrum-labels span { flex:1; text-align:center; font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); }
+
+  .doc-footer { margin-top:52px; border-top:2px solid var(--border); padding-top:16px; font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+
+  @media print { body { padding:20px; font-size:13px; } h2 { font-size:11px; } }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="doc-header">
+  <h1>Latent Tuberculosis Infection (LTBI)</h1>
+  <div class="meta">
+    <span class="badge">10 Marks</span>
+    <span class="badge gold">~1000 Words</span>
+    <span class="badge sage">Respiratory Medicine</span>
+  </div>
+</div>
+
+<!-- DEFINITION -->
+<h2>Definition</h2>
+<p>Latent tuberculosis infection (LTBI) is defined as <strong>a state of persistent immune response to stimulation by <em>Mycobacterium tuberculosis</em> (Mtb) antigens without evidence of clinically manifested active TB disease</strong> — i.e., no symptoms, no radiographic abnormality, and no bacteriological evidence of active disease.</p>
+
+<div class="callout">
+  <strong>Key Distinction:</strong> LTBI ≠ Active TB. Persons with LTBI are <em>not</em> infectious. They harbour viable but dormant bacilli within granulomas. The lifetime risk of progression to active TB is <strong>5–15%</strong>, with the majority occurring within the first 2–5 years of initial infection.
+</div>
+
+<!-- EPIDEMIOLOGY -->
+<h2>Epidemiology</h2>
+<ul>
+  <li>Approximately <strong>one-third of the world's population</strong> is estimated to be infected with Mtb</li>
+  <li>In India, nearly <strong>40% of the population</strong> is latently infected; annual risk of TB infection is ~1.5%</li>
+  <li>India accounts for ~25% of global incident TB cases</li>
+  <li>Of those with LTBI, only <strong>5–15% develop active TB</strong> over a lifetime</li>
+  <li>Risk of progression is highest in the <strong>first 2 years</strong> after initial infection</li>
+  <li>Currently available LTBI treatment regimens have efficacy ranging from <strong>60–90%</strong>, with protection lasting up to 19 years</li>
+  <li>WHO End TB Strategy targets: 90% reduction in TB incidence and 95% reduction in TB deaths by 2035</li>
+</ul>
+
+<!-- SPECTRUM -->
+<h2>Spectrum of Mtb Infection</h2>
+<div class="spectrum">
+  <div class="spectrum-bar">
+    <div style="background:#4a6741;">Exposure — No Infection</div>
+    <div style="background:#6d9b64;">LTBI — Contained</div>
+    <div style="background:#d4a843;">Subclinical TB</div>
+    <div style="background:#c4581f;">Active TB Disease</div>
+  </div>
+  <div class="spectrum-labels">
+    <span>TST/IGRA −ve</span>
+    <span>TST/IGRA +ve, asymptomatic</span>
+    <span>Minimal symptoms</span>
+    <span>Full disease</span>
+  </div>
+</div>
+
+<!-- PATHOPHYSIOLOGY -->
+<h2>Pathophysiology of Latency</h2>
+<ul>
+  <li>After primary infection, Mtb is contained within granulomas by host T-cell mediated immunity (Th1 response)</li>
+  <li>Within caseous centre: <strong>low oxygen tension + low pH + fatty acid accumulation</strong> → bacteria downregulate metabolism (DosR regulon activation)</li>
+  <li>Bacilli enter a <strong>non-replicating persistent state</strong> — metabolically dormant but viable</li>
+  <li>Viable bacilli may persist for decades even in calcified (Ranke complex) lesions</li>
+  <li>Reactivation is triggered when host immunity is impaired:
+    <ul class="sub">
+      <li>CD4⁺ T-cell depletion (HIV)</li>
+      <li>Anti-TNF therapy — disrupts granuloma integrity</li>
+      <li>Immunosuppressants, malnutrition, diabetes, ageing</li>
+    </ul>
+  </li>
+  <li>Liquefaction of caseum → cavity formation → massive bacillary load → active disease</li>
+</ul>
+
+<!-- RISK GROUPS -->
+<h2>High-Risk Groups for LTBI Testing & Treatment (WHO Prioritisation)</h2>
+
+<h3>Priority Groups — Mandatory Screening</h3>
+<ul>
+  <li><strong>People Living with HIV (PLHIV)</strong> — all adults, adolescents, children regardless of ART status; risk of progression is 20–30× higher than immunocompetent individuals</li>
+  <li><strong>Household contacts of bacteriologically confirmed pulmonary TB</strong>:
+    <ul class="sub">
+      <li>Children &lt;5 years — highest risk of rapid progression to severe/disseminated disease</li>
+      <li>Children &gt;5 years, adolescents, adults — in high-incidence settings, "may" receive preventive treatment</li>
+    </ul>
+  </li>
+  <li>Patients initiating <strong>anti-TNF therapy</strong></li>
+  <li>Patients on <strong>dialysis</strong></li>
+  <li>Patients preparing for <strong>organ or haematological transplant</strong></li>
+  <li>Patients with <strong>silicosis</strong></li>
+</ul>
+
+<h3>Additional Groups (Low-Incidence Countries)</h3>
+<ul>
+  <li>Prisoners, healthcare workers, immigrants from high-burden countries</li>
+  <li>Homeless persons, illicit drug users</li>
+</ul>
+
+<div class="callout box-red">
+  <strong>NOT recommended for systematic LTBI screening:</strong> People with diabetes, harmful alcohol use, tobacco smokers, or underweight persons — unless they are already in the above high-risk categories.
+</div>
+
+<!-- SCHEMATIC ALGORITHM -->
+<h2>Programmatic Management Algorithm (WHO Cascade of Care)</h2>
+
+<div class="flow">
+  <div class="flow-box hi">
+    Step 1: Identify & Prioritise High-Risk Groups
+    <span class="sub-text">PLHIV · Household contacts · Anti-TNF · Dialysis · Transplant · Silicosis</span>
+  </div>
+  <div class="flow-arrow">↓</div>
+
+  <div class="flow-box blue">
+    Step 2: Rule Out Active TB Disease
+    <span class="sub-text">Symptom screen (cough, fever, weight loss, night sweats) + Chest X-ray ± NAAT/Smear/Culture</span>
+  </div>
+  <div class="flow-arrow">↓</div>
+
+  <div class="branch-label">IF SYMPTOMS PRESENT → Investigate for Active TB | IF NO SYMPTOMS → Proceed</div>
+
+  <div class="flow-box">
+    Step 3: Test for LTBI
+    <span class="sub-text">TST (Mantoux) or IGRA (QuantiFERON-TB Gold / T-SPOT.TB)</span>
+  </div>
+  <div class="flow-arrow">↓</div>
+
+  <div class="flow-branch">
+    <div class="flow-branch-box left">
+      <div class="label">✓ Positive TST/IGRA</div>
+      Chest X-ray to rule out active disease → if normal → Initiate LTBI treatment
+    </div>
+    <div class="flow-branch-box right">
+      <div class="label">✗ Negative TST/IGRA</div>
+      High-risk contacts (children &lt;5, immunocompromised) → still offer LTBI treatment after ruling out active TB
+    </div>
+  </div>
+  <div class="flow-arrow">↓</div>
+
+  <div class="flow-box green">
+    Step 4: Initiate & Complete LTBI Treatment
+    <span class="sub-text">Choose regimen based on age, HIV status, drug-resistance of index case, hepatotoxicity risk</span>
+  </div>
+  <div class="flow-arrow">↓</div>
+
+  <div class="flow-box">
+    Step 5: Monitor — Adverse Events, Adherence, Completion
+    <span class="sub-text">Follow-up for development of active TB during and after LTBI treatment completion</span>
+  </div>
+</div>
+
+<!-- TST vs IGRA TABLE -->
+<h2>Testing for LTBI — TST vs IGRA</h2>
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Tuberculin Skin Test (TST/Mantoux)</th>
+      <th>IGRA (QuantiFERON-TB Gold / T-SPOT.TB)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Antigen used</strong></td>
+      <td>Purified Protein Derivative (PPD)</td>
+      <td>ESAT-6, CFP-10 (highly specific Mtb antigens)</td>
+    </tr>
+    <tr>
+      <td><strong>Method</strong></td>
+      <td>Intradermal injection; induration read at 48–72 h</td>
+      <td>In vitro blood test; IFN-γ measured by ELISA/ELISPOT</td>
+    </tr>
+    <tr>
+      <td><strong>Visits required</strong></td>
+      <td>Two (injection + reading)</td>
+      <td>One (blood draw; result in 24–48 h)</td>
+    </tr>
+    <tr>
+      <td><strong>BCG interference</strong></td>
+      <td>False positives due to prior BCG (unless given at birth only)</td>
+      <td>No cross-reactivity with BCG</td>
+    </tr>
+    <tr>
+      <td><strong>NTM cross-reactivity</strong></td>
+      <td>More cross-reactive with NTM</td>
+      <td>Less cross-reactive with NTM</td>
+    </tr>
+    <tr>
+      <td><strong>Sensitivity in HIV</strong></td>
+      <td>Reduced (anergy)</td>
+      <td>Reduced (anergy)</td>
+    </tr>
+    <tr>
+      <td><strong>Cost</strong></td>
+      <td>Less expensive; no laboratory needed</td>
+      <td>More expensive; requires laboratory</td>
+    </tr>
+    <tr>
+      <td><strong>Reader variability</strong></td>
+      <td>Subjective; inter-reader variability</td>
+      <td>Objective; automated reading</td>
+    </tr>
+    <tr>
+      <td><strong>Preferred setting</strong></td>
+      <td>Low/middle-income countries (India: TST preferred)</td>
+      <td>High-income countries; not to replace TST in LMICs</td>
+    </tr>
+    <tr>
+      <td><strong>Active TB diagnosis?</strong></td>
+      <td colspan="2" style="text-align:center; font-weight:600; color:var(--rust);">NEITHER TST NOR IGRA should be used to diagnose active TB — for LTBI screening only</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="callout box-blue">
+  <strong>TST Positivity Thresholds (India/WHO):</strong> ≥5 mm in HIV-infected, recent TB contacts, immunosuppressed patients; ≥10 mm in other high-risk groups; ≥15 mm in persons with no known risk factors.
+</div>
+
+<!-- TREATMENT -->
+<h2>Treatment of LTBI — Recommended Regimens (WHO 2018)</h2>
+
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Regimen</th>
+      <th>Duration</th>
+      <th>Dosage (Adults)</th>
+      <th>Dosage (Children)</th>
+      <th>Max Dose</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Isoniazid (INH) alone</strong></td>
+      <td>6 months daily</td>
+      <td>5 mg/kg/day</td>
+      <td>10 mg/kg/day (range 7–15 mg)</td>
+      <td>300 mg/day</td>
+      <td>Standard regimen; 69% efficacy (6H); IUAT trial showed 93% with 12H</td>
+    </tr>
+    <tr>
+      <td><strong>Isoniazid (INH) alone</strong></td>
+      <td>9 months daily</td>
+      <td>5 mg/kg/day</td>
+      <td>10 mg/kg/day</td>
+      <td>300 mg/day</td>
+      <td>ATS preferred; estimated 90% efficacy; optimal protection per USPHS trials</td>
+    </tr>
+    <tr>
+      <td><strong>INH alone (PLHIV)</strong></td>
+      <td>36 months daily</td>
+      <td>5 mg/kg/day</td>
+      <td>10 mg/kg/day</td>
+      <td>300 mg/day</td>
+      <td>High-incidence settings; regardless of ART/immunosuppression; TST positive only</td>
+    </tr>
+    <tr>
+      <td><strong>Rifampicin (RIF) alone</strong></td>
+      <td>3–4 months daily</td>
+      <td>10 mg/kg/day</td>
+      <td>15 mg/kg/day (range 10–20 mg)</td>
+      <td>600 mg/day</td>
+      <td>Similar efficacy to 9H INH; significantly less hepatotoxicity; better adherence</td>
+    </tr>
+    <tr>
+      <td><strong>INH + Rifampicin</strong></td>
+      <td>3–4 months daily</td>
+      <td>INH 5 mg/kg + RIF 10 mg/kg</td>
+      <td>INH 10 mg/kg + RIF 15 mg/kg</td>
+      <td>INH 300 mg; RIF 600 mg</td>
+      <td>Alternative for children &lt;15 yrs in high-incidence settings</td>
+    </tr>
+    <tr>
+      <td><strong>Rifapentine (RPT) + INH weekly</strong></td>
+      <td>3 months (12 doses)</td>
+      <td>INH 15 mg/kg/week; RPT by weight</td>
+      <td>Age 2–11 yrs: INH 25 mg/kg/week</td>
+      <td>INH 900 mg; RPT 900 mg</td>
+      <td>Highest completion rate; low hepatotoxicity; preferred in HIV; RPT dose: 10–14 kg=300 mg, &gt;50 kg=900 mg</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3>Chemoprophylaxis — Primary vs Secondary</h3>
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Definition</th>
+      <th>Example</th>
+      <th>Regimen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Primary Prophylaxis</strong></td>
+      <td>Prevention of infection in TST-negative, uninfected individuals</td>
+      <td>Newborn of mother with infectious pulmonary TB at delivery</td>
+      <td>6 months INH → then BCG; or 3 months INH → TST → if negative: BCG; if positive: continue 3 more months INH</td>
+    </tr>
+    <tr>
+      <td><strong>Secondary Prophylaxis</strong></td>
+      <td>Treatment of established LTBI in TST-positive individuals to prevent reactivation</td>
+      <td>HIV-positive adult with positive TST, no active disease; child contact of smear-positive case</td>
+      <td>As per WHO 2018 regimens (6H/9H/3HR/3HP/4R) based on risk stratification</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- DR-TB CONTACTS -->
+<h2>Preventive Treatment for Contacts of DR-TB Cases</h2>
+<ul>
+  <li>Standard INH-based regimens are ineffective for contacts of INH-resistant or MDR-TB cases</li>
+  <li>Management requires <strong>individualised risk assessment</strong> based on DST profile of index case</li>
+  <li>Strict clinical observation for ≥2 years is preferred over empirical preventive treatment for MDR-TB contacts</li>
+</ul>
+
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Contact Scenario</th>
+      <th>Recommended TPT Regimen</th>
+      <th>Duration</th>
+      <th>Dosage Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>H-resistant, Rifampicin-sensitive index case</td>
+      <td><strong>Rifampicin alone (4R)</strong></td>
+      <td>4 months daily</td>
+      <td>Age ≥10 yrs: 10 mg/kg/day; Age &lt;10 yrs: 15 mg/kg/day; Max 600 mg/day</td>
+    </tr>
+    <tr>
+      <td>MDR-TB with Fluoroquinolone-sensitive index case</td>
+      <td><strong>Levofloxacin alone (6Lfx)</strong></td>
+      <td>6 months daily</td>
+      <td>Age &gt;14 yrs: &lt;45 kg → 750 mg/day; ≥45 kg → 1 g/day; Children: 15–20 mg/kg/day by weight band</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- MONITORING -->
+<h2>Monitoring of Adverse Effects</h2>
+<ul>
+  <li><strong>Isoniazid:</strong> Asymptomatic liver enzyme elevation, peripheral neuropathy (give pyridoxine 10–25 mg/day), hepatotoxicity (potentially fatal — 1% in elderly)</li>
+  <li><strong>Rifampicin/Rifapentine:</strong> Cutaneous reactions, gastrointestinal intolerance, hepatotoxicity, drug interactions (especially with ART)</li>
+  <li><strong>Baseline LFTs</strong> required in: chronic liver disease, alcohol use, HIV, age &gt;35 years, pregnancy and postpartum</li>
+  <li>Drug-resistance risk with LTBI treatment → prevented by:
+    <ul class="sub">
+      <li>Ensuring active TB is ruled out before starting</li>
+      <li>Strict monitoring and patient education</li>
+      <li>Avoiding partial treatment of active TB masquerading as LTBI</li>
+    </ul>
+  </li>
+</ul>
+
+<!-- INDIA CONTEXT -->
+<h2>LTBI Management in India — Special Considerations</h2>
+<ul>
+  <li>India bears ~25% of global TB burden; 40% of population latently infected</li>
+  <li>Treating 40% of the population for LTBI is <strong>neither rational nor practicable</strong></li>
+  <li>NTEP priority remains treating smear-positive active TB to interrupt transmission</li>
+  <li>LTBI treatment in India should focus on <strong>targeted high-risk groups only</strong>:
+    <ul class="sub">
+      <li>HIV-infected individuals</li>
+      <li>Juvenile contacts of sputum-positive cases with recent TST conversion</li>
+      <li>Those on immunosuppressants/corticosteroids/anti-TNF agents</li>
+      <li>Patients with silicosis, renal failure, planned transplant</li>
+    </ul>
+  </li>
+  <li><strong>Important warning:</strong> TST and IGRA are being misused for active TB diagnosis in India — they should NOT be used for active TB diagnosis in high-endemic settings (STCI guidelines)</li>
+  <li>In India, IGRA should not replace TST; TST is preferred in public health settings</li>
+</ul>
+
+<!-- EFFICACY TABLE -->
+<h2>Efficacy of LTBI Regimens vs Placebo (WHO 2015 Meta-analysis)</h2>
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Regimen</th>
+      <th>OR for Incident TB (vs Placebo)</th>
+      <th>Quality of Evidence</th>
+      <th>Hepatotoxicity vs Placebo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Isoniazid 6 months</td>
+      <td>0.61 (0.48–0.77) — 39% risk reduction</td>
+      <td>Low</td>
+      <td>OR 0.99 (no significant difference)</td>
+    </tr>
+    <tr>
+      <td>Isoniazid 12–72 months</td>
+      <td>0.53 (0.41–0.69) — 47% risk reduction</td>
+      <td>Low</td>
+      <td>OR 0.59 (slightly less)</td>
+    </tr>
+    <tr>
+      <td>Rifampicin 3–4 months</td>
+      <td>0.48 (0.26–0.87) — 52% risk reduction</td>
+      <td>Moderate</td>
+      <td>Significantly less hepatotoxicity than INH</td>
+    </tr>
+    <tr>
+      <td>Rifampicin + INH 3–4 months</td>
+      <td>0.52 (0.33–0.84) — 48% risk reduction</td>
+      <td>Low</td>
+      <td>Similar to INH alone</td>
+    </tr>
+    <tr>
+      <td>3HP (weekly RPT+INH) vs 9H INH</td>
+      <td>0.44 (0.18–1.07) — non-inferior</td>
+      <td>Low</td>
+      <td>OR 0.16 — significantly less hepatotoxicity</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="callout box-green">
+  <strong>Key Conclusions from Trials:</strong> No single regimen is clearly superior for efficacy. However, for <em>safety</em>: Rifampicin 3–4 months and 3-month weekly Rifapentine+INH have significantly fewer hepatotoxicity events. For <em>adherence</em>: 3HP (12 weekly doses) has highest completion rates. For <em>HIV</em>: at least 36 months INH is recommended in high-burden settings.
+</div>
+
+<!-- SUMMARY TABLE -->
+<h2>Summary: LTBI at a Glance</h2>
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Key Fact</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Definition</td><td>Immune response to Mtb antigens without active disease</td></tr>
+    <tr><td>Global burden</td><td>~2 billion infected (1/3 of world population)</td></tr>
+    <tr><td>India burden</td><td>40% of population; annual risk of infection 1.5%</td></tr>
+    <tr><td>Lifetime progression risk</td><td>5–15% (50% within first 2 years)</td></tr>
+    <tr><td>Strongest risk factor</td><td>HIV infection (20–30× increased risk)</td></tr>
+    <tr><td>Gold standard test</td><td>None — TST and IGRA are both imperfect indirect tests</td></tr>
+    <tr><td>First-line regimen (WHO)</td><td>INH 6 months (6H) or INH 9 months (9H)</td></tr>
+    <tr><td>Shortest regimen</td><td>3HP — weekly Rifapentine + INH × 12 doses (3 months)</td></tr>
+    <tr><td>Safest regimen (hepatotoxicity)</td><td>Rifampicin 4 months (4R) or 3HP</td></tr>
+    <tr><td>MDR-TB contacts</td><td>4R (H-resistant) or 6 Lfx (MDR-FQ sensitive)</td></tr>
+    <tr><td>LTBI treatment efficacy</td><td>60–90%; protection up to 19 years</td></tr>
+    <tr><td>India priority approach</td><td>Targeted high-risk groups only; TST preferred over IGRA</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="callout">
+  <strong>Conclusion:</strong> LTBI represents the reservoir from which future TB cases will emerge. Targeted identification and treatment of LTBI in high-risk groups — particularly PLHIV, child contacts, and immunocompromised individuals — is a cornerstone of the WHO End TB Strategy. In India, a pragmatic, focused approach is essential given the enormous burden of latent infection and limited resources.
+</div>
+
+<div class="doc-footer">
+  <span>Ref: Sri Textbook of Tuberculosis Ch.54 (Rachakonda) · Sharma Textbook of TB & NTM Ch.8 & Ch.44 (Pai, Ghiasi, Saravu)</span>
+  <span>WHO LTBI Guidelines 2018 · ATS 2000 · Harrison's Principles of Internal Medicine 21e</span>
+</div>
+
+</body>
+</html>
