@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Role of Surgery in Pulmonary Tuberculosis — 10-Mark Structured Answer</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Sora:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #0d1117;
+    --bg2:       #161b22;
+    --bg3:       #1c2230;
+    --border:    #30363d;
+    --border2:   #21262d;
+    --accent:    #58a6ff;
+    --accent2:   #3fb950;
+    --accent4:   #e3b341;
+    --accent5:   #bc8cff;
+    --text:      #e6edf3;
+    --text2:     #8b949e;
+    --text3:     #c9d1d9;
+    --red:       #ff7b72;
+    --orange:    #ffa657;
+    --teal:      #39d353;
+    --yellow:    #e3b341;
+    --purple:    #d2a8ff;
+    --steel:     #79c0ff;
+    --head-font: 'Playfair Display', serif;
+    --body-font: 'Sora', sans-serif;
+    --mono-font: 'JetBrains Mono', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text3); font-family: var(--body-font); font-size: 15px; line-height: 1.75; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #0d1117 0%, #13161e 50%, #0d1117 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 56px 0 40px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(121,192,255,.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-tag {
+    display: inline-block; font-family: var(--mono-font); font-size: 11px;
+    letter-spacing: .12em; color: var(--steel);
+    background: rgba(121,192,255,.1); border: 1px solid rgba(121,192,255,.25);
+    border-radius: 20px; padding: 4px 14px; margin-bottom: 18px; text-transform: uppercase;
+  }
+  .hero h1 {
+    font-family: var(--head-font); font-size: clamp(24px,4vw,40px); font-weight: 700;
+    color: var(--text); line-height: 1.2; max-width: 820px;
+    margin: 0 auto 12px; padding: 0 24px;
+  }
+  .hero h1 .hl-steel  { color: var(--steel); }
+  .hero h1 .hl-orange { color: var(--orange); }
+  .hero-sub { font-size: 14px; color: var(--text2); font-family: var(--mono-font); letter-spacing: .05em; }
+  .hero-meta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+  .hero-badge { font-size: 12px; font-family: var(--mono-font); color: var(--text2); background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; padding: 4px 12px; }
+
+  /* LAYOUT */
+  .container { max-width: 1020px; margin: 0 auto; padding: 0 24px 80px; }
+
+  /* TOC */
+  .toc { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 24px 28px; margin: 36px 0 44px; position: relative; }
+  .toc::before { content: ''; position: absolute; left: 0; top: 20px; bottom: 20px; width: 3px; background: linear-gradient(180deg, var(--steel), var(--orange)); border-radius: 2px; }
+  .toc h3 { font-family: var(--mono-font); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--steel); margin-bottom: 14px; }
+  .toc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 32px; }
+  @media(max-width:600px){ .toc-grid { grid-template-columns: 1fr; } }
+  .toc a { color: var(--text2); text-decoration: none; font-size: 13px; transition: color .2s; display: flex; gap: 8px; align-items: baseline; padding: 2px 0; }
+  .toc a:hover { color: var(--steel); }
+  .toc-num { font-family: var(--mono-font); font-size: 11px; color: var(--steel); min-width: 26px; }
+
+  /* SECTION */
+  .section { margin-bottom: 52px; scroll-margin-top: 24px; }
+  .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+  .section-num { font-family: var(--mono-font); font-size: 11px; color: var(--steel); background: rgba(121,192,255,.08); border: 1px solid rgba(121,192,255,.22); border-radius: 6px; padding: 3px 9px; white-space: nowrap; }
+  .section-title { font-family: var(--head-font); font-size: 22px; font-weight: 700; color: var(--text); border-bottom: 1px solid var(--border); padding-bottom: 10px; flex: 1; }
+
+  /* CALLOUTS */
+  .callout { border-radius: 0 10px 10px 0; padding: 16px 22px; margin: 14px 0; font-size: 14px; border-left: 3px solid; }
+  .callout-steel  { background: rgba(121,192,255,.07); border-color: var(--steel);  color: var(--text3); }
+  .callout-orange { background: rgba(255,166,87,.07);  border-color: var(--orange); color: var(--text3); }
+  .callout-red    { background: rgba(255,123,114,.07); border-color: var(--red);    color: var(--text3); }
+  .callout-teal   { background: rgba(63,185,80,.07);   border-color: var(--teal);   color: var(--text3); }
+  .callout-yellow { background: rgba(227,179,65,.07);  border-color: var(--yellow); color: var(--text3); }
+  .callout-purple { background: rgba(210,168,255,.07); border-color: var(--purple); color: var(--text3); }
+  .callout strong { display: block; margin-bottom: 5px; font-size: 12px; font-family: var(--mono-font); letter-spacing: .05em; text-transform: uppercase; }
+  .callout-steel strong  { color: var(--steel); }
+  .callout-orange strong { color: var(--orange); }
+  .callout-red strong    { color: var(--red); }
+  .callout-teal strong   { color: var(--teal); }
+  .callout-yellow strong { color: var(--yellow); }
+  .callout-purple strong { color: var(--purple); }
+
+  /* BULLETS */
+  .blist { list-style: none; padding: 0; }
+  .blist li { display: flex; gap: 10px; align-items: baseline; padding: 5px 0; border-bottom: 1px solid rgba(48,54,61,.5); font-size: 14px; color: var(--text3); }
+  .blist li:last-child { border-bottom: none; }
+  .blist li::before { content: '›'; color: var(--steel); font-weight: 700; font-size: 16px; line-height: 1.4; flex-shrink: 0; }
+  .blist li b { color: var(--text); }
+  .sblist { list-style: none; padding: 0; margin: 4px 0 4px 18px; }
+  .sblist li { display: flex; gap: 8px; align-items: baseline; font-size: 13px; color: var(--text2); padding: 2px 0; }
+  .sblist li::before { content: '–'; color: var(--border); flex-shrink: 0; }
+
+  /* TABLES */
+  .tbl-wrap { overflow-x: auto; margin: 16px 0; border-radius: 10px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  thead th { background: var(--bg3); color: var(--text); font-family: var(--body-font); font-weight: 600; font-size: 12px; letter-spacing: .04em; text-transform: uppercase; padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+  tbody tr { border-bottom: 1px solid var(--border2); transition: background .15s; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) { background: rgba(22,27,34,.6); }
+  tbody tr:hover { background: rgba(121,192,255,.04); }
+  td { padding: 11px 16px; vertical-align: top; color: var(--text3); line-height: 1.6; }
+  td:first-child { color: var(--text); font-weight: 600; }
+
+  .tag { display: inline-block; font-size: 11px; font-family: var(--mono-font); border-radius: 4px; padding: 2px 7px; font-weight: 600; }
+  .tag-red    { background: rgba(255,123,114,.12); color: var(--red);    border: 1px solid rgba(255,123,114,.3); }
+  .tag-orange { background: rgba(255,166,87,.12);  color: var(--orange); border: 1px solid rgba(255,166,87,.3); }
+  .tag-green  { background: rgba(63,185,80,.12);   color: var(--teal);   border: 1px solid rgba(63,185,80,.3); }
+  .tag-blue   { background: rgba(88,166,255,.12);  color: var(--accent); border: 1px solid rgba(88,166,255,.3); }
+  .tag-steel  { background: rgba(121,192,255,.12); color: var(--steel);  border: 1px solid rgba(121,192,255,.3); }
+  .tag-yellow { background: rgba(227,179,65,.12);  color: var(--yellow); border: 1px solid rgba(227,179,65,.3); }
+  .tag-purple { background: rgba(210,168,255,.12); color: var(--purple); border: 1px solid rgba(210,168,255,.3); }
+
+  /* FLOWCHART */
+  .flow-wrap { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 28px 20px; margin: 16px 0; }
+  .flow-title { font-family: var(--mono-font); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--text2); margin-bottom: 24px; text-align: center; }
+  .flow { display: flex; flex-direction: column; align-items: center; }
+  .fbox { width: 100%; max-width: 620px; border-radius: 8px; padding: 12px 20px; text-align: center; font-size: 13.5px; font-weight: 600; line-height: 1.45; }
+  .fbox small { display: block; font-weight: 400; font-size: 12px; opacity: .82; margin-top: 3px; }
+  .fbox-steel  { background: rgba(121,192,255,.1); border: 1px solid rgba(121,192,255,.35); color: var(--steel); }
+  .fbox-orange { background: rgba(255,166,87,.1);  border: 1px solid rgba(255,166,87,.35);  color: var(--orange); }
+  .fbox-red    { background: rgba(255,123,114,.1); border: 1px solid rgba(255,123,114,.35); color: var(--red); }
+  .fbox-teal   { background: rgba(63,185,80,.1);   border: 1px solid rgba(63,185,80,.35);   color: var(--teal); }
+  .fbox-yellow { background: rgba(227,179,65,.1);  border: 1px solid rgba(227,179,65,.35);  color: var(--yellow); }
+  .fbox-purple { background: rgba(210,168,255,.1); border: 1px solid rgba(210,168,255,.35); color: var(--purple); }
+  .fbox-dark   { background: var(--bg3); border: 1px solid var(--border); color: var(--text3); }
+  .arrow { font-size: 22px; color: var(--border); line-height: 1; margin: 5px 0; }
+  .arrow-lbl { font-size: 11px; font-family: var(--mono-font); color: var(--text2); margin: -2px 0 4px; }
+  .fork { display: flex; gap: 12px; width: 100%; max-width: 680px; justify-content: center; flex-wrap: wrap; margin: 4px 0; }
+  .fork-item { flex: 1; min-width: 150px; border-radius: 8px; padding: 11px 13px; font-size: 13px; font-weight: 600; text-align: center; line-height: 1.4; }
+  .fork-item small { display: block; font-weight: 400; font-size: 11.5px; opacity: .85; margin-top: 3px; }
+
+  /* PROCEDURE CARDS */
+  .proc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 14px; margin: 16px 0; }
+  .proc-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 18px 18px; position: relative; overflow: hidden; }
+  .proc-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+  .proc-card.steel::before  { background: var(--steel); }
+  .proc-card.orange::before { background: var(--orange); }
+  .proc-card.red::before    { background: var(--red); }
+  .proc-card.teal::before   { background: var(--teal); }
+  .proc-card.yellow::before { background: var(--yellow); }
+  .proc-card.purple::before { background: var(--purple); }
+  .proc-icon { font-size: 22px; margin-bottom: 8px; }
+  .proc-name { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .proc-sub  { font-size: 11px; font-family: var(--mono-font); color: var(--text2); margin-bottom: 8px; text-transform: uppercase; letter-spacing: .05em; }
+  .proc-text { font-size: 13px; color: var(--text3); line-height: 1.55; }
+
+  /* INDICATION / CONTRAINDICATION columns */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+  @media(max-width:580px){ .two-col { grid-template-columns: 1fr; } }
+  .col-box { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
+  .col-box h4 { font-size: 12px; font-family: var(--mono-font); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; }
+  .col-box.steel-head h4  { color: var(--steel); }
+  .col-box.red-head h4    { color: var(--red); }
+  .col-box.orange-head h4 { color: var(--orange); }
+  .col-box.teal-head h4   { color: var(--teal); }
+  .col-box ul { list-style: none; }
+  .col-box ul li { font-size: 13px; color: var(--text3); padding: 3px 0; display: flex; gap: 8px; }
+  .col-box.steel-head  ul li::before { content: '✓'; color: var(--steel); }
+  .col-box.teal-head   ul li::before { content: '✓'; color: var(--teal); }
+  .col-box.red-head    ul li::before { content: '✕'; color: var(--red); }
+  .col-box.orange-head ul li::before { content: '›'; color: var(--orange); }
+
+  /* MNEMONIC */
+  .mnemonic { display: grid; grid-template-columns: 52px 1fr; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin: 16px 0; }
+  .mn-letter { background: var(--bg3); display: flex; align-items: center; justify-content: center; font-family: var(--head-font); font-size: 28px; font-weight: 700; color: var(--steel); border-bottom: 1px solid var(--border); padding: 14px; }
+  .mn-letter:last-of-type { border-bottom: none; }
+  .mn-text { padding: 13px 18px; font-size: 13.5px; color: var(--text3); border-bottom: 1px solid var(--border2); border-left: 1px solid var(--border); display: flex; align-items: center; }
+  .mn-text:last-child { border-bottom: none; }
+
+  /* SCROLLBAR / FOOTER */
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+  footer { border-top: 1px solid var(--border); padding: 28px 24px; text-align: center; color: var(--text2); font-size: 12px; font-family: var(--mono-font); line-height: 1.8; max-width: 1020px; margin: 0 auto; }
+
+  @media print {
+    body { background: white; color: #222; }
+    .hero { background: white; border-bottom: 2px solid #2980b9; }
+    .hero h1 { color: #1a1a1a; }
+    .toc, .callout, .proc-card, .col-box, .flow-wrap { background: #f8f9fa; border-color: #dee2e6; }
+    td, .blist li, .proc-text { color: #333; }
+    thead th { background: #e9ecef; color: #333; }
+    .section-title { color: #111; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">10-Mark Structured Answer · Respiratory Medicine</div>
+  <h1>Role of <span class="hl-steel">Surgery</span> in <span class="hl-orange">Pulmonary Tuberculosis</span></h1>
+  <div class="hero-sub">Indications · Procedures · Pre-op Assessment · Complications · DR-TB Surgery</div>
+  <div class="hero-meta">
+    <span class="hero-badge">~1000 words</span>
+    <span class="hero-badge">12 sections</span>
+    <span class="hero-badge">Flowcharts + Tables</span>
+    <span class="hero-badge">NTEP / ATS / ERS guidelines</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- TOC -->
+  <div class="toc">
+    <h3>Table of Contents</h3>
+    <div class="toc-grid">
+      <a href="#s1"><span class="toc-num">01</span> Introduction & Historical Perspective</a>
+      <a href="#s7"><span class="toc-num">07</span> Surgical Procedures — Resectional</a>
+      <a href="#s2"><span class="toc-num">02</span> Role of Surgery — Overview</a>
+      <a href="#s8"><span class="toc-num">08</span> Non-resectional / Collapse Procedures</a>
+      <a href="#s3"><span class="toc-num">03</span> Indications for Surgery — Algorithm</a>
+      <a href="#s9"><span class="toc-num">09</span> Pre-operative Assessment</a>
+      <a href="#s4"><span class="toc-num">04</span> Absolute Indications</a>
+      <a href="#s10"><span class="toc-num">10</span> Post-operative Care & Complications</a>
+      <a href="#s5"><span class="toc-num">05</span> Relative Indications</a>
+      <a href="#s11"><span class="toc-num">11</span> Surgery in Drug-Resistant TB (DR-TB)</a>
+      <a href="#s6"><span class="toc-num">06</span> Contraindications</a>
+      <a href="#s12"><span class="toc-num">12</span> Outcomes & Summary Mnemonic</a>
+    </div>
+  </div>
+
+  <!-- 1. INTRODUCTION -->
+  <div class="section" id="s1">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Introduction &amp; Historical Perspective</h2>
+    </div>
+    <ul class="blist">
+      <li>Surgery was the <b>primary treatment for TB in the pre-chemotherapy era</b> (before 1950s) — collapse therapy, pneumothorax, and thoracoplasty were mainstays</li>
+      <li>With the advent of effective anti-TB drugs (Streptomycin 1944, INH 1952, Rifampicin 1963), the role of surgery dramatically <b>declined from primary to adjunctive</b></li>
+      <li>Today, surgery plays a <b>complementary, adjunctive role</b> — reserved for specific complications, treatment failures, and drug-resistant TB</li>
+      <li>The rise of <b>MDR-TB and XDR-TB</b> has renewed interest in surgery as a potentially curative adjunct when chemotherapy alone fails</li>
+      <li>Surgery in TB is <b>always an adjunct to chemotherapy</b> — never a substitute; optimal ATT before and after surgery is mandatory</li>
+    </ul>
+    <div class="callout callout-steel">
+      <strong>Core Principle</strong>
+      Surgery in PTB = "Last resort for the complications of TB, not a treatment for TB itself." Anti-TB drugs remain the cornerstone; surgery addresses anatomical consequences that drugs cannot reverse — cavities, destroyed lobes, bronchiectasis, haemoptysis, empyema.
+    </div>
+  </div>
+
+  <!-- 2. ROLE OF SURGERY — OVERVIEW -->
+  <div class="section" id="s2">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Role of Surgery — Overview</h2>
+    </div>
+    <div class="proc-grid">
+      <div class="proc-card steel">
+        <div class="proc-icon">🩺</div>
+        <div class="proc-name">Diagnostic</div>
+        <div class="proc-sub">When other methods fail</div>
+        <div class="proc-text">Open lung biopsy / VATS biopsy for diagnosis when bronchoscopy, CT-guided biopsy, and sputum studies are non-diagnostic. Mediastinoscopy / EBUS-TBNA for lymph node sampling</div>
+      </div>
+      <div class="proc-card orange">
+        <div class="proc-icon">🔪</div>
+        <div class="proc-name">Therapeutic — Curative</div>
+        <div class="proc-sub">Resection of diseased tissue</div>
+        <div class="proc-text">Pulmonary resection (pneumonectomy, lobectomy, segmentectomy) for destroyed lung, cavitary DR-TB, or localised MDR-TB with viable remaining lung</div>
+      </div>
+      <div class="proc-card red">
+        <div class="proc-icon">🚨</div>
+        <div class="proc-name">Emergency / Life-saving</div>
+        <div class="proc-sub">Haemoptysis, tension pneumothorax</div>
+        <div class="proc-text">Emergency surgery for massive haemoptysis unresponsive to bronchial artery embolisation (BAE); drainage of tension pneumothorax; emergency decortication for empyema</div>
+      </div>
+      <div class="proc-card teal">
+        <div class="proc-icon">🔧</div>
+        <div class="proc-name">Reconstructive / Palliative</div>
+        <div class="proc-sub">Sequelae management</div>
+        <div class="proc-text">Thoracoplasty for residual space problems; decortication for trapped lung; bronchoplasty for bronchial stenosis; pleurodesis for recurrent pneumothorax</div>
+      </div>
+      <div class="proc-card yellow">
+        <div class="proc-icon">💧</div>
+        <div class="proc-name">Drainage Procedures</div>
+        <div class="proc-sub">Empyema, abscess</div>
+        <div class="proc-text">Tube thoracostomy / open drainage for TB empyema; cavernostomy (open drainage of cavity) for massive infected cavities in poor surgical candidates</div>
+      </div>
+      <div class="proc-card purple">
+        <div class="proc-icon">🔬</div>
+        <div class="proc-name">DR-TB Adjunct</div>
+        <div class="proc-sub">MDR / XDR-TB</div>
+        <div class="proc-text">Surgery + chemotherapy improves culture conversion and treatment success in selected MDR/XDR-TB patients with localised, resectable disease who are failing medical therapy</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. INDICATIONS FLOWCHART -->
+  <div class="section" id="s3">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Indications for Surgery — Decision Algorithm</h2>
+    </div>
+    <div class="flow-wrap">
+      <div class="flow-title">Fig. 1 — Algorithm: When to Consider Surgery in Pulmonary TB</div>
+      <div class="flow">
+        <div class="fbox fbox-steel">Patient with Pulmonary TB on Adequate ATT<small>Standard HRZE regimen or appropriate MDR/XDR regimen</small></div>
+        <div class="arrow">↓</div>
+        <div class="fork">
+          <div class="fork-item" style="background:rgba(255,123,114,.1);border:1px solid rgba(255,123,114,.3);color:var(--red);">
+            🚨 Emergency Presentation
+            <small>Massive haemoptysis (&gt;600 ml/24h) · Tension pneumothorax · Rupture of cavity into pleura</small>
+          </div>
+          <div class="fork-item" style="background:rgba(255,166,87,.1);border:1px solid rgba(255,166,87,.3);color:var(--orange);">
+            ⚠ Treatment Failure / Complications
+            <small>Sputum culture positive at month 5+ · Cavity persisting after 6 months · Destroyed lobe/lung</small>
+          </div>
+          <div class="fork-item" style="background:rgba(121,192,255,.1);border:1px solid rgba(121,192,255,.3);color:var(--steel);">
+            🔬 Diagnostic Uncertainty
+            <small>Cannot exclude malignancy · Nodule / mass not confirmed · Non-diagnostic bronchoscopy</small>
+          </div>
+        </div>
+        <div class="arrow">↓</div>
+        <div class="fbox fbox-orange">Surgical Assessment<small>Multidisciplinary team: Pulmonologist + Thoracic Surgeon + Anaesthesiologist + Microbiologist</small></div>
+        <div class="arrow">↓</div>
+        <div class="fbox fbox-dark">Pre-operative Optimisation<small>Minimum 2–4 weeks ATT (ideally culture conversion for elective cases) · PFTs · Cardiac assessment · Nutritional support · Sputum smear negativity preferred before elective surgery</small></div>
+        <div class="arrow">↓</div>
+        <div class="fork">
+          <div class="fork-item" style="background:rgba(63,185,80,.1);border:1px solid rgba(63,185,80,.3);color:var(--teal);">
+            ✓ Operable
+            <small>Adequate pulmonary reserve · Localised disease · Acceptable surgical risk</small>
+          </div>
+          <div class="fork-item" style="background:rgba(255,123,114,.1);border:1px solid rgba(255,123,114,.3);color:var(--red);">
+            ✕ Inoperable
+            <small>Bilateral extensive disease · FEV₁ &lt;40% predicted · Severe comorbidities</small>
+          </div>
+        </div>
+        <div class="arrow">↓</div>
+        <div class="fbox fbox-teal">Surgery + Continue ATT post-operatively for full planned duration<small>Continue ATT for minimum 12–18 months post-surgery in DR-TB; 6 months for DS-TB complications</small></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. ABSOLUTE INDICATIONS -->
+  <div class="section" id="s4">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Absolute Indications for Surgery</h2>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Indication</th><th>Clinical Scenario</th><th>Preferred Procedure</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Massive Haemoptysis</td>
+            <td>Life-threatening bleeding &gt;600 ml/24h or &gt;150–200 ml/episode; failure of medical management and bronchial artery embolisation (BAE); commonest emergency surgical indication in TB</td>
+            <td>Emergency lobectomy / pneumonectomy; BAE as bridge to surgery</td>
+          </tr>
+          <tr>
+            <td>Destroyed Lung</td>
+            <td>Unilateral lung destruction with: persistent sputum smear positivity, recurrent haemoptysis, or recurrent pneumonia; completely non-functioning lung (absent perfusion); can harbour smear-positive cavities despite ATT</td>
+            <td>Pneumonectomy (most commonly); must ensure contralateral lung adequate</td>
+          </tr>
+          <tr>
+            <td>Empyema Thoracis with Bronchopleural Fistula (BPF)</td>
+            <td>TB empyema with BPF — cannot be managed medically; persistent air leak + infected pleural space; chronic empyema with trapped lung</td>
+            <td>Open window thoracostomy (Eloesser flap) → decortication + BPF closure when patient stabilised; thoracoplasty for residual space</td>
+          </tr>
+          <tr>
+            <td>Spontaneous Pneumothorax</td>
+            <td>Tension pneumothorax from rupture of subpleural cavity; recurrent pneumothorax unresponsive to tube drainage; persistent bronchopleural fistula after tube drainage</td>
+            <td>Intercostal drain (ICD) first; VATS / open surgery for persistent BPF</td>
+          </tr>
+          <tr>
+            <td>Bronchostenosis with Collapse</td>
+            <td>Endobronchial TB causing bronchial stenosis → lobar collapse → secondary infection; rigid bronchoscopy + dilatation first; surgery if fails</td>
+            <td>Sleeve resection / bronchoplasty / lobectomy depending on extent</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 5. RELATIVE INDICATIONS -->
+  <div class="section" id="s5">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Relative Indications for Surgery</h2>
+    </div>
+    <ul class="blist">
+      <li><b>Persistently open cavity after adequate ATT (6 months):</b> Large cavities (&gt;2 cm) that fail to close; especially in MDR-TB; harbour smear-positive organisms; risk of reactivation and haemoptysis</li>
+      <li><b>Tuberculoma:</b> Cannot be distinguished from malignancy; growing on serial CT; patient preference; size &gt;3 cm with indeterminate features</li>
+      <li><b>Recurrent haemoptysis (non-massive):</b> Repeated episodes not amenable to BAE; from bronchiectatic segment or Rasmussen's aneurysm</li>
+      <li><b>Localised MDR/XDR-TB with culture conversion failure:</b> Focal unilateral disease; adequate pulmonary reserve; surgery as adjunct to chemotherapy significantly improves outcomes</li>
+      <li><b>Secondary bacterial infection / lung abscess:</b> Post-TB bronchiectasis with recurrent infections unresponsive to antibiotics; localised destroyed segment</li>
+      <li><b>Pericardial effusion causing tamponade:</b> TB pericarditis with haemodynamic compromise → emergency pericardiocentesis or surgical pericardiectomy for constrictive pericarditis (late sequela)</td></li>
+      <li><b>Aspergilloma (mycetoma) in post-TB cavity:</b> Symptomatic aspergilloma in residual TB cavity causing haemoptysis — surgery is definitive treatment; medical antifungals are adjuncts only</li>
+      <li><b>Diagnostic uncertainty — cannot exclude malignancy:</b> Pulmonary nodule/mass in post-TB patient with suspicious CT features where bronchoscopy and CT-guided biopsy are non-diagnostic</li>
+    </ul>
+    <div class="callout callout-orange">
+      <strong>Rasmussen's Aneurysm</strong>
+      Pseudoaneurysm of pulmonary artery branch within or adjacent to a TB cavity — caused by erosion of vessel wall by the tuberculous process. Presents as catastrophic haemoptysis. Management: Bronchial artery embolisation (BAE) as emergency; followed by surgical resection of the involved segment/lobe
+    </div>
+  </div>
+
+  <!-- 6. CONTRAINDICATIONS -->
+  <div class="section" id="s6">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2 class="section-title">Contraindications to Surgery</h2>
+    </div>
+    <div class="two-col">
+      <div class="col-box red-head">
+        <h4>Absolute Contraindications</h4>
+        <ul>
+          <li>Bilateral extensive / diffuse parenchymal disease</li>
+          <li>Severely impaired lung function: FEV₁ &lt;40% predicted OR predicted post-op FEV₁ &lt;800 ml</li>
+          <li>Active uncontrolled TB without adequate chemotherapy coverage</li>
+          <li>Uncontrolled coagulopathy or haematological disorder</li>
+          <li>Recent myocardial infarction (&lt;6 weeks) or decompensated cardiac failure</li>
+          <li>Severe pulmonary hypertension (mPAP &gt;45 mmHg)</li>
+        </ul>
+      </div>
+      <div class="col-box orange-head">
+        <h4>Relative Contraindications</h4>
+        <ul>
+          <li>FEV₁ 40–60% predicted — high risk; careful selection</li>
+          <li>Contralateral lung disease reducing reserve</li>
+          <li>Sputum smear-positive status (ideally achieve negativity before elective surgery)</li>
+          <li>Severe malnutrition (albumin &lt;2.5 g/dL) — nutritional optimisation first</li>
+          <li>Uncontrolled diabetes mellitus</li>
+          <li>HIV with low CD4 (&lt;200 cells/mm³) — increased operative risk</li>
+          <li>Age &gt;70 years with poor performance status</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout callout-yellow">
+      <strong>Key Pulmonary Function Criteria (Before Resection)</strong>
+      Minimum acceptable pre-operative pulmonary function: FEV₁ &gt;2 L (or &gt;60% predicted) for pneumonectomy; FEV₁ &gt;1.5 L for lobectomy; FEV₁ &gt;1 L for lesser resections. Predicted post-operative FEV₁ (ppoFEV₁) must be &gt;800 ml or &gt;40% predicted. DLCO &lt;40% = very high risk
+    </div>
+  </div>
+
+  <!-- 7. RESECTIONAL PROCEDURES -->
+  <div class="section" id="s7">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2 class="section-title">Surgical Procedures — Resectional Surgery</h2>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Procedure</th><th>Extent of Resection</th><th>Indication in TB</th><th>Key Point</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Pneumonectomy</td>
+            <td>Entire lung removal</td>
+            <td>Destroyed lung (commonest indication); massive haemoptysis from destroyed lung; unilateral MDR-TB with extensive disease; empyema with BPF after failure of lesser procedures</td>
+            <td>Highest risk; 30-day mortality 5–12% in TB; predicted post-op FEV₁ must be adequate; contralateral lung must be normal</td>
+          </tr>
+          <tr>
+            <td>Lobectomy</td>
+            <td>One lobe (e.g., RUL, LUL, RML, RLL, LLL)</td>
+            <td>Most commonly performed resection in TB; localised destroyed lobe; persistent upper lobe cavity; post-TB bronchiectasis in one lobe; aspergilloma in one lobe; localised MDR-TB</td>
+            <td>Most commonly the <b>upper lobe</b> (TB predilection); VATS lobectomy increasingly used; better tolerated than pneumonectomy</td>
+          </tr>
+          <tr>
+            <td>Bilobectomy</td>
+            <td>Two lobes (RML + RLL or RUL + RML)</td>
+            <td>Disease spanning two lobes; middle + lower lobe TB; when fissure is incomplete and lobes cannot be separated</td>
+            <td>Anatomically possible only on right side; equivalent risk to pneumonectomy</td>
+          </tr>
+          <tr>
+            <td>Segmentectomy</td>
+            <td>One or more bronchopulmonary segments</td>
+            <td>Localised TB limited to single segment; tuberculoma in one segment; small localised MDR-TB cavity; preserves lung function</td>
+            <td>Lung-sparing; technically demanding; preferred when preserving pulmonary function is critical</td>
+          </tr>
+          <tr>
+            <td>Wedge Resection</td>
+            <td>Non-anatomical peripheral resection</td>
+            <td>Peripheral tuberculoma — diagnostic and therapeutic; small peripheral cavity; diagnostic biopsy when malignancy cannot be excluded</td>
+            <td>Smallest resection; highest recurrence risk if margins inadequate; VATS-amenable</td>
+          </tr>
+          <tr>
+            <td>Sleeve Resection / Bronchoplasty</td>
+            <td>Lobe + segment of bronchus with anastomosis</td>
+            <td>Endobronchial TB with bronchial stenosis causing lobar collapse; avoids pneumonectomy by resecting and re-anastomosing bronchus</td>
+            <td>Complex; preserves lung tissue; requires expertise; good outcomes in experienced centres</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 8. NON-RESECTIONAL PROCEDURES -->
+  <div class="section" id="s8">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2 class="section-title">Non-resectional &amp; Collapse Procedures</h2>
+    </div>
+    <div class="proc-grid">
+      <div class="proc-card orange">
+        <div class="proc-icon">🔩</div>
+        <div class="proc-name">Thoracoplasty</div>
+        <div class="proc-sub">Rib resection to collapse lung</div>
+        <div class="proc-text">Removal of multiple ribs (usually 3–7) to permanently collapse the chest wall inward → compress the underlying diseased lung. Used for: residual pleural space post-pneumonectomy, TB empyema with BPF, or as an adjunct to collapse a persistent cavity in a patient who cannot tolerate resection. Historically the main TB surgery; now rarely performed</div>
+      </div>
+      <div class="proc-card teal">
+        <div class="proc-icon">🩹</div>
+        <div class="proc-name">Decortication</div>
+        <div class="proc-sub">Removal of pleural peel</div>
+        <div class="proc-text">Removal of thickened fibrous pleural cortex (peel) to allow trapped lung to re-expand. Indicated for: organised TB empyema causing fibrothorax; chronic empyema with trapped lung; post-TB pleural thickening causing restrictive physiology. Timing: ideally 4–6 weeks after empyema develops (before calcification)</div>
+      </div>
+      <div class="proc-card steel">
+        <div class="proc-icon">🚰</div>
+        <div class="proc-name">Cavernostomy (Open Drainage)</div>
+        <div class="proc-sub">Direct cavity drainage</div>
+        <div class="proc-text">Open surgical drainage of a TB cavity (Monaldi procedure). Indicated when: massive cavity in poor surgical candidate; fungal ball (aspergilloma) in TB cavity causing haemoptysis; not amenable to resection. Usually a temporising measure; definitive resection later if patient's condition improves</div>
+      </div>
+      <div class="proc-card red">
+        <div class="proc-icon">🌊</div>
+        <div class="proc-name">Open Window Thoracostomy (Eloesser Flap)</div>
+        <div class="proc-sub">Chronic drainage of empyema</div>
+        <div class="proc-text">Creation of a permanent opening in the chest wall for open drainage of a chronic TB empyema — especially when patient is too unwell for definitive decortication or when BPF is present. A "last resort" for infected pleural space</div>
+      </div>
+      <div class="proc-card yellow">
+        <div class="proc-icon">💨</div>
+        <div class="proc-name">Pleurodesis</div>
+        <div class="proc-sub">Obliteration of pleural space</div>
+        <div class="proc-text">Chemical (talc / bleomycin) or surgical (VATS abrasion) pleurodesis for: recurrent TB-related pneumothorax; persistent air leak. Prevents recurrence by obliterating the pleural space</div>
+      </div>
+      <div class="proc-card purple">
+        <div class="proc-icon">🎯</div>
+        <div class="proc-name">Bronchial Artery Embolisation (BAE)</div>
+        <div class="proc-sub">Interventional — not surgical but key adjunct</div>
+        <div class="proc-text">Catheter-based embolisation of bronchial arteries supplying the bleeding point. First-line for massive haemoptysis in TB. Success rate ~80–90% initially; 30–50% recurrence requiring repeat BAE or surgery. Always followed by definitive surgery if patient is operable</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9. PRE-OP ASSESSMENT -->
+  <div class="section" id="s9">
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <h2 class="section-title">Pre-operative Assessment</h2>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Assessment Domain</th><th>Tests / Parameters</th><th>Significance / Threshold</th></tr></thead>
+        <tbody>
+          <tr><td>Pulmonary Function</td><td>Spirometry (FEV₁, FVC, FEV₁/FVC), DLCO, VO₂ max (6-min walk), split lung function (radionuclide scan)</td><td>FEV₁ &gt;60% for pneumonectomy; &gt;40% for lobectomy; ppoFEV₁ &gt;800 ml essential; DLCO &lt;40% = very high risk</td></tr>
+          <tr><td>Cardiovascular</td><td>ECG, 2D echocardiography, cardiac stress test if indicated</td><td>Exclude pulmonary hypertension (mPAP &gt;35 mmHg = high risk); assess RV function; optimise cardiac medications</td></tr>
+          <tr><td>Microbiological</td><td>Sputum smear × 3, CBNAAT, culture + DST, NTM exclusion</td><td>Ideally sputum smear-negative before elective surgery; DST to ensure adequate post-op ATT coverage</td></tr>
+          <tr><td>Nutritional Status</td><td>BMI, serum albumin, total protein, haemoglobin</td><td>Albumin &lt;3.0 g/dL = poor prognosis; optimise nutrition pre-operatively; Nikshay Poshan Yojana support</td></tr>
+          <tr><td>Imaging</td><td>HRCT chest (anatomy, extent of disease), CT angiography (Rasmussen's aneurysm, BAE planning), PET-CT if malignancy excluded</td><td>Assess: extent of resection needed, contralateral lung status, pleural involvement, mediastinal LN, vascular anatomy</td></tr>
+          <tr><td>Comorbidities</td><td>Blood glucose (DM), renal function (creatinine, eGFR), HIV status + CD4 count, coagulation (PT/INR), LFTs</td><td>Uncontrolled DM, HIV with CD4 &lt;200, severe hepatic/renal impairment → increased operative risk; optimise before surgery</td></tr>
+          <tr><td>Drug History</td><td>Current ATT regimen, duration, adherence, drug resistance pattern</td><td>Ensure adequate drug coverage pre- and post-operatively; avoid operating if MDR-TB without effective regimen</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout callout-teal">
+      <strong>Optimisation Before Elective Surgery</strong>
+      Minimum 2 weeks of effective ATT before surgery (ideally 4–8 weeks, or sputum culture conversion for MDR-TB) · Nutritional support · Physiotherapy and respiratory exercises · Smoking cessation · DM and HIV optimisation · Pre-operative chest physiotherapy reduces post-op complications
+    </div>
+  </div>
+
+  <!-- 10. POST-OP CARE + COMPLICATIONS -->
+  <div class="section" id="s10">
+    <div class="section-header">
+      <span class="section-num">10</span>
+      <h2 class="section-title">Post-operative Care &amp; Complications</h2>
+    </div>
+    <div class="two-col">
+      <div class="col-box teal-head">
+        <h4>Post-operative Care</h4>
+        <ul>
+          <li>ICU monitoring post-pneumonectomy for 24–48 hours</li>
+          <li>Intercostal drains — monitor for air leak, bleeding, chyle</li>
+          <li>Continue ATT for planned full duration post-op</li>
+          <li>Early mobilisation and chest physiotherapy</li>
+          <li>Infection control — airborne precautions if still smear-positive</li>
+          <li>Nutritional support — high protein diet; Nikshay Poshan Yojana</li>
+          <li>Regular sputum follow-up cultures (especially MDR-TB)</li>
+        </ul>
+      </div>
+      <div class="col-box red-head">
+        <h4>Complications</h4>
+        <ul>
+          <li>Bronchopleural fistula (BPF) — most serious; 5–10% post-pneumonectomy; presents as sudden air leak or empyema</li>
+          <li>Empyema — infected pleural space post-resection</li>
+          <li>Post-pneumonectomy syndrome — mediastinal shift, dysphagia, haemoptysis</li>
+          <li>Respiratory failure — especially with borderline pre-op function</li>
+          <li>Prolonged air leak — &gt;5 days; from alveolar pleural fistula</li>
+          <li>Haemorrhage — intraoperative or early post-op bleeding</li>
+          <li>Wound infection — especially in malnourished TB patients</li>
+          <li>ARDS — post-pneumonectomy pulmonary oedema</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Complication</th><th>Incidence</th><th>Management</th></tr></thead>
+        <tbody>
+          <tr><td>Bronchopleural Fistula (BPF)</td><td>5–10% (pneumonectomy)</td><td>Re-bronchoscopy + surgical closure; open window thoracostomy; antibiotics; intensive ATT</td></tr>
+          <tr><td>Post-op Empyema</td><td>3–5%</td><td>Chest drain + antibiotics; if BPF — open drainage then later closure</td></tr>
+          <tr><td>Prolonged Air Leak</td><td>10–15% (lobectomy)</td><td>Continued suction drainage; pleurodesis; VATS re-exploration if persistent &gt;7–10 days</td></tr>
+          <tr><td>Respiratory Failure</td><td>2–5%</td><td>ICU, ventilatory support, physiotherapy; avoid if pre-op FEV₁ borderline</td></tr>
+          <tr><td>Post-op Haemorrhage</td><td>2–3%</td><td>Surgical re-exploration; blood transfusion</td></tr>
+          <tr><td>30-day Mortality</td><td>1–5% (lobectomy), 5–12% (pneumonectomy)</td><td>Highest in TB due to malnourishment, prior lung damage, MDR-TB</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 11. DR-TB SURGERY -->
+  <div class="section" id="s11">
+    <div class="section-header">
+      <span class="section-num">11</span>
+      <h2 class="section-title">Surgery in Drug-Resistant TB (MDR / XDR-TB)</h2>
+    </div>
+    <div class="callout callout-red">
+      <strong>Why Surgery in DR-TB?</strong>
+      MDR-TB treatment success with chemotherapy alone is only 58–60% globally. In XDR-TB, success rates may be as low as 30–40%. Surgery removes the bulk of resistant bacilli, reduces bacterial load, eliminates cavities (reservoirs for drug-resistant organisms), and improves culture conversion rates. Surgery is an adjunct — never a replacement — to optimised chemotherapy
+    </div>
+    <ul class="blist">
+      <li><b>Best candidates for surgery in MDR-TB:</b> Unilateral or localised bilateral disease · Adequate contralateral lung function · Sputum culture conversion failure despite ≥4 months of optimised regimen · Resistant to ≥4 drugs but sensitive to at least 2–3 effective drugs for pre/post-op coverage</li>
+      <li><b>Surgery timing in MDR-TB:</b> Ideally after <b>culture conversion</b> (usually 2–6 months of effective regimen) for elective cases; emergency surgery for life-threatening haemoptysis at any time</li>
+      <li><b>Preferred procedure:</b> Lobectomy for localised MDR-TB; pneumonectomy for destroyed lung; avoid bilateral pneumonectomy</li>
+      <li><b>Duration of post-operative ATT:</b> Continue for <b>minimum 12–18 months</b> post-surgery for MDR-TB; WHO recommends 15–21 months total for MDR-TB regimens</li>
+      <li><b>New drugs compatibility:</b> Bedaquiline and Linezolid — compatible with surgery; no interactions with anaesthetic agents; continue throughout peri-operative period</li>
+    </ul>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Study / Series</th><th>Population</th><th>Surgery Type</th><th>Key Outcome</th></tr></thead>
+        <tbody>
+          <tr><td>Marrone et al. (2013, systematic review)</td><td>MDR-TB, 27 studies</td><td>Resection (mainly lobectomy/pneumonectomy)</td><td>Surgery + chemotherapy: treatment success 84% vs 64% chemotherapy alone (p&lt;0.001)</td></tr>
+          <tr><td>Kang et al. (South Korea)</td><td>XDR-TB, single centre</td><td>Lung resection</td><td>Culture conversion rate 91% in surgery group vs 56% in non-surgical; surgery significantly improved outcomes</td></tr>
+          <tr><td>WHO Green Light Committee data</td><td>MDR-TB, multi-country</td><td>Adjunctive resection</td><td>Patients who underwent surgery had higher treatment success rates particularly in XDR-TB</td></tr>
+          <tr><td>Mohsen et al. (Egypt)</td><td>MDR-TB</td><td>Pneumonectomy / lobectomy</td><td>30-day mortality 4%; culture conversion post-op 93%; treatment success 78%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="flow-wrap">
+      <div class="flow-title">Fig. 2 — Surgery in MDR/XDR-TB: Decision Pathway</div>
+      <div class="flow">
+        <div class="fbox fbox-red">MDR/XDR-TB Diagnosed — Optimised Chemotherapy Initiated<small>BPaL / BPaLC or individualised regimen based on DST</small></div>
+        <div class="arrow">↓</div>
+        <div class="fbox fbox-orange">Assess at 2–4 months — Culture conversion status + CT reassessment<small>Localised disease? · Adequate ppoFEV₁? · Effective drug coverage pre- and post-surgery?</small></div>
+        <div class="arrow">↓</div>
+        <div class="fork">
+          <div class="fork-item" style="background:rgba(63,185,80,.1);border:1px solid rgba(63,185,80,.3);color:var(--teal);">
+            Culture converted + Localised disease
+            <small>Elective surgery: lobectomy / segmentectomy. Continue ATT for 15–21 months total</small>
+          </div>
+          <div class="fork-item" style="background:rgba(255,123,114,.1);border:1px solid rgba(255,123,114,.3);color:var(--red);">
+            Culture NOT converted + Smear positive
+            <small>Optimise regimen further; surgery if: massive haemoptysis, cavity &gt;4 cm, destroyed lobe, patient preference and adequate reserve</small>
+          </div>
+        </div>
+        <div class="arrow">↓</div>
+        <div class="fbox fbox-teal">Post-operative: Continue ATT for 12–18 months + Monthly sputum culture monitoring<small>Target: sustained culture negativity for 12 months post-op = treatment success</small></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 12. OUTCOMES + MNEMONIC -->
+  <div class="section" id="s12">
+    <div class="section-header">
+      <span class="section-num">12</span>
+      <h2 class="section-title">Outcomes &amp; Summary</h2>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Procedure</th><th>Indication</th><th>Outcome</th><th>Evidence Level</th></tr></thead>
+        <tbody>
+          <tr><td>Lobectomy for localised DS-TB</td><td>Persistent cavity, destroyed lobe, aspergilloma</td><td>Treatment success &gt;90%; low morbidity</td><td><span class="tag tag-green">High</span></td></tr>
+          <tr><td>Pneumonectomy for destroyed lung</td><td>Unilateral destroyed lung + haemoptysis</td><td>30-day mortality 5–12%; significant improvement in QoL and symptom control</td><td><span class="tag tag-yellow">Moderate</span></td></tr>
+          <tr><td>Surgery + chemo for MDR-TB</td><td>Localised MDR-TB, culture conversion failure</td><td>Treatment success 84% (surgery) vs 64% (chemo alone)</td><td><span class="tag tag-green">High (meta-analysis)</span></td></tr>
+          <tr><td>BAE for haemoptysis</td><td>Massive haemoptysis</td><td>Initial success 80–90%; recurrence 30–50% requiring repeat BAE or surgery</td><td><span class="tag tag-green">High</span></td></tr>
+          <tr><td>Decortication for empyema</td><td>Fibrothorax, trapped lung</td><td>Lung re-expansion in 85–90%; improves pulmonary function</td><td><span class="tag tag-yellow">Moderate</span></td></tr>
+          <tr><td>Thoracoplasty</td><td>Residual space, persistent BPF</td><td>High morbidity; progressive scoliosis; now rarely performed</td><td><span class="tag tag-orange">Historical</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="font-size:14px;font-weight:600;color:var(--text);margin:20px 0 10px;">Summary Mnemonic — SURGERY in PTB</p>
+    <div class="mnemonic">
+      <div class="mn-letter">S</div>
+      <div class="mn-text"><b style="color:var(--text);margin-right:8px;">Secondary to drugs</b> — surgery is always an adjunct to ATT, never a replacement; ATT continued pre- and post-operatively for full planned duration</div>
+      <div class="mn-letter">U</div>
+      <div class="mn-text"><b style="color:var(--text);margin-right:8px;">Unilateral destroyed lung</b> — commonest indication for pneumonectomy in India; also haemoptysis, empyema with BPF, and persistent cavity</div>
+      <div class="mn-letter">R</div>
+      <div class="mn-text"><b style="color:var(--text);margin-right:8px;">Rasmussen's aneurysm</b> — pseudoaneurysm of PA in TB cavity; causes catastrophic haemoptysis; BAE first, then surgical resection</div>
+      <div class="mn-letter">G</div>
+      <div class="mn-text"><b style="color:var(--text);margin-right:8px;">Good lung function required</b> — FEV₁ &gt;60% for pneumonectomy; ppoFEV₁ &gt;800 ml essential; DLCO and cardiac assessment mandatory pre-op</div>
+      <div class="mn-letter">E</div>
+      <div class="mn-text"><b style="color:var(--text);margin-right:8px;">Empyema + BPF</b> — open window thoracostomy (Eloesser flap) → decortication; thoracoplasty for persistent space problem</div>
+      <div class="mn-letter">R</div>
+      <div class="mn-text"><b style="color:var(--text);margin-right:8px;">Resection improves MDR-TB outcomes</b> — surgery + chemotherapy: 84% success vs 64% chemo alone (Marrone 2013 meta-analysis)</div>
+      <div class="mn-letter">Y</div>
+      <div class="mn-text"><b style="color:var(--text);margin-right:8px;">Your team matters</b> — multidisciplinary team (pulmonologist + thoracic surgeon + anaesthesiologist + microbiologist) essential for optimal patient selection and outcomes</div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  <div>References: Sharma SK, Mohan A. Tuberculosis 3rd ed. · Crofton & Douglas's Respiratory Diseases 6th ed. · Marrone MT et al. (Surgery for MDR-TB meta-analysis, Lancet Infect Dis 2013) · Kang MW et al. (XDR-TB surgery, Eur J Cardiothorac Surg 2010) · WHO Consolidated Guidelines on TB 2022 · ATS/CDC/IDSA Treatment Guidelines · NTEP Operational Guidelines 2020</div>
+  <div style="margin-top:6px;color:var(--border);">Respiratory Medicine · 10-Mark Structured Answer · Role of Surgery in Pulmonary Tuberculosis</div>
+</footer>
+
+</body>
+</html>
