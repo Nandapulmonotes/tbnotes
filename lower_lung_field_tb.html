@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lower Lung Field Tuberculosis – 10 Marks</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&family=Nunito+Sans:wght@400;600;700;800&display=swap');
+
+  :root {
+    --bg: #f9f6f0;
+    --surface: #ffffff;
+    --primary: #7b3f00;
+    --accent: #c0392b;
+    --accent2: #1a5276;
+    --accent3: #1d6a1d;
+    --border: #d6c8b5;
+    --text: #2c1a0e;
+    --subtext: #5d4037;
+    --tag-bg: #fef3e2;
+    --flow-bg: #fff8f0;
+    --table-head: #7b3f00;
+    --table-alt: #fdf6ee;
+    --highlight: #fff3cd;
+    --shadow: 0 2px 12px rgba(123,63,0,0.10);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    font-family: 'Nunito Sans', sans-serif;
+    color: var(--text);
+    line-height: 1.75;
+    font-size: 15px;
+  }
+
+  /* ── Header ── */
+  header {
+    background: linear-gradient(135deg, #4a1a00 0%, #7b3f00 60%, #a0522d 100%);
+    color: #fff;
+    padding: 38px 40px 28px;
+    border-bottom: 4px solid var(--accent);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '🫁';
+    position: absolute; right: 48px; top: 18px;
+    font-size: 80px; opacity: 0.13;
+  }
+  header .tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 20px;
+    padding: 3px 14px;
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+  header h1 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 2.3rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+  header p {
+    font-size: 13px;
+    opacity: 0.82;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ── Layout ── */
+  .container { max-width: 900px; margin: 0 auto; padding: 32px 24px 60px; }
+
+  /* ── Section ── */
+  .section {
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    margin-bottom: 26px;
+    overflow: hidden;
+  }
+  .section-header {
+    background: linear-gradient(90deg, var(--primary) 0%, #a0522d 100%);
+    color: #fff;
+    padding: 11px 22px;
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+  .section-header .icon { font-size: 1.1rem; }
+  .section-body { padding: 20px 26px 22px; }
+
+  /* ── Bullets ── */
+  ul { padding-left: 0; list-style: none; }
+  ul li {
+    padding: 4px 0 4px 22px;
+    position: relative;
+    color: var(--text);
+  }
+  ul li::before {
+    content: '▸';
+    position: absolute; left: 0;
+    color: var(--accent);
+    font-size: 0.9em;
+    top: 5px;
+  }
+  ul li ul li::before { content: '–'; color: var(--accent2); }
+  ul li ul { margin-top: 3px; }
+  ul li strong { color: var(--primary); }
+
+  /* ── Definition Box ── */
+  .def-box {
+    background: linear-gradient(135deg, #fff8f0 60%, #fef3e2);
+    border-left: 5px solid var(--primary);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.05rem;
+    color: var(--primary);
+  }
+
+  /* ── Tables ── */
+  .table-wrap { overflow-x: auto; margin: 14px 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+  thead tr { background: var(--table-head); color: #fff; }
+  thead th { padding: 9px 14px; text-align: left; font-weight: 700; }
+  tbody tr:nth-child(even) { background: var(--table-alt); }
+  tbody tr:hover { background: var(--highlight); }
+  tbody td { padding: 8px 14px; border-bottom: 1px solid var(--border); }
+  .table-caption {
+    font-size: 12px;
+    color: var(--subtext);
+    font-style: italic;
+    margin-top: 5px;
+  }
+
+  /* ── Flowchart ── */
+  .flowchart {
+    background: var(--flow-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 12px;
+    margin: 14px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .flow-title {
+    font-family: 'Crimson Pro', serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--primary);
+    margin-bottom: 12px;
+    letter-spacing: 0.02em;
+  }
+  .fc-box {
+    background: #fff;
+    border: 2px solid var(--primary);
+    border-radius: 8px;
+    padding: 8px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary);
+    text-align: center;
+    min-width: 220px;
+    max-width: 380px;
+    width: 100%;
+    box-shadow: 0 1px 5px rgba(123,63,0,0.10);
+  }
+  .fc-box.blue {
+    border-color: var(--accent2);
+    color: var(--accent2);
+  }
+  .fc-box.green {
+    border-color: var(--accent3);
+    color: var(--accent3);
+  }
+  .fc-box.red {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .fc-box.gray {
+    border-color: #7f8c8d;
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 12.5px;
+  }
+  .fc-arrow {
+    font-size: 22px;
+    color: var(--subtext);
+    line-height: 1;
+    margin: 2px 0;
+  }
+  .fc-diamond {
+    background: #fff8e1;
+    border: 2px solid #e67e22;
+    border-radius: 6px;
+    padding: 8px 18px;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #b7600a;
+    text-align: center;
+    min-width: 200px;
+    max-width: 360px;
+    width: 100%;
+    position: relative;
+    transform: none;
+  }
+  .fc-row {
+    display: flex; align-items: flex-start; gap: 8px; width: 100%;
+    justify-content: center; margin: 4px 0;
+  }
+  .fc-branch {
+    display: flex; flex-direction: column; align-items: center; gap: 3px;
+    flex: 1; max-width: 180px;
+  }
+  .fc-branch-label {
+    font-size: 11px; font-weight: 700; color: var(--subtext);
+    margin-bottom: 2px;
+  }
+  .fc-hline {
+    width: 100%; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 3px 0;
+  }
+
+  /* ── Highlight boxes ── */
+  .alert {
+    border-radius: 8px;
+    padding: 10px 16px;
+    margin: 10px 0;
+    font-size: 13.5px;
+  }
+  .alert-warn {
+    background: #fff3cd;
+    border-left: 4px solid #e67e22;
+    color: #7d4e00;
+  }
+  .alert-info {
+    background: #e8f4fd;
+    border-left: 4px solid var(--accent2);
+    color: #154360;
+  }
+  .alert-success {
+    background: #eafaf1;
+    border-left: 4px solid var(--accent3);
+    color: #145a32;
+  }
+
+  /* ── Two-column grid ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 10px 0; }
+  @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } }
+  .mini-card {
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 15px;
+  }
+  .mini-card h4 {
+    font-size: 13px; font-weight: 800; color: var(--primary);
+    margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  .mini-card ul li { font-size: 13px; }
+
+  /* ── Mnemonics ── */
+  .mnemonic {
+    display: inline-flex; flex-wrap: wrap; gap: 8px; margin: 10px 0;
+  }
+  .mnem-item {
+    background: var(--primary);
+    color: #fff;
+    border-radius: 6px;
+    padding: 5px 12px;
+    font-size: 13px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .mnem-item span {
+    font-weight: 400; font-size: 11px; display: block; opacity: 0.8;
+  }
+
+  /* ── Footer ── */
+  footer {
+    text-align: center;
+    color: var(--subtext);
+    font-size: 12px;
+    padding: 18px;
+    border-top: 1px solid var(--border);
+    margin-top: 8px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  footer a { color: var(--primary); text-decoration: none; }
+
+  /* ── Subheading ── */
+  .sub-h {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.03rem;
+    font-weight: 700;
+    color: var(--accent2);
+    margin: 16px 0 5px;
+    border-bottom: 1px dashed var(--border);
+    padding-bottom: 2px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="tag">RESPIRATORY MEDICINE · 10-MARK ANSWER</div>
+  <h1>Lower Lung Field Tuberculosis</h1>
+  <p>Ahluwalia & Sharma | KS Phaneendra Kumar | Textbook of Tuberculosis</p>
+</header>
+
+<div class="container">
+
+  <!-- 1. DEFINITION -->
+  <div class="section">
+    <div class="section-header"><span class="icon">📌</span> Definition &amp; Terminology</div>
+    <div class="section-body">
+      <div class="def-box">
+        <strong>Lower Lung Field (LLF):</strong> Area on the PA chest radiograph extending <em>below an imaginary horizontal line traced across the hila</em>, including parahilar regions.
+      </div>
+      <ul>
+        <li><strong>LLF-TB</strong> = Tuberculous involvement of lower lung fields <em>without simultaneous upper lobe involvement</em></li>
+        <li>LLF includes: <strong>Right Middle Lobe (RML), Lingula</strong> (left), and <strong>bilateral lower lobes</strong></li>
+        <li>Classical adult TB affects apical/posterior segments of upper lobes and superior segments of lower lobes — LLF-TB is thus an <strong>atypical presentation</strong></li>
+        <li>Synonyms used in literature: <strong>Basal TB, Lower lobe TB, Hilar/Perihilar TB</strong></li>
+        <li>Ossen classified cases as:
+          <ul>
+            <li><strong>Pure group</strong> – No visible lesions in upper lung fields</li>
+            <li><strong>Impure group</strong> – Nodular or fibrotic infiltrations in one or both apices</li>
+          </ul>
+        </li>
+        <li>First described by <strong>Kidd (1886)</strong>; Fowler (1888) stated apex of lower lobe is "second in vulnerability to the apex itself"</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 2. PREVALENCE -->
+  <div class="section">
+    <div class="section-header"><span class="icon">📊</span> Prevalence / Incidence</div>
+    <div class="section-body">
+      <ul>
+        <li>Wide variation: <strong>0.003% to 18.3%</strong> across studies — due to differences in terminology and selection bias</li>
+        <li>Indian studies report <strong>higher prevalence</strong> than Western studies (due to tight waist clothing → restricted diaphragm movement)</li>
+      </ul>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Study</th><th>Year</th><th>Total TB Cases</th><th>LLF-TB %</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Colton</td><td>1928</td><td>2335</td><td>0.003</td></tr>
+            <tr><td>Hamilton &amp; Freed</td><td>1935</td><td>349</td><td>2.9</td></tr>
+            <tr><td>Viswanathan</td><td>1936</td><td>638</td><td>6.4</td></tr>
+            <tr><td>Segarra et al</td><td>1963</td><td>10,962</td><td>0.85</td></tr>
+            <tr><td>Parmar</td><td>1967</td><td>1455</td><td>3.4</td></tr>
+            <tr><td>Tripathy &amp; Nanda</td><td>1970</td><td>707</td><td>5.1</td></tr>
+            <tr><td>Berger &amp; Granada</td><td>1974</td><td>386</td><td>7.0</td></tr>
+            <tr><td>Chang et al</td><td>1987</td><td>1276</td><td>5.1</td></tr>
+            <tr><td>Zuber Ahmed et al</td><td>–</td><td>4430</td><td>10.5</td></tr>
+            <tr><td>Wang et al</td><td>2006</td><td>520</td><td>15.8</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-caption">Table 1: Prevalence of LLF-TB in various studies</p>
+    </div>
+  </div>
+
+  <!-- 3. PATHOGENESIS -->
+  <div class="section">
+    <div class="section-header"><span class="icon">🔬</span> Pathogenesis</div>
+    <div class="section-body">
+      <p class="sub-h">Why does TB affect lower lobes? — Mechanisms</p>
+      <ul>
+        <li><strong>Primary mechanism:</strong> <em>Ulceration of a bronchus by a TB-affected lymph node</em> → spillage of bacilli into lower lobe bronchi → LLF disease as a continuum of primary TB or in early post-primary phase</li>
+        <li><strong>Restricted ventilation:</strong> Tight abdominal clothing (sari, dhoti) → impaired diaphragmatic movement → costal breathing → decreased ventilation &amp; lymphatic flow in lower zones</li>
+        <li><strong>Retrograde lymphatic flow</strong> from involved hilar nodes</li>
+        <li><strong>Haematogenous dissemination</strong> from primary pulmonary/lymph node foci → granulomatous lesions in lower zones</li>
+        <li><strong>Middle &amp; lower lobes</strong> receive most of inspired air (especially in upright position) → accessible to inhaled bacilli in primary infection</li>
+        <li>LLF-TB is more common in <strong>females</strong> — possibly due to tight dressing compressing the lower chest → restricted ventilation</li>
+      </ul>
+
+      <div class="flowchart">
+        <div class="flow-title">⬇ Pathogenetic Sequence of LLF-TB</div>
+        <div class="fc-box blue">Primary TB Infection / Inhalation of MTB</div>
+        <div class="fc-arrow">↓</div>
+        <div class="fc-box">Hilar / Mediastinal Lymphadenopathy</div>
+        <div class="fc-arrow">↓</div>
+        <div class="fc-diamond">Lymph node ulcerates into adjacent bronchus</div>
+        <div class="fc-arrow">↓</div>
+        <div class="fc-box">Spillage of MTB into lower lobe bronchi</div>
+        <div class="fc-arrow">↓</div>
+        <div class="fc-row">
+          <div class="fc-branch">
+            <div class="fc-branch-label">Normal immunity</div>
+            <div class="fc-box green" style="min-width:140px;font-size:12px;">Healing / Latency</div>
+          </div>
+          <div style="font-size:22px;color:#bbb;align-self:center;">⟷</div>
+          <div class="fc-branch">
+            <div class="fc-branch-label">Immunocompromised</div>
+            <div class="fc-box red" style="min-width:140px;font-size:12px;">Progressive LLF-TB / Miliary TB / TBM</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="alert alert-warn">
+        <strong>⚠ High-risk groups for LLF-TB:</strong> Diabetes mellitus · HIV/AIDS · Chronic kidney disease · Chronic liver disease · Corticosteroid therapy · Pregnancy · Silicosis · Kyphoscoliosis · Transplant recipients
+      </div>
+      <ul>
+        <li><strong>Diabetes &amp; LLF-TB:</strong>
+          <ul>
+            <li>LLF-TB more common at presentation in diabetics</li>
+            <li>Higher AFB smear positivity in diabetics vs non-diabetics</li>
+            <li>Poor glycaemic control (↑ HbA1c) → ↑ relative risk of LLF-TB</li>
+            <li>Diabetics with TB: elderly, higher mortality, poor treatment outcome</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 4. CLINICAL FEATURES -->
+  <div class="section">
+    <div class="section-header"><span class="icon">🩺</span> Clinical Features</div>
+    <div class="section-body">
+      <p class="sub-h">Epidemiology</p>
+      <ul>
+        <li><strong>Female preponderance</strong> noted in most studies</li>
+        <li>Previously a disease of young (&lt;40 years — Segarra: 89%; Parmar: 46% &lt;20 yrs); now <strong>increasingly affects elderly</strong></li>
+        <li>Mean symptom duration: <strong>12 weeks</strong>; most present within 6 months</li>
+        <li>Tripathy &amp; Nanda: 20% reported within 2 weeks; 70% within 6 months</li>
+      </ul>
+
+      <p class="sub-h">Symptoms</p>
+      <div class="two-col">
+        <div class="mini-card">
+          <h4>Respiratory</h4>
+          <ul>
+            <li><strong>Cough</strong> (most frequent — 100% in Mathur et al)</li>
+            <li>Expectoration (variable)</li>
+            <li><strong>Haemoptysis</strong> — prominent; Tripathy &amp; Nanda: ~67%; Romendick: 75%</li>
+            <li>More frequent with cavitary disease</li>
+          </ul>
+        </div>
+        <div class="mini-card">
+          <h4>Systemic (Toxaemic)</h4>
+          <ul>
+            <li>Fever, chills, malaise</li>
+            <li>Anorexia, weight loss</li>
+            <li>Night sweats</li>
+            <li><strong>Lack of fever &gt;38°C</strong> — discriminating feature vs bacterial pneumonia (East Asian study)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="alert alert-warn">
+        <strong>Clinical clue:</strong> Non-resolving chest shadow + persistent fever &gt;2 weeks + failure to respond to broad-spectrum antibiotics → <em>suspect LLF-TB</em>
+      </div>
+
+      <p class="sub-h">Signs</p>
+      <ul>
+        <li>Physical signs vary with extent of lesion</li>
+        <li>Small lesions (especially apical segment of lower lobe) → <strong>scanty or absent signs</strong></li>
+        <li>Physical signs encountered <strong>more often</strong> in LLF-TB than in classical upper lobe TB</li>
+        <li>Extensive involvement → pronounced signs: dullness on percussion, bronchial breathing, crepitations</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 5. INVESTIGATIONS -->
+  <div class="section">
+    <div class="section-header"><span class="icon">🔭</span> Investigations</div>
+    <div class="section-body">
+
+      <p class="sub-h">A. Chest Radiograph (PA View)</p>
+      <ul>
+        <li><strong>Right lung</strong> involved in &gt;50% cases; left ~1/3; bilateral ~10%</li>
+        <li>Right side predominance: RML + right anterobasal segments most common</li>
+        <li>Radiographic findings <em>differ significantly</em> from upper lobe TB — often mimic bacterial/viral pneumonia</li>
+      </ul>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Radiographic Finding</th><th>Berger et al (n=27)</th><th>%</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Non-homogeneous (patchy) consolidation</td><td>12</td><td>44</td><td>Most common overall</td></tr>
+            <tr><td>Homogeneous (confluent) consolidation</td><td>9</td><td>33</td><td>More confluent than upper lobe TB</td></tr>
+            <tr><td>Cavitation (total)</td><td>13</td><td>48</td><td>May be large (3–4 cm)</td></tr>
+            <tr><td>Cavitation alone</td><td>4</td><td>15</td><td>Tension cavities (thin-walled) = LLF-TB feature</td></tr>
+            <tr><td>Predominantly acinar shadows</td><td>2</td><td>7</td><td>Less prominent than upper lobe TB</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-caption">Table 2: Radiographic appearances in LLF-TB (Herbert W. Berger et al, Chest 1974)</p>
+      <ul>
+        <li><strong>Pleural effusion:</strong> More frequent in LLF-TB than upper lobe TB</li>
+        <li><strong>Atelectasis</strong> or solitary mass with intrathoracic lymphadenopathy</li>
+        <li><strong>Absence of air bronchogram</strong> — more common in LLF-TB vs bacterial pneumonia</li>
+        <li><strong>Prognostic value:</strong> Lung collapse / consolidation on CXR → unfavourable outcome</li>
+      </ul>
+
+      <p class="sub-h">B. Sputum Examination</p>
+      <ul>
+        <li>ZN staining (AFB smear) — cheap, easily available; <strong>often negative</strong> in LLF-TB</li>
+        <li>Diagnostic yield better in <strong>cavitary disease</strong></li>
+        <li><strong>Induced sputum</strong> with 3% normal saline → improves yield</li>
+        <li>Xpert MTB/RIF and RT-PCR → increased diagnosis; <strong>preferred over smear alone</strong></li>
+      </ul>
+
+      <p class="sub-h">C. Fibreoptic Bronchoscopy (FOB) — Preferred Modality</p>
+      <ul>
+        <li><strong>Higher diagnostic yield</strong> than sputum, especially in consolidation, collapse, solitary mass</li>
+        <li>Samples: Bronchial wash, BAL, bronchial biopsy, TBLB</li>
+        <li>Abnormal FOB findings in LLF-TB:
+          <ul>
+            <li><strong>Ulcerative granuloma</strong></li>
+            <li>Mucosal erythema</li>
+            <li>Submucosal infiltration</li>
+            <li><strong>Fibrostenosis</strong> (worst prognosis)</li>
+          </ul>
+        </li>
+        <li>Diagnosis of endobronchial disease: bronchoscopic stenosis / severe tracheobronchitis / roentgenographic atelectasis / tension cavities</li>
+      </ul>
+
+      <p class="sub-h">D. EBUS-TBNA (Endobronchial Ultrasound – Transbronchial Needle Aspiration)</p>
+      <ul>
+        <li>Useful in mediastinal/hilar lymphadenopathy + smear-negative TB suspects</li>
+        <li>FOB + EBUS (China study):
+          <ul>
+            <li>AFB smear in BAL: 31.5% vs 12.5% (FOB alone), p=0.018</li>
+            <li>MTB culture in BAL: 67.1% vs 47.9%, p=0.024</li>
+            <li>Overall diagnostic accuracy: 80.8% vs 8.3%, p=0.035</li>
+          </ul>
+        </li>
+        <li>EBUS-TBNA → higher yield in pulmonary TB suspects with lymphadenopathy</li>
+      </ul>
+
+      <p class="sub-h">E. CT Thorax</p>
+      <ul>
+        <li>Features: <strong>Cavities, tree-in-bud pattern, endobronchial spread, consolidation, mediastinal lymphadenopathy</strong></li>
+        <li>Aids early and more frequent diagnosis of LLF-TB</li>
+      </ul>
+
+      <div class="flowchart">
+        <div class="flow-title">🔬 Diagnostic Algorithm for LLF-TB</div>
+        <div class="fc-box blue">Clinical suspicion: Non-resolving pneumonia / Lower zone opacity</div>
+        <div class="fc-arrow">↓</div>
+        <div class="fc-box">Sputum AFB smear × 3 + Xpert MTB/RIF</div>
+        <div class="fc-arrow">↓</div>
+        <div class="fc-row">
+          <div class="fc-branch">
+            <div class="fc-branch-label">Positive</div>
+            <div class="fc-box green" style="min-width:150px;font-size:12px;">Confirm LLF-TB → Start ATT</div>
+          </div>
+          <div style="font-size:22px;color:#bbb;align-self:center;">⟷</div>
+          <div class="fc-branch">
+            <div class="fc-branch-label">Negative / Inconclusive</div>
+            <div class="fc-box red" style="min-width:150px;font-size:12px;">Induced sputum OR proceed to bronchoscopy</div>
+          </div>
+        </div>
+        <div class="fc-arrow">↓</div>
+        <div class="fc-box">FOB: Bronchial wash · BAL · Biopsy · TBLB</div>
+        <div class="fc-arrow">↓</div>
+        <div class="fc-diamond">Mediastinal / Hilar lymphadenopathy?</div>
+        <div class="fc-row">
+          <div class="fc-branch">
+            <div class="fc-branch-label">Yes</div>
+            <div class="fc-box blue" style="min-width:150px;font-size:12px;">Add EBUS-TBNA → Xpert MTB/RIF on sample</div>
+          </div>
+          <div style="font-size:22px;color:#bbb;align-self:center;">⟷</div>
+          <div class="fc-branch">
+            <div class="fc-branch-label">No</div>
+            <div class="fc-box gray" style="min-width:150px;">CT Thorax for further characterisation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. DIFFERENTIAL DIAGNOSIS -->
+  <div class="section">
+    <div class="section-header"><span class="icon">⚖️</span> Differential Diagnosis</div>
+    <div class="section-body">
+      <div class="two-col">
+        <div class="mini-card">
+          <h4>Common DDx</h4>
+          <ul>
+            <li>Non-resolving bacterial pneumonia ⭐</li>
+            <li>Lung malignancy / carcinoma</li>
+            <li>Lung abscess</li>
+            <li>Bronchiectasis</li>
+          </ul>
+        </div>
+        <div class="mini-card">
+          <h4>Less Common DDx</h4>
+          <ul>
+            <li>Fungal infections (aspergillosis)</li>
+            <li>Interstitial lung disease (ILD)</li>
+            <li>Foreign body aspiration (children)</li>
+            <li>Pulmonary infarction</li>
+          </ul>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <strong>Key differentiating point:</strong> LLF-TB — lack of fever &gt;38°C is more common vs bacterial pneumonia; absence of air bronchogram on CXR favours LLF-TB
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. MANAGEMENT -->
+  <div class="section">
+    <div class="section-header"><span class="icon">💊</span> Treatment &amp; Management</div>
+    <div class="section-body">
+      <p class="sub-h">Medical (Anti-TB Therapy — ATT)</p>
+      <ul>
+        <li>Treatment is <strong>similar to pulmonary TB elsewhere</strong></li>
+        <li>Standard regimen: <strong>2HRZE / 4HRE</strong> (Intensive 2 months + Continuation 4 months)</li>
+        <li>Patients show <strong>favourable response</strong> to conventional ATT</li>
+        <li><strong>Delayed diagnosis worsens outcome</strong> — diagnosis-to-treatment time &lt;3 months → significant CXR resolution and sputum negativity</li>
+        <li>India: Patients receive <strong>DOTS under NTEP (erstwhile RNTCP)</strong></li>
+        <li>Long-term follow-up recommended to detect relapse</li>
+      </ul>
+
+      <p class="sub-h">Bronchoscopic Interventions</p>
+      <ul>
+        <li>May be needed to clear <strong>endobronchial obstruction</strong>: mucus impaction, lymph nodes blocking bronchi</li>
+        <li>Close FOB follow-up if no CXR improvement or worsening endobronchial lesions</li>
+      </ul>
+
+      <p class="sub-h">Surgical Intervention</p>
+      <ul>
+        <li>Indicated if re-examination with FOB shows <strong>no improvement or worsening</strong> of endobronchial involvement</li>
+        <li>Severe fibrostenosis → <strong>early sleeve operation</strong> before permanent sequelae (lung damage distal to obstruction, respiratory failure)</li>
+      </ul>
+
+      <div class="flowchart">
+        <div class="flow-title">💊 Management Algorithm for LLF-TB</div>
+        <div class="fc-box blue">Confirmed LLF-TB</div>
+        <div class="fc-arrow">↓</div>
+        <div class="fc-box">Standard ATT: 2HRZE → 4HRE (NTEP/DOTS)</div>
+        <div class="fc-arrow">↓</div>
+        <div class="fc-diamond">Endobronchial obstruction / Mucus impaction?</div>
+        <div class="fc-row">
+          <div class="fc-branch">
+            <div class="fc-branch-label">Yes</div>
+            <div class="fc-box red" style="min-width:150px;font-size:12px;">Bronchoscopic clearance of obstruction</div>
+          </div>
+          <div style="font-size:22px;color:#bbb;align-self:center;">⟷</div>
+          <div class="fc-branch">
+            <div class="fc-branch-label">No</div>
+            <div class="fc-box green" style="min-width:150px;font-size:12px;">Continue ATT + Close FOB follow-up</div>
+          </div>
+        </div>
+        <div class="fc-arrow">↓</div>
+        <div class="fc-diamond">FOB: Severe fibrostenosis / No improvement?</div>
+        <div class="fc-arrow">↓</div>
+        <div class="fc-box red">Surgical: Sleeve resection / Early intervention</div>
+      </div>
+
+      <p class="sub-h">Complications to Watch</p>
+      <ul>
+        <li><strong>Tracheobronchial stenosis</strong> — important complication → permanent lung damage distal to obstruction</li>
+        <li>Flow-volume loops and CXR are <strong>insensitive</strong> for monitoring stenosis → FOB is gold standard</li>
+        <li>FOB findings of <strong>fibrostenosis or ulcerative granuloma</strong> → unfavourable prognosis → close follow-up mandatory</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 8. SUMMARY MNEMONIC -->
+  <div class="section">
+    <div class="section-header"><span class="icon">🧠</span> Quick Recall — High-Yield Points</div>
+    <div class="section-body">
+      <ul>
+        <li>LLF-TB: Below imaginary line across hila on PA CXR; includes RML, lingula, lower lobes</li>
+        <li>Most common pathogenic mechanism: <strong>TB lymph node ulceration into bronchus</strong></li>
+        <li>High-risk: <strong>DM, HIV, CKD, CLD, steroids, pregnancy</strong></li>
+        <li>Clinical hallmark: Non-resolving pneumonia not responding to broad-spectrum antibiotics</li>
+        <li>CXR: <strong>Confluent consolidation &gt; patchy consolidation &gt; cavitation</strong>; right side &gt; left side</li>
+        <li>Absence of air bronchogram → favours LLF-TB over bacterial pneumonia</li>
+        <li>Diagnosis: <strong>FOB is preferred</strong> — higher yield than sputum; EBUS-TBNA for lymphadenopathy</li>
+        <li>FOB worst prognostic signs: <strong>Fibrostenosis &amp; Ulcerative granuloma</strong></li>
+        <li>Treatment: Standard <strong>2HRZE/4HRE</strong>; early diagnosis (&lt;3 months) → better outcome</li>
+        <li>Surgical: Sleeve operation for severe fibrostenosis</li>
+      </ul>
+      <div class="alert alert-success">
+        <strong>Remember:</strong> LLF-TB is a <em>masquerader</em> — it mimics pneumonia, malignancy, bronchiectasis and lung abscess. A high index of suspicion in the right clinical context (DM, elderly, non-resolving pneumonia) is the key to early diagnosis.
+      </div>
+    </div>
+  </div>
+
+  <!-- References -->
+  <div class="section">
+    <div class="section-header"><span class="icon">📚</span> Key References</div>
+    <div class="section-body">
+      <ul>
+        <li>Ahluwalia G, Sharma SK. Lower Lung Field Tuberculosis. In: <em>Textbook of Tuberculosis and Nontuberculous Mycobacterial Diseases</em>. Chapter 11.</li>
+        <li>Phaneendra Kumar KS. Lower Lung Field Tuberculosis. In: <em>Textbook of Tuberculosis</em>. Chapter 18.</li>
+        <li>Berger HW, Granada MG. Lower lung field tuberculosis. <em>Chest</em>. 1974;65(5):522–526.</li>
+        <li>Segarra F, Sherman DS, Rodriguez-Aguero J. Lower lung field tuberculosis. <em>Am Rev Respir Dis</em>. 1963;87:37–40.</li>
+        <li>Parmar MS. Lower lung field tuberculosis. <em>Am Rev Resp Dis</em>. 1967;96:310–313.</li>
+        <li>Wang et al. <em>Lower lung field TB prevalence study</em>. 2006;520 cases;15.8%.</li>
+      </ul>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  Respiratory Medicine Notes · Lower Lung Field TB (10 Marks) ·
+  <a href="index.html">← Back to Index</a>
+</footer>
+
+</body>
+</html>
