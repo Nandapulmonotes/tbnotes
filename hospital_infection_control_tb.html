@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hospital Infection Control of Tuberculosis</title>
+  <style>
+    /* ── Global Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f4f6f9;
+      color: #1a1a2e;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* ── Page Wrapper ── */
+    .page {
+      max-width: 950px;
+      margin: 30px auto;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      overflow: hidden;
+    }
+
+    /* ── Header Banner ── */
+    .header-banner {
+      background: linear-gradient(135deg, #1a237e 0%, #283593 50%, #1565c0 100%);
+      color: #fff;
+      padding: 32px 40px 24px;
+    }
+    .header-banner h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+    .header-banner .meta {
+      font-size: 0.88rem;
+      opacity: 0.82;
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .header-banner .meta span {
+      background: rgba(255,255,255,0.15);
+      border-radius: 20px;
+      padding: 3px 12px;
+    }
+
+    /* ── Content Area ── */
+    .content { padding: 32px 40px 40px; }
+
+    /* ── Section Headings ── */
+    .section-title {
+      font-size: 1.13rem;
+      font-weight: 700;
+      color: #1a237e;
+      background: linear-gradient(90deg, #e8eaf6, #fff);
+      border-left: 5px solid #1565c0;
+      padding: 8px 16px;
+      margin: 28px 0 14px;
+      border-radius: 0 6px 6px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+    .sub-title {
+      font-size: 1.01rem;
+      font-weight: 700;
+      color: #283593;
+      margin: 18px 0 8px;
+      padding-left: 10px;
+      border-left: 3px solid #42a5f5;
+    }
+
+    /* ── Bullet Lists ── */
+    ul.bullet {
+      list-style: none;
+      padding-left: 0;
+      margin: 6px 0 10px 0;
+    }
+    ul.bullet li {
+      position: relative;
+      padding: 4px 0 4px 24px;
+      border-bottom: 1px dashed #e3e6f0;
+    }
+    ul.bullet li:last-child { border-bottom: none; }
+    ul.bullet li::before {
+      content: "▸";
+      color: #1565c0;
+      position: absolute;
+      left: 4px;
+      font-size: 0.9rem;
+    }
+
+    ul.sub-bullet {
+      list-style: none;
+      padding-left: 0;
+      margin: 4px 0 4px 24px;
+    }
+    ul.sub-bullet li {
+      position: relative;
+      padding: 2px 0 2px 20px;
+      font-size: 0.93rem;
+      color: #37474f;
+    }
+    ul.sub-bullet li::before {
+      content: "–";
+      color: #42a5f5;
+      position: absolute;
+      left: 4px;
+    }
+
+    /* ── Highlight / Mnemonic Box ── */
+    .highlight-box {
+      background: linear-gradient(135deg, #e3f2fd, #e8eaf6);
+      border: 1.5px solid #1565c0;
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+    .highlight-box .label {
+      font-weight: 700;
+      color: #1565c0;
+      font-size: 0.92rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .warning-box {
+      background: #fff8e1;
+      border-left: 5px solid #f9a825;
+      border-radius: 0 8px 8px 0;
+      padding: 12px 18px;
+      margin: 14px 0;
+      font-size: 0.94rem;
+    }
+    .warning-box .label { font-weight: 700; color: #f57f17; }
+
+    .key-box {
+      background: #e8f5e9;
+      border-left: 5px solid #388e3c;
+      border-radius: 0 8px 8px 0;
+      padding: 12px 18px;
+      margin: 14px 0;
+      font-size: 0.94rem;
+    }
+    .key-box .label { font-weight: 700; color: #2e7d32; }
+
+    /* ── Tables ── */
+    .table-wrap { overflow-x: auto; margin: 14px 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    thead tr {
+      background: linear-gradient(90deg, #1a237e, #1565c0);
+      color: #fff;
+    }
+    thead th {
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+    tbody tr:nth-child(even) { background: #f0f4ff; }
+    tbody tr:nth-child(odd)  { background: #ffffff; }
+    tbody td {
+      padding: 9px 14px;
+      border-bottom: 1px solid #e0e4ef;
+      vertical-align: top;
+    }
+    tbody tr:hover { background: #dce8ff; transition: 0.2s; }
+
+    /* ── Flowchart ── */
+    .flowchart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      margin: 18px auto;
+      max-width: 540px;
+    }
+    .flow-box {
+      background: linear-gradient(135deg, #1a237e, #1565c0);
+      color: #fff;
+      padding: 11px 22px;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 0.92rem;
+      font-weight: 600;
+      width: 100%;
+      box-shadow: 0 2px 8px rgba(21,101,192,0.18);
+      letter-spacing: 0.2px;
+    }
+    .flow-box.green {
+      background: linear-gradient(135deg, #2e7d32, #43a047);
+    }
+    .flow-box.amber {
+      background: linear-gradient(135deg, #e65100, #fb8c00);
+    }
+    .flow-box.teal {
+      background: linear-gradient(135deg, #00695c, #00897b);
+    }
+    .flow-box.red {
+      background: linear-gradient(135deg, #b71c1c, #e53935);
+    }
+    .flow-box.purple {
+      background: linear-gradient(135deg, #4a148c, #7b1fa2);
+    }
+    .flow-arrow {
+      font-size: 1.5rem;
+      color: #1565c0;
+      line-height: 1;
+      margin: 2px 0;
+    }
+    .flow-label {
+      font-size: 0.78rem;
+      color: #555;
+      background: #eef2ff;
+      border: 1px solid #c5cae9;
+      border-radius: 14px;
+      padding: 2px 12px;
+      margin: 2px 0;
+      text-align: center;
+    }
+
+    /* ── Hierarchy Pyramid ── */
+    .pyramid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      margin: 18px auto;
+    }
+    .pyramid-level {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.92rem;
+      border-radius: 8px;
+      padding: 10px 0;
+      text-align: center;
+      letter-spacing: 0.2px;
+    }
+    .pyramid-level.l1 { width: 70%; background: #b71c1c; }
+    .pyramid-level.l2 { width: 82%; background: #1565c0; }
+    .pyramid-level.l3 { width: 95%; background: #2e7d32; }
+
+    /* ── Badges ── */
+    .badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .badge-blue  { background:#e3f2fd; color:#1565c0; border:1px solid #90caf9; }
+    .badge-green { background:#e8f5e9; color:#2e7d32; border:1px solid #a5d6a7; }
+    .badge-red   { background:#ffebee; color:#b71c1c; border:1px solid #ef9a9a; }
+    .badge-amber { background:#fff8e1; color:#e65100; border:1px solid #ffcc80; }
+
+    /* ── Footer ── */
+    .footer {
+      background: #1a237e;
+      color: rgba(255,255,255,0.75);
+      text-align: center;
+      font-size: 0.82rem;
+      padding: 14px 20px;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── Print ── */
+    @media print {
+      body { background: #fff; font-size: 13px; }
+      .page { box-shadow: none; border-radius: 0; margin: 0; }
+      .header-banner { padding: 20px 30px 14px; }
+      .content { padding: 20px 30px; }
+    }
+    @media (max-width: 640px) {
+      .content { padding: 18px 14px; }
+      .header-banner { padding: 20px 18px 16px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══════════════ HEADER ══════════════ -->
+  <div class="header-banner">
+    <h1>Hospital Infection Control of Tuberculosis</h1>
+    <div class="meta">
+      <span>&#128203; 10-Mark Answer</span>
+      <span>&#127981; Pulmonary Medicine</span>
+      <span>&#128218; NTEP Guidelines | WHO | CDC</span>
+      <span>&#9200; ~1000 words | 5–7 pages</span>
+    </div>
+  </div>
+
+  <!-- ══════════════ CONTENT ══════════════ -->
+  <div class="content">
+
+    <!-- INTRODUCTION -->
+    <div class="section-title">1. Introduction</div>
+    <ul class="bullet">
+      <li>Tuberculosis (TB) is transmitted via <strong>airborne droplet nuclei</strong> (1–5 µm) generated by coughing, sneezing, or aerosol-generating procedures.</li>
+      <li>Nosocomial (health care–associated) TB transmission is a significant threat to <strong>health care workers (HCWs), patients, and visitors</strong>.</li>
+      <li>Prevalence of TB is inherently higher in health care facilities than in the general population, amplifying transmission risk.</li>
+      <li>India's <strong>National TB Elimination Programme (NTEP)</strong> and its 2010 Airborne Infection Control Guidelines mandate structured infection control in all health care settings.</li>
+      <li>Goal: Eliminate TB by 2030 (SDG target) and reduce incidence to &lt;1/million by 2050 — impossible without robust infection control.</li>
+    </ul>
+
+    <div class="key-box">
+      <div class="label">&#128204; Key Fact (Fennelly et al.)</div>
+      Cough aerosol from TB patients contains 3–4 CFU to a maximum of <strong>633 CFU</strong> of viable, infectious <em>Mycobacterium tuberculosis</em>.
+    </div>
+
+    <!-- MAGNITUDE -->
+    <div class="section-title">2. Why Hospitals Are High-Risk ("Institutional Amplifiers")</div>
+    <ul class="bullet">
+      <li>Unsuspected TB patients remain undiagnosed for weeks, visiting multiple health facilities while infectious.</li>
+      <li>Crowded OPDs, poorly ventilated wards, shared waiting areas — all favour droplet nuclei accumulation.</li>
+      <li>Delayed diagnosis → prolonged infectious period → more exposure.</li>
+      <li>Immunocompromised patients (HIV, transplant, malignancy) at extreme risk once exposed.</li>
+      <li>Aerosol-generating procedures (bronchoscopy, sputum induction, intubation) enormously amplify risk.</li>
+      <li>MDR-TB and XDR-TB outbreaks in hospitals have been associated with high death rates, especially in HIV-positive patients.</li>
+    </ul>
+
+    <div class="warning-box">
+      <div class="label">&#9888; Risk Factor: Air Change Rate</div>
+      Medical students training in rooms with 16.2 m³/bed had a <strong>25.5% TST conversion rate</strong> vs. 12.7% in hospitals with 41.4 m³/bed — highlighting ventilation as a critical protective factor.
+    </div>
+
+    <!-- HIERARCHY -->
+    <div class="section-title">3. Hierarchy of Infection Control Measures</div>
+    <div class="highlight-box">
+      <div class="label">&#128161; Mnemonic — "AEP" (Admin → Engineering → Personal Protection)</div>
+      All three tiers must function together; personal protection alone cannot substitute for administrative and environmental controls.
+    </div>
+
+    <div class="pyramid">
+      <div class="pyramid-level l1">Level 3 — Personal Respiratory Protection<br><small>(Last line — N95 / PAPR)</small></div>
+      <div class="pyramid-level l2">Level 2 — Environmental / Engineering Controls<br><small>(Ventilation, UVGI, negative pressure)</small></div>
+      <div class="pyramid-level l3">Level 1 — Administrative Controls<br><small>(Most feasible, most effective, least expensive)</small></div>
+    </div>
+    <p style="text-align:center;font-size:0.82rem;color:#555;margin-top:-6px;margin-bottom:12px;">
+      ▲ Pyramid of TB Infection Control Hierarchy — Base = Foundation
+    </p>
+
+    <!-- TIER 1: ADMIN -->
+    <div class="section-title">4. Tier 1 — Administrative Controls</div>
+    <p style="margin-bottom:10px;">Administrative controls are the <strong>most feasible and cost-effective</strong> measures, especially in resource-limited settings (NTEP 2010, CDC).</p>
+
+    <div class="sub-title">4a. Key Administrative Measures</div>
+    <ul class="bullet">
+      <li><strong>Rapid identification</strong> of patients with respiratory symptoms (triage).</li>
+      <li><strong>Separation / isolation</strong> of suspected or confirmed TB patients.</li>
+      <li>Applying <strong>surgical masks</strong> on coughing TB patients not yet segregated.</li>
+      <li><strong>Fast-tracking</strong> through facility to reduce contact time with others.</li>
+      <li>Rapid diagnosis and prompt initiation of anti-TB treatment (DOTS / NTEP regimen).</li>
+      <li><strong>Minimise hospitalisation</strong> — ambulatory treatment wherever feasible.</li>
+      <li>Education on <strong>cough etiquette</strong> and respiratory hygiene for patients and staff.</li>
+      <li>Adequate sputum disposal: individual containers with lid containing <strong>5% phenol</strong>.</li>
+      <li>Policies and written SOPs for infection control at facility level.</li>
+      <li>Regular <strong>training, monitoring, and evaluation</strong> of HCWs.</li>
+      <li>Surveillance: annual TST/IGRA testing of HCWs at risk.</li>
+    </ul>
+
+    <!-- TRIAGE FLOWCHART -->
+    <div class="sub-title">Flowchart — Triage and Isolation of Suspected TB Patient in Hospital</div>
+    <div class="flowchart">
+      <div class="flow-box">Patient presents with cough &gt;2 weeks / respiratory symptoms</div>
+      <div class="flow-arrow">&#8595;</div>
+      <div class="flow-box amber">Triage Nurse / MO screens at OPD entry</div>
+      <div class="flow-arrow">&#8595;</div>
+      <div class="flow-box teal">Apply surgical mask on patient immediately</div>
+      <div class="flow-arrow">&#8595;</div>
+      <div class="flow-box">Fast-track to designated sputum collection area (outdoor/booth)</div>
+      <div class="flow-arrow">&#8595;</div>
+      <div class="flow-box amber">Sputum smear + CBNAAT (GeneXpert) ± Chest X-ray</div>
+      <div class="flow-arrow">&#8595;</div>
+
+      <div style="display:flex;gap:18px;width:100%;justify-content:center;margin:4px 0;">
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+          <div class="flow-label">Smear / CBNAAT Positive</div>
+          <div class="flow-box red" style="font-size:0.85rem;">Airborne Infection Isolation (AII) Room<br>Start ATT</div>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+          <div class="flow-label">Smear Negative / Inconclusive</div>
+          <div class="flow-box purple" style="font-size:0.85rem;">Maintain isolation until 2 negative smears<br>or alternate dx confirmed</div>
+        </div>
+      </div>
+
+      <div class="flow-arrow">&#8595;</div>
+      <div class="flow-box green">Discharge with DOTS / DOT outpatient ± contact tracing</div>
+    </div>
+
+    <!-- TABLE 1 -->
+    <div class="sub-title">Table 1 — NTEP / WHO Recommendations for TB Ward</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Parameter</th>
+            <th>Recommendation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Location</td><td>Away from other wards; near facility periphery</td></tr>
+          <tr><td>2</td><td>Ventilation rate</td><td>&gt;12 ACH (air changes per hour) at all times</td></tr>
+          <tr><td>3</td><td>Bed spacing</td><td>At least 6 feet (≈1.8 m) between adjacent beds</td></tr>
+          <tr><td>4</td><td>Cough hygiene</td><td>Signage + ongoing staff reinforcement</td></tr>
+          <tr><td>5</td><td>Sputum disposal</td><td>Individual covered containers with 5% phenol; disinfect 1 hour before draining</td></tr>
+          <tr><td>6</td><td>Hand washing</td><td>Adequate facilities, maintained and cleaned</td></tr>
+          <tr><td>7</td><td>HIV co-infection</td><td>MDR-TB patients must NOT share ward with HIV patients</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- TIER 2: ENVIRONMENTAL -->
+    <div class="section-title">5. Tier 2 — Environmental / Engineering Controls</div>
+    <ul class="bullet">
+      <li>Aim: <strong>Dilute, redirect, and disinfect</strong> infectious droplet nuclei in the air.</li>
+    </ul>
+
+    <div class="sub-title">5a. Ventilation Systems</div>
+    <ul class="bullet">
+      <li><strong>Natural ventilation:</strong> Open windows, cross-ventilation — simple, low-cost, highly effective in tropical/warm climates (WHO NV Guidelines 2009).</li>
+      <li><strong>Mechanical ventilation:</strong> Fan-driven systems to achieve &gt;12 ACH; window exhaust fans for smear-positive TB rooms.</li>
+      <li><strong>Mixed-mode systems:</strong> Natural + mechanical; recommended when natural ventilation alone cannot reliably achieve required ACH or directional airflow.</li>
+      <li><strong>Negative pressure isolation rooms (AII rooms):</strong>
+        <ul class="sub-bullet">
+          <li>Single-occupancy rooms with &lt;0 Pa relative to corridor.</li>
+          <li>Doors and windows kept closed at all times.</li>
+          <li>Pressure differential verified at least daily.</li>
+          <li>Antechamber (anteroom) ideal for maintaining negative pressure.</li>
+          <li>Air exhausted to outdoors OR passed through HEPA filters before recirculation.</li>
+          <li>Minimum 12 ACH required.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="sub-title">5b. Air Disinfection — UVGI</div>
+    <ul class="bullet">
+      <li><strong>Ultraviolet Germicidal Irradiation (UVGI)</strong> — used as a low-cost complement to ventilation, especially at night or in cold seasons when windows are closed.</li>
+      <li>Three modes: (i) direct unshielded room disinfection; (ii) in-duct / room air cleaner; (iii) <strong>upper-room air disinfection</strong> (most useful clinically).</li>
+      <li><strong>Limitations of UVGI:</strong>
+        <ul class="sub-bullet">
+          <li>Misses shadowed surfaces — not a complete surface decontaminant.</li>
+          <li>Overall room effect limited by clean air delivery rate (CADR).</li>
+          <li>Small wall-mounted units give false sense of security; no meaningful risk reduction.</li>
+          <li>Efficacy still being evaluated in LMIC settings.</li>
+        </ul>
+      </li>
+      <li>HEPA filtration in AII room exhaust ducts removes infectious particles before air recirculation.</li>
+    </ul>
+
+    <!-- TABLE 2 -->
+    <div class="sub-title">Table 2 — Comparison of Environmental Control Measures</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Measure</th>
+            <th>Mechanism</th>
+            <th>Cost</th>
+            <th>Feasibility (LMIC)</th>
+            <th>Key Limitation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Natural ventilation</td>
+            <td>Dilution of droplet nuclei</td>
+            <td>Very Low</td>
+            <td>High</td>
+            <td>Climate-dependent; variable airflow</td>
+          </tr>
+          <tr>
+            <td>Mechanical ventilation</td>
+            <td>Dilution + directional airflow</td>
+            <td>Moderate</td>
+            <td>Moderate</td>
+            <td>Requires maintenance</td>
+          </tr>
+          <tr>
+            <td>Negative pressure AII room</td>
+            <td>Containment; prevents outflow</td>
+            <td>High</td>
+            <td>Low</td>
+            <td>High infrastructure cost</td>
+          </tr>
+          <tr>
+            <td>UVGI (upper-room)</td>
+            <td>Germicidal UV radiation kills Mtb</td>
+            <td>Moderate</td>
+            <td>Moderate</td>
+            <td>Shadowed surfaces; limited CADR</td>
+          </tr>
+          <tr>
+            <td>HEPA filtration</td>
+            <td>Physical particle removal</td>
+            <td>Moderate–High</td>
+            <td>Low–Moderate</td>
+            <td>Requires regular filter change</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- TIER 3: PERSONAL PROTECTION -->
+    <div class="section-title">6. Tier 3 — Personal Respiratory Protection</div>
+    <ul class="bullet">
+      <li>Minimises residual risk after administrative and environmental controls are in place.</li>
+      <li>Cannot substitute for Tiers 1 and 2.</li>
+    </ul>
+
+    <div class="sub-title">6a. Who Wears What?</div>
+    <!-- TABLE 3 -->
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Person</th>
+            <th>Type of Mask</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>HCW in AII room / high-risk procedure</td>
+            <td><strong>N95 respirator</strong> (or FFP2 / PAPR)</td>
+            <td>Protects wearer from inhaling infectious aerosol</td>
+          </tr>
+          <tr>
+            <td>TB patient (outside AII room)</td>
+            <td><strong>Surgical mask</strong></td>
+            <td>Prevents release of respiratory secretions into environment</td>
+          </tr>
+          <tr>
+            <td>Visitor entering AII room</td>
+            <td><strong>N95 respirator</strong></td>
+            <td>Protect visitor from infectious aerosol</td>
+          </tr>
+          <tr>
+            <td>Lab staff (culture/DST work)</td>
+            <td><strong>N95 + full PPE</strong></td>
+            <td>Protect from aerosol during high-risk lab manipulation</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sub-title">6b. N95 Respirator — Key Points</div>
+    <ul class="bullet">
+      <li>Filters particles &gt;1 µm with <strong>≥95% efficiency</strong> at flow rates up to 50 L/min.</li>
+      <li>Must achieve &lt;10% face-seal leakage — fit-testing mandatory.</li>
+      <li>Models: cup-shaped or duckbill; two elastic bands; malleable nose clip.</li>
+      <li>HCWs unable to use N95 due to poor fit → use <strong>PAPR (Powered Air-Purifying Respirator)</strong>.</li>
+      <li><strong>Limitations in LMIC:</strong> cost ($1–$2 per unit), discomfort, becomes flaccid with repeated donning/doffing, no universal fit.</li>
+    </ul>
+
+    <div class="sub-title">6c. When HCWs Must Wear N95</div>
+    <ul class="bullet">
+      <li>While in the room of a patient with known or suspected infectious TB.</li>
+      <li>During transit accompanying such a patient.</li>
+      <li>During aerosol-generating procedures: bronchoscopy, sputum induction, endotracheal intubation, chest physiotherapy, aerosolised drug administration, abscess irrigation.</li>
+    </ul>
+
+    <!-- SPECIAL SETTINGS -->
+    <div class="section-title">7. Infection Control in Special Hospital Settings</div>
+
+    <div class="sub-title">7a. Laboratory Infection Control</div>
+    <ul class="bullet">
+      <li>TB bacteriology labs carry higher mycobacterial burden than wards — additional precautions mandatory.</li>
+      <li><strong>Direct smear microscopy:</strong> Low-risk if safe practices followed; no personal respiratory protection needed (assuming no centrifugation).</li>
+      <li><strong>Culture / DST labs:</strong> High risk; require BSC Class II with 100% ducted exhaust, bio-safe centrifuges with aerosol-seal buckets, autoclave within lab, anteroom entry.</li>
+      <li>Lab located at blind-end of building, physically isolated from common areas.</li>
+      <li>Written SOPs available; lab technologists trained periodically.</li>
+      <li>Shipping of cultures in <strong>bio-safe triple-packaged containers</strong>.</li>
+    </ul>
+
+    <!-- TABLE 4 -->
+    <div class="sub-title">Table 3 — PPE Protocol for Laboratory Staff</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Lab Activity</th>
+            <th>Risk Level</th>
+            <th>Minimum PPE Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sputum smear preparation (manual)</td>
+            <td><span class="badge badge-amber">Moderate</span></td>
+            <td>Lab coat, gloves, surgical mask, eye protection</td>
+          </tr>
+          <tr>
+            <td>Sputum smear (fluorescence microscopy)</td>
+            <td><span class="badge badge-amber">Moderate</span></td>
+            <td>Lab coat, gloves, N95 respirator</td>
+          </tr>
+          <tr>
+            <td>Sputum concentration / centrifugation</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td>N95 + gloves + lab coat + eye shield + BSC Class II</td>
+          </tr>
+          <tr>
+            <td>Liquid culture manipulation (MGIT)</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td>N95 + full gown + double gloves + BSC Class II; autoclave before disposal</td>
+          </tr>
+          <tr>
+            <td>Drug susceptibility testing (DST)</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td>All of above + anteroom entry; only trained personnel</td>
+          </tr>
+          <tr>
+            <td>GeneXpert / CBNAAT cartridge loading</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td>Gloves + lab coat; cartridge is self-contained biosafe system</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sub-title">7b. OPD / Waiting Area</div>
+    <ul class="bullet">
+      <li>Separate dedicated <strong>cough station / symptom screening bay</strong> at OPD entry.</li>
+      <li>TB suspects seated away from immunocompromised patients (HIV clinic, oncology).</li>
+      <li>Outdoor or cross-ventilated waiting areas preferred.</li>
+      <li>Printed cough hygiene posters in regional languages at visible locations.</li>
+      <li>Separate, well-ventilated sputum collection booths placed <strong>outdoors or in a mechanically exhausted room</strong>.</li>
+      <li>Sputum collection should <strong>never</strong> be done in enclosed toilets or poorly ventilated rooms.</li>
+    </ul>
+
+    <div class="sub-title">7c. Radiology Department</div>
+    <ul class="bullet">
+      <li>TB suspects should be scheduled at end of list or in a dedicated slot to minimise waiting-room exposure.</li>
+      <li>Chest X-ray rooms should have mechanical exhaust to achieve &gt;12 ACH.</li>
+      <li>Radiographic staff wear surgical masks; N95 not routinely required unless performing aerosol-generating procedures.</li>
+    </ul>
+
+    <div class="sub-title">7d. Bronchoscopy Suite (Highest-Risk Setting)</div>
+    <ul class="bullet">
+      <li>All bronchoscopies on TB suspects must be performed in <strong>negative pressure procedure room</strong>.</li>
+      <li>Full N95 + face shield + gown + double gloves for all personnel in room.</li>
+      <li>Room left unoccupied for sufficient time after procedure (minimum 99% air clearance = ~45 min at 6 ACH, ~23 min at 12 ACH).</li>
+      <li>Bronchoscopes disinfected with high-level disinfectant (2% glutaraldehyde ≥20 min).</li>
+      <li>Ideally first case of the day is the TB suspect to limit scope turn-around issues.</li>
+    </ul>
+
+    <!-- HCW HEALTH SURVEILLANCE -->
+    <div class="section-title">8. Health Care Worker Surveillance and Protection</div>
+
+    <div class="sub-title">8a. Pre-Employment Screening</div>
+    <ul class="bullet">
+      <li>Baseline <strong>TST (Tuberculin Skin Test)</strong> or IGRA at joining.</li>
+      <li>Chest X-ray if TST/IGRA positive or clinically indicated.</li>
+      <li>Document history of prior TB, BCG vaccination, or known TB contact.</li>
+    </ul>
+
+    <div class="sub-title">8b. Periodic Surveillance</div>
+    <ul class="bullet">
+      <li>Annual TST/IGRA for HCWs at high risk (TB ward, bronchoscopy, ICU, lab staff).</li>
+      <li>TST conversion (&gt;10 mm increase from baseline) triggers further evaluation.</li>
+      <li>All symptomatic HCWs (cough &gt;2 weeks, haemoptysis, fever, weight loss) — immediately investigated with sputum smear + CBNAAT.</li>
+      <li>HCWs with active TB excluded from work until non-infectious (2 weeks effective treatment + 3 negative smears).</li>
+    </ul>
+
+    <div class="sub-title">8c. Preventive Therapy (Isoniazid Preventive Therapy — IPT)</div>
+    <ul class="bullet">
+      <li>Offered to HCWs with TST/IGRA conversion after excluding active TB.</li>
+      <li>Standard regimen: <strong>Isoniazid 300 mg/day × 6 months</strong> (NTEP); or 3-month rifampicin + isoniazid (3RH) regimen.</li>
+      <li>HIV-positive HCWs: IPT strongly recommended regardless of TST status.</li>
+      <li>Baseline LFT prior to IPT in those at risk of hepatotoxicity.</li>
+    </ul>
+
+    <div class="sub-title">8d. Post-Exposure Management Flowchart</div>
+    <div class="flowchart">
+      <div class="flow-box">HCW exposure to known infectious TB patient (no PPE or PPE failure)</div>
+      <div class="flow-arrow">&#8595;</div>
+      <div class="flow-box amber">Incident reported to Infection Control Officer (within 24 hrs)</div>
+      <div class="flow-arrow">&#8595;</div>
+      <div class="flow-box teal">Baseline TST / IGRA + Chest X-ray + symptom assessment</div>
+      <div class="flow-arrow">&#8595;</div>
+      <div style="display:flex;gap:18px;width:100%;justify-content:center;margin:4px 0;">
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+          <div class="flow-label">Active TB suspected</div>
+          <div class="flow-box red" style="font-size:0.85rem;">Sputum smear + CBNAAT<br>Isolate + refer for treatment</div>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+          <div class="flow-label">No active TB</div>
+          <div class="flow-box purple" style="font-size:0.85rem;">Re-test TST at 8–10 weeks<br>Consider IPT if TST converts</div>
+        </div>
+      </div>
+      <div class="flow-arrow">&#8595;</div>
+      <div class="flow-box green">Document outcome; update HCW health register</div>
+    </div>
+
+    <!-- MDR-TB SPECIFIC -->
+    <div class="section-title">9. Special Considerations — MDR-TB and XDR-TB</div>
+
+    <div class="key-box">
+      <div class="label">&#9888; Why MDR-TB Demands Stricter Controls</div>
+      MDR-TB patients remain infectious for months (treatment is 9–18+ months). Any nosocomial transmission of MDR-TB to immunocompromised patients or HCWs is catastrophic and potentially untreatable.
+    </div>
+
+    <ul class="bullet">
+      <li>MDR-TB patients must be isolated in <strong>dedicated AII rooms</strong> — never in general TB wards.</li>
+      <li>MDR-TB patients <strong>must never share ward space</strong> with HIV-positive patients (NTEP absolute guideline).</li>
+      <li>HCWs managing MDR-TB patients must use <strong>N95 respirators at all times</strong> within the room.</li>
+      <li>Discharge criteria for MDR-TB patients: <strong>three consecutive monthly negative sputum cultures</strong> (not just smear negativity).</li>
+      <li>XDR-TB patients: indefinite isolation until culture conversion; strict visitor policy.</li>
+      <li>Facility-level MDR-TB infection control plan must be separately documented and audited.</li>
+    </ul>
+
+    <!-- TABLE 5: DS vs MDR -->
+    <div class="sub-title">Table 4 — Infection Control Comparison: Drug-Sensitive TB vs. MDR-TB</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>DS-TB</th>
+            <th>MDR-TB / XDR-TB</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ward type</td>
+            <td>General TB ward (isolated from non-TB wards)</td>
+            <td>Dedicated AII room / MDR-TB ward</td>
+          </tr>
+          <tr>
+            <td>Isolation duration</td>
+            <td>Until smear-negative (usually 2 weeks of DOTS)</td>
+            <td>Until 3 consecutive negative cultures</td>
+          </tr>
+          <tr>
+            <td>HCW respirator</td>
+            <td>N95 for aerosol-generating procedures</td>
+            <td>N95 at all times inside room</td>
+          </tr>
+          <tr>
+            <td>Visitor policy</td>
+            <td>Surgical mask on patient; N95 for prolonged visits</td>
+            <td>Strictly limited; N95 mandatory for all visitors</td>
+          </tr>
+          <tr>
+            <td>HIV co-infection</td>
+            <td>Segregate from immunocompromised patients</td>
+            <td>Absolute segregation from HIV patients</td>
+          </tr>
+          <tr>
+            <td>Discharge criteria</td>
+            <td>Clinical + 2 negative smears</td>
+            <td>3 consecutive negative cultures (monthly)</td>
+          </tr>
+          <tr>
+            <td>Contact tracing</td>
+            <td>Household contacts + close HCWs</td>
+            <td>All exposed HCWs + patients who shared the ward</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- NTEP GUIDELINES -->
+    <div class="section-title">10. NTEP-Specific Guidelines for Infection Control in India</div>
+
+    <ul class="bullet">
+      <li>NTEP (formerly RNTCP) released <strong>Airborne Infection Control (AIC) Guidelines in 2010</strong>, updated in line with WHO 2019 consolidated TB guidelines.</li>
+      <li>Every health facility involved in TB management must designate an <strong>Infection Control Officer (ICO)</strong>.</li>
+      <li>Mandatory preparation of a <strong>facility-level infection control plan</strong> — reviewed annually.</li>
+      <li><strong>NIKSHAY portal</strong> integration: all TB patients notified; helps track referrals across facilities and reduces diagnostic delays.</li>
+      <li><strong>Ni-kshay Poshan Yojana:</strong> nutritional support (₹500/month) for all TB patients to support early treatment completion and reduce infectious period.</li>
+      <li>NTEP mandates <strong>universal drug susceptibility testing (UDST)</strong> at diagnosis using CBNAAT (GeneXpert) or LPA — reduces time to initiation of correct regimen → reduces duration of infectiousness.</li>
+      <li>Use of <strong>shorter MDR regimen (BPaL)</strong> when applicable — reduces duration of infectiousness from 18 months to 6–9 months.</li>
+      <li>NTEP Circular 2023: All district hospitals &amp; medical college hospitals to have at least <strong>one functional AII room</strong> per TB unit.</li>
+    </ul>
+
+    <!-- TABLE 6: NTEP summary -->
+    <div class="sub-title">Table 5 — NTEP Infection Control Implementation Checklist (Hospital Level)</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Activity</th>
+            <th>Responsible Person</th>
+            <th>Frequency</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Triage all respiratory symptomatic patients at OPD entry</td><td>Triage Nurse / MO</td><td>Daily</td></tr>
+          <tr><td>2</td><td>Ensure TB ward ventilation &gt;12 ACH</td><td>Biomedical Engineer / ICO</td><td>Monthly verification</td></tr>
+          <tr><td>3</td><td>HCW annual TST / IGRA testing</td><td>Hospital Medical Officer</td><td>Annual</td></tr>
+          <tr><td>4</td><td>Stock and distribute N95 respirators to high-risk areas</td><td>Hospital Pharmacist / ICO</td><td>Quarterly</td></tr>
+          <tr><td>5</td><td>Conduct IPC training for all clinical staff</td><td>NTEP District Officer</td><td>6-monthly</td></tr>
+          <tr><td>6</td><td>Audit infection control plan compliance</td><td>Infection Control Committee</td><td>Annual</td></tr>
+          <tr><td>7</td><td>Update HCW exposure register</td><td>ICO</td><td>After every exposure</td></tr>
+          <tr><td>8</td><td>Ensure sputum booths functional and outdoors / exhausted</td><td>Facility Manager</td><td>Monthly</td></tr>
+          <tr><td>9</td><td>Report TB in HCWs to District TB Officer</td><td>ICO / Medical Officer</td><td>Within 24 hrs of diagnosis</td></tr>
+          <tr><td>10</td><td>Maintain NIKSHAY notification — zero delay</td><td>DOTS Provider / MO</td><td>Within 24 hrs of diagnosis</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CONTACT TRACING -->
+    <div class="section-title">11. Contact Tracing and Outbreak Management</div>
+
+    <ul class="bullet">
+      <li>All HCWs exposed to an unrecognised source case must be screened.</li>
+      <li>Contact investigation follows a <strong>"stone-in-a-pond" approach</strong>: start with closest contacts (same room, same ward) → expand to secondary contacts if ongoing transmission detected.</li>
+      <li>Patients who shared a ward / AII room with a confirmed infectious case: TST/IGRA at time of exposure and repeat at 8–10 weeks.</li>
+      <li>Children under 5 years and HIV-positive contacts automatically offered IPT.</li>
+      <li>In case of nosocomial TB outbreak:
+        <ul class="sub-bullet">
+          <li>Notify District TB Officer and hospital infection control committee immediately.</li>
+          <li>Perform facility infection control audit.</li>
+          <li>Source patient genotyped (MIRU-VNTR or WGS) to confirm nosocomial link.</li>
+          <li>All exposed patients and HCWs screened.</li>
+          <li>Temporary ward closure if ongoing transmission suspected.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- COMPREHENSIVE SUMMARY DIAGRAM -->
+    <div class="section-title">12. Summary — Comprehensive TB Hospital IPC Framework</div>
+
+    <div class="flowchart" style="max-width:660px;">
+      <div class="flow-box" style="background:linear-gradient(135deg,#1a237e,#283593);font-size:1rem;padding:14px 28px;">
+        &#127981; HOSPITAL TB INFECTION CONTROL FRAMEWORK
+      </div>
+      <div class="flow-arrow">&#8595;</div>
+
+      <div style="display:flex;gap:14px;width:100%;">
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;">
+          <div class="flow-box green" style="font-size:0.82rem;">&#9312; ADMINISTRATIVE<br><br>
+            ▸ Triage &amp; screening<br>
+            ▸ Isolation policy<br>
+            ▸ Rapid diagnosis (CBNAAT)<br>
+            ▸ Cough hygiene education<br>
+            ▸ Staff training &amp; SOPs<br>
+            ▸ HCW surveillance
+          </div>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;">
+          <div class="flow-box teal" style="font-size:0.82rem;">&#9313; ENVIRONMENTAL<br><br>
+            ▸ Natural ventilation<br>
+            ▸ Mechanical &gt;12 ACH<br>
+            ▸ Negative pressure AII<br>
+            ▸ UVGI (upper-room)<br>
+            ▸ HEPA filtration<br>
+            ▸ Sputum booths outdoors
+          </div>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;">
+          <div class="flow-box red" style="font-size:0.82rem;">&#9314; PERSONAL PROTECTION<br><br>
+            ▸ N95 for HCWs<br>
+            ▸ Surgical mask on patients<br>
+            ▸ PAPR if N95 not feasible<br>
+            ▸ Full PPE in lab / bronch<br>
+            ▸ Fit-testing mandatory<br>
+            ▸ Donning/doffing training
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-arrow">&#8595;</div>
+      <div class="flow-box amber" style="font-size:0.88rem;">
+        &#128203; MONITORING &amp; EVALUATION — Annual audit | HCW TST register | Facility IPC plan review
+      </div>
+      <div class="flow-arrow">&#8595;</div>
+      <div class="flow-box green" style="font-size:0.92rem;">
+        &#127919; GOAL — Zero nosocomial TB transmission | Protect HCWs, patients, and community | Support TB Elimination by 2030 (NTEP)
+      </div>
+    </div>
+
+    <!-- TABLE: SUMMARY QUICK REFERENCE -->
+    <div class="sub-title">Table 6 — Quick-Reference Summary Table</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Domain</th>
+            <th>Key Measure</th>
+            <th>Standard / Guideline</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Administrative</td>
+            <td>Triage; surgical mask on patient; rapid CBNAAT</td>
+            <td>NTEP AIC 2010; WHO 2019</td>
+          </tr>
+          <tr>
+            <td>Isolation</td>
+            <td>AII room — negative pressure, &gt;12 ACH, single occupancy</td>
+            <td>CDC HICPAC; WHO</td>
+          </tr>
+          <tr>
+            <td>Ventilation</td>
+            <td>Natural / mechanical &gt;12 ACH; HEPA on exhaust</td>
+            <td>WHO Natural Ventilation Guidelines 2009</td>
+          </tr>
+          <tr>
+            <td>Air disinfection</td>
+            <td>Upper-room UVGI as adjunct to ventilation</td>
+            <td>CDC, WHO</td>
+          </tr>
+          <tr>
+            <td>Personal protection</td>
+            <td>N95 for HCWs; surgical mask for patients</td>
+            <td>NTEP; WHO; CDC</td>
+          </tr>
+          <tr>
+            <td>HCW health</td>
+            <td>Baseline + annual TST/IGRA; IPT for converters</td>
+            <td>NTEP; WHO</td>
+          </tr>
+          <tr>
+            <td>MDR-TB</td>
+            <td>Dedicated AII room; culture-negative before discharge</td>
+            <td>NTEP; WHO 2019 consolidated</td>
+          </tr>
+          <tr>
+            <td>Lab</td>
+            <td>BSC Class II; sealed centrifuge; anteroom entry</td>
+            <td>WHO Laboratory Biosafety</td>
+          </tr>
+          <tr>
+            <td>Contact tracing</td>
+            <td>Stone-in-pond; TST at 0 and 8–10 weeks</td>
+            <td>NTEP; CDC</td>
+          </tr>
+          <tr>
+            <td>India-specific</td>
+            <td>NIKSHAY notification &lt;24 hrs; ICO designation</td>
+            <td>NTEP 2010 / NTEP Circular 2023</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CONCLUSION -->
+    <div class="section-title">13. Conclusion</div>
+    <ul class="bullet">
+      <li>Hospital infection control for TB is a <strong>multi-layered, system-level responsibility</strong> — not merely placing patients in isolation.</li>
+      <li>The three-tier hierarchy (Administrative → Environmental → Personal protection) must function in <strong>synergy</strong>; each tier compensates for limitations of the previous.</li>
+      <li>In India's resource-constrained settings, <strong>administrative and natural ventilation measures</strong> offer the greatest feasibility and cost-effectiveness.</li>
+      <li>MDR-TB and HIV–TB co-infection demand the <strong>strictest possible segregation and isolation protocols</strong>.</li>
+      <li>Protection of <strong>health care workers</strong> — through surveillance, IPT, and respirator use — is both an ethical obligation and a public health necessity.</li>
+      <li>Effective hospital infection control directly contributes to India's goal of <strong>TB elimination by 2025 (NTEP target) and eradication by 2030 (WHO/SDG)</strong>.</li>
+    </ul>
+
+    <div class="highlight-box">
+      <div class="label">&#127941; Examiner's Key Take-Home Points</div>
+      <ul class="bullet" style="margin-bottom:0;">
+        <li>Three tiers: <strong>Administrative &gt; Environmental &gt; Personal protection</strong> (in order of priority and cost-effectiveness).</li>
+        <li>AII room needs: <strong>negative pressure + &gt;12 ACH + single occupancy + HEPA exhaust</strong>.</li>
+        <li>N95 filters &ge;95% of particles &gt;1 µm; mandatory for HCWs during aerosol-generating procedures.</li>
+        <li>MDR-TB: isolate until <strong>3 consecutive negative cultures</strong>; never co-locate with HIV patients.</li>
+        <li>NTEP mandates: ICO at every facility, annual HCW TST, and NIKSHAY notification within 24 hours.</li>
+        <li>IPT regimen: <strong>INH 300 mg/day × 6 months</strong> for TST converters after active TB exclusion.</li>
+      </ul>
+    </div>
+
+    <!-- REFERENCES -->
+    <div class="section-title">References</div>
+    <ul class="bullet">
+      <li>NTEP / RNTCP — <em>Airborne Infection Control Guidelines</em>, Government of India, 2010.</li>
+      <li>WHO — <em>WHO Consolidated Guidelines on Tuberculosis Module 4: Treatment</em>, 2022.</li>
+      <li>WHO — <em>Natural Ventilation for Infection Control in Health-care Settings</em>, 2009.</li>
+      <li>CDC / HICPAC — <em>Guidelines for Preventing the Transmission of Mycobacterium tuberculosis in Health-Care Settings</em>, MMWR 2005.</li>
+      <li>Harrison's Principles of Internal Medicine, 21st Ed. — Chapter on Tuberculosis.</li>
+      <li>Textbook of Pulmonary Medicine — Jindal SK, 3rd Ed. — Chapter: Hospital Infection Control.</li>
+      <li>Fenner's Medical Microbiology — Tuberculosis and Mycobacterial Diseases.</li>
+      <li>NTEP Circular 2023 — Universal Drug Susceptibility Testing and AII Room Infrastructure.</li>
+    </ul>
+
+  </div><!-- end .content -->
+
+  <div class="footer">
+    Hospital Infection Control of Tuberculosis &nbsp;|&nbsp; NTEP / WHO Guidelines &nbsp;|&nbsp; 10-Mark Structured Answer &nbsp;|&nbsp; Pulmonary Medicine
+  </div>
+
+</div><!-- end .page -->
+</body>
+</html>
