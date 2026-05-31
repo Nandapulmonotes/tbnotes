@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Complications of Tuberculosis (10 Marks)</title>
+  <style>
+    /* ── Global Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.65;
+      background: #f4f6f9;
+      color: #1a1a2e;
+    }
+
+    /* ── Page Wrapper ── */
+    .page {
+      max-width: 900px;
+      margin: 32px auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      padding: 40px 44px 50px;
+    }
+
+    /* ── Header ── */
+    .header-band {
+      background: linear-gradient(135deg, #1a3c6e 0%, #2176c7 100%);
+      color: #fff;
+      border-radius: 8px 8px 0 0;
+      padding: 22px 28px 18px;
+      margin: -40px -44px 30px;
+    }
+    .header-band h1 {
+      font-size: 1.55rem;
+      letter-spacing: 0.5px;
+      font-weight: 700;
+    }
+    .header-band .meta {
+      font-size: 0.85rem;
+      opacity: 0.85;
+      margin-top: 4px;
+    }
+    .badge {
+      display: inline-block;
+      background: #f0a500;
+      color: #1a1a2e;
+      border-radius: 20px;
+      padding: 2px 12px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+
+    /* ── Section Headings ── */
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1a3c6e;
+      border-left: 5px solid #2176c7;
+      padding-left: 12px;
+      margin: 28px 0 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+    h3 {
+      font-size: 0.97rem;
+      font-weight: 700;
+      color: #145a8c;
+      margin: 18px 0 8px;
+    }
+    h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #1a3c6e;
+      margin: 12px 0 6px;
+    }
+
+    /* ── Bullet Lists ── */
+    ul, ol {
+      padding-left: 22px;
+      margin-bottom: 8px;
+    }
+    li { margin-bottom: 4px; }
+    ul li::marker { color: #2176c7; }
+
+    /* ── Highlighted Boxes ── */
+    .box {
+      border-radius: 7px;
+      padding: 12px 16px;
+      margin: 14px 0;
+      font-size: 0.93rem;
+    }
+    .box-blue   { background: #e8f1fb; border-left: 4px solid #2176c7; }
+    .box-orange { background: #fff3e0; border-left: 4px solid #f0a500; }
+    .box-red    { background: #fdeaea; border-left: 4px solid #d9534f; }
+    .box-green  { background: #e8f8e8; border-left: 4px solid #28a745; }
+    .box-purple { background: #f3eafd; border-left: 4px solid #7b2fbe; }
+
+    /* ── Tables ── */
+    .tbl-wrap { overflow-x: auto; margin: 14px 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    th {
+      background: #1a3c6e;
+      color: #fff;
+      padding: 8px 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+    td {
+      padding: 7px 12px;
+      border-bottom: 1px solid #dce4ef;
+      vertical-align: top;
+    }
+    tr:nth-child(even) td { background: #f0f5fb; }
+    tr:hover td { background: #daeaf8; }
+
+    /* ── Flowchart (Pure CSS/HTML) ── */
+    .flowchart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      margin: 18px 0;
+      font-size: 0.82rem;
+    }
+    .fc-box {
+      border-radius: 6px;
+      padding: 8px 20px;
+      text-align: center;
+      font-weight: 600;
+      min-width: 240px;
+      max-width: 420px;
+    }
+    .fc-arrow {
+      font-size: 1.4rem;
+      color: #2176c7;
+      line-height: 1.1;
+      margin: 2px 0;
+    }
+    .fc-row {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      justify-content: center;
+      width: 100%;
+      margin: 4px 0;
+    }
+    .fc-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      flex: 1;
+    }
+    .fc-blue   { background: #dbeafe; border: 2px solid #2176c7; color: #1a3c6e; }
+    .fc-orange { background: #fff3e0; border: 2px solid #f0a500; color: #7a4f00; }
+    .fc-red    { background: #fdeaea; border: 2px solid #d9534f; color: #7a1111; }
+    .fc-green  { background: #e8f8e8; border: 2px solid #28a745; color: #155724; }
+    .fc-purple { background: #f3eafd; border: 2px solid #7b2fbe; color: #4a1080; }
+    .fc-grey   { background: #f0f0f0; border: 2px solid #888; color: #333; }
+
+    /* ── Classification Grid ── */
+    .class-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 14px 0;
+    }
+    .class-card {
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-size: 0.88rem;
+    }
+    .class-card h4 { margin-top: 0; }
+    .card-local  { background: #e8f1fb; border: 2px solid #2176c7; }
+    .card-sys    { background: #fdeaea; border: 2px solid #d9534f; }
+
+    /* ── Key Point Pills ── */
+    .pill {
+      display: inline-block;
+      background: #2176c7;
+      color: #fff;
+      border-radius: 14px;
+      padding: 2px 11px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin: 2px 2px;
+    }
+    .pill-orange { background: #f0a500; color: #1a1a2e; }
+    .pill-red    { background: #d9534f; }
+    .pill-green  { background: #28a745; }
+
+    /* ── Divider ── */
+    hr { border: none; border-top: 1.5px solid #dce4ef; margin: 24px 0; }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      font-size: 0.78rem;
+      color: #888;
+      margin-top: 36px;
+      padding-top: 14px;
+      border-top: 1px solid #dce4ef;
+    }
+
+    /* ── Print ── */
+    @media print {
+      body { background: #fff; }
+      .page { box-shadow: none; margin: 0; padding: 20px; }
+      .header-band { border-radius: 0; margin: -20px -20px 20px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══════════════════════ HEADER ══════════════════════ -->
+  <div class="header-band">
+    <h1>Complications and Sequelae of Tuberculosis
+      <span class="badge">10 Marks</span>
+    </h1>
+    <div class="meta">
+      Respiratory Medicine &nbsp;|&nbsp; Based on: Sharma &amp; Mohan — Textbook of TB &amp; NTM Diseases &nbsp;|&nbsp; India NTEP Guidelines
+    </div>
+  </div>
+
+  <!-- ══════════════════════ INTRODUCTION ══════════════════════ -->
+  <h2>1. Introduction</h2>
+  <div class="box box-blue">
+    <ul>
+      <li>Despite effective chemotherapy, pulmonary TB leads to a variety of <strong>short- and long-term</strong> health consequences.</li>
+      <li>Complications arise due to: <strong>structural damage</strong>, <strong>vascular compromise</strong>, <strong>immune-mediated injury</strong>, and <strong>drug-related paradoxical reactions</strong>.</li>
+      <li>India carries the <strong>highest global TB burden</strong> (one-fifth of global incidence), making TB complications a major public health concern.</li>
+      <li>Complications are classified as <strong>Local</strong> (Pulmonary + Pleural) and <strong>Systemic</strong>.</li>
+    </ul>
+  </div>
+
+  <!-- ══════════════════════ CLASSIFICATION TABLE ══════════════════════ -->
+  <h2>2. Classification of Complications</h2>
+
+  <div class="class-grid">
+    <div class="class-card card-local">
+      <h4>&#128261; Local Complications</h4>
+      <strong>Pulmonary:</strong>
+      <ul>
+        <li>Haemoptysis</li>
+        <li>Open-Negative Syndrome</li>
+        <li>Aspergilloma (Mycetoma)</li>
+        <li>End-stage lung destruction</li>
+        <li>Scar carcinoma</li>
+        <li>Tubercular laryngitis</li>
+        <li>Tracheobronchial stenosis</li>
+        <li>Right middle lobe syndrome</li>
+        <li>Post-TB bronchiectasis</li>
+        <li>Broncholithiasis</li>
+        <li>COPD / Obstructive airway disease</li>
+        <li>Calcification</li>
+      </ul>
+      <strong>Pleural:</strong>
+      <ul>
+        <li>Dry pleurisy &amp; Pleural effusion</li>
+        <li>Tubercular empyema</li>
+        <li>Bronchopleural fistula</li>
+        <li>Pneumothorax</li>
+        <li>Fibrothorax / Pleural thickening</li>
+      </ul>
+    </div>
+    <div class="class-card card-sys">
+      <h4>&#9760; Systemic Complications</h4>
+      <ul>
+        <li>Cor pulmonale</li>
+        <li>Chronic respiratory failure (Type I &amp; II)</li>
+        <li>Pulmonary hypertension</li>
+        <li>Secondary amyloidosis</li>
+        <li>ARDS</li>
+        <li>Sepsis (TB-related)</li>
+        <li>Death</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr/>
+
+  <!-- ══════════════════════ HAEMOPTYSIS ══════════════════════ -->
+  <h2>3. Haemoptysis</h2>
+
+  <div class="box box-orange">
+    <strong>Definition:</strong> Expectoration of blood originating from the <em>lower respiratory tract</em>.<br/>
+    <strong>Incidence:</strong> 30–35% of pulmonary TB patients &nbsp;|&nbsp; TB was the cause in 55.7% of haemoptysis cases in a Delhi TB clinic study.
+  </div>
+
+  <h3>A. Causes of Haemoptysis in TB</h3>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Cause</th><th>Mechanism</th></tr>
+      <tr><td>Rasmussen's Aneurysm</td><td>Pseudoaneurysm of pulmonary artery within cavity wall → rupture → <em>massive haemoptysis</em></td></tr>
+      <tr><td>Bleeding from cavity wall</td><td>Dilated bronchial arteries (systemic pressure) lining cavity erode</td></tr>
+      <tr><td>Post-TB bronchiectasis</td><td>Dilated bronchial vessels in ectatic airways bleed</td></tr>
+      <tr><td>Aspergilloma</td><td>Mechanical friction, endotoxin, anticoagulant factor from Aspergillus</td></tr>
+      <tr><td>Broncholith / Cavernolith</td><td>Calcified node erodes bronchial/vascular wall</td></tr>
+      <tr><td>Scar carcinoma</td><td>Tumour neovascularisation in old TB scar</td></tr>
+      <tr><td>Direct erosion by granulomas</td><td>Granulomatous inflammation erodes capillaries/arterioles</td></tr>
+      <tr><td>TB endobronchitis</td><td>Mucosal inflammation with vascular engorgement</td></tr>
+    </table>
+  </div>
+
+  <h3>B. Pathogenesis Flowchart — Haemoptysis</h3>
+  <div class="flowchart">
+    <div class="fc-box fc-orange">Mycobacterium tuberculosis → Cavitary Disease</div>
+    <div class="fc-arrow">&#8595;</div>
+    <div class="fc-box fc-blue">Granulomatous inflammation + Caseous necrosis in cavity wall</div>
+    <div class="fc-arrow">&#8595;</div>
+    <div class="fc-row">
+      <div class="fc-col">
+        <div class="fc-box fc-grey" style="font-size:0.78rem;">Dilated bronchial arteries<br/>(systemic pressure)</div>
+        <div class="fc-arrow">&#8595;</div>
+        <div class="fc-box fc-grey" style="font-size:0.78rem;">Rasmussen's Aneurysm<br/>(pseudoaneurysm)</div>
+      </div>
+      <div class="fc-col">
+        <div class="fc-box fc-grey" style="font-size:0.78rem;">Direct erosion of<br/>capillaries by granuloma</div>
+      </div>
+      <div class="fc-col">
+        <div class="fc-box fc-grey" style="font-size:0.78rem;">Secondary fungal ball<br/>(Aspergilloma) in cavity</div>
+      </div>
+    </div>
+    <div class="fc-arrow">&#8595;</div>
+    <div class="fc-box fc-red">HAEMOPTYSIS (Streaky → Massive)<br/><small>Life-threatening if &gt;100–200 mL (dead-space volume)</small></div>
+  </div>
+
+  <h3>C. Management of Haemoptysis</h3>
+  <div class="box box-green">
+    <ul>
+      <li><strong>Mild:</strong> Bed rest, foot-end elevation, lateral decubitus (affected side down), sedation, IV access.</li>
+      <li><strong>Moderate:</strong> Blood grouping &amp; cross-match, transfusion if needed, broad-spectrum antibiotics if secondary infection suspected, ATT for active TB.</li>
+      <li><strong>Massive (&gt;600 mL/24h):</strong>
+        <ul>
+          <li><strong>Bronchial Artery Embolisation (BAE)</strong> — first-line life-saving procedure (success rate 96.4%, Shin et al. 2011).</li>
+          <li>Flexible bronchoscopy — localisation + endobronchial tamponade.</li>
+          <li>Double-lumen intubation to protect contralateral lung.</li>
+          <li>Surgery (lobectomy/pneumonectomy) — last resort.</li>
+        </ul>
+      </li>
+    </ul>
+    <div>Mortality from untreated massive haemoptysis: <span class="pill pill-red">&gt;50%</span></div>
+  </div>
+
+  <hr/>
+
+  <!-- ══════════════════════ ASPERGILLOMA ══════════════════════ -->
+  <h2>4. Aspergilloma (Mycetoma / Fungus Ball)</h2>
+
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Feature</th><th>Details</th></tr>
+      <tr><td>Definition</td><td>Mass of fungal hyphal material growing in a pre-existing lung cavity</td></tr>
+      <tr><td>Organism</td><td><em>Aspergillus fumigatus</em> (most common); also Zygomycetes, Fusarium</td></tr>
+      <tr><td>Incidence</td><td>11–17% of healed TB cavities ≥2.5 cm (British TB Association)</td></tr>
+      <tr><td>Predisposing cavities</td><td>TB (most common), sarcoidosis, bronchial cysts, bullae, pulmonary infarction</td></tr>
+      <tr><td>Symptoms</td><td>Haemoptysis (most common, 5–90%), cough, weight loss, fever; often <strong>asymptomatic</strong></td></tr>
+      <tr><td>Radiology</td><td><strong>Air-crescent sign / Monad's sign</strong> — mobile mass with crescent of air; changes position with posture</td></tr>
+      <tr><td>Serology</td><td>Serum IgG precipitins to Aspergillus: positive in <strong>~100%</strong> of cases</td></tr>
+      <tr><td>Sputum culture</td><td>Positive in only ~50% of cases</td></tr>
+      <tr><td>Treatment</td><td>
+        <ul>
+          <li>Asymptomatic: Watchful waiting</li>
+          <li>Haemoptysis: BAE (temporary; high recurrence due to collaterals)</li>
+          <li>Antifungals: Itraconazole/Voriconazole — partial/complete resolution in 60%</li>
+          <li>Surgery: Definitive; mortality 7–23%; reserved for recurrent/massive haemoptysis with adequate reserve</li>
+        </ul>
+      </td></tr>
+    </table>
+  </div>
+
+  <div class="box box-orange">
+    <strong>Poor Prognosis Factors:</strong> Severe underlying disease &bull; Increasing lesion size &bull; Immunocompromised state (HIV, steroids, DM) &bull; Underlying sarcoidosis &bull; Rising Aspergillus-specific IgG titres.
+  </div>
+
+  <hr/>
+
+  <!-- ══════════════════════ PLEURAL COMPLICATIONS ══════════════════════ -->
+  <h2>5. Pleural Complications</h2>
+
+  <h3>A. Tuberculous Pleural Effusion</h3>
+  <ul>
+    <li>60–70% of exudative pleural effusions are tubercular in origin in endemic regions.</li>
+    <li><strong>Pathogenesis:</strong> Rupture of subpleural caseous focus → TB antigen enters pleural space → delayed hypersensitivity → lymphocytic exudate.</li>
+    <li><strong>Clinical:</strong> Usually unilateral; acute onset mimicking bacterial pneumonia; cough (70%), chest pain (75%), fever.</li>
+  </ul>
+
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Pleural Fluid Analysis Parameter</th><th>Finding in TB Effusion</th></tr>
+      <tr><td>Appearance</td><td>Serous exudate; serosanguineous in &lt;10%</td></tr>
+      <tr><td>Protein</td><td>&gt;4 g/dL (exudate by Light's criteria)</td></tr>
+      <tr><td>LDH</td><td>Pleural/serum ratio &gt;0.6 or LDH &gt;200 IU</td></tr>
+      <tr><td>Leucocytes</td><td>&lt;5000/mL; <strong>lymphocytes &gt;90–95%</strong></td></tr>
+      <tr><td>Mesothelial cells</td><td>&lt;10 per 1000 WBC (virtually absent)</td></tr>
+      <tr><td>Glucose / pH</td><td>Low glucose &lt;60 mg/dL and pH &lt;7.30 in ~20%; pH &gt;7.40 virtually excludes TB</td></tr>
+      <tr><td>AFB smear</td><td>Positive &lt;10%</td></tr>
+      <tr><td>Culture</td><td>Positive in 25–70%</td></tr>
+      <tr><td>ADA level</td><td><strong>&gt;40 U/L</strong> (highly sensitive); combined with lymphocytosis = strong TB evidence</td></tr>
+      <tr><td>Pleural biopsy</td><td>Best single test; granuloma in 50–80%; culture grows MTB in 55–80%</td></tr>
+      <tr><td>CBNAAT / TB-PCR</td><td>Sensitivity only ~62%; specificity 98% (Pai et al. meta-analysis)</td></tr>
+    </table>
+  </div>
+
+  <h3>B. Spontaneous Pneumothorax</h3>
+  <ul>
+    <li>Prevalence: 1–15% in hospitalised TB patients.</li>
+    <li><strong>Causes:</strong> Rupture of subpleural caseous focus / superficial cavity / bulla/bleb secondary to fibrosis.</li>
+    <li>More common in <strong>males</strong>, right side, middle-aged; steroid use increases risk.</li>
+    <li><strong>Management:</strong>
+      <ul>
+        <li>All patients → Intercostal tube (ICT) drainage + ATT + antibiotics.</li>
+        <li>Mean tube duration: 17–50 days (longer due to extensive destruction).</li>
+        <li>Pleurodesis (betadine/doxycycline) once lung expands.</li>
+        <li>Surgery (lobectomy, pneumonectomy, decortication) if lung fails to re-expand; delay till 6 weeks of ATT.</li>
+        <li>Mortality: ~10%.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>C. Tubercular Empyema, Fibrothorax &amp; Bronchopleural Fistula</h3>
+
+  <div class="flowchart">
+    <div class="fc-box fc-orange">Superficial Lung Cavity / Pott's Disease / Paratracheal Glands</div>
+    <div class="fc-arrow">&#8595;</div>
+    <div class="fc-box fc-blue">Caseous material enters pleural cavity</div>
+    <div class="fc-arrow">&#8595;</div>
+    <div class="fc-box fc-red">TUBERCULAR EMPYEMA — purulent pleural fluid + MTB</div>
+    <div class="fc-arrow">&#8595;</div>
+    <div class="fc-row">
+      <div class="fc-col">
+        <div class="fc-box fc-purple" style="font-size:0.79rem;">Untreated / Chronic<br/>&#8595;<br/>FIBROTHORAX<br/>(Pleural Peel)<br/>— Restrictive Defect</div>
+      </div>
+      <div class="fc-col">
+        <div class="fc-box fc-red" style="font-size:0.79rem;">Rupture through chest wall<br/>(Poverty / Neglect)<br/>&#8595;<br/>EMPYEMA NECESSITANS</div>
+      </div>
+      <div class="fc-col">
+        <div class="fc-box fc-grey" style="font-size:0.79rem;">Cavity ruptures into pleura<br/>&#8595;<br/>BRONCHOPLEURAL FISTULA<br/>(BPF)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="box box-red">
+    <strong>Hazards of Bronchopleural Fistula (BPF):</strong>
+    <ul>
+      <li>Free bacterial access to pleural space → superinfection.</li>
+      <li>Risk of <strong>fulminant pneumonia</strong> from infected material entering tracheobronchial tree.</li>
+      <li>Chronicity → fibrothorax.</li>
+      <li><strong>Fatal:</strong> Massive aspiration into contralateral bronchus may drown the patient.</li>
+      <li>Drug resistance may develop in pleural space MTB.</li>
+    </ul>
+    <strong>Management (Jain's 4-Stage Approach):</strong>
+    <ol style="margin-left:16px;">
+      <li>Closed ICT drainage + ATT</li>
+      <li>Decortication / Pleuro-pneumonectomy / Pleuro-lobectomy</li>
+      <li>Saucerisation + Fistula closure + Muscle graft</li>
+      <li>Thoracoplasty</li>
+    </ol>
+  </div>
+
+  <hr/>
+
+  <!-- ══════════════════════ COR PULMONALE ══════════════════════ -->
+  <h2>6. Cor Pulmonale in Pulmonary TB</h2>
+
+  <div class="box box-blue">
+    <strong>Definition:</strong> Right ventricular hypertrophy and dilatation secondary to pulmonary arterial hypertension from intrinsic lung/thoracic disease (right heart failure secondary to left heart disease excluded).
+  </div>
+
+  <h3>Pathogenesis</h3>
+  <div class="flowchart">
+    <div class="fc-box fc-orange">Extensive Pulmonary TB</div>
+    <div class="fc-arrow">&#8595;</div>
+    <div class="fc-box fc-blue">Parenchymal destruction + Fibrosis + Bronchiectasis + Fibrothorax</div>
+    <div class="fc-arrow">&#8595;</div>
+    <div class="fc-row">
+      <div class="fc-col">
+        <div class="fc-box fc-grey" style="font-size:0.79rem;">Obliteration of<br/>pulmonary vascular bed</div>
+      </div>
+      <div class="fc-col">
+        <div class="fc-box fc-grey" style="font-size:0.79rem;">Hypoxic<br/>vasoconstriction</div>
+      </div>
+      <div class="fc-col">
+        <div class="fc-box fc-grey" style="font-size:0.79rem;">Thoracic cage<br/>restriction</div>
+      </div>
+    </div>
+    <div class="fc-arrow">&#8595;</div>
+    <div class="fc-box fc-purple">&#8593; Pulmonary Vascular Resistance → Pulmonary Arterial Hypertension</div>
+    <div class="fc-arrow">&#8595;</div>
+    <div class="fc-box fc-red">COR PULMONALE (RV Hypertrophy + Dilatation)</div>
+    <div class="fc-arrow">&#8595;</div>
+    <div class="fc-box fc-red">Right Ventricular Failure → Death</div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Investigation</th><th>Finding in Cor Pulmonale (Post-TB)</th></tr>
+      <tr><td>ECG</td><td>P-pulmonale, Right axis deviation, rSR' in V1, Right bundle branch block</td></tr>
+      <tr><td>CXR</td><td>Enlarged right ventricle, dilated main pulmonary arteries, peripheral pruning</td></tr>
+      <tr><td>2D Echo</td><td>RA enlargement, RV dilatation, ↑TR jet velocity, ↑RVSP, RVH</td></tr>
+      <tr><td>Pulmonary artery pressure</td><td>Mean &gt;20 mmHg (normal 13–18 mmHg in adults)</td></tr>
+    </table>
+  </div>
+
+  <ul>
+    <li>Incidence in TB patients: <strong>10–47.5%</strong> (Agarwal 15.8%; Chetterjee 47.5%).</li>
+    <li>Once established → <strong>progressive and poor prognosis</strong>.</li>
+    <li>Management: Treat secondary infection, O₂ therapy (reduces PAH), PEEP ventilation for hypoxia.</li>
+  </ul>
+
+  <hr/>
+
+  <!-- ══════════════════════ OTHER COMPLICATIONS ══════════════════════ -->
+  <h2>7. Other Important Complications</h2>
+
+  <h3>A. Post-TB Bronchiectasis</h3>
+  <ul>
+        <li>Mechanism: Atelectasis → fibrosis → traction bronchiectasis; post-obstructive dilatation from enlarged lymph nodes.</li>
+    <li>Location: Upper lobes predominantly (unlike idiopathic bronchiectasis which affects lower lobes).</li>
+    <li>Features: Recurrent haemoptysis, chronic productive cough, recurrent chest infections.</li>
+    <li>Diagnosis: HRCT chest — gold standard (cylindrical, varicose, or saccular bronchiectasis).</li>
+    <li>Management: Postural drainage, physiotherapy, antibiotics for exacerbations, surgery for localised disease with recurrent haemoptysis.</li>
+  </ul>
+
+  <h3>B. Post-TB COPD / Obstructive Airway Disease</h3>
+  <ul>
+    <li>TB causes significant and often <strong>irreversible airflow obstruction</strong> independent of smoking.</li>
+    <li>Prevalence: 20–68% of post-TB patients show obstructive spirometry (Plit et al.).</li>
+    <li>Mechanisms:
+      <ul>
+        <li>Bronchostenosis from endobronchial granulomas and fibrosis.</li>
+        <li>Destruction of alveolar walls → emphysema.</li>
+        <li>Recurrent post-TB bronchial infections → airway remodelling.</li>
+        <li>Fibro-cavitary disease → loss of lung volume.</li>
+      </ul>
+    </li>
+    <li>Spirometry: FEV₁/FVC &lt;0.70; FEV₁ progressively reduced with severity.</li>
+    <li>NTEP Guidance: All post-TB patients should be assessed for <strong>PTLD (Post-TB Lung Disease)</strong> at completion of treatment.</li>
+    <li>Management: Bronchodilators (SABA, LABA, LAMA), ICS if reversibility; pulmonary rehabilitation.</li>
+  </ul>
+
+  <h3>C. Scar Carcinoma</h3>
+  <div class="box box-red">
+    <ul>
+      <li>Adenocarcinoma arising at the periphery of old TB fibrotic scars.</li>
+      <li>Risk: 2–5 times higher than general population for development of lung cancer.</li>
+      <li>Mechanisms: Chronic inflammation → DNA damage → oncogene activation (KRAS, p53 mutations).</li>
+      <li>Clinical clue: <strong>New opacity appearing in an old calcified/fibrotic lesion</strong> — always suspect scar carcinoma.</li>
+      <li>Investigations: PET-CT, CBNAAT (to exclude re-activation), biopsy with histopathology.</li>
+      <li>Management: Surgical resection / chemoradiotherapy as for primary lung cancer.</li>
+    </ul>
+  </div>
+
+  <h3>D. Tracheobronchial Complications</h3>
+
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Complication</th><th>Mechanism</th><th>Consequence</th></tr>
+      <tr><td>Endobronchial TB / Stenosis</td><td>Spread of granulomatous inflammation to bronchial mucosa → fibrous stricture</td><td>Atelectasis, obstructive pneumonia, post-obstructive bronchiectasis</td></tr>
+      <tr><td>Right Middle Lobe (RML) Syndrome</td><td>Enlarged paratracheal / hilar nodes compress RML bronchus (narrow angle; poor collateral ventilation)</td><td>Chronic collapse/consolidation of RML</td></tr>
+      <tr><td>Broncholithiasis</td><td>Calcified lymph node erodes into bronchus → calcified fragment in airway lumen</td><td>Cough, haemoptysis, obstructive pneumonia, bronchoesophageal fistula</td></tr>
+      <tr><td>Tracheo-oesophageal fistula</td><td>Caseous mediastinal LN erodes both trachea and oesophagus simultaneously</td><td>Aspiration pneumonia, recurrent chest infections, death</td></tr>
+    </table>
+  </div>
+
+  <h3>E. Pulmonary Calcification</h3>
+  <ul>
+    <li>Residual lesion — Ghon focus calcification → <strong>Ranke complex</strong> (Ghon focus + calcified hilar node).</li>
+    <li>Diffuse parenchymal calcification after miliary TB: <strong>post-TB miliary calcifications</strong>.</li>
+    <li>Eggshell calcification of hilar lymph nodes: classical CXR appearance in TB (also seen in silicosis).</li>
+    <li>Calcification per se is benign; clinical relevance: broncholithiasis, confusion on imaging with malignancy.</li>
+  </ul>
+
+  <h3>F. Secondary (AA) Amyloidosis</h3>
+  <ul>
+    <li>Complicates chronic/untreated TB, especially fibro-cavitary or bone TB.</li>
+    <li>Serum Amyloid A (SAA) — an acute phase reactant — deposits in kidney, liver, spleen as amyloid fibrils.</li>
+    <li>Presents as: Nephrotic syndrome → chronic renal failure; hepatosplenomegaly.</li>
+    <li>Diagnosis: Congo red stain of tissue biopsy (apple-green birefringence under polarised light).</li>
+    <li>Prognosis: Reversal possible with successful ATT if renal function not yet significantly compromised.</li>
+  </ul>
+
+  <hr/>
+
+  <!-- ══════════════════════ COMPLICATIONS IN SPECIAL GROUPS ══════════════════════ -->
+  <h2>8. Complications in Special Groups</h2>
+
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Group</th><th>Increased Risk of Complication</th><th>Additional NTEP Guidance</th></tr>
+      <tr><td>HIV co-infection</td><td>Dissemination, ARDS, CNS TB, Immune Reconstitution Inflammatory Syndrome (IRIS), higher mortality</td><td>Start ATT first, ART after 2–8 weeks; monitor CD4 &amp; viral load; Co-trimoxazole prophylaxis</td></tr>
+      <tr><td>Diabetes Mellitus (DM)</td><td>Cavitation ↑, smear positivity ↑, drug resistance ↑, relapse ↑, treatment failure ↑</td><td>Bi-directional screening (DM in TB; TB in DM); optimise glycaemic control; extends ATT if needed</td></tr>
+      <tr><td>Drug-Resistant TB (DR-TB)</td><td>Extensive lung destruction; higher incidence of fibrosis, bronchiectasis, cor pulmonale; drug toxicity</td><td>BPaL regimen (Bedaquiline + Pretomanid + Linezolid) or NTEP DR-TB regimen 2023</td></tr>
+      <tr><td>Children</td><td>Miliary TB, TB meningitis, pleural effusion, segmental collapse</td><td>Weight-based dosing; BCG vaccination protects against severe forms</td></tr>
+      <tr><td>Elderly</td><td>Atypical presentation, delayed diagnosis, drug toxicity (hepatotoxicity, neuropathy), poor reserve</td><td>Close monitoring of LFTs, creatinine; Pyridoxine supplementation</td></tr>
+      <tr><td>Pregnancy</td><td>Congenital TB (rare), placental involvement, pre-term labour, postpartum reactivation</td><td>ATT safe in pregnancy (Streptomycin CONTRAINDICATED); avoid XDR-TB drugs with teratogenicity</td></tr>
+    </table>
+  </div>
+
+  <hr/>
+
+  <!-- ══════════════════════ DRUG-RELATED COMPLICATIONS ══════════════════════ -->
+  <h2>9. Drug-Related Complications of ATT</h2>
+
+  <div class="box box-purple">
+    <strong>Note:</strong> Per NTEP, ATT drug reactions are managed as per the <em>Adverse Drug Reaction (ADR)</em> algorithm; routine LFTs, uric acid, vision, and audiometry monitoring is mandated for second-line drugs.
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Drug</th><th>Major Complication</th><th>NTEP Action</th></tr>
+      <tr><td>Isoniazid (H)</td><td>Hepatotoxicity (up to 0.6%), peripheral neuropathy, lupus-like syndrome, psychosis</td><td>Stop H if LFTs &gt;5× ULN; give Pyridoxine 10 mg/day prophylaxis</td></tr>
+      <tr><td>Rifampicin (R)</td><td>Hepatotoxicity, thrombocytopenia, orange discolouration, flu syndrome (intermittent dosing), rifampicin resistance if inadequate</td><td>Stop R if LFTs &gt;5× ULN; check platelet count</td></tr>
+      <tr><td>Pyrazinamide (Z)</td><td>Hepatotoxicity (most hepatotoxic of first-line drugs), hyperuricaemia, gout, arthralgia</td><td>Stop Z if LFTs &gt;3× ULN; allopurinol for gout; avoid in severe liver disease</td></tr>
+      <tr><td>Ethambutol (E)</td><td>Retrobulbar neuritis → decreased visual acuity, loss of colour vision (red-green)</td><td>Baseline and monthly visual acuity + colour vision; stop immediately if optic neuritis develops</td></tr>
+      <tr><td>Streptomycin (S)</td><td>Ototoxicity (8th nerve), nephrotoxicity, neuromuscular blockade</td><td>Audiometry monitoring; avoid in renal failure, pregnancy; dose-adjust</td></tr>
+      <tr><td>Bedaquiline (Bdq)</td><td>QTc prolongation → fatal arrhythmia, hepatotoxicity, nausea</td><td>Baseline + monthly ECG; avoid other QTc-prolonging drugs; LFT monitoring</td></tr>
+      <tr><td>Linezolid (Lzd)</td><td>Myelosuppression (anaemia, thrombocytopenia), lactic acidosis, peripheral + optic neuropathy</td><td>Weekly CBCs initially; pyridoxine; ophthalmology referral if vision changes</td></tr>
+    </table>
+  </div>
+
+  <h3>Hepatotoxicity — NTEP Algorithm</h3>
+  <div class="flowchart">
+    <div class="fc-box fc-blue">Patient on ATT → Jaundice / Nausea / Abdominal Pain</div>
+    <div class="fc-arrow">&#8595;</div>
+    <div class="fc-box fc-orange">Check LFTs</div>
+    <div class="fc-arrow">&#8595;</div>
+    <div class="fc-row">
+      <div class="fc-col">
+        <div class="fc-box fc-green" style="font-size:0.79rem;">AST/ALT &lt;3× ULN<br/>Asymptomatic<br/>&#8595;<br/>Continue ATT<br/>Monitor fortnightly</div>
+      </div>
+      <div class="fc-col">
+        <div class="fc-box fc-orange" style="font-size:0.79rem;">AST/ALT 3–5× ULN<br/>Symptomatic<br/>&#8595;<br/>Stop H, R, Z<br/>Continue E + S<br/>Wait for LFT recovery</div>
+      </div>
+      <div class="fc-col">
+        <div class="fc-box fc-red" style="font-size:0.79rem;">AST/ALT &gt;5× ULN<br/>or Total Bili &gt;3 mg/dL<br/>&#8595;<br/>STOP ALL ATT<br/>Refer Hepatologist<br/>Monitor LFTs</div>
+      </div>
+    </div>
+    <div class="fc-arrow">&#8595;</div>
+    <div class="fc-box fc-green">LFT Normalised → Reintroduce ATT Sequentially<br/><small>R (Day 1) → H (Day 7) → Z (Day 14, if tolerated)</small></div>
+  </div>
+
+  <hr/>
+
+  <!-- ══════════════════════ PARADOXICAL REACTIONS ══════════════════════ -->
+  <h2>10. Paradoxical Reactions / Immune Reconstitution Inflammatory Syndrome (IRIS)</h2>
+
+  <div class="box box-orange">
+    <ul>
+      <li><strong>Definition:</strong> Temporary worsening of TB lesions despite bacteriologically effective ATT, due to immune-mediated inflammation.</li>
+      <li><strong>Incidence:</strong> HIV-negative TB: 2–23%; HIV-positive TB (TB-IRIS): 8–43%.</li>
+      <li><strong>Pathogenesis:</strong> ATT → rapid reduction in mycobacterial antigen load → paradoxical overshooting immune response → local inflammation/exudation at TB foci.</li>
+      <li><strong>Manifestations:</strong> Enlarging lymph nodes, worsening pulmonary infiltrates, new effusion, CNS TB (raised ICP), new fever.</li>
+      <li><strong>Management:</strong>
+        <ul>
+          <li>Continue ATT — do NOT interpret as treatment failure.</li>
+          <li>NSAIDS for mild reactions.</li>
+          <li>Prednisolone 1–1.5 mg/kg/day (tapered over 6–12 weeks) for severe or CNS IRIS.</li>
+          <li>Thalidomide for refractory CNS TB paradoxical reactions (limited evidence).</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <hr/>
+
+  <!-- ══════════════════════ NTEP KEY DIRECTIVES ══════════════════════ -->
+  <h2>11. NTEP Guidelines — Key Directives for Prevention of Complications</h2>
+
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>NTEP Mandate</th><th>Rationale</th></tr>
+      <tr><td>Nikshay Poshan Yojana — nutritional support ₹500/month</td><td>Malnutrition is the single biggest risk factor for TB complications and relapse</td></tr>
+      <tr><td>Universal Drug Susceptibility Testing (UDST) at diagnosis</td><td>Early identification of drug resistance prevents treatment failure and lung destruction</td></tr>
+      <tr><td>CBNAAT / Truenat as first-line diagnostic</td><td>Rapid diagnosis ↓ delay → ↓ complications from untreated/inadequately treated disease</td></tr>
+      <tr><td>DOT (Directly Observed Therapy) — daily regimen</td><td>Ensures adherence; prevents drug resistance and relapse</td></tr>
+      <tr><td>Shorter oral DR-TB regimens (BPaL regimen 6–9 months)</td><td>Reduces duration of toxicity exposure and lung destruction in DR-TB</td></tr>
+      <tr><td>TB Preventive Therapy (TPT) for contacts + PLHIV</td><td>Prevents primary infection → prevents all downstream complications</td></tr>
+      <tr><td>Post-treatment follow-up — 2-year surveillance</td><td>Early detection of relapse, PTLD, aspergilloma, COPD, malignancy</td></tr>
+      <tr><td>Comprehensive management of co-morbidities (DM, HIV, malnutrition)</td><td>Reduces severity of disease and complications</td></tr>
+    </table>
+  </div>
+
+  <hr/>
+
+  <!-- ══════════════════════ SUMMARY TABLE ══════════════════════ -->
+  <h2>12. Summary Table — Complications at a Glance</h2>
+
+  <div class="tbl-wrap">
+    <table>
+      <tr>
+        <th>Complication</th>
+        <th>Key Feature</th>
+        <th>Best Investigation</th>
+        <th>Treatment of Choice</th>
+      </tr>
+      <tr><td>Haemoptysis (massive)</td><td>Rasmussen's aneurysm rupture</td><td>Bronchial arteriography</td><td>Bronchial Artery Embolisation (BAE)</td></tr>
+      <tr><td>Aspergilloma</td><td>Air-crescent sign (Monad's sign) on CXR/HRCT</td><td>IgG precipitins + HRCT</td><td>Itraconazole / Surgery</td></tr>
+      <tr><td>TB Empyema</td><td>MTB in purulent pleural fluid</td><td>Pleural fluid culture + ADA</td><td>ICT drainage + ATT + decortication</td></tr>
+      <tr><td>Bronchopleural Fistula</td><td>Persistent air leak, cough on lateral tilt</td><td>Bronchoscopy / CT Bronchography</td><td>ICT → Decortication / Thoracoplasty</td></tr>
+      <tr><td>Spontaneous Pneumothorax</td><td>Sudden dyspnoea, absent breath sounds</td><td>CXR / USG chest</td><td>ICT + ATT; surgery if fails</td></tr>
+      <tr><td>Cor Pulmonale</td><td>RVH, raised JVP, pedal oedema</td><td>2D Echocardiography</td><td>ATT + O₂ + diuretics + treat PAH</td></tr>
+      <tr><td>Post-TB COPD</td><td>Irreversible airflow obstruction</td><td>Spirometry (post-bronchodilator)</td><td>Bronchodilators + pulmonary rehab</td></tr>
+      <tr><td>Post-TB Bronchiectasis</td><td>Upper lobe involvement (unlike idiopathic)</td><td>HRCT chest</td><td>Physiotherapy + antibiotics for exacerbations</td></tr>
+      <tr><td>Scar Carcinoma</td><td>New opacity in old scar</td><td>PET-CT + Biopsy</td><td>Surgery / Chemotherapy</td></tr>
+      <tr><td>AA Amyloidosis</td><td>Nephrotic syndrome in chronic TB</td><td>Tissue biopsy (Congo red)</td><td>Effective ATT to suppress SAA</td></tr>
+      <tr><td>TB-IRIS</td><td>Worsening despite good ATT response</td><td>Clinical exclusion of failure</td><td>Continue ATT + Prednisolone</td></tr>
+      <tr><td>Fibrothorax</td><td>Chronic pleural thickening, restrictive defect</td><td>CT chest + PFT</td><td>Decortication</td></tr>
+      <tr><td>ATT Hepatotoxicity</td><td>Jaundice, ↑ ALT/AST on ATT</td><td>LFTs, viral hepatitis serology</td><td>Stop offending drug(s); reintroduce sequentially</td></tr>
+      <tr><td>RML Syndrome</td><td>Chronic collapse of right middle lobe</td><td>CT chest / bronchoscopy</td><td>ATT + bronchoscopic dilatation</td></tr>
+    </table>
+  </div>
+
+  <hr/>
+
+  <!-- ══════════════════════ CONCLUSION ══════════════════════ -->
+  <h2>13. Conclusion</h2>
+  <div class="box box-green">
+    <ul>
+      <li>TB complications span a wide spectrum — from <strong>immediately life-threatening</strong> (massive haemoptysis, pneumothorax, ARDS, BPF) to <strong>chronic and debilitating</strong> (cor pulmonale, PTLD, bronchiectasis, amyloidosis).</li>
+      <li>Timely, complete, and supervised ATT (as mandated by NTEP) remains the <strong>single most effective intervention</strong> to prevent complications.</li>
+      <li>Post-TB follow-up is essential — the concept of <strong>PTLD (Post-TB Lung Disease)</strong> is now officially recognised by WHO (2020) and NTEP, acknowledging that successful TB cure does not equal full lung restoration.</li>
+      <li>Multi-disciplinary management — <strong>pulmonologist, thoracic surgeon, hepatologist, ophthalmologist, cardiologist</strong> — is required for optimal outcomes.</li>
+      <li>India's NTEP 2023 goal of <strong>TB elimination by 2025</strong> hinges on preventing complications through early diagnosis, universal DST, nutritional support, and systematic post-treatment surveillance.</li>
+    </ul>
+  </div>
+
+  <!-- ══════════════════════ REFERENCES ══════════════════════ -->
+  <h2>References</h2>
+  <div class="box box-blue" style="font-size:0.83rem;">
+    <ol>
+      <li>Sharma SK, Mohan A. <em>Textbook of Tuberculosis and Non-tuberculous Mycobacterial Diseases</em>. 3rd ed. Jaypee Brothers Medical Publishers; 2021.</li>
+      <li>Central TB Division, Ministry of Health and Family Welfare. <em>National Tuberculosis Elimination Programme (NTEP) — Technical and Operational Guidelines</em>. GoI; 2023.</li>
+      <li>Light RW. <em>Pleural Diseases</em>. 6th ed. Lippincott Williams &amp; Wilkins; 2013.</li>
+      <li>WHO. <em>Recommendations for Investigating Contacts of Persons with Infectious TB in Low- and Middle-Income Countries</em>. WHO; 2012.</li>
+      <li>WHO. <em>Global Tuberculosis Report 2023</em>. World Health Organization; 2023.</li>
+      <li>Jain NK. Post-TB complications and management. <em>Indian J Tuberc</em>. 2011;58(2):60–69.</li>
+      <li>Prasad R et al. Haemoptysis: management in the era of BAE. <em>Lung India</em>. 2019;36(1):45–52.</li>
+    </ol>
+  </div>
+
+  <!-- ══════════════════════ FOOTER ══════════════════════ -->
+  <div class="footer">
+    Complications of Tuberculosis &nbsp;|&nbsp; 10-Mark Answer &nbsp;|&nbsp; Respiratory Medicine &nbsp;|&nbsp;
+    Ref: Sharma &amp; Mohan 3rd ed. + NTEP Guidelines 2023 &nbsp;|&nbsp; Last updated: 2025
+  </div>
+
+</div><!-- end .page -->
+</body>
+</html>
