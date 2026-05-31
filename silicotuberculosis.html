@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Silicotuberculosis – 10 Marks</title>
+  <style>
+    /* ── Base ── */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f0f4f8;
+      color: #1a1a2e;
+      line-height: 1.7;
+      padding: 20px;
+    }
+
+    /* ── Header ── */
+    .header {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      color: white;
+      padding: 35px 30px;
+      border-radius: 14px;
+      margin-bottom: 28px;
+      text-align: center;
+      box-shadow: 0 6px 24px rgba(15,52,96,0.4);
+    }
+    .header h1 { font-size: 2.1em; letter-spacing: 1px; margin-bottom: 6px; }
+    .header p  { font-size: 1em; opacity: 0.85; }
+    .marks-badge {
+      display: inline-block;
+      background: #e94560;
+      color: white;
+      padding: 5px 18px;
+      border-radius: 20px;
+      font-weight: 700;
+      margin-top: 10px;
+      font-size: 0.95em;
+    }
+
+    /* ── Section cards ── */
+    .section {
+      background: white;
+      border-radius: 12px;
+      padding: 26px 28px;
+      margin-bottom: 22px;
+      box-shadow: 0 3px 14px rgba(0,0,0,0.08);
+      border-left: 5px solid #0f3460;
+    }
+    .section h2 {
+      color: #0f3460;
+      font-size: 1.25em;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 2px solid #e8eef5;
+      padding-bottom: 8px;
+    }
+    .section h2 .icon { font-size: 1.3em; }
+    .section h3 {
+      color: #16213e;
+      font-size: 1.05em;
+      margin: 14px 0 8px;
+    }
+
+    /* ── Lists ── */
+    ul { padding-left: 22px; margin: 6px 0 10px; }
+    ul li { margin-bottom: 5px; font-size: 0.97em; }
+    ul li::marker { color: #0f3460; }
+    ol { padding-left: 22px; }
+    ol li { margin-bottom: 5px; font-size: 0.97em; }
+
+    /* ── Tables ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 0.93em;
+    }
+    th {
+      background: #0f3460;
+      color: white;
+      padding: 10px 13px;
+      text-align: left;
+    }
+    td {
+      padding: 9px 13px;
+      border-bottom: 1px solid #dde3ec;
+    }
+    tr:nth-child(even) td { background: #f4f7fb; }
+    tr:hover td { background: #e8eef8; }
+    caption {
+      font-weight: 700;
+      color: #0f3460;
+      margin-bottom: 6px;
+      text-align: left;
+      font-size: 0.97em;
+    }
+
+    /* ── Flowchart ── */
+    .flowchart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      margin: 18px auto;
+      max-width: 540px;
+    }
+    .flow-box {
+      background: #0f3460;
+      color: white;
+      padding: 11px 24px;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 0.92em;
+      font-weight: 600;
+      width: 100%;
+      box-shadow: 0 3px 10px rgba(15,52,96,0.25);
+    }
+    .flow-box.alt { background: #e94560; }
+    .flow-box.green { background: #1a7a4a; }
+    .flow-box.amber { background: #b87800; }
+    .flow-box.light {
+      background: #e8eef8;
+      color: #0f3460;
+      border: 2px solid #0f3460;
+    }
+    .flow-arrow {
+      font-size: 1.5em;
+      color: #0f3460;
+      line-height: 1.1;
+      margin: 3px 0;
+    }
+    .flow-branch {
+      display: flex;
+      gap: 14px;
+      width: 100%;
+      justify-content: center;
+      margin: 3px 0;
+    }
+    .flow-branch .flow-box { flex: 1; }
+
+    /* ── Highlight boxes ── */
+    .highlight {
+      background: #fff8e1;
+      border-left: 4px solid #f9a825;
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin: 12px 0;
+      font-size: 0.93em;
+    }
+    .highlight.red {
+      background: #fdecea;
+      border-left-color: #e94560;
+    }
+    .highlight.blue {
+      background: #e8f0fe;
+      border-left-color: #0f3460;
+    }
+    .highlight.green {
+      background: #e6f4ea;
+      border-left-color: #1a7a4a;
+    }
+    .highlight strong { color: #0f3460; }
+
+    /* ── Definition box ── */
+    .def-box {
+      background: linear-gradient(135deg, #0f3460, #16213e);
+      color: white;
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 14px;
+      font-size: 0.97em;
+      line-height: 1.8;
+    }
+    .def-box span { color: #ffd700; font-weight: 700; }
+
+    /* ── Two-column grid ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 10px 0;
+    }
+    @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } }
+    .mini-card {
+      background: #f4f7fb;
+      border-radius: 8px;
+      padding: 12px 14px;
+      border-top: 3px solid #0f3460;
+    }
+    .mini-card h4 { color: #0f3460; margin-bottom: 6px; font-size: 0.95em; }
+    .mini-card ul { padding-left: 18px; }
+    .mini-card ul li { font-size: 0.9em; }
+
+    /* ── Mechanism diagram (inline SVG style) ── */
+    .mech-diagram {
+      background: #f4f7fb;
+      border-radius: 10px;
+      padding: 18px;
+      margin: 14px 0;
+    }
+    .mech-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 6px 0;
+    }
+    .mech-box {
+      background: white;
+      border: 2px solid #0f3460;
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 0.84em;
+      font-weight: 600;
+      color: #0f3460;
+      text-align: center;
+      min-width: 110px;
+    }
+    .mech-box.red-box { border-color: #e94560; color: #e94560; }
+    .mech-box.green-box { border-color: #1a7a4a; color: #1a7a4a; }
+    .mech-arrow { font-size: 1.3em; color: #555; }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      padding: 18px;
+      color: #555;
+      font-size: 0.85em;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════ HEADER ═══════════════════════════════ -->
+<div class="header">
+  <h1>Silicotuberculosis</h1>
+  <p>Occupational Lung Disease | Respiratory Medicine</p>
+  <div class="marks-badge">10 Marks Answer</div>
+</div>
+
+<!-- ═══════════════════════════════ 1. DEFINITION ═════════════════════════════ -->
+<div class="section">
+  <h2><span class="icon">📌</span>1. Definition &amp; Introduction</h2>
+  <div class="def-box">
+    <span>Silicotuberculosis</span> is defined as the <span>coexistence of silicosis and active tuberculosis</span>
+    in the same patient. Silicosis — an occupational fibrotic lung disease caused by inhalation of
+    <span>respirable free crystalline silicon dioxide (SiO₂)</span> — markedly increases susceptibility to
+    <em>Mycobacterium tuberculosis</em>, making silicotuberculosis one of the most important
+    occupational comorbid lung diseases globally.
+  </div>
+  <ul>
+    <li>Reported since the <strong>early 20th century</strong>; remains a major public health concern in low- and middle-income countries.</li>
+    <li>Prolonged silica exposure predisposes to TB <strong>even in the absence of radiological silicosis</strong>.</li>
+    <li>TB can complicate <em>simple silicosis</em> and accelerate it to <em>advanced/progressive massive fibrosis (PMF)</em>.</li>
+    <li>Covered under India's <strong>National Tuberculosis Elimination Programme (NTEP)</strong> as a priority comorbid condition.</li>
+  </ul>
+</div>
+
+<!-- ═══════════════════════════════ 2. SILICOSIS — BRIEF OVERVIEW ════════════ -->
+<div class="section">
+  <h2><span class="icon">🏭</span>2. Silicosis — Brief Overview</h2>
+
+  <h3>High-Risk Occupations</h3>
+  <div class="two-col">
+    <div class="mini-card">
+      <h4>Mining / Construction</h4>
+      <ul>
+        <li>Gold, coal, stone mining</li>
+        <li>Tunnelling, quarrying</li>
+        <li>Sand blasting</li>
+        <li>Well drilling</li>
+      </ul>
+    </div>
+    <div class="mini-card">
+      <h4>Industry</h4>
+      <ul>
+        <li>Ceramic &amp; glass production</li>
+        <li>Slate pencil / quartz grinding</li>
+        <li>Agate industry</li>
+        <li>Iron / non-ferrous metal smelting</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Clinical Forms of Silicosis</h3>
+  <table>
+    <caption>Table 1: Clinical Forms of Silicosis</caption>
+    <tr>
+      <th>Form</th><th>Exposure Duration</th><th>Onset</th><th>Key Features</th>
+    </tr>
+    <tr>
+      <td><strong>Acute (Silicoproteinosis)</strong></td>
+      <td>Weeks to 5 years (very high dose)</td>
+      <td>Rapid — months</td>
+      <td>Fever, weight loss, respiratory failure; often fatal; affects sandblasters</td>
+    </tr>
+    <tr>
+      <td><strong>Accelerated</strong></td>
+      <td>5–10 years (high dose)</td>
+      <td>5–10 years</td>
+      <td>Similar to chronic but rapidly progressive; middle &amp; lower zone involvement</td>
+    </tr>
+    <tr>
+      <td><strong>Chronic (Commonest)</strong></td>
+      <td>&gt;10 years (low dose)</td>
+      <td>Insidious</td>
+      <td>Asymptomatic early; small round opacities upper zones; egg-shell calcification</td>
+    </tr>
+  </table>
+
+  <h3>Characteristic Radiological Features of Silicosis</h3>
+  <ul>
+    <li><strong>Simple silicosis:</strong> Small rounded opacities — symmetrical, upper-zone predominance.</li>
+    <li><strong>Progressive Massive Fibrosis (PMF):</strong> Coalescent nodules &gt;1 cm; hilar structures pulled up; peripheral hypertranslucency with bullae.</li>
+    <li><strong>Egg-shell calcification</strong> of hilar and mediastinal lymph nodes — pathognomonic of silicosis.</li>
+    <li>Pleural thickening; diffuse interstitial fibrosis.</li>
+  </ul>
+</div>
+
+<!-- ═══════════════════════════════ 3. EPIDEMIOLOGY ════════════════════════════ -->
+<div class="section">
+  <h2><span class="icon">🌏</span>3. Epidemiology of Silicotuberculosis</h2>
+  <ul>
+    <li>TB occurs in <strong>20–25% of silicosis patients</strong> over their lifetime.</li>
+    <li>Risk of developing pulmonary TB is <strong>2.8–39 times higher</strong> in patients with silicosis vs healthy controls.</li>
+    <li>Risk of extra-pulmonary TB (EPTB) is <strong>3.7 times higher</strong>.</li>
+    <li>Relative risk of <strong>death from TB</strong> is <strong>3–6 fold greater</strong> in silicosis patients.</li>
+    <li><strong>Hong Kong:</strong> 27% incidence of TB over 5 years among 679 silicosis patients.</li>
+    <li><strong>China:</strong> 43% TB incidence in silicosis patients over 18-year follow-up.</li>
+    <li><strong>India:</strong> 3–7 times higher TB incidence in silicosis patients vs matched controls; slate pencil workers Madhya Pradesh — silicosis in 57%.</li>
+    <li>Increased risk continues <strong>lifelong even after cessation of silica exposure</strong>.</li>
+    <li>NTM (especially <em>M. kansasii</em>, <em>M. avium-intracellulare</em>) also co-exist in silicosis patients.</li>
+  </ul>
+
+  <div class="highlight red">
+    <strong>India-specific:</strong> States with highest burden — Madhya Pradesh, Chhattisgarh, Jharkhand, Gujarat, Rajasthan.
+    Unorganised sector workers are most affected with poor surveillance.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ 4. PATHOGENESIS ════════════════════════════ -->
+<div class="section">
+  <h2><span class="icon">🔬</span>4. Pathogenesis of Silicotuberculosis</h2>
+
+  <!-- Flowchart -->
+  <div class="flowchart">
+    <div class="flow-box">Inhalation of Crystalline Silica (SiO₂)</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box light">Deposition in Distal Airways &amp; Alveoli</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box">Phagocytosis by Alveolar Macrophages</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box alt">Lysosomal Damage → NALP3 Inflammasome Activation</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box light">↑ IL-1β, TNF-α secretion → Macrophage Apoptosis</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-branch">
+      <div class="flow-box amber">Fibroblast Activation → Fibrosis</div>
+      <div class="flow-box amber">Impaired Macrophage Bactericidal Function</div>
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box alt">↑ Susceptibility to M. tuberculosis Infection / Reactivation</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box green">SILICOTUBERCULOSIS</div>
+  </div>
+
+  <h3>Key Mechanisms</h3>
+  <table>
+    <caption>Table 2: Mechanisms of Increased TB Susceptibility in Silicosis</caption>
+    <tr>
+      <th>Mechanism</th><th>Details</th>
+    </tr>
+    <tr>
+      <td><strong>Macrophage dysfunction</strong></td>
+      <td>Silica impairs phagocytic function; causes macrophage apoptosis; reduces bactericidal activity</td>
+    </tr>
+    <tr>
+      <td><strong>NALP3 inflammasome</strong></td>
+      <td>Lysosomal damage activates NALP3 → IL-1β release → inflammatory cascade → fibrosis</td>
+    </tr>
+    <tr>
+      <td><strong>Surfactant Protein A</strong></td>
+      <td>Elevated in BAL; allows mycobacteria to enter macrophages without triggering cytotoxicity; inhibits reactive nitrogen species</td>
+    </tr>
+    <tr>
+      <td><strong>Iron sequestration hypothesis</strong></td>
+      <td>Silica crystals absorb body iron → low serum iron; mycobacteria use mycobactin/exochelin to mobilise iron from silicate surface → enhanced mycobacterial growth</td>
+    </tr>
+    <tr>
+      <td><strong>Nodule encapsulation</strong></td>
+      <td>Bacilli remain encapsulated within silicotic nodules → responsible for TB reactivation</td>
+    </tr>
+    <tr>
+      <td><strong>Lymphatic obstruction</strong></td>
+      <td>Macrophage accumulation in interstitial tissues → local fibrosis → impaired clearance of mycobacteria</td>
+    </tr>
+    <tr>
+      <td><strong>Cytokines (IL-1, TNF-α)</strong></td>
+      <td>TNF-α stimulates neutrophils → oxidant release → local damage; synergistic fibrosis with TB</td>
+    </tr>
+  </table>
+
+  <div class="highlight blue">
+    <strong>Synergistic effect:</strong> TB and silicosis together produce <em>more fibrosis</em> than either disease alone —
+    proliferative fibrous reaction with risk of PMF even in simple silicosis.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ 5. CLINICAL FEATURES ════════════════════════ -->
+<div class="section">
+  <h2><span class="icon">🩺</span>5. Clinical Features</h2>
+
+  <div class="highlight">
+    <strong>Diagnostic challenge:</strong> Symptoms of TB (cough, expectoration, wheeze, night sweats, weight loss,
+    fatigue, dyspnoea) overlap significantly with those of silicosis, making clinical detection of
+    concomitant TB difficult.
+  </div>
+
+  <ul>
+    <li>Presentation of TB in silicosis is <strong>similar to TB in the general population</strong>.</li>
+    <li>Weakness, fatigability, dyspnoea, and night sweats occur in <em>silicosis alone</em> — masking superimposed TB.</li>
+    <li>Haemoptysis, pleural effusion, rapid clinical deterioration — <strong>red flags</strong> for active TB.</li>
+    <li>NTM co-infection (especially <em>M. kansasii</em>) must be considered, particularly in HIV co-infected patients.</li>
+    <li>HIV + silicosis = <strong>profound susceptibility</strong> to <em>M. kansasii</em> disease.</li>
+  </ul>
+</div>
+
+<!-- ═══════════════════════════════ 6. DIAGNOSIS ═══════════════════════════════ -->
+<div class="section">
+  <h2><span class="icon">🔍</span>6. Diagnosis</h2>
+
+  <h3>Radiological Features Suggestive of TB in Silicosis</h3>
+  <table>
+    <caption>Table 3: Radiological Clues to Active TB Superimposed on Silicosis</caption>
+    <tr><th>#</th><th>Radiological Feature</th></tr>
+    <tr><td>1</td><td>Poorly demarcated infiltrates of variable size in <strong>apical area</strong> of either lung, not crossing lung fissures</td></tr>
+    <tr><td>2</td><td>Coalescence of nodules forming focal opacity <strong>&gt;1 cm</strong>, fibrotic mass, conglomerate massive shadowing</td></tr>
+    <tr><td>3</td><td>Opacities <strong>surrounding pre-existing silicotic nodules</strong></td></tr>
+    <tr><td>4</td><td>Adjacent emphysema with abrupt sharp border; <strong>cavity within a nodule</strong> (strongly suggests TB)</td></tr>
+    <tr><td>5</td><td>Rapid changes in radiographic picture on serial films</td></tr>
+    <tr><td>6</td><td>New <strong>pericardial or pleural effusion</strong></td></tr>
+    <tr><td>7</td><td>Bronchial stenosis — especially <strong>right middle lobe</strong></td></tr>
+    <tr><td>8</td><td>Distortion of lung parenchyma due to fibrosis</td></tr>
+  </table>
+
+  <!-- Diagnostic Flowchart -->
+  <h3>Diagnostic Approach — Flowchart</h3>
+  <div class="flowchart">
+    <div class="flow-box">Suspect TB in Silicosis Patient</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box light">History of silica exposure + Clinical symptoms + CXR</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-branch">
+      <div class="flow-box amber">Sputum AFB Smear (×3)</div>
+      <div class="flow-box amber">Sputum Culture (MGIT/LJ)</div>
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box light">If sputum negative / inconclusive ↓</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box">FOB + BAL + Trans-bronchial Lung Biopsy (TBLB)</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-branch">
+      <div class="flow-box green">Mycobacterial Culture</div>
+      <div class="flow-box green">CBNAAT / Line Probe Assay (DST)</div>
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box alt">Confirm Diagnosis → Start Anti-TB Treatment</div>
+  </div>
+
+  <h3>Bacteriological Considerations</h3>
+  <ul>
+    <li><em>M. tuberculosis</em> bacilli may <strong>not be recovered from sputum</strong> — silicotic fibrosis prevents discharge of bacilli into airway.</li>
+    <li>Frequent <strong>sputum AFB smear examinations</strong> recommended.</li>
+    <li>Culture mandatory in areas of high NTM prevalence.</li>
+    <li><strong>Bronchoscopy + BAL + TBLB</strong> significantly increase diagnostic yield even when sputum/BAL is negative.</li>
+    <li>CBNAAT (Xpert MTB/RIF) — first-line molecular test per NTEP guidelines.</li>
+    <li><strong>Immunological markers:</strong> ↑ Total IgE, IgG, fibronectin, CD4+, CD20+; ↓ mucinic antigen 3EG5 — aid early diagnosis.</li>
+  </ul>
+
+  <h3>Differential Diagnosis</h3>
+  <div class="two-col">
+    <div class="mini-card">
+      <h4>Radiological DD</h4>
+      <ul>
+        <li>Pulmonary Sarcoidosis</li>
+        <li>Coal worker's pneumoconiosis</li>
+        <li>Miliary TB</li>
+        <li>Pulmonary alveolar proteinosis</li>
+        <li>Talcosis / Welder's pneumoconiosis</li>
+      </ul>
+    </div>
+    <div class="mini-card">
+      <h4>Clinical DD</h4>
+      <ul>
+        <li>Simple silicosis without TB</li>
+        <li>Lung cancer (mass lesion)</li>
+        <li>NTM infection</li>
+        <li>Fungal infections (histoplasmosis)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ 7. TREATMENT ═══════════════════════════════ -->
+<div class="section">
+  <h2><span class="icon">💊</span>7. Treatment</h2>
+
+  <div class="highlight red">
+    <strong>Key principle:</strong> Silicosis per se is <em>incurable</em>. TB is <em>treatable</em>. Management aims at early detection, disability limitation, and treating TB at earliest opportunity.
+  </div>
+
+  <h3>Anti-TB Treatment</h3>
+  <table>
+    <caption>Table 4: Anti-TB Regimen for Silicotuberculosis (NTEP / Standard)</caption>
+    <tr>
+      <th>Phase</th><th>Drugs</th><th>Duration</th><th>Remarks</th>
+    </tr>
+    <tr>
+      <td><strong>Intensive phase</strong></td>
+      <td>HRZE (Isoniazid, Rifampicin, Pyrazinamide, Ethambutol)</td>
+      <td>2 months</td>
+      <td>Standard NTEP Category I regimen</td>
+    </tr>
+    <tr>
+      <td><strong>Continuation phase</strong></td>
+      <td>HRE or HR</td>
+      <td>7–10 months (total 9–12 months)</td>
+      <td>Prolonged continuation phase due to poor drug penetration into fibrotic tissue</td>
+    </tr>
+    <tr>
+      <td><strong>Total duration</strong></td>
+      <td colspan="2">Minimum 9 months; some guidelines recommend up to 12 months</td>
+      <td>Longer than standard 6-month TB treatment</td>
+    </tr>
+  </table>
+
+  <h3>Why Longer Treatment?</h3>
+  <ul>
+    <li><strong>Deep fibrotic lung tissue</strong> and <strong>vascular obstruction</strong> (intimal thickening, hyaline/lipoid degeneration) impede drug penetration to target sites.</li>
+    <li>Tuberculous cavities often develop <em>inside silicotic nodules</em> — difficult to reach with chemotherapeutic drugs.</li>
+    <li><strong>Relapse rates</strong> are higher — maximum relapses occur within first 2 years; risk continues indefinitely.</li>
+    <li>Success rates of TB treatment in silicosis patients are <strong>lower than</strong> in non-silicotic patients.</li>
+  </ul>
+
+  <h3>Supportive &amp; Symptomatic Management</h3>
+  <ul>
+    <li><strong>Remove worker from further silica exposure</strong> — essential step.</li>
+    <li>Bronchodilators for symptomatic airflow obstruction.</li>
+    <li>Cough suppressants and mucolytics for symptom relief.</li>
+    <li>Antibiotics for intercurrent chest infections.</li>
+    <li><strong>No role for long-term corticosteroids</strong> — may increase risk of TB.</li>
+    <li>Manage complications: pneumothorax, cor pulmonale, respiratory failure.</li>
+    <li>Smoking cessation programmes mandatory in workplace.</li>
+    <li><strong>DOTS</strong> under NTEP for all TB patients in India.</li>
+  </ul>
+
+  <h3>Complications</h3>
+  <div class="two-col">
+    <div class="mini-card">
+      <h4>Pulmonary</h4>
+      <ul>
+        <li>Spontaneous pneumothorax</li>
+        <li>Broncholithiasis</li>
+        <li>Tracheobronchial obstruction
+        </li>
+        <li>Pleural effusion / empyema</li>
+        <li>Haemoptysis</li>
+        <li>Cavitation within PMF nodule</li>
+      </ul>
+    </div>
+    <div class="mini-card">
+      <h4>Systemic / Other</h4>
+      <ul>
+        <li>Cor pulmonale / Right heart failure</li>
+        <li>Type II Respiratory failure</li>
+        <li>MDR / XDR-TB</li>
+        <li>NTM co-infection</li>
+        <li>Renal TB / EPTB</li>
+        <li>Scleroderma (autoimmune)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ 8. PREVENTION ══════════════════════════════ -->
+<div class="section">
+  <h2><span class="icon">🛡️</span>8. Prevention</h2>
+
+  <h3>A. Primary Prevention — Dust Control</h3>
+
+  <!-- Engineering controls flowchart -->
+  <div class="flowchart">
+    <div class="flow-box">Primary Prevention of Silicotuberculosis</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-branch">
+      <div class="flow-box amber">Engineering Controls</div>
+      <div class="flow-box amber">Administrative Controls</div>
+      <div class="flow-box amber">Personal Protection</div>
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box light">Engineering: Wet drilling · Enclosed cabins · Local exhaust ventilation · Substitution of silica</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box light">Administrative: Job rotation · Reduce work hours in dusty areas · Worker education</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box light">PPE: NIOSH-approved half-face respirators · Dust masks (N95 minimum)</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box green">Goal: Keep dust below Threshold Limit Value (TLV) — 0.025 mg/m³ (respirable silica)</div>
+  </div>
+
+  <h3>B. Secondary Prevention — Screening &amp; Surveillance</h3>
+  <table>
+    <caption>Table 5: NTEP &amp; Occupational Health Screening Recommendations</caption>
+    <tr>
+      <th>Intervention</th><th>Frequency / Details</th>
+    </tr>
+    <tr>
+      <td><strong>Pre-employment medical examination</strong></td>
+      <td>Baseline CXR, PFT, sputum AFB — before joining dusty work</td>
+    </tr>
+    <tr>
+      <td><strong>Periodic medical surveillance</strong></td>
+      <td>Annual CXR + sputum examination during employment</td>
+    </tr>
+    <tr>
+      <td><strong>Post-employment surveillance</strong></td>
+      <td>CXR every 2–3 years; risk continues after leaving the industry</td>
+    </tr>
+    <tr>
+      <td><strong>TB case finding (NTEP)</strong></td>
+      <td>Presumptive TB screening for all silicosis patients; sputum CBNAAT</td>
+    </tr>
+    <tr>
+      <td><strong>Notification</strong></td>
+      <td>All silicosis cases to be notified under Silicosis Policy 2013 (India); all TB cases notified under NTEP</td>
+    </tr>
+  </table>
+
+  <h3>C. Tertiary Prevention</h3>
+  <ul>
+    <li>Prompt treatment of TB with full course of anti-TB drugs.</li>
+    <li>Rehabilitation — pulmonary rehabilitation programme.</li>
+    <li>Disability certification and compensation under Workmen's Compensation Act.</li>
+    <li>Long-term follow-up for relapse detection.</li>
+  </ul>
+</div>
+
+<!-- ═══════════════════════════════ 9. PREVENTIVE CHEMOTHERAPY ════════════════ -->
+<div class="section">
+  <h2><span class="icon">💉</span>9. Preventive Chemotherapy (TB Preventive Therapy — TPT)</h2>
+
+  <div class="highlight blue">
+    <strong>NTEP Guideline:</strong> TB Preventive Therapy (TPT) is strongly recommended for all silicosis
+    patients irrespective of their LTBI status, as the risk of progression to active TB is very high.
+  </div>
+
+  <table>
+    <caption>Table 6: TB Preventive Therapy (TPT) Regimens per NTEP Guidelines</caption>
+    <tr>
+      <th>Regimen</th><th>Drugs</th><th>Duration</th><th>Remarks</th>
+    </tr>
+    <tr>
+      <td><strong>6H</strong></td>
+      <td>Isoniazid (INH) 5 mg/kg/day (max 300 mg/day)</td>
+      <td>6 months</td>
+      <td>Traditional standard regimen; widely used in India</td>
+    </tr>
+    <tr>
+      <td><strong>9H</strong></td>
+      <td>Isoniazid 5 mg/kg/day</td>
+      <td>9 months</td>
+      <td>Preferred by WHO and NTEP 2022 update for high-risk groups</td>
+    </tr>
+    <tr>
+      <td><strong>3HP</strong></td>
+      <td>Isoniazid + Rifapentine (weekly)</td>
+      <td>3 months</td>
+      <td>Short-course option; better adherence; not yet widely available in India</td>
+    </tr>
+    <tr>
+      <td><strong>1HP</strong></td>
+      <td>Isoniazid + Rifapentine (daily)</td>
+      <td>1 month</td>
+      <td>Shortest option; under evaluation</td>
+    </tr>
+  </table>
+
+  <ul>
+    <li>Silicosis patients should receive <strong>6–9 months of INH preventive therapy</strong> — reduces TB incidence by 40–60%.</li>
+    <li>INH preventive therapy reduces risk of TB-related mortality in silicosis patients.</li>
+    <li>Active TB must be <strong>excluded before starting TPT</strong> by sputum AFB, CBNAAT.</li>
+    <li>Liver function tests (LFT) should be monitored — INH is hepatotoxic.</li>
+    <li>Pyridoxine (Vitamin B6) 25 mg/day co-administered with INH to prevent peripheral neuropathy.</li>
+    <li>BCG vaccination — offered to newly employed workers in high-risk industries.</li>
+  </ul>
+</div>
+
+<!-- ═══════════════════════════════ 10. NTEP GUIDELINES SPECIFIC ══════════════ -->
+<div class="section">
+  <h2><span class="icon">🇮🇳</span>10. India-Specific — NTEP Guidelines &amp; Policy Framework</h2>
+
+  <h3>NTEP Key Recommendations for Silicotuberculosis</h3>
+  <ul>
+    <li><strong>Universal drug susceptibility testing (UDST)</strong> — all TB cases in silicosis patients should undergo DST (Xpert MTB/RIF / Line Probe Assay) at diagnosis.</li>
+    <li><strong>Nikshay portal</strong> — mandatory notification of all TB cases including silicotuberculosis.</li>
+    <li>Silicotuberculosis patients enrolled under <strong>Nikshay Poshan Yojana</strong> — ₹500/month nutritional support during TB treatment.</li>
+    <li><strong>Treatment duration extended</strong> to 9–12 months for silicotuberculosis (NTEP Operations Manual 2021).</li>
+    <li><strong>Private sector engagement</strong> — all private practitioners to notify and link silicosis-TB patients to NTEP for free drugs and support.</li>
+    <li>State TB officers to coordinate with <strong>Labour Department and DGMS (Directorate General of Mines Safety)</strong> for integrated surveillance.</li>
+  </ul>
+
+  <h3>National Silicosis Policy (India, 2013) — Key Points</h3>
+  <ul>
+    <li>Notifiable occupational disease under Factories Act, Mines Act, and ESIC.</li>
+    <li>Employers liable to provide <strong>medical surveillance, compensation, and rehabilitation</strong>.</li>
+    <li>Silicosis patients entitled to compensation under <strong>Workmen's Compensation Act, 1923</strong>.</li>
+    <li>Statutory medical examination — pre-employment, periodic, and post-employment.</li>
+    <li>ASHA workers to identify and refer silicosis patients to nearest DOTS centre.</li>
+  </ul>
+
+  <div class="highlight green">
+    <strong>Target:</strong> India aims to <em>eliminate TB by 2025</em> under the National Strategic Plan (NSP) 2017–2025 
+    — silicotuberculosis management is integral to achieving this goal given the large occupational workforce at risk.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ 11. PROGNOSIS ══════════════════════════════ -->
+<div class="section">
+  <h2><span class="icon">📊</span>11. Prognosis</h2>
+
+  <table>
+    <caption>Table 7: Prognostic Factors in Silicotuberculosis</caption>
+    <tr>
+      <th>Factor</th><th>Favourable</th><th>Unfavourable</th>
+    </tr>
+    <tr>
+      <td><strong>Silicosis stage</strong></td>
+      <td>Simple silicosis</td>
+      <td>PMF / Advanced fibrosis</td>
+    </tr>
+    <tr>
+      <td><strong>TB type</strong></td>
+      <td>Drug-sensitive TB, sputum smear negative</td>
+      <td>MDR/XDR-TB, smear strongly positive</td>
+    </tr>
+    <tr>
+      <td><strong>HIV co-infection</strong></td>
+      <td>HIV negative</td>
+      <td>HIV positive — markedly worse prognosis</td>
+    </tr>
+    <tr>
+      <td><strong>Treatment adherence</strong></td>
+      <td>Complete DOT-supervised course</td>
+      <td>Defaulter — high relapse risk</td>
+    </tr>
+    <tr>
+      <td><strong>Continued exposure</strong></td>
+      <td>Removed from dusty work</td>
+      <td>Continued silica exposure — progressive fibrosis</td>
+    </tr>
+    <tr>
+      <td><strong>Complications</strong></td>
+      <td>Absent</td>
+      <td>Cor pulmonale, respiratory failure, empyema</td>
+    </tr>
+  </table>
+
+  <ul>
+    <li>Sputum conversion rates lower and <strong>relapse rates higher</strong> in silicotuberculosis vs TB alone.</li>
+    <li>Overall <strong>5-year mortality of silicosis with TB &gt; silicosis alone or TB alone</strong>.</li>
+    <li>Continued silica exposure despite TB treatment → progression of fibrosis → irreversible loss of lung function.</li>
+    <li>Early diagnosis and prompt treatment with prolonged ATT remain the most important determinants of good outcome.</li>
+  </ul>
+</div>
+
+<!-- ═══════════════════════════════ 12. SUMMARY BOX ════════════════════════════ -->
+<div class="section">
+  <h2><span class="icon">📝</span>12. High-Yield Summary</h2>
+
+  <!-- Summary diagram using mech-diagram style -->
+  <div class="mech-diagram">
+    <div style="text-align:center; font-weight:700; color:#0f3460; margin-bottom:14px; font-size:1.05em;">
+      Silicotuberculosis — At a Glance
+    </div>
+
+    <div class="mech-row">
+      <div class="mech-box">Silica Dust Inhalation</div>
+      <div class="mech-arrow">→</div>
+      <div class="mech-box red-box">Macrophage Dysfunction</div>
+      <div class="mech-arrow">→</div>
+      <div class="mech-box red-box">↑ TB Susceptibility (3–39×)</div>
+    </div>
+
+    <div style="text-align:center; color:#555; font-size:0.85em; margin: 8px 0;">▼</div>
+
+    <div class="mech-row">
+      <div class="mech-box">Clinical Overlap</div>
+      <div class="mech-arrow">→</div>
+      <div class="mech-box">Sputum AFB + CBNAAT</div>
+      <div class="mech-arrow">→</div>
+      <div class="mech-box green-box">Diagnose TB Early</div>
+    </div>
+
+    <div style="text-align:center; color:#555; font-size:0.85em; margin: 8px 0;">▼</div>
+
+    <div class="mech-row">
+      <div class="mech-box">HRZE × 2 months</div>
+      <div class="mech-arrow">→</div>
+      <div class="mech-box">HRE × 7–10 months</div>
+      <div class="mech-arrow">→</div>
+      <div class="mech-box green-box">Total 9–12 months ATT</div>
+    </div>
+
+    <div style="text-align:center; color:#555; font-size:0.85em; margin: 8px 0;">▼</div>
+
+    <div class="mech-row">
+      <div class="mech-box green-box">TPT: INH 6–9 months</div>
+      <div class="mech-arrow">+</div>
+      <div class="mech-box green-box">Remove from Exposure</div>
+      <div class="mech-arrow">+</div>
+      <div class="mech-box green-box">NTEP Notification</div>
+    </div>
+  </div>
+
+  <h3>10-Point High-Yield List</h3>
+  <ol>
+    <li>Silicotuberculosis = coexistence of <strong>silicosis + active TB</strong>.</li>
+    <li>Risk of TB is <strong>2.8–39 times higher</strong> in silicosis patients.</li>
+    <li>Key mechanism: <strong>impaired macrophage function + NALP3 inflammasome activation</strong>.</li>
+    <li>Clinical symptoms <strong>overlap</strong> — TB diagnosis needs bacteriological confirmation.</li>
+    <li>Sputum smear may be <strong>negative</strong> due to fibrosis — bronchoscopy + BAL essential.</li>
+    <li>CXR hallmark: <strong>cavity within or around PMF nodule + egg-shell calcification</strong>.</li>
+    <li>Treatment duration is <strong>extended to 9–12 months</strong> (NTEP recommendation).</li>
+    <li>TPT: <strong>6–9 months INH</strong> for all silicosis patients after excluding active TB.</li>
+    <li><strong>Silicosis is incurable</strong> — prevention of progression and early TB treatment are key goals.</li>
+    <li>All cases to be <strong>notified on Nikshay portal</strong> and enrolled on NTEP-DOTS programme.</li>
+  </ol>
+</div>
+
+<!-- ═══════════════════════════════ REFERENCES ════════════════════════════════ -->
+<div class="section" style="border-left-color:#e94560;">
+  <h2><span class="icon">📚</span>References</h2>
+  <ul>
+    <li>Jindal SK et al. — <em>Textbook of Pulmonary and Critical Care Medicine</em>, 3rd ed. Jaypee; 2021.</li>
+    <li>Murray &amp; Nadel — <em>Textbook of Respiratory Medicine</em>, 7th ed. Elsevier; 2022.</li>
+    <li>NTEP — <em>India TB Report 2023 &amp; NTEP Operational Guidelines</em>. Central TB Division, MoHFW, India.</li>
+    <li>NTEP — <em>Standards for TB Care in India (STCI)</em>. 2nd ed. 2020.</li>
+    <li>Cowie RL — Silicotuberculosis: long-term outcomes. <em>Ann Occup Hyg.</em> 1994;38(5):665–670.</li>
+    <li>WHO — <em>WHO Guidelines on Tuberculosis Infection Prevention and Control</em>. Geneva: WHO; 2019.</li>
+    <li>National Silicosis Policy, India — Ministry of Labour &amp; Employment; 2013.</li>
+  </ul>
+</div>
+
+<!-- ═══════════════════════════════ FOOTER ═══════════════════════════════════ -->
+<div class="footer">
+  <p>Respiratory Medicine Notes &nbsp;|&nbsp; NTEP Guidelines &amp; Standard Textbooks &nbsp;|&nbsp; 10 Marks Answer</p>
+</div>
+
+</body>
+</html>
