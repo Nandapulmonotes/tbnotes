@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Congenital Tuberculosis – 10 Marks</title>
+  <style>
+    /* ── Base ── */
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f4f6fb;
+      color: #1a1a2e;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 36px auto;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 4px 32px rgba(44,62,80,0.13);
+      padding: 40px 48px 52px 48px;
+    }
+
+    /* ── Header ── */
+    .main-title {
+      text-align: center;
+      font-size: 2em;
+      font-weight: 800;
+      color: #fff;
+      background: linear-gradient(135deg, #c0392b 0%, #96281b 100%);
+      border-radius: 10px;
+      padding: 18px 10px 14px 10px;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 0.97em;
+      color: #888;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+
+    /* ── Section Headings ── */
+    h2 {
+      color: #c0392b;
+      border-left: 5px solid #c0392b;
+      padding-left: 12px;
+      margin-top: 36px;
+      font-size: 1.18em;
+      letter-spacing: 0.5px;
+    }
+    h3 {
+      color: #2c3e50;
+      margin-top: 18px;
+      font-size: 1.03em;
+      border-bottom: 1px dashed #ddd;
+      padding-bottom: 3px;
+    }
+
+    /* ── Bullet lists ── */
+    ul {
+      margin: 8px 0 8px 18px;
+      padding: 0;
+    }
+    ul li {
+      margin-bottom: 5px;
+      line-height: 1.7;
+    }
+    ul li::marker { color: #c0392b; }
+
+    /* ── Highlight boxes ── */
+    .box-red {
+      background: #fdecea;
+      border-left: 5px solid #c0392b;
+      border-radius: 7px;
+      padding: 12px 18px;
+      margin: 14px 0;
+    }
+    .box-blue {
+      background: #eaf3fb;
+      border-left: 5px solid #2980b9;
+      border-radius: 7px;
+      padding: 12px 18px;
+      margin: 14px 0;
+    }
+    .box-green {
+      background: #eafaf1;
+      border-left: 5px solid #27ae60;
+      border-radius: 7px;
+      padding: 12px 18px;
+      margin: 14px 0;
+    }
+    .box-yellow {
+      background: #fef9e7;
+      border-left: 5px solid #f39c12;
+      border-radius: 7px;
+      padding: 12px 18px;
+      margin: 14px 0;
+    }
+    .mnemonic {
+      background: #f5eef8;
+      border-left: 5px solid #8e44ad;
+      border-radius: 7px;
+      padding: 12px 18px;
+      margin: 14px 0;
+      font-size: 1em;
+    }
+
+    /* ── Tables ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 0.96em;
+    }
+    th {
+      background: #c0392b;
+      color: #fff;
+      padding: 9px 12px;
+      text-align: left;
+    }
+    td {
+      padding: 8px 12px;
+      border-bottom: 1px solid #eee;
+    }
+    tr:nth-child(even) td { background: #fdf6f6; }
+    tr:hover td { background: #fdecea; transition: 0.2s; }
+
+    /* ── Flowchart ── */
+    .flowchart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 22px 0;
+      gap: 0;
+    }
+    .flow-box {
+      background: #fff;
+      border: 2px solid #c0392b;
+      border-radius: 9px;
+      padding: 10px 28px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.97em;
+      min-width: 280px;
+      max-width: 420px;
+      color: #1a1a2e;
+      box-shadow: 0 2px 8px rgba(192,57,43,0.07);
+    }
+    .flow-box.blue {
+      border-color: #2980b9;
+      color: #154360;
+    }
+    .flow-box.green {
+      border-color: #27ae60;
+      color: #145a32;
+    }
+    .flow-box.orange {
+      border-color: #e67e22;
+      color: #784212;
+    }
+    .flow-box.purple {
+      border-color: #8e44ad;
+      color: #4a235a;
+    }
+    .flow-arrow {
+      font-size: 1.7em;
+      color: #c0392b;
+      line-height: 1.1;
+      margin: 2px 0;
+    }
+    .flow-branch {
+      display: flex;
+      flex-direction: row;
+      gap: 18px;
+      align-items: flex-start;
+      justify-content: center;
+      margin: 4px 0;
+    }
+    .flow-branch-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+    .flow-label {
+      font-size: 0.82em;
+      color: #888;
+      font-style: italic;
+      margin-bottom: 2px;
+    }
+
+    /* ── Diagram: Transmission ── */
+    .diagram {
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      justify-content: center;
+      gap: 0;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+    .diag-node {
+      background: #fdecea;
+      border: 2px solid #c0392b;
+      border-radius: 10px;
+      padding: 12px 18px;
+      text-align: center;
+      min-width: 140px;
+      max-width: 180px;
+      font-size: 0.95em;
+      font-weight: 600;
+    }
+    .diag-arrow {
+      display: flex;
+      align-items: center;
+      font-size: 1.5em;
+      color: #c0392b;
+      padding: 0 6px;
+    }
+    .diag-node.blue {
+      background: #eaf3fb;
+      border-color: #2980b9;
+      color: #154360;
+    }
+    .diag-node.green {
+      background: #eafaf1;
+      border-color: #27ae60;
+      color: #145a32;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 0.82em;
+      color: #bbb;
+      border-top: 1px solid #eee;
+      padding-top: 16px;
+    }
+
+    /* ── Cantwell criteria box ── */
+    .criteria-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 14px 0;
+    }
+    .criteria-card {
+      background: #fdecea;
+      border-radius: 9px;
+      border: 1.5px solid #e74c3c;
+      padding: 10px 14px;
+      font-size: 0.95em;
+    }
+    .criteria-card .num {
+      font-weight: 800;
+      color: #c0392b;
+      font-size: 1.2em;
+    }
+
+    @media (max-width: 620px) {
+      .container { padding: 14px 6px 24px 6px; }
+      .criteria-grid { grid-template-columns: 1fr; }
+      .flow-branch { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="main-title">CONGENITAL TUBERCULOSIS</div>
+  <div class="subtitle">10-Mark Structured Answer &nbsp;|&nbsp; Based on Standard Respiratory Textbooks &amp; NTEP Guidelines</div>
+
+  <!-- 1. DEFINITION -->
+  <h2>1. Definition</h2>
+  <div class="box-red">
+    <b>Congenital Tuberculosis (CTB)</b> is a rare but potentially fatal form of tuberculosis in which the newborn acquires <em>Mycobacterium tuberculosis</em> infection:
+    <ul>
+      <li>In utero (transplacentally via umbilical vein), OR</li>
+      <li>During passage through an infected birth canal (intrapartum), OR</li>
+      <li>By aspiration/ingestion of infected amniotic fluid</li>
+    </ul>
+    <b>Key distinction:</b> Differs from postnatally acquired neonatal TB where infection occurs after birth via respiratory droplets.
+  </div>
+
+  <!-- 2. EPIDEMIOLOGY -->
+  <h2>2. Epidemiology</h2>
+  <ul>
+    <li>Extremely rare — approximately <b>&lt;400 cases</b> reported in world literature (up to recent decades)</li>
+    <li>India bears a high burden — TB in women of reproductive age increases risk</li>
+    <li>Maternal genital TB (endometrial TB) is a significant predisposing factor</li>
+    <li>Mortality without treatment: <b>&gt;50%</b>; with treatment: reduced significantly if diagnosed early</li>
+    <li>Overall incidence in infants born to mothers with active TB: <b>~0.5–1%</b></li>
+    <li>Risk is higher in HIV-positive mothers with concurrent TB</li>
+  </ul>
+
+  <!-- 3. ROUTES OF TRANSMISSION (DIAGRAM) -->
+  <h2>3. Pathogenesis &amp; Routes of Infection</h2>
+
+  <div class="diagram">
+    <div class="diag-node"><b>Infected Mother</b><br/>(Active TB ± Genital TB)</div>
+    <div class="diag-arrow">→</div>
+    <div class="diag-node blue"><b>Route 1</b><br/>Haematogenous<br/>(Umbilical vein)</div>
+    <div class="diag-arrow">→</div>
+    <div class="diag-node green"><b>Fetal Liver</b><br/>Primary Complex</div>
+  </div>
+
+  <div class="diagram" style="margin-top:4px;">
+    <div class="diag-node"><b>Infected Amniotic Fluid / Birth Canal</b></div>
+    <div class="diag-arrow">→</div>
+    <div class="diag-node blue"><b>Route 2 &amp; 3</b><br/>Aspiration/Ingestion<br/>(Intrapartum)</div>
+    <div class="diag-arrow">→</div>
+    <div class="diag-node green"><b>Lung / GI</b><br/>Primary Complex</div>
+  </div>
+
+  <h3>Pathogenetic Steps (Haematogenous Route — Most Common)</h3>
+  <ul>
+    <li><b>Step 1:</b> Mycobacteria reach placenta via maternal bacteraemia → placental tuberculous lesion forms</li>
+    <li><b>Step 2:</b> Bacilli enter fetal circulation via umbilical vein</li>
+    <li><b>Step 3:</b> First pass through <b>fetal liver</b> → hepatic primary complex (Ghon focus in liver)</li>
+    <li><b>Step 4:</b> Bacilli reach lung, spleen, and other organs via systemic circulation</li>
+    <li><b>Step 5:</b> Granuloma formation, caseation, and dissemination in immunologically immature neonate</li>
+    <li>Fetal immune system is relatively <b>Th2-skewed</b> → impaired granuloma containment → rapid dissemination</li>
+  </ul>
+
+  <!-- 4. DIAGNOSTIC CRITERIA -->
+  <h2>4. Diagnostic Criteria</h2>
+  <h3>4a. Historical: Beitzki's Criteria (1935)</h3>
+  <div class="box-yellow">
+    TB lesions must be present in the infant <b>AND</b> a primary complex must be demonstrated in the <b>liver</b> (indicating haematogenous spread from placenta).
+  </div>
+
+  <h3>4b. Current Standard: Cantwell's Revised Criteria (1994)</h3>
+  <div class="box-red">
+    <b>The infant must have proven tuberculous lesions</b> (culture/histology/molecular) <b>AND at least ONE</b> of the following:
+  </div>
+  <div class="criteria-grid">
+    <div class="criteria-card"><span class="num">①</span> Lesions present in the <b>first week of life</b></div>
+    <div class="criteria-card"><span class="num">②</span> <b>Primary hepatic complex</b> or caseating hepatic granulomas on biopsy/autopsy</div>
+    <div class="criteria-card"><span class="num">③</span> Proven <b>TB infection of placenta</b> or maternal genital tract</div>
+    <div class="criteria-card"><span class="num">④</span> <b>Postnatal transmission excluded</b> by thorough contact investigation (including hospital attendants)</div>
+  </div>
+  <div class="box-blue">
+    <b>Note (NTEP/WHO):</b> If postnatal TB cannot be excluded AND no primary hepatic complex, the case is classified as <b>neonatal TB</b> rather than congenital TB. The distinction has therapeutic implications.
+  </div>
+
+  <!-- 5. CLINICAL FEATURES -->
+  <h2>5. Clinical Features</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>System</th>
+        <th>Clinical Feature</th>
+        <th>Frequency</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><b>General</b></td><td>Fever, failure to thrive, poor feeding, lethargy, irritability</td><td>Very common</td></tr>
+      <tr><td><b>Respiratory</b></td><td>Respiratory distress, tachypnoea, cyanosis, cough</td><td>Most common (&gt;70%)</td></tr>
+      <tr><td><b>Hepatic</b></td><td>Hepatosplenomegaly (hallmark), jaundice, elevated LFTs</td><td>Very common</td></tr>
+      <tr><td><b>Lymphatic</b></td><td>Peripheral or mediastinal lymphadenopathy</td><td>Common</td></tr>
+      <tr><td><b>CNS</b></td><td>Bulging fontanelle, seizures, altered sensorium (TB meningitis)</td><td>Less common but serious</td></tr>
+      <tr><td><b>Abdominal</b></td><td>Abdominal distension, ascites</td><td>Moderate</td></tr>
+      <tr><td><b>Skin</b></td><td>Skin papules with caseation (rare but characteristic)</td><td>Rare</td></tr>
+      <tr><td><b>Ear</b></td><td>Otorrhoea (discharge) with mastoid involvement</td><td>Rare</td></tr>
+    </tbody>
+  </table>
+
+  <div class="mnemonic">
+    <b>Mnemonic – "HALF RISE"</b><br/>
+    <b>H</b>epatomegaly &nbsp;|&nbsp; <b>A</b>bdominal distension &nbsp;|&nbsp; <b>L</b>ymphadenopathy &nbsp;|&nbsp; <b>F</b>ever<br/>
+    <b>R</b>espiratory distress &nbsp;|&nbsp; <b>I</b>rritability &nbsp;|&nbsp; <b>S</b>plenomegaly &nbsp;|&nbsp; <b>E</b>mesis / poor feeding
+  </div>
+
+  <h3>Onset of Symptoms</h3>
+  <ul>
+    <li>Signs may appear as early as <b>Day 1–2</b> of life (haematogenous route) or as late as <b>2–3 weeks</b> (aspiration route)</li>
+    <li>Average age at presentation: <b>2–3 weeks</b> postnatal</li>
+    <li>Prematurity is common in affected neonates</li>
+  </ul>
+
+  <!-- 6. INVESTIGATIONS -->
+  <h2>6. Investigations</h2>
+
+  <h3>Microbiological</h3>
+  <ul>
+    <li><b>Gastric aspirate:</b> AFB smear + culture (gold standard for pulmonary CTB)</li>
+    <li><b>CBNAAT / Xpert MTB-RIF (NTEP preferred):</b> Rapid molecular test on gastric aspirate, tracheal aspirate, BAL, CSF, hepatic aspirate — highly sensitive; also detects rifampicin resistance</li>
+    <li><b>Culture:</b> MGIT liquid culture (superior to LJ medium); takes 2–6 weeks</li>
+    <li><b>AFB smear:</b> Low sensitivity in neonates; NTEP now recommends CBNAAT over smear as first-line</li>
+    <li><b>Placental histology &amp; culture:</b> Mandatory — cornerstone of Cantwell criterion ③</li>
+  </ul>
+
+  <h3>Radiological</h3>
+  <ul>
+    <li><b>Chest X-ray:</b> Miliary pattern, alveolar consolidation, mediastinal lymphadenopathy, pleural effusion</li>
+    <li><b>HRCT Chest:</b> Miliary nodules, tree-in-bud pattern, hilar adenopathy</li>
+    <li><b>USG Abdomen:</b> Hepatosplenomegaly, intra-abdominal lymphadenopathy, peritoneal thickening</li>
+    <li><b>MRI Brain:</b> TB meningitis, tuberculomas (if CNS involvement suspected)</li>
+  </ul>
+
+  <h3>Other Investigations</h3>
+  <ul>
+    <li><b>Liver biopsy / Hepatic aspirate:</b> Caseating granulomas confirm hepatic primary complex</li>
+    <li><b>CSF analysis:</b> Lymphocytic pleocytosis, raised protein, low glucose — if CNS signs present</li>
+    <li><b>TST (Mantoux):</b> Usually <b>negative</b> in neonates — immature cell-mediated immunity; unreliable</li>
+    <li><b>IGRA:</b> Also unreliable in neonates — not recommended by NTEP for this age group</li>
+    <li><b>CBC:</b> Anaemia, leucocytosis or leucopenia; thrombocytopenia may occur</li>
+    <li><b>LFTs:</b> Elevated in hepatic involvement</li>
+    <li><b>Maternal workup:</b> Sputum AFB/CBNAAT, CXR, genital TB evaluation (endometrial biopsy)</li>
+  </ul>
+
+  <!-- 7. DIAGNOSIS FLOWCHART -->
+  <h2>7. Diagnostic Approach – Flowchart</h2>
+
+  <div class="flowchart">
+    <div class="flow-box" style="background:#fdecea;">Neonate with unexplained fever, respiratory distress, hepatosplenomegaly, failure to thrive</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box blue">Maternal history: Active TB? Genital TB? HIV?</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box">Investigations:<br/>CXR · USG Abdomen · CBC · LFT · CSF (if CNS signs)</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box green">CBNAAT on gastric aspirate / tracheal aspirate / CSF / hepatic aspirate<br/>(NTEP: Preferred over AFB smear)</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box orange" style="border-color:#e67e22;color:#784212;">Placental histology + culture<br/>Maternal endometrial TB workup</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-branch">
+      <div class="flow-branch-col">
+        <div class="flow-label">CBNAAT Positive / Criteria met</div>
+        <div class="flow-box green" style="min-width:180px;font-size:0.9em;">Confirmed Congenital TB<br/>→ START TREATMENT</div>
+      </div>
+      <div class="flow-branch-col">
+        <div class="flow-label">High suspicion, tests negative</div>
+        <div class="flow-box" style="min-width:180px;font-size:0.9em;border-color:#8e44ad;color:#4a235a;">Presumptive CTB<br/>→ Empirical treatment + Repeat cultures</div>
+      </div>
+      <div class="flow-branch-col">
+        <div class="flow-label">Alternative diagnosis</div>
+        <div class="flow-box blue" style="min-width:180px;font-size:0.9em;">Investigate &amp;<br/>manage accordingly</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. DIFFERENTIAL DIAGNOSIS -->
+  <h2>8. Differential Diagnosis</h2>
+  <table>
+    <thead>
+      <tr><th>Condition</th><th>Distinguishing Feature</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Congenital syphilis</td><td>VDRL/RPR positive; snuffles, periostitis, skin rash</td></tr>
+      <tr><td>Congenital CMV</td><td>Periventricular calcification, hearing loss, petechiae</td></tr>
+      <tr><td>Congenital toxoplasmosis</td><td>Intracranial calcification, hydrocephalus, chorioretinitis</td></tr>
+      <tr><td>Neonatal sepsis</td><td>Culture positive (non-mycobacterial); rapid deterioration</td></tr>
+      <tr><td>Neonatal hepatitis</td><td>Elevated conjugated bilirubin; viral serology positive</td></tr>
+      <tr><td>Miliary TB (postnatal)</td><td>No hepatic primary complex; postnatal contact identified</td></tr>
+      <tr><td>Histoplasmosis / Fungal infection</td><td>Fungal culture positive; antigen positive</td></tr>
+    </tbody>
+  </table>
+
+  <!-- 9. TREATMENT -->
+  <h2>9. Treatment</h2>
+  <div class="box-green">
+    <b>Principle:</b> Treat as <b>Disseminated / Severe TB</b> (equivalent to TB meningitis category in terms of drug selection and duration) — as per NTEP &amp; WHO guidelines for paediatric TB.
+  </div>
+
+  <h3>9a. Drug Regimen (NTEP 2024 Paediatric Guidelines)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Phase</th>
+        <th>Duration</th>
+        <th>Drugs</th>
+        <th>Remarks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>Intensive Phase</b></td>
+        <td>2 months</td>
+        <td>Isoniazid (H) + Rifampicin (R) + Pyrazinamide (Z) + Ethambutol (E)</td>
+        <td>4-drug regimen; add Ethambutol (100 mg/day) as per NTEP 2024</td>
+      </tr>
+      <tr>
+        <td><b>Continuation Phase</b></td>
+        <td>7–10 months</td>
+        <td>Isoniazid (H) + Rifampicin (R)</td>
+        <td>Total duration: <b>9–12 months</b> for disseminated/CNS disease</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>9b. Key Drug Dosing in Neonates</h3>
+  <table>
+    <thead>
+      <tr><th>Drug</th><th>Dose (mg/kg/day)</th><th>Route</th><th>Special Note</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Isoniazid (H)</td><td>10–15 mg/kg/day</td><td>Oral</td><td>Add Pyridoxine 10 mg/day to prevent neurotoxicity (NTEP 2024)</td></tr>
+      <tr><td>Rifampicin (R)</td><td>10–20 mg/kg/day</td><td>Oral/IV</td><td>Monitor LFTs; hepatotoxicity risk</td></tr>
+      <tr><td>Pyrazinamide (Z)</td><td>30–40 mg/kg/day</td><td>Oral</td><td>Monitor uric acid, LFTs</td></tr>
+      <tr><td>Ethambutol (E)</td><td>15–25 mg/kg/day</td><td>Oral</td><td>Use with caution; visual monitoring difficult in neonates</td></tr>
+      <tr><td>Pyridoxine (B6)</td><td>10 mg/day</td><td>Oral</td><td>Mandatory with INH in neonates (NTEP 2024)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>9c. Additional Measures</h3>
+  <ul>
+    <li><b>Corticosteroids:</b> Prednisolone 1–2 mg/kg/day for 4–8 weeks if TB meningitis or severe hypoxia</li>
+    <li><b>Drug-Susceptibility Testing (DST):</b> Mandatory for all neonatal/congenital TB cases (NTEP universal DST — U-DST policy)</li>
+    <li><b>MDR-TB protocol:</b> If rifampicin resistance detected on CBNAAT → refer to DR-TB centre; newer drugs (Bedaquiline, Delamanid) considered in consultation with paediatric TB experts</li>
+    <li><b>Supportive care:</b> Respiratory support (O2/ventilation if needed), nutrition, IV fluids</li>
+    <li><b>BCG vaccination:</b> Delay BCG until treatment is complete and infant is stable</li>
+  </ul>
+
+  <!-- 10. MANAGEMENT OF MOTHER -->
+  <h2>10. Management of the Mother &amp; Contacts</h2>
+  <div class="box-blue">
+    <ul>
+      <li>Mother should receive full anti-TB treatment if not already on therapy</li>
+      <li><b>Breastfeeding:</b> Can be continued once mother is on treatment and non-infectious (&gt;2 weeks of therapy); first-line anti-TB drugs are safe in breast milk in small amounts</li>
+      <li><b>Separation of mother and infant:</b> Only if mother is smear-positive and in early treatment; avoid prolonged separation</li>
+      <li>All household contacts must be screened for TB</li>
+      <li>Infant should receive isoniazid preventive therapy (IPT) if exposed to MDR-TB source</li>
+    </ul>
+  </div>
+
+  <!-- 11. PROGNOSIS -->
+  <h2>11. Prognosis &amp; Complications</h2>
+  <table>
+    <thead>
+      <tr><th>Factor</th><th>Effect on Prognosis</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Early diagnosis &amp; treatment</td><td>Significantly improves survival</td></tr>
+      <tr><td>Delayed diagnosis (&gt;4 weeks)</td><td>High mortality (&gt;50%)</td></tr>
+      <tr><td>CNS involvement</td><td>Worse prognosis; neurological sequelae</td></tr>
+      <tr><td>Prematurity / Low birth weight</td><td>Increased mortality</td></tr>
+      <tr><td>HIV co-infection (maternal)</td><td>More disseminated disease, higher mortality</td></tr>
+      <tr><td>Drug-sensitive TB, prompt Rx</td><td>Good survival with appropriate therapy</td></tr>
+    </tbody>
+  </table>
+
+  <!-- 12. PREVENTION -->
+  <h2>12. Prevention (NTEP Framework)</h2>
+    <ul>
+    <li><b>Screening all pregnant women</b> for TB symptoms at every antenatal visit — as per NTEP Nikshay protocol</li>
+    <li><b>CBNAAT testing</b> of pregnant women with TB symptoms — rapid diagnosis reduces vertical transmission risk</li>
+    <li><b>Prompt treatment</b> of TB in pregnant women — reduces risk of congenital TB to near zero if treated adequately before delivery</li>
+    <li><b>Genital TB screening</b> in women with infertility or recurrent pregnancy loss — early detection prevents transmission</li>
+    <li><b>Nikshay Poshan Yojana</b> — nutritional support for TB patients including pregnant women (NTEP)</li>
+    <li><b>BCG vaccination</b> of neonate — protects against disseminated TB and TB meningitis (not against congenital TB per se, as infection is prenatal)</li>
+    <li><b>Contact tracing</b> — all household contacts of smear-positive mothers must be screened</li>
+    <li><b>Isoniazid Preventive Therapy (IPT)</b>:
+      <ul>
+        <li>Given to neonates born to mothers with active pulmonary TB (smear-positive)</li>
+        <li>Isoniazid 10 mg/kg/day for <b>6 months</b> (NTEP 2024)</li>
+        <li>TST/IGRA at 6 months — if positive, complete full anti-TB treatment</li>
+        <li>If negative at 6 months, stop IPT and administer BCG</li>
+      </ul>
+    </li>
+  </ul>
+
+  <!-- IPT FLOWCHART -->
+  <h3>IPT Protocol for Neonate Born to Mother with Active TB (NTEP Flowchart)</h3>
+
+  <div class="flowchart">
+    <div class="flow-box" style="background:#eaf3fb; border-color:#2980b9; color:#154360;">
+      Neonate born to mother with <b>Active Pulmonary TB</b>
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box">
+      Evaluate neonate for <b>Symptomatic TB</b><br/>
+      (CXR + CBNAAT gastric aspirate + clinical assessment)
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-branch">
+      <div class="flow-branch-col">
+        <div class="flow-label">Symptomatic / Investigations Positive</div>
+        <div class="flow-box" style="border-color:#c0392b; background:#fdecea; min-width:180px; font-size:0.9em;">
+          <b>Start Full Anti-TB Treatment</b><br/>
+          2HRZE + 7–10HR
+        </div>
+      </div>
+      <div class="flow-branch-col">
+        <div class="flow-label">Asymptomatic / Investigations Negative</div>
+        <div class="flow-box green" style="min-width:180px; font-size:0.9em;">
+          <b>Start IPT</b><br/>
+          Isoniazid 10 mg/kg/day<br/>
+          + Pyridoxine 10 mg/day<br/>
+          for <b>6 months</b>
+        </div>
+      </div>
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box blue">
+      Re-evaluate at <b>6 months</b><br/>
+      TST / IGRA + Clinical assessment
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-branch">
+      <div class="flow-branch-col">
+        <div class="flow-label">TST Positive OR Symptomatic</div>
+        <div class="flow-box" style="border-color:#c0392b; background:#fdecea; min-width:160px; font-size:0.9em;">
+          Complete Full Anti-TB<br/>Treatment Course
+        </div>
+      </div>
+      <div class="flow-branch-col">
+        <div class="flow-label">TST Negative AND Asymptomatic</div>
+        <div class="flow-box green" style="min-width:160px; font-size:0.9em;">
+          Stop IPT<br/>
+          Administer <b>BCG</b> vaccine
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 13. COMPARISON TABLE -->
+  <h2>13. Congenital TB vs Neonatal TB vs Postnatal TB — Key Differences</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Congenital TB</th>
+        <th>Neonatal TB (Postnatal)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>Timing of infection</b></td>
+        <td>In utero / intrapartum</td>
+        <td>After birth (droplet)</td>
+      </tr>
+      <tr>
+        <td><b>Route</b></td>
+        <td>Haematogenous (umbilical vein) / aspiration of amniotic fluid</td>
+        <td>Airborne from mother/contact</td>
+      </tr>
+      <tr>
+        <td><b>Primary complex site</b></td>
+        <td><b>Liver</b> (haematogenous) or Lung (aspiration)</td>
+        <td><b>Lung only</b></td>
+      </tr>
+      <tr>
+        <td><b>Onset of symptoms</b></td>
+        <td>Day 1 – 3 weeks of life</td>
+        <td>Usually after 3–4 weeks</td>
+      </tr>
+      <tr>
+        <td><b>Cantwell criteria required</b></td>
+        <td>Yes — mandatory for diagnosis</td>
+        <td>Not applicable</td>
+      </tr>
+      <tr>
+        <td><b>Hepatosplenomegaly</b></td>
+        <td>Very prominent (hallmark)</td>
+        <td>Less prominent</td>
+      </tr>
+      <tr>
+        <td><b>Maternal genital TB</b></td>
+        <td>Frequently present</td>
+        <td>Not required</td>
+      </tr>
+      <tr>
+        <td><b>TST reliability</b></td>
+        <td>Unreliable (negative)</td>
+        <td>Unreliable (negative)</td>
+      </tr>
+      <tr>
+        <td><b>Treatment duration</b></td>
+        <td>9–12 months</td>
+        <td>6–9 months (if non-CNS)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 14. NTEP KEY POINTS -->
+  <h2>14. NTEP 2024 — Key Highlights for Congenital TB</h2>
+  <div class="box-green">
+    <ul>
+      <li><b>Universal DST (U-DST):</b> All confirmed TB cases including neonates must have DST performed — CBNAAT is the first-line test</li>
+      <li><b>Nikshay registration:</b> All TB cases including paediatric and congenital must be registered on the <b>Nikshay portal</b></li>
+      <li><b>Ni-kshay Mitra:</b> Community volunteers support TB patients — includes nutritional and social support for families</li>
+      <li><b>CBNAAT over AFB smear:</b> NTEP 2024 recommends CBNAAT (Xpert MTB/RIF or Xpert Ultra) as the primary diagnostic tool — higher sensitivity in paucibacillary disease such as CTB</li>
+      <li><b>Pyridoxine supplementation:</b> Mandatory with INH in all neonates and infants (NTEP 2024 Paediatric TB Guidelines)</li>
+      <li><b>Daily fixed-dose combinations (FDC):</b> Weight-band based paediatric FDCs recommended; available at NTEP drug stores</li>
+      <li><b>Bedaquiline / Delamanid:</b> Approved for use in paediatric DR-TB under NTEP — consult DR-TB expert committee for neonatal cases</li>
+      <li><b>TB Preventive Treatment (TPT):</b> Isoniazid monotherapy (6H) for household infant contacts of smear-positive TB — mandatory under NTEP</li>
+      <li><b>End TB strategy:</b> India's target — zero TB deaths by 2025 (TB-Mukt Bharat); congenital TB prevention is part of maternal TB elimination agenda</li>
+    </ul>
+  </div>
+
+  <!-- 15. SUMMARY BOX -->
+  <h2>15. High-Yield Summary for Exam</h2>
+  <div class="box-red">
+    <table style="width:100%; font-size:0.97em;">
+      <thead>
+        <tr>
+          <th style="background:#96281b;">Key Point</th>
+          <th style="background:#96281b;">Fact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><b>Causative organism</b></td><td><em>Mycobacterium tuberculosis</em></td></tr>
+        <tr><td><b>Commonest route</b></td><td>Haematogenous via umbilical vein</td></tr>
+        <tr><td><b>Primary complex site</b></td><td>Liver (not lung — unlike postnatal TB)</td></tr>
+        <tr><td><b>Diagnostic criteria</b></td><td>Cantwell's Revised Criteria (1994)</td></tr>
+        <tr><td><b>Hallmark sign</b></td><td>Hepatosplenomegaly in a symptomatic neonate</td></tr>
+        <tr><td><b>Best diagnostic test (NTEP)</b></td><td>CBNAAT on gastric / tracheal aspirate</td></tr>
+        <tr><td><b>TST in neonate</b></td><td>Usually negative — not reliable</td></tr>
+        <tr><td><b>Treatment regimen</b></td><td>2HRZE + 7–10HR (total 9–12 months)</td></tr>
+        <tr><td><b>Steroid use</b></td><td>For CNS TB or severe hypoxia</td></tr>
+        <tr><td><b>IPT regimen</b></td><td>Isoniazid 10 mg/kg/day for 6 months</td></tr>
+        <tr><td><b>BCG timing</b></td><td>After IPT completion if TST negative</td></tr>
+        <tr><td><b>Maternal breastfeeding</b></td><td>Safe after 2 weeks of treatment</td></tr>
+        <tr><td><b>Prognosis (untreated)</b></td><td>Mortality &gt;50%</td></tr>
+        <tr><td><b>NTEP registration</b></td><td>Mandatory on Nikshay portal</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- MNEMONIC FINAL -->
+  <div class="mnemonic">
+    <b>Mnemonic for Cantwell's Criteria — "HELP"</b><br/>
+    <b>H</b>epatic primary complex on biopsy &nbsp;|&nbsp;
+    <b>E</b>arly lesions (within first week of life) &nbsp;|&nbsp;
+    <b>L</b>esions in placenta / maternal genital tract proven &nbsp;|&nbsp;
+    <b>P</b>ostnatal transmission excluded
+  </div>
+
+  <!-- REFERENCES -->
+  <h2>16. References</h2>
+  <ul>
+    <li>Cantwell MF et al. — <em>Congenital Tuberculosis</em>, NEJM 1994; 330:1051-1054</li>
+    <li>Vijayasekaran D — Chapter on Congenital TB, <em>IAP Textbook of Pediatrics</em>, 6th Edition</li>
+    <li>Fishman AP — <em>Fishman's Pulmonary Diseases and Disorders</em>, 5th Edition</li>
+    <li>Murray &amp; Nadel — <em>Textbook of Respiratory Medicine</em>, 7th Edition</li>
+    <li><b>NTEP — National TB Elimination Programme Guidelines for Paediatric TB, 2024</b></li>
+    <li>WHO — <em>Guidance for National Tuberculosis Programmes on the Management of Tuberculosis in Children</em>, 2nd Ed, 2014 (updated 2022)</li>
+    <li>Park's Textbook of Preventive and Social Medicine, 27th Edition — TB chapter</li>
+  </ul>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Congenital Tuberculosis &nbsp;|&nbsp; 10-Mark Structured Answer &nbsp;|&nbsp;
+    Based on NTEP 2024 Guidelines &amp; Standard Respiratory Textbooks<br/>
+    &copy; Medical Notes — For Educational Purposes Only
+  </div>
+
+</div>
+</body>
+</html>
