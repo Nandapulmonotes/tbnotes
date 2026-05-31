@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TB in Healthcare Workers (10 Marks)</title>
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f4f6fb;
+      color: #1a1a2e;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* ===== PAGE WRAPPER ===== */
+    .page {
+      max-width: 900px;
+      margin: 30px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      padding: 40px 44px 50px 44px;
+    }
+
+    /* ===== HEADER ===== */
+    .main-title {
+      text-align: center;
+      background: linear-gradient(135deg, #1a3a5c 0%, #2e7d32 100%);
+      color: #fff;
+      border-radius: 10px;
+      padding: 22px 18px 16px 18px;
+      margin-bottom: 30px;
+    }
+    .main-title h1 { font-size: 1.65em; letter-spacing: 1px; margin-bottom: 4px; }
+    .main-title .subtitle { font-size: 0.95em; opacity: 0.88; }
+    .marks-badge {
+      display: inline-block;
+      background: #ffd600;
+      color: #1a1a2e;
+      font-weight: 700;
+      border-radius: 20px;
+      padding: 3px 16px;
+      font-size: 0.9em;
+      margin-top: 10px;
+    }
+
+    /* ===== SECTION HEADINGS ===== */
+    h2 {
+      font-size: 1.13em;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(90deg, #1a3a5c 80%, #2e7d32 100%);
+      border-radius: 6px;
+      padding: 7px 16px;
+      margin: 28px 0 10px 0;
+      letter-spacing: 0.5px;
+    }
+    h3 {
+      font-size: 1.01em;
+      font-weight: 700;
+      color: #1a3a5c;
+      border-left: 4px solid #2e7d32;
+      padding-left: 10px;
+      margin: 18px 0 7px 0;
+    }
+
+    /* ===== BULLET LISTS ===== */
+    ul {
+      margin: 6px 0 10px 22px;
+    }
+    ul li { margin-bottom: 4px; }
+    ul li::marker { color: #2e7d32; }
+
+    /* ===== HIGHLIGHT BOX ===== */
+    .highlight-box {
+      background: #e8f5e9;
+      border-left: 5px solid #2e7d32;
+      border-radius: 6px;
+      padding: 12px 18px;
+      margin: 12px 0;
+      font-size: 0.97em;
+    }
+    .highlight-box.blue {
+      background: #e3f0fb;
+      border-left-color: #1565c0;
+    }
+    .highlight-box.red {
+      background: #fdecea;
+      border-left-color: #c62828;
+    }
+    .highlight-box.yellow {
+      background: #fffde7;
+      border-left-color: #f9a825;
+    }
+
+    /* ===== TABLES ===== */
+    .table-wrap { overflow-x: auto; margin: 14px 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.93em;
+    }
+    thead tr { background: #1a3a5c; color: #fff; }
+    thead th { padding: 9px 12px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #f0f4f8; }
+    tbody tr:nth-child(odd) { background: #fff; }
+    tbody td { padding: 8px 12px; border-bottom: 1px solid #dde3ea; vertical-align: top; }
+    .table-caption {
+      font-size: 0.88em;
+      color: #555;
+      margin-top: 4px;
+      font-style: italic;
+      text-align: center;
+    }
+
+    /* ===== FLOWCHART ===== */
+    .flowchart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      margin: 18px auto;
+      max-width: 620px;
+    }
+    .fc-box {
+      background: #1a3a5c;
+      color: #fff;
+      border-radius: 9px;
+      padding: 10px 26px;
+      font-size: 0.95em;
+      font-weight: 600;
+      text-align: center;
+      width: 85%;
+      box-shadow: 0 2px 8px rgba(26,58,92,0.13);
+      position: relative;
+    }
+    .fc-box.green { background: #2e7d32; }
+    .fc-box.orange { background: #e65100; }
+    .fc-box.red { background: #b71c1c; }
+    .fc-box.teal { background: #00695c; }
+    .fc-box.yellow { background: #f9a825; color: #1a1a2e; }
+    .fc-box.purple { background: #4a148c; }
+    .fc-diamond {
+      background: #fff3e0;
+      border: 2.5px solid #e65100;
+      color: #bf360c;
+      border-radius: 50%;
+      padding: 12px 18px;
+      font-size: 0.93em;
+      font-weight: 700;
+      text-align: center;
+      width: 70%;
+      margin: 0 auto;
+    }
+    .fc-arrow {
+      width: 2px;
+      height: 28px;
+      background: #1a3a5c;
+      margin: 0 auto;
+      position: relative;
+    }
+    .fc-arrow::after {
+      content: '▼';
+      color: #1a3a5c;
+      font-size: 1em;
+      position: absolute;
+      bottom: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .fc-branch {
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      width: 100%;
+      margin: 8px 0;
+    }
+    .fc-branch-box {
+      background: #e3f0fb;
+      border: 2px solid #1565c0;
+      border-radius: 8px;
+      color: #0d3b6e;
+      font-size: 0.88em;
+      font-weight: 600;
+      padding: 8px 12px;
+      text-align: center;
+      flex: 1;
+    }
+    .fc-branch-box.green { background: #e8f5e9; border-color: #2e7d32; color: #1b5e20; }
+    .fc-branch-box.red { background: #fdecea; border-color: #b71c1c; color: #7f0000; }
+
+    /* ===== DIAGRAM ===== */
+    .diagram-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin: 14px 0;
+    }
+    .diag-card {
+      background: #e3f0fb;
+      border: 2px solid #1565c0;
+      border-radius: 9px;
+      padding: 10px 16px;
+      text-align: center;
+      font-size: 0.9em;
+      font-weight: 600;
+      color: #0d3b6e;
+      min-width: 130px;
+      flex: 1;
+    }
+    .diag-card.green { background: #e8f5e9; border-color: #2e7d32; color: #1b5e20; }
+    .diag-card.orange { background: #fff3e0; border-color: #e65100; color: #bf360c; }
+    .diag-card.red { background: #fdecea; border-color: #b71c1c; color: #7f0000; }
+    .diag-center {
+      background: #1a3a5c;
+      color: #fff;
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95em;
+      margin: 0 auto 10px auto;
+      text-align: center;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+    }
+    .diag-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center; width: 100%; }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      margin-top: 36px;
+      border-top: 2px solid #e0e7ef;
+      padding-top: 12px;
+      font-size: 0.83em;
+      color: #888;
+      text-align: center;
+    }
+
+    /* ===== PRINT ===== */
+    @media print {
+      body { background: #fff; }
+      .page { box-shadow: none; padding: 10px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ============ HEADER ============ -->
+  <div class="main-title">
+    <h1>TUBERCULOSIS IN HEALTH CARE WORKERS</h1>
+    <div class="subtitle">Respiratory Medicine &nbsp;|&nbsp; NTEP-Based Notes</div>
+    <div class="marks-badge">10 MARKS</div>
+  </div>
+
+  <!-- ============ 1. INTRODUCTION ============ -->
+  <h2>1. INTRODUCTION</h2>
+  <ul>
+    <li>TB is the <strong>leading occupational infectious disease</strong> among Health Care Workers (HCWs) globally.</li>
+    <li>The contagious nature of TB was recognized long before its bacteriological aetiology — the <em>air-borne</em> route makes HCWs uniquely vulnerable.</li>
+    <li>TB among HCWs is now considered an <strong>occupational disease</strong> (Kilinc et al., 2002).</li>
+    <li>India contributes ~<strong>27% of the global TB burden</strong> (NTEP India TB Report 2023), making occupational TB a priority concern.</li>
+    <li>Median prevalence of <strong>Latent TB Infection (LTBI)</strong> in HCWs: <strong>63%</strong> in Low-Middle Income Countries (LMICs); ~47% in high TB-burden countries.</li>
+    <li>Annual Risk of Infection (ARI) in HCWs ranged from <strong>0.09% to 10%</strong> — up to 100× higher than the general population in Western Europe.</li>
+  </ul>
+  <div class="highlight-box red">
+    <strong>Key Fact (India):</strong> A study from Chandigarh showed an overall TB incidence of <strong>17.3 per 1,000 person-years</strong> among resident doctors, with a risk of 11.2 cases/1,000 person-years of exposure.
+  </div>
+
+  <!-- ============ 2. EPIDEMIOLOGY TABLE ============ -->
+  <h2>2. EPIDEMIOLOGY — RECENT STUDIES</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Study &amp; Year</th>
+          <th>Country</th>
+          <th>Population</th>
+          <th>TB Risk / Finding</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Naidoo &amp; Jinabhai (2006)</td>
+          <td>South Africa</td>
+          <td>HCWs (n=583)</td>
+          <td>TB incidence 1133/100,000 HCWs</td>
+        </tr>
+        <tr>
+          <td>Lopes et al. (2008)</td>
+          <td>Brazil</td>
+          <td>Nurses (n=128)</td>
+          <td>11.5 new TST conversions/100 person-years</td>
+        </tr>
+        <tr>
+          <td>Christopher et al. (2010)</td>
+          <td>India</td>
+          <td>Nursing trainees (n=436)</td>
+          <td>50.2% tested TST positive</td>
+        </tr>
+        <tr>
+          <td>He et al. (2010)</td>
+          <td>China</td>
+          <td>HCWs (n=3746)</td>
+          <td>TB prevalence 6.7/1,000 medical staff; 2.5/1,000 administrative staff</td>
+        </tr>
+        <tr>
+          <td>Rao et al. (2004)</td>
+          <td>India</td>
+          <td>Resident doctors</td>
+          <td>4 of 23 developed active TB during residency</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="table-caption">Table 1: Epidemiological studies on TB risk in HCWs</div>
+
+  <!-- ============ 3. RECOGNITION OF TRANSMISSION ============ -->
+  <h2>3. RECOGNITION OF TB TRANSMISSION IN HCWs</h2>
+  <h3>A. Tuberculin Skin Test (TST)</h3>
+  <ul>
+    <li>Most frequently used marker of TB infection in HCWs.</li>
+    <li>Interpretation is confounded by prior <strong>BCG vaccination</strong> and environmental mycobacterial exposure.</li>
+    <li>Cut-offs (as per Indian studies):
+      <ul>
+        <li><strong>≥10 mm</strong> — supports diagnosis in patients with strong clinical suspicion of TB.</li>
+        <li><strong>≥15 mm</strong> — more suitable in other patients (Chandigarh study).</li>
+      </ul>
+    </li>
+    <li>TST conversion (negative → positive) is considered evidence of <em>new occupational infection</em>.</li>
+  </ul>
+  <h3>B. Interferon-Gamma Release Assays (IGRAs)</h3>
+  <ul>
+    <li>Used extensively for LTBI diagnosis in HCWs in both low and high TB prevalence settings.</li>
+    <li><strong>No distinct advantage</strong> of IGRAs over TST for contact screening in high TB-burden settings.</li>
+    <li>Due to higher cost and requirement of blood sample, <strong>TST remains the preferred method</strong> in high TB burden settings (Indian NTEP approach).</li>
+    <li>Molecular techniques (DNA fingerprinting, RFLP) can confirm occupational transmission from a specific source.</li>
+  </ul>
+
+  <!-- ============ 4. DETERMINANTS OF RISK ============ -->
+  <h2>4. DETERMINANTS OF RISK OF INFECTION</h2>
+
+  <!-- Spider / Mind Map Diagram -->
+  <div style="margin:16px 0;">
+    <div style="text-align:center;font-weight:700;color:#1a3a5c;margin-bottom:10px;">Risk Factors for TB in HCWs — Overview</div>
+    <div class="diag-row">
+      <div class="diag-card orange">Category of HCW<br/><small>Doctors, Nurses,<br/>Lab Staff, Housekeeping</small></div>
+      <div class="diag-card red">Level of Exposure<br/><small>Chest wards, OPD,<br/>Micro labs, Dental</small></div>
+      <div class="diag-center">RISK<br/>FACTORS<br/>TB in HCW</div>
+      <div class="diag-card green">Environmental<br/><small>Poor ventilation,<br/>Crowding, Sanitation</small></div>
+      <div class="diag-card">Immune Status &amp;<br/>Comorbidities<br/><small>HIV, DM, Steroids</small></div>
+    </div>
+    <div class="diag-row" style="margin-top:8px;">
+      <div class="diag-card orange">BCG Vaccination<br/><small>Incomplete/No protection<br/>in adults</small></div>
+      <div class="diag-card red">Clinical Factors<br/><small>Delayed diagnosis,<br/>Self-medication</small></div>
+      <div class="diag-card green">Duration of Work<br/><small>Resp. therapy, Physio,<br/>Housekeeping</small></div>
+    </div>
+  </div>
+
+  <!-- Factors Table -->
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Factor Category</th>
+          <th>Specific Risk Factors</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>HCW Type</strong></td>
+          <td>Doctors, nurses, nursing trainees, lab workers, ancillary staff — all at increased risk; direct-care HCWs highest risk</td>
+        </tr>
+        <tr>
+          <td><strong>Level of Exposure</strong></td>
+          <td>Sputum smear-positive TB patients; bronchoscopy, sputum induction procedures; medical wards (RR &gt;12×), lab workers (RR &gt;5×)</td>
+        </tr>
+        <tr>
+          <td><strong>Environmental</strong></td>
+          <td>Poor/inadequate ventilation; overcrowded wards; inadequate sanitation; room size (key determinant for MDR-TB transmission)</td>
+        </tr>
+        <tr>
+          <td><strong>Immune/Host</strong></td>
+          <td>HIV (5-fold ↑ in annualized incidence), diabetes mellitus, corticosteroid/immunosuppressant use</td>
+        </tr>
+        <tr>
+          <td><strong>BCG Vaccination</strong></td>
+          <td>Uncertain protective role in adults; childhood BCG may not be sufficient; revaccination policy under debate in India</td>
+        </tr>
+        <tr>
+          <td><strong>Clinical/Behavioral</strong></td>
+          <td>Self-medication, delayed diagnosis, inadequate knowledge of infection control, attitudinal desensitization</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="table-caption">Table 2: Determinants of TB risk among HCWs</div>
+
+  <div class="highlight-box blue">
+    <strong>High-Risk Subgroups:</strong> Chest physicians, pulmonary fellows, HCWs in medical wards, bronchoscopy/lab staff, community health researchers in high-HIV/TB prevalence areas, and nursing trainees.
+  </div>
+
+  <!-- ============ 5. CLINICAL FEATURES ============ -->
+  <h2>5. CLINICAL FEATURES &amp; DIAGNOSIS IN HCWs</h2>
+  <ul>
+    <li>Clinical presentation of TB in HCWs <strong>does not differ</strong> from that in the general population.</li>
+    <li>Pulmonary TB is the most common form; extra-pulmonary TB also reported (0.34–1.57/1,000 EPTB cases — Vellore, 10-year review).</li>
+    <li>HCWs tend to <strong>self-treat</strong> and delay seeking formal medical advice — increases risk of transmission in hospitals.</li>
+    <li>NTEP recommends active, <em>symptom-based</em> case-finding for all HCWs via a <strong>standardized symptoms questionnaire</strong>.</li>
+  </ul>
+  <div class="highlight-box yellow">
+    <strong>NTEP Definition of TB Suspect in HCWs:</strong> Any HCW with respiratory or constitutional symptoms of <strong>even 1 week's duration</strong> (not explained by an alternative aetiology) should be considered a TB suspect and investigated — this is a <em>lower threshold</em> than the standard RNTCP/NTEP definition for the general population.
+  </div>
+
+  <!-- ============ 6. DIAGNOSTIC ALGORITHM FLOWCHART ============ -->
+  <h2>6. DIAGNOSTIC ALGORITHM FOR TB IN HCWs</h2>
+  <div style="text-align:center;font-style:italic;font-size:0.9em;color:#555;margin-bottom:8px;">(As per Jindal / Indian Respiratory Textbook, adapted to NTEP resource-limited settings)</div>
+
+  <div class="flowchart">
+    <div class="fc-box">HCW with Respiratory / Constitutional Symptoms ≥ 1 Week</div>
+    <div class="fc-arrow"></div>
+    <div class="fc-box green">Sputum Smear Microscopy for AFB + Chest X-Ray</div>
+    <div class="fc-arrow"></div>
+
+    <!-- Branch 1: Smear positive -->
+    <div class="fc-branch">
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:0;">
+        <div class="fc-branch-box red">Smear POSITIVE for AFB</div>
+        <div class="fc-arrow" style="height:18px;"></div>
+        <div class="fc-branch-box red">Start Anti-TB Treatment<br/>(NTEP Category I/II as applicable)</div>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:0;">
+        <div class="fc-branch-box">Smear NEGATIVE for AFB</div>
+        <div class="fc-arrow" style="height:18px;"></div>
+        <div class="fc-branch-box" style="text-align:center;">Evaluate CXR findings</div>
+      </div>
+    </div>
+
+    <div class="fc-arrow"></div>
+
+    <!-- Branch 2: CXR -->
+    <div class="fc-branch">
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:0;">
+        <div class="fc-branch-box" style="background:#e8f5e9;border-color:#2e7d32;color:#1b5e20;">CXR Suggestive of TB</div>
+        <div class="fc-arrow" style="height:18px;"></div>
+        <div class="fc-branch-box" style="background:#e8f5e9;border-color:#2e7d32;color:#1b5e20;">Treat Smear-Negative TB<br/>Attempt AFB in BAL / CBNAAT / Culture</div>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:0;">
+        <div class="fc-branch-box red">CXR Normal / Not Suggestive</div>
+        <div class="fc-arrow" style="height:18px;"></div>
+        <div class="fc-branch-box red">Consider Alternative Diagnoses<br/>TST / IGRA if LTBI suspected<br/>Further appropriate investigations</div>
+      </div>
+    </div>
+
+    <div class="fc-arrow"></div>
+    <div class="fc-box teal">Notify Under NTEP | Ensure DOT Compliance | Infection Control Measures</div>
+  </div>
+  <div class="table-caption">Flowchart 1: Algorithm for Early Detection and Management of TB in HCWs</div>
+
+  <!-- ============ 7. RISK ASSESSMENT ============ -->
+  <h2>7. RISK ASSESSMENT</h2>
+  <ul>
+    <li>Risk of transmission is <strong>proportional to contaminated air inhaled</strong> — demonstrated in naval vessel TB outbreak.</li>
+    <li>Mathematical models (Wells-Riley equation) quantitatively link room ventilation to infection probability.</li>
+    <li>Key predictors of TST conversion in HCWs:
+      <ul>
+        <li>Working in <strong>in-patient / out-patient</strong> facilities.</li>
+        <li>History of <strong>TB exposure in the previous year</strong>.</li>
+        <li>Performing <strong>aerosol-generating procedures</strong> (bronchoscopy, sputum induction).</li>
+      </ul>
+    </li>
+    <li>NTEP mandates <strong>regular assessment</strong> of TB status among all HCWs as part of facility-level infection control.</li>
+  </ul>
+
+  <!-- ============ 8. CONTROL STRATEGIES ============ -->
+  <h2>8. CONTROLLING OCCUPATIONAL TUBERCULOSIS</h2>
+  <div class="highlight-box">
+    <strong>Two Pillars (NTEP / National AIC Guidelines 2026):</strong>
+    <ul style="margin-top:6px;">
+      <li><strong>(i) Early Diagnosis and Treatment</strong></li>
+      <li><strong>(ii) Prevention of Infection and Disease</strong></li>
+    </ul>
+  </div>
+
+  <h3>A. Administrative Controls</h3>
+  <ul>
+    <li>Decompression of crowded areas (reduce patient load per ward).</li>
+    <li>Segregation / fast-tracking of patients with respiratory symptoms.</li>
+    <li>Minimize duration of hospitalization of infectious TB patients.</li>
+    <li>Mandatory <strong>Infection Control Training</strong> of all HCWs.</li>
+    <li><strong>Regular TB screening</strong> of all HCWs (NTEP: annual TST or symptom questionnaire).</li>
+    <li>Standardized TB suspect definition with lower symptom threshold for HCWs.</li>
+    <li>Notification of diagnosed TB cases among HCWs under NTEP.</li>
+  </ul>
+
+  <h3>B. Environmental Controls</h3>
+  <ul>
+    <li><strong>Adequate Ventilation</strong>:
+      <ul>
+        <li>Natural ventilation: minimum 6–12 air changes per hour (ACH) recommended.</li>
+        <li>Mechanical ventilation with <strong>negative pressure rooms</strong> for infectious patients.</li>
+        <li>Caution: mechanical ventilation can spread infection throughout the building if air is recirculated.</li>
+      </ul>
+    </li>
+    <li><strong>HEPA (High-Efficiency Particulate Air) Filters</strong>:
+      <ul>
+        <li>Remove ~100% of particles &gt;0.3 µm in diameter.</li>
+        <li>Used in rooms, bronchoscopy suites, sputum induction booths.</li>
+        <li>HEPA-filtered self-contained booths available commercially.</li>
+      </ul>
+    </li>
+    <li><strong>Ultraviolet Germicidal Irradiation (UVGI)</strong>:
+      <ul>
+        <li>UV directed at upper room air — kills mycobacteria.</li>
+        <li>Advantages: less resistance to airflow, smaller blowers.</li>
+        <li>Disadvantages: risk of superficial UV exposure to skin/eyes if ceiling is low.</li>
+        <li>No evidence of systemic immunosuppression from germicidal UV.</li>
+      </ul>
+    </li>
+    <li>Separate cubicles/booths for cough-inducing procedures (sputum induction, bronchoscopy).</li>
+    <li>Biomedical waste management and appropriate disposal of excreta/linen.</li>
+  </ul>
+
+  <!-- Table: Environmental Control Methods -->
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Environmental Method</th>
+          <th>Mechanism</th>
+          <th>Advantages</th>
+          <th>Limitations</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Natural Ventilation</td>
+          <td>Dilutes airborne mycobacteria</td>
+          <td>Low cost, simple</td>
+          <td>May spread infection to adjacent areas</td>
+        </tr>
+        <tr>
+          <td>Negative Pressure Room</td>
+          <td>Prevents air outflow from room</td>
+          <td>Contains infection within room</td>
+          <td>Costly, needs mechanical system</td>
+        </tr>
+        <tr>
+          <td>HEPA Filters</td>
+          <td>Filtration of droplet nuclei &gt;0.3 µm</td>
+          <td>~100% particle removal</td>
+          <td>Expensive; needs blower</td>
+        </tr>
+        <tr>
+          <td>UVGI</td>
+          <td>Kills mycobacteria in upper-room air</td>
+          <td>Less airflow resistance; quiet</td>
+          <td>Risk of UV skin/eye exposure; ineffective in low-ceiling rooms</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="table-caption">Table 3: Comparison of Environmental Control Methods for TB</div>
+
+  <h3>C. Personal Protection Measures</h3>
+  <ul>
+    <li><strong>Masks for Patients</strong>: Simple gauze/surgical masks — limit release of droplets from the patient's mouth; useful for limited durations.</li>
+    <li><strong>Respirators for HCWs</strong>:
+      <ul>
+        <li>More effective than simple masks — filters particles via impaction, filtration, or electrostatic attraction.</li>
+        <li>Properly worn respirator can prevent up         to <strong>90% of exposure</strong> if fitted correctly.</li>
+        <li><strong>N95 Respirator</strong>:
+          <ul>
+            <li>Filters ≥95% of airborne particles ≥0.3 µm.</li>
+            <li>Must be <strong>fit-tested</strong> for each individual HCW.</li>
+            <li>Mandatory for HCWs performing aerosol-generating procedures (bronchoscopy, sputum induction, intubation).</li>
+            <li>Recommended by NTEP for all HCWs entering isolation rooms or treating confirmed / suspected TB.</li>
+          </ul>
+        </li>
+        <li><strong>FFP2/FFP3 Masks</strong>: European equivalent of N95; similarly recommended in high-risk settings.</li>
+      </ul>
+    </li>
+    <li>Regular <strong>mask fit-testing</strong> and training on correct donning/doffing is mandatory.</li>
+    <li>Surgical masks are <strong>NOT</strong> a substitute for N95 respirators in high-risk aerosol exposure settings.</li>
+  </ul>
+
+  <!-- Flowchart: Control Strategy Hierarchy -->
+  <h2>9. NTEP HIERARCHICAL INFECTION CONTROL FRAMEWORK</h2>
+  <div style="text-align:center;font-style:italic;font-size:0.9em;color:#555;margin-bottom:8px;">
+    (Based on NTEP National Airborne Infection Control Guidelines, India)
+  </div>
+
+  <div class="flowchart">
+    <div class="fc-box" style="background:#1a3a5c;width:90%;">
+      HIERARCHY OF TB INFECTION CONTROL FOR HCWs
+    </div>
+    <div class="fc-arrow"></div>
+    <div class="fc-box" style="background:#b71c1c;width:90%;">
+      LEVEL 1 — ADMINISTRATIVE / MANAGERIAL CONTROLS
+      <div style="font-weight:400;font-size:0.88em;margin-top:5px;">
+        Fast-tracking suspects · Segregation · Cough hygiene · HCW training · Screening policy · Notification
+      </div>
+    </div>
+    <div class="fc-arrow"></div>
+    <div class="fc-box" style="background:#e65100;width:90%;">
+      LEVEL 2 — ENVIRONMENTAL CONTROLS
+      <div style="font-weight:400;font-size:0.88em;margin-top:5px;">
+        Adequate ventilation (≥6–12 ACH) · Negative pressure rooms · HEPA filters · UVGI · Sputum induction booths
+      </div>
+    </div>
+    <div class="fc-arrow"></div>
+    <div class="fc-box" style="background:#2e7d32;width:90%;">
+      LEVEL 3 — PERSONAL PROTECTIVE EQUIPMENT (PPE)
+      <div style="font-weight:400;font-size:0.88em;margin-top:5px;">
+        N95 respirators (HCW) · Surgical mask (patient) · Fit-testing · Proper donning/doffing training
+      </div>
+    </div>
+    <div class="fc-arrow"></div>
+    <div class="fc-box teal" style="width:90%;">
+      OUTCOME: REDUCTION IN OCCUPATIONAL TB TRANSMISSION
+    </div>
+  </div>
+  <div class="table-caption">Flowchart 2: NTEP Hierarchical Infection Control Framework for HCWs</div>
+
+  <!-- ============ 10. PREVENTION — LTBI & CHEMOPROPHYLAXIS ============ -->
+  <h2>10. LATENT TB INFECTION (LTBI) IN HCWs — NTEP APPROACH</h2>
+
+  <div class="highlight-box blue">
+    <strong>NTEP Position on LTBI Treatment:</strong> India does not routinely recommend preventive therapy for LTBI in <em>all</em> HCWs with positive TST/IGRA due to the high background prevalence. However, <strong>high-risk subgroups</strong> (HIV-positive HCWs, recent converters, immunocompromised HCWs) are candidates for Isoniazid Preventive Therapy (IPT).
+  </div>
+
+  <h3>A. Isoniazid Preventive Therapy (IPT) — As per NTEP</h3>
+  <ul>
+    <li><strong>Indication</strong>: HIV-positive HCWs with positive TST (≥5 mm) regardless of prior BCG; recent TST converters who are immunocompromised.</li>
+    <li><strong>Regimen</strong>: Isoniazid (INH) <strong>5 mg/kg/day</strong> (max 300 mg/day) for <strong>6 months</strong>.</li>
+    <li>Active TB must be <strong>excluded</strong> before starting IPT.</li>
+    <li>Efficacy: Reduces risk of progression from LTBI to active TB by <strong>60–90%</strong> in compliant patients.</li>
+    <li>Shorter regimen: <strong>3HP</strong> (Isoniazid + Rifapentine weekly × 12 weeks) — not yet routinely used under NTEP but under evaluation.</li>
+    <li><strong>Pyridoxine (Vitamin B6)</strong> supplementation co-administered to prevent INH-induced peripheral neuropathy.</li>
+  </ul>
+
+  <h3>B. BCG Vaccination in HCWs</h3>
+  <ul>
+    <li>Childhood BCG vaccination is universal in India and provides protection mainly against severe forms in children.</li>
+    <li><strong>Adult BCG revaccination of HCWs is NOT routinely recommended</strong> under the NTEP (insufficient evidence of benefit in adults).</li>
+    <li>Novel TB vaccines under trials (e.g., M72/AS01E) — future role in HCW protection.</li>
+  </ul>
+
+  <!-- ============ 11. TREATMENT ============ -->
+  <h2>11. TREATMENT OF ACTIVE TB IN HCWs — NTEP REGIMEN</h2>
+  <div class="highlight-box">
+    <strong>Principle:</strong> TB in HCWs is treated identically to TB in the general population under the NTEP — the occupational context <em>does not</em> alter standard treatment, but <strong>special attention to work-isolation, confidentiality, and return-to-work criteria is required.</strong>
+  </div>
+
+  <!-- Treatment Table -->
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Regimen (NTEP)</th>
+          <th>Duration</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>New Pulmonary TB (DS-TB)</strong></td>
+          <td>2H-R-Z-E / 4H-R<br/>(2HRZE + 4HR)</td>
+          <td>6 months</td>
+          <td>DOT under NTEP; drug-sensitivity testing mandatory (CBNAAT/LPA)</td>
+        </tr>
+        <tr>
+          <td><strong>Previously Treated TB</strong></td>
+          <td>Drug-sensitivity testing first; treat as DS-TB or DR-TB accordingly</td>
+          <td>6–9 months</td>
+          <td>DST mandatory before treatment initiation</td>
+        </tr>
+        <tr>
+          <td><strong>MDR-TB (RR-TB)</strong></td>
+          <td>Bedaquiline + Levofloxacin + Cycloserine + Clofazimine + Pyrazinamide (BPaLM or shorter regimen)</td>
+          <td>6–9 months (shorter regimen) or 18–20 months</td>
+          <td>Managed at DR-TB centre; HCW given extended work leave</td>
+        </tr>
+        <tr>
+          <td><strong>XDR-TB</strong></td>
+          <td>BPaLM (Bedaquiline + Pretomanid + Linezolid + Moxifloxacin)</td>
+          <td>6–9 months</td>
+          <td>Individualized regimen; tertiary centre referral</td>
+        </tr>
+        <tr>
+          <td><strong>LTBI (High-risk HCW)</strong></td>
+          <td>INH 300 mg/day</td>
+          <td>6 months</td>
+          <td>Exclude active disease first; pyridoxine supplementation</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="table-caption">Table 4: NTEP Treatment Regimens for TB in HCWs</div>
+
+  <h3>Work Isolation and Return-to-Work Policy (NTEP)</h3>
+  <ul>
+    <li>HCW with <strong>smear-positive pulmonary TB</strong>: should be relieved of patient care duties until declared <strong>non-infectious</strong>.</li>
+    <li>Non-infectious criteria (NTEP-aligned):
+      <ul>
+        <li>At least <strong>2 weeks of effective anti-TB treatment</strong> completed.</li>
+        <li><strong>Two consecutive sputum smear-negative</strong> results on separate days.</li>
+        <li>Clinical improvement (apyrexia, reduced cough).</li>
+      </ul>
+    </li>
+    <li>HCW with <strong>smear-negative / extra-pulmonary TB</strong>: can continue patient care with appropriate precautions.</li>
+    <li><strong>MDR-TB or XDR-TB in HCW</strong>: prolonged work isolation until culture-negative confirmed — strict policy required.</li>
+    <li>Confidentiality of the HCW's TB diagnosis must be protected; stigma management is essential.</li>
+    <li>Occupational records and compensation benefits must be documented.</li>
+  </ul>
+
+  <!-- ============ 12. MONITORING OF HCWs FOR TB ============ -->
+  <h2>12. MONITORING STRATEGY FOR HCWs — NTEP RECOMMENDATIONS</h2>
+
+  <div class="flowchart">
+    <div class="fc-box" style="background:#4a148c;width:92%;">
+      ALL NEW HCWs AT EMPLOYMENT — BASELINE EVALUATION
+      <div style="font-weight:400;font-size:0.88em;margin-top:5px;">
+        Symptom questionnaire · Chest X-ray · TST (baseline) · HIV status (with consent)
+      </div>
+    </div>
+    <div class="fc-arrow"></div>
+    <div class="fc-branch" style="gap:12px;">
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:0;">
+        <div class="fc-branch-box red">Evidence of ACTIVE TB</div>
+        <div class="fc-arrow" style="height:18px;"></div>
+        <div class="fc-branch-box red">Immediate treatment under NTEP<br/>Work isolation<br/>Contact tracing in healthcare facility</div>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:0;">
+        <div class="fc-branch-box">LTBI Detected<br/>(TST ≥10 mm / IGRA+)</div>
+        <div class="fc-arrow" style="height:18px;"></div>
+        <div class="fc-branch-box">Risk-stratify:<br/>If HIV+ or immunocompromised → IPT<br/>If immunocompetent → annual monitoring</div>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:0;">
+        <div class="fc-branch-box green">No TB / No LTBI</div>
+        <div class="fc-arrow" style="height:18px;"></div>
+        <div class="fc-branch-box green">Annual screening<br/>Reinforce infection control training<br/>PPE compliance audit</div>
+      </div>
+    </div>
+    <div class="fc-arrow"></div>
+    <div class="fc-box green" style="width:92%;">
+      ANNUAL REPEAT EVALUATION FOR ALL HCWs
+      <div style="font-weight:400;font-size:0.88em;margin-top:5px;">
+        Symptom questionnaire · TST (if previously negative) · CXR if symptomatic · Document and register all findings
+      </div>
+    </div>
+    <div class="fc-arrow"></div>
+    <div class="fc-box teal" style="width:92%;">
+      POST-EXPOSURE EVALUATION (After Unprotected TB Exposure)
+      <div style="font-weight:400;font-size:0.88em;margin-top:5px;">
+        TST at 0 and 8–12 weeks · IGRA if available · CXR if TST converts · Treat LTBI / Active TB accordingly
+      </div>
+    </div>
+  </div>
+  <div class="table-caption">Flowchart 3: Monitoring Algorithm for HCWs Under NTEP</div>
+
+  <!-- ============ 13. DR-TB IN HCWs ============ -->
+  <h2>13. DRUG-RESISTANT TB IN HCWs — A SPECIAL CONCERN</h2>
+  <ul>
+    <li>Healthcare settings are <strong>amplifiers of MDR-TB transmission</strong> — multiple large nosocomial outbreaks documented globally.</li>
+    <li>A key driver: <strong>inadequate infection control + poor ventilation</strong> in crowded facilities.</li>
+    <li>Room size is a <strong>critical factor</strong> in MDR-TB nosocomial spread (Escombe et al.).</li>
+    <li>NTEP mandates <strong>universal DST (Drug Sensitivity Testing)</strong> for all TB patients:
+      <ul>
+        <li>CBNAAT (Xpert MTB/RIF) at diagnosis for rapid RIF resistance detection.</li>
+        <li>Line Probe Assay (LPA) for INH and fluoroquinolone resistance.</li>
+        <li>Liquid culture + DST for second-line drugs if MDR confirmed.</li>
+      </ul>
+    </li>
+    <li>HCWs with MDR/XDR-TB:
+      <ul>
+        <li>Mandatory <strong>prolonged work absence</strong> until culture-negative.</li>
+        <li>Registered under NTEP DR-TB programme; managed at designated DR-TB centres.</li>
+        <li>Contact tracing extends to all patients and staff in the unit.</li>
+      </ul>
+    </li>
+    <li>Exposure to MDR-TB patients without adequate PPE is a <strong>notifiable occupational event</strong>.</li>
+  </ul>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>TB Type in HCW</th>
+          <th>DST Required</th>
+          <th>Work Isolation</th>
+          <th>Special Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>DS-TB (New)</td>
+          <td>CBNAAT at minimum</td>
+          <td>Until 2 smear-negative results</td>
+          <td>Notify, DOT, standard 6-month regimen</td>
+        </tr>
+        <tr>
+          <td>DS-TB (Previously Treated)</td>
+          <td>CBNAAT + LPA mandatory</td>
+          <td>Until smear negative</td>
+          <td>Exclude DR-TB before treating</td>
+        </tr>
+        <tr>
+          <td>RR-TB / MDR-TB</td>
+          <td>Full DST (culture + 2nd line)</td>
+          <td>Until culture-negative confirmed</td>
+          <td>DR-TB centre; contact tracing in facility</td>
+        </tr>
+        <tr>
+          <td>XDR-TB</td>
+          <td>Full DST including BDQ, Lzd</td>
+          <td>Prolonged; until culture conversion</td>
+          <td>BPaLM regimen; tertiary referral; occupational compensation</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="table-caption">Table 5: Management of DR-TB in HCWs as per NTEP</div>
+
+  <!-- ============ 14. RIGHTS & RESPONSIBILITIES ============ -->
+  <h2>14. RIGHTS AND RESPONSIBILITIES OF HCWs WITH TB — NTEP</h2>
+
+  <div class="diagram-wrap">
+    <div class="diag-card green" style="min-width:160px;">
+      <strong>Rights</strong><br/>
+      <ul style="text-align:left;font-size:0.85em;font-weight:400;margin-top:6px;">
+        <li>Free diagnosis &amp; treatment under NTEP</li>
+        <li>Confidentiality of TB status</li>
+        <li>Paid medical leave</li>
+        <li>Anti-stigma protection</li>
+        <li>Nutritional support (Ni-kshay Poshan Yojana: ₹1000/month)</li>
+        <li>Occupational compensation if certified occupational TB</li>
+      </ul>
+    </div>
+    <div class="diag-card orange" style="min-width:160px;">
+      <strong>Responsibilities</strong><br/>
+      <ul style="text-align:left;font-size:0.85em;font-weight:400;margin-top:6px;">
+        <li>Disclose TB status to occupational health officer</li>
+        <li>Comply with DOT under NTEP</li>
+        <li>Follow work isolation as advised</li>
+        <li>Report unprotected TB exposures promptly</li>
+        <li>Undergo baseline and follow-up screening</li>
+        <li>Practice and promote cough hygiene</li>
+      </ul>
+    </div>
+    <div class="diag-card" style="min-width:160px;">
+      <strong>Employer / Hospital Obligations</strong><br/>
+      <ul style="text-align:left;font-size:0.85em;font-weight:400;margin-top:6px;">
+        <li>Provide N95 respirators free of cost</li>
+        <li>Ensure adequate ward ventilation</li>
+        <li>Maintain TB exposure register</li>
+        <li>Conduct annual TB screening camps</li>
+        <li>Implement NTEP Infection Control Plan (ICP) in facility</li>
+        <li>Notify State TB Officer of HCW TB cases</li>
+      </ul>
+    </div>
+  </div>
+  <div class="table-caption">Diagram 1: Rights, Responsibilities and Employer Obligations in HCW TB (NTEP)</div>
+
+  <!-- ============ 15. CHALLENGES ============ -->
+  <h2>15. CHALLENGES IN MANAGING TB AMONG HCWs IN INDIA</h2>
+  <ul>
+    <li><strong>Stigma and self-medication</strong>: HCWs often avoid disclosing symptoms, leading to delayed diagnosis and continued transmission.</li>
+    <li><strong>Low index of suspicion</strong>: Familiarity with TB leads to attitudinal desensitization ("it won't happen to me").</li>
+    <li><strong>Inadequate infrastructure</strong>: Most public hospitals in India lack negative-pressure isolation rooms and air-quality monitoring equipment.</li>
+    <li><strong>Non-compliance with PPE</strong>: Inconsistent N95 usage, especially during routine care of undiagnosed smear-positive patients.</li>
+    <li><strong>Absent institutional TB policies</strong>: Many hospitals — including tertiary ones — lack formal HCW TB surveillance programmes or Infection Control Plans (ICPs).</li>
+    <li><strong>Limited LTBI management</strong>: No systematic programme for identifying and treating LTBI in HCWs in most Indian institutions.</li>
+    <li><strong>Rising DR-TB burden</strong>: MDR/XDR-TB in healthcare settings is increasingly reported; standard infection control measures inadequate without universal DST.</li>
+    <li><strong>Under-reporting</strong>: TB among HCWs is significantly under-notified; few hospitals maintain occupational TB registers as mandated by NTEP.</li>
+  </ul>
+
+  <!-- ============ 16. SUMMARY TABLE ============ -->
+  <h2>16. QUICK SUMMARY TABLE — TB IN HCWs</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Domain</th>
+          <th>Key Points (NTEP / Indian Context)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Epidemiology</strong></td>
+          <td>HCWs have up to 100× higher ARI than general population; India = 27% global TB burden; LTBI prevalence ~63% in LMICs</td>
+        </tr>
+        <tr>
+          <td><strong>Transmission</strong></td>
+          <td>Airborne via droplet nuclei; highest risk in chest/respiratory wards, bronchoscopy, sputum induction, labs</td>
+        </tr>
+        <tr>
+          <td><strong>Diagnosis of LTBI</strong></td>
+          <td>TST preferred in India (cost, availability); ≥10 mm significant in HCWs; IGRA reserved where TST unreliable</td>
+        </tr>
+        <tr>
+          <td><strong>Diagnosis of Active TB</strong></td>
+          <td>Symptoms ≥1 week → sputum AFB + CXR; CBNAAT for rapid RIF resistance; lower threshold than general population</td>
+        </tr>
+        <tr>
+          <td><strong>Treatment</strong></td>
+          <td>Standard NTEP regimen (2HRZE/4HR for DS-TB); mandatory DST; DR-TB treated at DR-TB centre</td>
+        </tr>
+        <tr>
+          <td><strong>Work Isolation</strong></td>
+          <td>Until 2 sputum smear-negative + ≥2 weeks treatment for pulmonary smear-positive TB; prolonged for DR-TB</td>
+        </tr>
+        <tr>
+          <td><strong>Administrative Controls</strong></td>
+          <td>HCW training, fast-tracking suspects, annual screening, Infection Control Plan, notification</td>
+        </tr>
+        <tr>
+          <td><strong>Environmental Controls</strong></td>
+          <td>Ventilation ≥6–12 ACH, negative pressure rooms, HEPA filters, UVGI, sputum induction booths</td>
+        </tr>
+        <tr>
+          <td><strong>Personal Protection</strong></td>
+          <td>N95 respirator (HCW); surgical mask (patient); fit-testing mandatory</td>
+        </tr>
+        <tr>
+          <td><strong>LTBI Treatment</strong></td>
+          <td>INH 300 mg/day × 6 months for HIV+ / immunocompromised HCWs; not routine for all</td>
+        </tr>
+        <tr>
+          <td><strong>Welfare</strong></td>
+          <td>Ni-kshay Poshan Yojana (₹1000/month nutritional support); confidentiality; paid leave; compensation</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="table-caption">Table 6: Quick-Reference Summary — TB in HCWs (NTEP)</div>
+
+  <!-- ============ 17. CONCLUSION ============ -->
+  <h2>17. CONCLUSION</h2>
+  <ul>
+    <li>TB in HCWs is a <strong>preventable occupational hazard</strong> that demands systematic institutional and policy-level action.</li>
+    <li>The three-level control hierarchy — administrative → environmental → personal protective equipment — remains the cornerstone of prevention under NTEP.</li>
+    <li>Early case-finding with a <strong>lower symptom threshold</strong>, universal DST, and prompt treatment under DOT are critical to protect HCWs and prevent nosocomial spread.</li>
+    <li>India's NTEP has provided a robust framework; the challenge lies in its <strong>uniform implementation</strong> across all levels of healthcare facilities.</li>
+    <li>Recognition of TB as an <strong>occupational disease</strong> entitles affected HCWs to legal protection, compensation, and stigma-free management.</li>
+    <li>Future priorities: universal LTBI screening, novel vaccine deployment, mandatory ICP audits, and electronic HCW TB registries integrated with NTEP's Ni-kshay portal.</li>
+  </ul>
+
+  <div class="highlight-box red">
+    <strong>Exam Key Point:</strong> In a 10-mark answer, always mention — (1) occupational risk is 2–10× higher, (2) three-tier control hierarchy, (3) N95 vs. surgical mask distinction, (4) NTEP lower symptom threshold for HCWs, (5) work-isolation criteria, and (6) rights under NTEP including Ni-kshay Poshan Yojana.
+  </div>
+
+  <!-- ============ REFERENCES ============ -->
+  <h2>REFERENCES (Standard Textbooks &amp; Indian Guidelines)</h2>
+  <ul>
+    <li>Jindal SK (Ed.). <em>Textbook of Pulmonary and Critical Care Medicine</em>, 2nd edition. Jaypee Brothers Medical Publishers.</li>
+    <li>National Tuberculosis Elimination Programme (NTEP). <em>India TB Report 2023</em>. Ministry of Health &amp; Family Welfare, Government of India.</li>
+    <li>Central TB Division. <em>National Airborne Infection Control (AIC) Guidelines</em>. NTEP, MoHFW, India, 2026.</li>
+    <li>Central TB Division. <em>NTEP Technical and Operational Guidelines for TB Control in India</em>. MoHFW, GOI (Updated 2022).</li>
+    <li>Sharma SK, Mohan A (Eds.). <em>Tuberculosis</em>, 3rd edition. Jaypee Brothers Medical Publishers.</li>
+    <li>Indian Journal of Tuberculosis — relevant original research articles on HCW TB risk in India.</li>
+  </ul>
+
+  <div class="footer">
+    NTEP-Based Medical Notes &nbsp;|&nbsp; Respiratory Medicine &nbsp;|&nbsp; TB in Health Care Workers
+    &nbsp;|&nbsp; For Academic Use Only
+  </div>
+
+</div>
+</body>
+</html>
+
