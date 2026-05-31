@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Corticosteroid Adjunct Treatment in TB (10 Marks)</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f0f4f8;
+      color: #1a1a2e;
+      line-height: 1.75;
+      padding-bottom: 60px;
+    }
+
+    /* ── HEADER ── */
+    .page-header {
+      background: linear-gradient(135deg, #1a3c5e 0%, #2e7d9f 100%);
+      color: #fff;
+      padding: 36px 40px 28px;
+      border-bottom: 5px solid #f4a261;
+    }
+    .page-header h1 { font-size: 1.8rem; margin-bottom: 6px; }
+    .page-header .meta { font-size: 0.83rem; opacity: 0.85; margin-top: 8px; }
+    .badge {
+      background: #f4a261; color: #1a1a2e;
+      border-radius: 20px; padding: 3px 13px;
+      font-weight: 700; font-size: 0.78rem;
+      letter-spacing: 0.8px; text-transform: uppercase;
+      margin-right: 6px;
+    }
+
+    /* ── LAYOUT ── */
+    .wrapper {
+      max-width: 960px; margin: 32px auto;
+      padding: 0 20px; display: flex;
+      flex-direction: column; gap: 30px;
+    }
+
+    /* ── CARDS ── */
+    .card {
+      background: #fff; border-radius: 12px;
+      box-shadow: 0 3px 18px rgba(0,0,0,0.08); overflow: hidden;
+    }
+    .card-header {
+      background: linear-gradient(90deg, #1a3c5e 0%, #2e7d9f 100%);
+      color: #fff; padding: 13px 22px;
+      font-size: 1.05rem; font-weight: 700;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .card-body { padding: 22px 26px; }
+
+    /* ── TYPOGRAPHY ── */
+    h2 { font-size: 1.05rem; color: #1a3c5e; margin: 18px 0 8px; border-left: 4px solid #2e7d9f; padding-left: 10px; }
+    h3 { font-size: 0.96rem; color: #2e7d9f; margin: 12px 0 5px; }
+    p { margin-bottom: 10px; font-size: 0.94rem; }
+    ul, ol { margin: 8px 0 10px 22px; font-size: 0.93rem; }
+    li { margin-bottom: 5px; }
+    strong { color: #1a3c5e; }
+
+    .highlight  { background:#fff3cd; border-left:4px solid #f4a261; padding:10px 16px; border-radius:6px; margin:12px 0; font-size:0.93rem; }
+    .danger-box { background:#fde8e8; border-left:4px solid #c0392b; padding:10px 16px; border-radius:6px; margin:12px 0; font-size:0.93rem; }
+    .green-box  { background:#e8f8f0; border-left:4px solid #27ae60; padding:10px 16px; border-radius:6px; margin:12px 0; font-size:0.93rem; }
+    .info-box   { background:#e8f4fd; border-left:4px solid #2980b9; padding:10px 16px; border-radius:6px; margin:12px 0; font-size:0.93rem; }
+
+    /* ── TABLES ── */
+    .tbl-wrap { overflow-x: auto; margin: 14px 0; }
+    table { width:100%; border-collapse:collapse; font-size:0.87rem; }
+    thead tr { background:#1a3c5e; color:#fff; }
+    thead th { padding:10px 13px; text-align:left; font-weight:600; }
+    tbody tr:nth-child(even) { background:#f0f6fb; }
+    tbody tr:nth-child(odd)  { background:#fff; }
+    tbody td { padding:9px 13px; border-bottom:1px solid #dce4ec; vertical-align:top; }
+    tbody td:first-child { font-weight:600; color:#1a3c5e; }
+    .tbl-caption { text-align:center; font-size:0.8rem; color:#555; margin-top:4px; font-style:italic; }
+
+    /* ── FLOWCHART WRAPPER ── */
+    .flowchart-wrap {
+      background:#f7fbff; border:1.5px solid #b3d1e8;
+      border-radius:10px; padding:18px 10px;
+      margin:16px 0; overflow-x:auto;
+    }
+    .flowchart-wrap svg { display:block; margin:auto; }
+
+    /* ── MECHANISM GRID ── */
+    .mech-grid {
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(175px,1fr));
+      gap:13px; margin:14px 0;
+    }
+    .mech-box {
+      background:#e8f4fd; border:1.5px solid #2e7d9f;
+      border-radius:10px; padding:13px 12px;
+      text-align:center; font-size:0.87rem;
+    }
+    .mech-box .mico { font-size:1.55rem; margin-bottom:5px; }
+    .mech-box strong { display:block; color:#1a3c5e; margin-bottom:4px; font-size:0.88rem; }
+
+    /* ── DOSE CARDS ── */
+    .dose-grid {
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(210px,1fr));
+      gap:13px; margin:14px 0;
+    }
+    .dose-card { border:2px solid #2e7d9f; border-radius:10px; overflow:hidden; }
+    .dose-card-head { background:#2e7d9f; color:#fff; padding:8px 13px; font-size:0.87rem; font-weight:700; }
+    .dose-card-body { padding:11px 13px; font-size:0.87rem; background:#f0f8ff; }
+    .dose-card-body ul { margin-left:16px; }
+
+    /* ── SE TABLE special ── */
+    .se-severe { color:#c0392b; font-weight:700; }
+    .se-mod    { color:#e67e22; font-weight:600; }
+
+    /* ── MONITORING STEPS ── */
+    .steps { counter-reset:step; display:flex; flex-direction:column; gap:10px; margin:12px 0; }
+    .step-item {
+      display:flex; align-items:flex-start; gap:12px;
+      background:#f7fbff; border:1px solid #b3d1e8;
+      border-radius:8px; padding:10px 14px; font-size:0.9rem;
+    }
+    .step-num {
+      background:#1a3c5e; color:#fff; border-radius:50%;
+      min-width:26px; height:26px; display:flex;
+      align-items:center; justify-content:center;
+      font-weight:700; font-size:0.85rem; flex-shrink:0;
+    }
+
+    /* ── CONTRAINDICATIONS ── */
+    .contra-grid {
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+      gap:13px; margin:13px 0;
+    }
+    .contra-box {
+      background:#fde8e8; border:1.5px solid #c0392b;
+      border-radius:9px; padding:11px 13px; font-size:0.88rem;
+    }
+    .contra-box strong { display:block; color:#c0392b; margin-bottom:4px; }
+
+    /* ── FOOTER ── */
+    .page-footer {
+      text-align:center; font-size:0.78rem; color:#777;
+      margin-top:40px; padding:18px;
+      border-top:1px solid #dce4ec;
+    }
+
+    @media (max-width:600px) {
+      .page-header { padding:22px 14px 16px; }
+      .page-header h1 { font-size:1.25rem; }
+      .card-body { padding:14px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     HEADER
+═══════════════════════════════════════════ -->
+<div class="page-header">
+  <div style="margin-bottom:10px;">
+    <span class="badge">10 Marks</span>
+    <span class="badge">Respiratory Medicine</span>
+    <span class="badge">NTEP / INDEX-TB</span>
+  </div>
+  <h1>Corticosteroid Adjunct Treatment in Tuberculosis</h1>
+  <div class="meta">
+    &#128218; Source: NTEP Guidelines (India) &nbsp;|&nbsp; INDEX-TB Guidelines (ICMR/CTD) &nbsp;|&nbsp;
+    Standard Respiratory Textbooks (Fishman, Harrison, Crofton &amp; Douglas)
+  </div>
+</div>
+
+<div class="wrapper">
+
+<!-- ═══════════════════════════════════════════
+     SECTION 1 — INTRODUCTION
+═══════════════════════════════════════════ -->
+<div class="card">
+  <div class="card-header">&#128218; &nbsp;1. Introduction &amp; Rationale</div>
+  <div class="card-body">
+
+    <div class="highlight">
+      <strong>Core Principle:</strong> Corticosteroids do <em>NOT</em> kill
+      <em>Mycobacterium tuberculosis</em>. They are purely <strong>adjuncts</strong> used to
+      suppress the host's pathological immune response — preventing tissue destruction, reducing
+      mortality, and limiting long-term morbidity — <u>always alongside standard ATT</u>.
+    </div>
+
+    <ul>
+      <li>Tuberculosis causes injury primarily through <strong>host-mediated immunopathology</strong>
+          (granulomatous inflammation, cytokine storm, caseous necrosis, fibrosis) rather than
+          direct bacterial toxicity alone.</li>
+      <li>This inflammatory cascade, if unchecked, causes <strong>irreversible organ damage</strong>:
+          cerebral herniation in TBM, constrictive pericarditis, bronchial stenosis, adrenal
+          destruction.</li>
+      <li>Glucocorticoids modulate this response without impairing mycobacterial clearance when
+          adequate ATT is co-administered.</li>
+      <li>Indications are <strong>specific and limited</strong> — as per NTEP (National TB
+          Elimination Programme) and INDEX-TB Guidelines (ICMR/Central TB Division, India).</li>
+      <li>Use outside defined indications carries risk of <strong>immunosuppression, steroid
+          side-effects, and reactivation of latent infections</strong>.</li>
+    </ul>
+
+    <div class="danger-box">
+      &#9888;&nbsp;<strong>Warning:</strong> Corticosteroids used in <em>unrecognised or
+      inadequately treated TB</em> can precipitate fulminant disseminated disease. Always confirm
+      adequate ATT coverage before or simultaneously with steroid initiation.
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 2 — MECHANISM
+═══════════════════════════════════════════ -->
+<div class="card">
+  <div class="card-header">&#9881;&#65039; &nbsp;2. Mechanism of Action of Corticosteroids in TB</div>
+  <div class="card-body">
+
+    <p>The exact mechanism is <strong>incompletely understood</strong>, but the following
+    pathways are well-established:</p>
+
+    <div class="mech-grid">
+      <div class="mech-box">
+        <div class="mico">&#128293;</div>
+        <strong>Anti-inflammatory</strong>
+        Inhibit phospholipase A2 &rarr; reduced prostaglandins &amp; leukotrienes. Suppress
+        TNF-&alpha;, IL-1, IL-6, interferon-&gamma;.
+      </div>
+      <div class="mech-box">
+        <div class="mico">&#128737;&#65039;</div>
+        <strong>Immunosuppression</strong>
+        Reduce T-lymphocyte proliferation and macrophage activation; dampen cytokine storm
+        responsible for tissue damage.
+      </div>
+      <div class="mech-box">
+        <div class="mico">&#128167;</div>
+        <strong>Anti-oedema</strong>
+        Reduce vasogenic cerebral oedema (TBM), pericardial effusion formation, and
+        pleural exudate volume.
+      </div>
+      <div class="mech-box">
+        <div class="mico">&#129516;</div>
+        <strong>Anti-fibrotic</strong>
+        Reduce fibroblast proliferation &rarr; prevent constrictive pericarditis and
+        meningeal adhesions causing hydrocephalus.
+      </div>
+      <div class="mech-box">
+        <div class="mico">&#128138;</div>
+        <strong>Hormonal Replacement</strong>
+        Bilateral adrenal destruction in TB &rarr; Addison's disease: physiological
+        corticosteroid replacement is <em>mandatory</em>.
+      </div>
+      <div class="mech-box">
+        <div class="mico">&#129504;</div>
+        <strong>IRIS Modulation</strong>
+        In HIV-TB, paradoxical IRIS driven by rapid immune recovery is suppressed
+        by short-course prednisolone.
+      </div>
+    </div>
+
+    <div class="info-box">
+      &#128203;&nbsp;<strong>Note (INDEX-TB):</strong> The benefit of steroids in TB is
+      <em>site-specific</em> — the level of evidence is HIGH for TBM and MODERATE for
+      pericardial TB; it is LOW or INSUFFICIENT for pleural, lymph node, and abdominal TB.
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 3 — INDICATIONS + FLOWCHART
+═══════════════════════════════════════════ -->
+<div class="card">
+  <div class="card-header">&#9989; &nbsp;3. Indications for Corticosteroids in TB (NTEP &amp; INDEX-TB Guidelines)</div>
+  <div class="card-body">
+
+    <!-- MASTER DECISION FLOWCHART -->
+    <div class="flowchart-wrap">
+      <svg width="680" height="460" viewBox="0 0 680 460"
+           xmlns="http://www.w3.org/2000/svg"
+           font-family="Segoe UI, Arial, sans-serif" font-size="12.5">
+        <defs>
+          <marker id="arr" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+            <path d="M0,0 L0,7 L9,3.5 z" fill="#1a3c5e"/>
+          </marker>
+          <marker id="arr-red" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+            <path d="M0,0 L0,7 L9,3.5 z" fill="#c0392b"/>
+          </marker>
+        </defs>
+
+        <!-- Title -->
+        <text x="340" y="20" text-anchor="middle" font-weight="bold" font-size="13.5" fill="#1a3c5e">
+          Decision Flowchart: Corticosteroid Use in TB (NTEP / INDEX-TB)
+        </text>
+
+        <!-- START -->
+        <rect x="220" y="30" width="240" height="42" rx="20" fill="#1a3c5e"/>
+        <text x="340" y="47" text-anchor="middle" fill="#fff" font-weight="bold">Patient Diagnosed with TB</text>
+        <text x="340" y="63" text-anchor="middle" fill="#f4a261" font-size="11">Standard ATT (NTEP Regimen) Initiated</text>
+
+        <!-- Arrow down -->
+        <line x1="340" y1="72" x2="340" y2="100" stroke="#1a3c5e" stroke-width="2" marker-end="url(#arr)"/>
+
+        <!-- Diamond: Clinical Site? -->
+        <polygon points="340,100 490,140 340,180 190,140" fill="#fff3cd" stroke="#f4a261" stroke-width="2"/>
+        <text x="340" y="136" text-anchor="middle" font-weight="bold" fill="#1a3c5e">Clinical Site /</text>
+        <text x="340" y="153" text-anchor="middle" font-weight="bold" fill="#1a3c5e">Complication?</text>
+
+        <!-- Branch LEFT — TBM -->
+        <line x1="190" y1="140" x2="60" y2="140" stroke="#1a3c5e" stroke-width="2" marker-end="url(#arr)"/>
+        <rect x="5" y="115" width="110" height="50" rx="8" fill="#e8f8f0" stroke="#27ae60" stroke-width="2"/>
+        <text x="60" y="136" text-anchor="middle" fill="#1a3c5e" font-weight="bold">TBM / CNS TB</text>
+        <text x="60" y="153" text-anchor="middle" fill="#27ae60" font-size="11">&#10004; DEFINITE</text>
+
+        <!-- Branch RIGHT — Pericardial -->
+        <line x1="490" y1="140" x2="620" y2="140" stroke="#1a3c5e" stroke-width="2" marker-end="url(#arr)"/>
+        <rect x="563" y="115" width="112" height="50" rx="8" fill="#e8f8f0" stroke="#27ae60" stroke-width="2"/>
+        <text x="619" y="136" text-anchor="middle" fill="#1a3c5e" font-weight="bold">Pericardial TB</text>
+        <text x="619" y="153" text-anchor="middle" fill="#27ae60" font-size="11">&#10004; DEFINITE</text>
+
+        <!-- Branch DOWN — further split -->
+        <line x1="340" y1="180" x2="340" y2="208" stroke="#1a3c5e" stroke-width="2" marker-end="url(#arr)"/>
+
+        <!-- Diamond 2: Special situations -->
+        <polygon points="340,208 468,242 340,276 212,242" fill="#e8f4fd" stroke="#2980b9" stroke-width="2"/>
+        <text x="340" y="238" text-anchor="middle" font-weight="bold" fill="#1a3c5e">Special</text>
+        <text x="340" y="256" text-anchor="middle" font-weight="bold" fill="#1a3c5e">Situation?</text>
+
+        <!-- Left — Adrenal TB -->
+        <line x1="212" y1="242" x2="100" y2="242" stroke="#1a3c5e" stroke-width="2" marker-end="url(#arr)"/>
+        <rect x="20" y="218" width="130" height="48" rx="8" fill="#e8f4fd" stroke="#2980b9" stroke-width="2"/>
+        <text x="85" y="238" text-anchor="middle" fill="#1a3c5e" font-weight="bold">Adrenal TB</text>
+        <text x="85" y="254" text-anchor="middle" fill="#2980b9" font-size="11">(Addison's) &#10004;</text>
+
+        <!-- Right — TB-IRIS -->
+        <line x1="468" y1="242" x2="575" y2="242" stroke="#1a3c5e" stroke-width="2" marker-end="url(#arr)"/>
+        <rect x="528" y="218" width="140" height="48" rx="8" fill="#e8f4fd" stroke="#2980b9" stroke-width="2"/>
+        <text x="598" y="238" text-anchor="middle" fill="#1a3c5e" font-weight="bold">TB-IRIS (HIV-TB)</text>
+        <text x="598" y="254" text-anchor="middle" fill="#2980b9" font-size="11">Mod-Severe &#10004;</text>
+
+        <!-- Down from diamond 2 -->
+        <line x1="340" y1="276" x2="340" y2="304" stroke="#1a3c5e" stroke-width="2" marker-end="url(#arr)"/>
+
+        <!-- Diamond 3: Other situations -->
+        <polygon points="340,304 460,336 340,368 220,336" fill="#fde8e8" stroke="#c0392b" stroke-width="2"/>
+        <text x="340" y="332" text-anchor="middle" font-weight="bold" fill="#1a3c5e">Pleural / Lymph</text>
+        <text x="340" y="350" text-anchor="middle" font-weight="bold" fill="#1a3c5e">Node / Abdominal TB?</text>
+
+        <!-- Not recommended -->
+        <line x1="460" y1="336" x2="590" y2="336" stroke="#c0392b" stroke-width="2" marker-end="url(#arr-red)"/>
+        <rect x="543" y="312" width="133" height="48" rx="8" fill="#fde8e8" stroke="#c0392b" stroke-width="2"/>
+        <text x="609" y="332" text-anchor="middle" fill="#c0392b" font-weight="bold">NOT Routinely</text>
+        <text x="609" y="350" text-anchor="middle" fill="#c0392b" font-size="11">Recommended &#10008;</text>
+
+        <!-- Special cases box -->
+        <line x1="340" y1="368" x2="340" y2="396" stroke="#1a3c5e" stroke-width="2" marker-end="url(#arr)"/>
+        <rect x="195" y="396" width="290" height="44" rx="9" fill="#1a3c5e"/>
+        <text x="340" y="415" text-anchor="middle" fill="#f4a261" font-weight="bold" font-size="12.5">Selected: Miliary TB-ARDS, Endobronchial TB</text>
+        <text x="340" y="431" text-anchor="middle" fill="#fff" font-size="11">(Individualised clinical decision)</text>
+      </svg>
+    </div>
+
+    <h2>3.1 &nbsp;Definite / High-Evidence Indications</h2>
+    <ul>
+      <li><strong>TB Meningitis (TBM):</strong>
+        <ul>
+          <li>Strongest, most evidence-based indication — INDEX-TB: <em>Strong recommendation, high-quality evidence</em>.</li>
+          <li>Reduces <strong>mortality by ~25%</strong> and decreases severe neurological sequelae.</li>
+          <li>Reduces vasogenic cerebral oedema, meningeal inflammation, and adhesions causing hydrocephalus.</li>
+          <li>Indicated in <strong>all grades</strong> (I, II, III) of TBM; grade II and III benefit most.</li>
+          <li>In <strong>HIV-positive</strong> TBM: steroids <em>may</em> be used if no other life-threatening OIs present
+              (INDEX-TB: Conditional recommendation, very low quality evidence).</li>
+        </ul>
+      </li>
+      <li style="margin-top:8px;"><strong>Tuberculous Pericarditis:</strong>
+        <ul>
+          <li>INDEX-TB: <em>Conditional recommendation, moderate quality evidence</em>.</li>
+          <li>Reduces risk of <strong>constrictive pericarditis</strong> and accelerates resolution of pericardial effusion.</li>
+          <li>Reduces all-cause mortality in <strong>HIV-negative</strong> patients.</li>
+          <li>Evidence of mortality benefit in HIV-positive patients is less clear (IMPI Trial data).</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h2>3.2 &nbsp;Conditional / Selective Indications</h2>
+    <ul>
+      <li><strong>Adrenal TB (Addison's Disease):</strong>
+          Bilateral adrenal destruction leads to primary adrenal insufficiency.
+          Physiological corticosteroid replacement (hydrocortisone + fludrocortisone) is
+          <em>mandatory and lifelong</em> if permanent damage.</li>
+      <li><strong>TB-IRIS (Paradoxical IRIS):</strong>
+          In HIV-TB co-infected patients starting ART — moderate to severe paradoxical reactions
+          (worsening lymphadenopathy, CNS IRIS, severe systemic symptoms) benefit from
+          short-course prednisolone. Continue both ART and ATT.</li>
+      <li><strong>Endobronchial TB (especially children):</strong>
+          To prevent progressive bronchial stenosis/obstruction; reduces inflammatory
+          granulation tissue.</li>
+      <li><strong>Severe Miliary TB with ARDS:</strong>
+          Selected cases with life-threatening systemic inflammatory response; individualised
+          use under close monitoring.</li>
+      <li><strong>Drug Hypersensitivity to ATT:</strong>
+          Short course for severe skin reactions (e.g., SJS/TEN) while planning drug
+          re-challenge or alternative regimens.</li>
+      <li><strong>Laryngeal TB with Airway Obstruction:</strong>
+          Short course to reduce mucosal oedema and prevent airway compromise.</li>
+    </ul>
+
+    <h2>3.3 &nbsp;NOT Routinely Recommended (INDEX-TB)</h2>
+    <div class="danger-box">
+      &#10008;&nbsp;<strong>INDEX-TB explicitly states:</strong> Corticosteroids are
+      <em>NOT recommended</em> as routine adjuncts for:
+      <ul style="margin-top:6px;">
+        <li><strong>Pleural TB</strong> — no proven long-term benefit on pleural fibrosis or lung function.</li>
+        <li><strong>Lymph node TB</strong> — insufficient evidence.</li>
+        <li><strong>Abdominal / Peritoneal TB</strong> — no benefit demonstrated.</li>
+        <li><strong>Spinal TB (Pott's disease)</strong> — not indicated unless cord oedema is
+            compressing the spinal cord (rare, individualised).</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 4 — DOSAGE TABLE + DOSE CARDS
+═══════════════════════════════════════════ -->
+<div class="card">
+  <div class="card-header">&#128138; &nbsp;4. Drugs, Doses &amp; Duration (NTEP / INDEX-TB)</div>
+  <div class="card-body">
+
+    <div class="dose-grid">
+
+      <div class="dose-card">
+        <div class="dose-card-head">TBM — Adults</div>
+        <div class="dose-card-body">
+          <ul>
+            <li><strong>Drug:</strong> Dexamethasone (preferred) or Prednisolone</li>
+            <li><strong>Dose:</strong> 0.4 mg/kg/day IV initially</li>
+            <li><strong>Phase 1:</strong> 7 days IV at full dose</li>
+            <li><strong>Taper:</strong> Reduce over 6–8 weeks (IV &rarr; oral)</li>
+            <li>Or: Prednisolone 60 mg/day oral, tapering weekly</li>
+            <li><strong>Total duration:</strong> 6–8 weeks</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dose-card">
+        <div class="dose-card-head">TBM — Children (NTEP Paediatric Guidelines)</div>
+        <div class="dose-card-body">
+          <ul>
+            <li><strong>Drug:</strong> Dexamethasone / Prednisolone</li>
+            <li>Dexamethasone: 0.6 mg/kg/day for 4 weeks</li>
+            <li><strong>Taper:</strong> Over subsequent 4 weeks</li>
+            <li>Or: Prednisolone 2 mg/kg/day (max 60 mg)</li>
+            <li><strong>Total duration:</strong> 8 weeks</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dose-card">
+        <div class="dose-card-head">Tuberculous Pericarditis</div>
+        <div class="dose-card-body">
+          <ul>
+            <li><strong>Drug:</strong> Prednisolone</li>
+            <li><strong>Adult dose:</strong> 60 mg/day (or 1 mg/kg/day)</li>
+            <li><strong>Week 1–2:</strong> 60 mg/day</li>
+            <li><strong>Taper:</strong> Reduce by 10 mg/week</li>
+            <li><strong>Total duration:</strong> 6–8 weeks</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dose-card">
+        <div class="dose-card-head">TB-IRIS
+      <div class="dose-card">
+        <div class="dose-card-head">TB-IRIS (HIV-TB Co-infection)</div>
+        <div class="dose-card-body">
+          <ul>
+            <li><strong>Drug:</strong> Prednisolone</li>
+            <li><strong>Week 1–2:</strong> 1.5 mg/kg/day</li>
+            <li><strong>Week 3–4:</strong> 0.75 mg/kg/day</li>
+            <li><strong>Total duration:</strong> 4 weeks</li>
+            <li>Continue both ART and ATT throughout</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dose-card">
+        <div class="dose-card-head">Adrenal TB — Addison's Disease</div>
+        <div class="dose-card-body">
+          <ul>
+            <li><strong>Hydrocortisone:</strong> 20 mg morning + 10 mg evening</li>
+            <li><strong>Fludrocortisone:</strong> 0.1 mg/day (mineralocorticoid replacement)</li>
+            <li><strong>Duration:</strong> Lifelong if permanent adrenal damage</li>
+            <li>Sick-day rules: double dose during illness/surgery</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dose-card">
+        <div class="dose-card-head">Endobronchial TB (Paediatric)</div>
+        <div class="dose-card-body">
+          <ul>
+            <li><strong>Drug:</strong> Prednisolone</li>
+            <li><strong>Dose:</strong> 1–2 mg/kg/day (max 40 mg)</li>
+            <li><strong>Duration:</strong> 6–8 weeks with taper</li>
+            <li>Aim: prevent bronchial stenosis</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dose-card">
+        <div class="dose-card-head">Severe Miliary TB / TB-ARDS</div>
+        <div class="dose-card-body">
+          <ul>
+            <li><strong>Drug:</strong> Methylprednisolone / Prednisolone</li>
+            <li><strong>Dose:</strong> Individualised (0.5–1 mg/kg/day)</li>
+            <li><strong>Duration:</strong> 2–4 weeks, then taper</li>
+            <li>Only in life-threatening inflammatory response</li>
+            <li>Under specialist supervision</li>
+          </ul>
+        </div>
+      </div>
+
+    </div><!-- end dose-grid -->
+
+    <!-- ── MASTER DOSAGE TABLE ── -->
+    <h2>Summary Dosage Table</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Clinical Scenario</th>
+            <th>Preferred Steroid</th>
+            <th>Dose (Adult)</th>
+            <th>Duration</th>
+            <th>Route</th>
+            <th>Evidence (INDEX-TB)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>TB Meningitis (Adult)</td>
+            <td>Dexamethasone</td>
+            <td>0.4 mg/kg/day initially</td>
+            <td>6–8 weeks (taper)</td>
+            <td>IV &rarr; Oral</td>
+            <td style="color:#27ae60;font-weight:700;">Strong / High</td>
+          </tr>
+          <tr>
+            <td>TB Meningitis (Child, NTEP)</td>
+            <td>Dexamethasone / Prednisolone</td>
+            <td>0.6 mg/kg/day or 2 mg/kg/day</td>
+            <td>8 weeks total</td>
+            <td>IV / Oral</td>
+            <td style="color:#27ae60;font-weight:700;">Strong / High</td>
+          </tr>
+          <tr>
+            <td>Tuberculous Pericarditis</td>
+            <td>Prednisolone</td>
+            <td>60 mg/day (1 mg/kg/day)</td>
+            <td>6–8 weeks</td>
+            <td>Oral</td>
+            <td style="color:#e67e22;font-weight:700;">Conditional / Moderate</td>
+          </tr>
+          <tr>
+            <td>TB-IRIS (HIV-TB)</td>
+            <td>Prednisolone</td>
+            <td>1.5 mg/kg/day &rarr; 0.75 mg/kg/day</td>
+            <td>4 weeks</td>
+            <td>Oral</td>
+            <td style="color:#e67e22;font-weight:700;">Conditional / Moderate</td>
+          </tr>
+          <tr>
+            <td>Adrenal TB — Addison's</td>
+            <td>Hydrocortisone + Fludrocortisone</td>
+            <td>20+10 mg/day + 0.1 mg/day</td>
+            <td>Lifelong</td>
+            <td>Oral</td>
+            <td style="color:#1a3c5e;font-weight:700;">Mandatory replacement</td>
+          </tr>
+          <tr>
+            <td>Endobronchial TB (Child)</td>
+            <td>Prednisolone</td>
+            <td>1–2 mg/kg/day (max 40 mg)</td>
+            <td>6–8 weeks</td>
+            <td>Oral</td>
+            <td style="color:#e67e22;font-weight:700;">Conditional / Low</td>
+          </tr>
+          <tr>
+            <td>Severe Miliary TB / ARDS</td>
+            <td>Methylprednisolone / Prednisolone</td>
+            <td>0.5–1 mg/kg/day (individualised)</td>
+            <td>2–4 weeks (taper)</td>
+            <td>IV &rarr; Oral</td>
+            <td style="color:#c0392b;font-weight:700;">Expert opinion / Very Low</td>
+          </tr>
+          <tr>
+            <td>Pleural / Lymph Node / Abdominal TB</td>
+            <td colspan="4" style="color:#c0392b;font-weight:700;text-align:center;">
+              &#10008; NOT RECOMMENDED — Insufficient evidence (INDEX-TB)
+            </td>
+            <td style="color:#c0392b;font-weight:700;">Not recommended</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="tbl-caption">Table 1: Corticosteroid dosing in tuberculosis per NTEP / INDEX-TB Guidelines</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 5 — TBM MANAGEMENT ALGORITHM
+═══════════════════════════════════════════ -->
+<div class="card">
+  <div class="card-header">&#129504; &nbsp;5. Management Algorithm: TB Meningitis with Corticosteroids</div>
+  <div class="card-body">
+
+    <div class="flowchart-wrap">
+      <svg width="660" height="520" viewBox="0 0 660 520"
+           xmlns="http://www.w3.org/2000/svg"
+           font-family="Segoe UI, Arial, sans-serif" font-size="12">
+        <defs>
+          <marker id="a2" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+            <path d="M0,0 L0,7 L9,3.5 z" fill="#1a3c5e"/>
+          </marker>
+        </defs>
+
+        <!-- Title -->
+        <text x="330" y="20" text-anchor="middle" font-weight="bold" font-size="13"
+              fill="#1a3c5e">TBM Management Algorithm with Corticosteroid Adjunct (NTEP/INDEX-TB)</text>
+
+        <!-- STEP 1: Suspect TBM -->
+        <rect x="190" y="32" width="280" height="42" rx="8" fill="#1a3c5e"/>
+        <text x="330" y="50" text-anchor="middle" fill="#fff" font-weight="bold">STEP 1: Suspect TBM</text>
+        <text x="330" y="66" text-anchor="middle" fill="#f4a261" font-size="11">
+          Fever + headache + meningism + CSF lymphocytosis
+        </text>
+
+        <line x1="330" y1="74" x2="330" y2="100" stroke="#1a3c5e" stroke-width="2" marker-end="url(#a2)"/>
+
+        <!-- STEP 2: Confirm + Grade -->
+        <rect x="165" y="100" width="330" height="52" rx="8" fill="#2e7d9f"/>
+        <text x="330" y="120" text-anchor="middle" fill="#fff" font-weight="bold">STEP 2: Confirm Diagnosis &amp; Grade TBM</text>
+        <text x="330" y="137" text-anchor="middle" fill="#e8f4fd" font-size="11">
+          CSF: protein &uarr;, glucose &darr;, AFB/GeneXpert/culture | CT Brain | MRI
+        </text>
+        <text x="330" y="149" text-anchor="middle" fill="#f4a261" font-size="10.5">
+          Grade I: GCS 15, no deficits | Grade II: GCS 11–14 or deficits | Grade III: GCS &le;10
+        </text>
+
+        <line x1="330" y1="152" x2="330" y2="178" stroke="#1a3c5e" stroke-width="2" marker-end="url(#a2)"/>
+
+        <!-- STEP 3: Start ATT -->
+        <rect x="165" y="178" width="330" height="42" rx="8" fill="#27ae60"/>
+        <text x="330" y="196" text-anchor="middle" fill="#fff" font-weight="bold">STEP 3: Immediately Start Standard ATT (NTEP)</text>
+        <text x="330" y="212" text-anchor="middle" fill="#e8f8f0" font-size="11">
+          2HRZE / 10HR — Intensive 2 months + Continuation 10 months (total 12 months)
+        </text>
+
+        <line x1="330" y1="220" x2="330" y2="246" stroke="#1a3c5e" stroke-width="2" marker-end="url(#a2)"/>
+
+        <!-- STEP 4: Add Steroid SIMULTANEOUSLY -->
+        <rect x="140" y="246" width="380" height="52" rx="8" fill="#f4a261"/>
+        <text x="330" y="265" text-anchor="middle" fill="#1a3c5e" font-weight="bold">
+          STEP 4: Add Corticosteroid SIMULTANEOUSLY
+        </text>
+        <text x="330" y="280" text-anchor="middle" fill="#1a3c5e" font-size="11">
+          Adults: Dexamethasone 0.4 mg/kg/day IV — OR — Prednisolone 60 mg/day oral
+        </text>
+        <text x="330" y="294" text-anchor="middle" fill="#1a3c5e" font-size="11">
+          Children: Dexamethasone 0.6 mg/kg/day IV (max 8 weeks total)
+        </text>
+
+        <line x1="330" y1="298" x2="330" y2="324" stroke="#1a3c5e" stroke-width="2" marker-end="url(#a2)"/>
+
+        <!-- STEP 5: Taper -->
+        <rect x="165" y="324" width="330" height="42" rx="8" fill="#2e7d9f"/>
+        <text x="330" y="342" text-anchor="middle" fill="#fff" font-weight="bold">STEP 5: Taper Steroid Over 6–8 Weeks</text>
+        <text x="330" y="358" text-anchor="middle" fill="#e8f4fd" font-size="11">
+          Reduce by 10 mg/week (prednisolone) or equivalent dexamethasone reduction
+        </text>
+
+        <line x1="330" y1="366" x2="330" y2="392" stroke="#1a3c5e" stroke-width="2" marker-end="url(#a2)"/>
+
+        <!-- STEP 6: Monitor -->
+        <rect x="165" y="392" width="330" height="52" rx="8" fill="#e8f4fd" stroke="#2e7d9f" stroke-width="2"/>
+        <text x="330" y="412" text-anchor="middle" fill="#1a3c5e" font-weight="bold">STEP 6: Monitor Closely</text>
+        <text x="330" y="428" text-anchor="middle" fill="#2e7d9f" font-size="11">
+          GCS, cranial nerve deficits, repeat CSF (if needed)
+        </text>
+        <text x="330" y="444" text-anchor="middle" fill="#2e7d9f" font-size="11">
+          Blood sugar, BP, electrolytes, signs of secondary infection
+        </text>
+
+        <line x1="330" y1="444" x2="330" y2="468" stroke="#1a3c5e" stroke-width="2" marker-end="url(#a2)"/>
+
+        <!-- Outcome -->
+        <rect x="190" y="468" width="280" height="38" rx="18" fill="#1a3c5e"/>
+        <text x="330" y="483" text-anchor="middle" fill="#fff" font-weight="bold">Continue ATT for Full 12 Months</text>
+        <text x="330" y="499" text-anchor="middle" fill="#f4a261" font-size="11">
+          Steroid stopped; ATT continued to completion
+        </text>
+      </svg>
+    </div>
+
+    <div class="green-box">
+      &#128204;&nbsp;<strong>NTEP Key Point:</strong> For TBM, the anti-TB regimen duration is
+      extended to <strong>12 months total</strong> (2HRZE + 10HR) as per NTEP guidelines, which
+      is longer than standard pulmonary TB (6 months). Corticosteroids are used only for the
+      initial 6–8 weeks of this regimen.
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 6 — GRADING OF TBM
+═══════════════════════════════════════════ -->
+<div class="card">
+  <div class="card-header">&#127919; &nbsp;6. British Medical Research Council (MRC) Grading of TBM &amp; Steroid Use</div>
+  <div class="card-body">
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>MRC Grade</th>
+            <th>GCS Score</th>
+            <th>Neurological Features</th>
+            <th>Steroid Use</th>
+            <th>Prognosis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Grade I (Early)</td>
+            <td>15 (Full)</td>
+            <td>No alteration of consciousness, no focal neurological deficits</td>
+            <td style="color:#27ae60;font-weight:700;">Recommended &#10004;</td>
+            <td>Best prognosis; full recovery possible</td>
+          </tr>
+          <tr>
+            <td>Grade II (Intermediate)</td>
+            <td>11–14</td>
+            <td>Altered consciousness OR focal deficits (hemiplegia, cranial nerve palsy)</td>
+            <td style="color:#27ae60;font-weight:700;">Strongly Recommended &#10004;&#10004;</td>
+            <td>Moderate — residual deficits common</td>
+          </tr>
+          <tr>
+            <td>Grade III (Advanced)</td>
+            <td>&le;10</td>
+            <td>Coma, decerebrate/decorticate posturing, multiple cranial nerve palsies</td>
+            <td style="color:#e67e22;font-weight:700;">Still Recommended &#10004; (benefit less)</td>
+            <td>Poor — high mortality and morbidity</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="tbl-caption">Table 2: MRC grading of TB Meningitis and corticosteroid use</p>
+    </div>
+
+    <div class="info-box">
+      &#128203;&nbsp;Even in Grade III TBM, corticosteroids are recommended as they
+      may still reduce mortality, though the absolute benefit is smaller than in Grade I/II.
+      The <strong>Thwaites et al. (Lancet, 2004)</strong> landmark trial demonstrated survival
+      benefit of dexamethasone in Vietnamese adults with TBM — this forms the basis of global
+      and Indian recommendations.
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 7 — CONTRAINDICATIONS
+═══════════════════════════════════════════ -->
+<div class="card">
+  <div class="card-header">&#9888;&#65039; &nbsp;7. Contraindications &amp; Cautions</div>
+  <div class="card-body">
+
+    <h2>7.1 Absolute / Relative Contraindications to Corticosteroids in TB</h2>
+    <div class="contra-grid">
+      <div class="contra-box">
+        <strong>&#10008; Uncontrolled Diabetes Mellitus</strong>
+        Steroids cause severe hyperglycaemia; strict glucose monitoring and insulin
+        adjustment mandatory if steroids cannot be avoided.
+      </div>
+      <div class="contra-box">
+        <strong>&#10008; Active Peptic Ulcer Disease</strong>
+        Risk of GI bleed; co-prescribe PPI (proton pump inhibitor) if steroids essential.
+      </div>
+      <div class="contra-box">
+        <strong>&#10008; Severe Osteoporosis</strong>
+        Long-course steroids worsen bone loss; calcium + Vitamin D supplementation needed.
+      </div>
+      <div class="contra-box">
+        <strong>&#10008; Active Psychosis / Severe Psychiatric Illness</strong>
+        Steroids can precipitate or worsen psychosis.
+      </div>
+      <div class="contra-box">
+        <strong>&#10008; Concurrent Untreated Fungal Infections</strong>
+        Immunosuppression may disseminate fungal infections (e.g., candidiasis, aspergillosis).
+      </div>
+      <div class="contra-box">
+        <strong>&#10008; MDR-TB / XDR-TB (Relative)</strong>
+        Use with great caution — bactericidal cover may be suboptimal; only use if
+        clear-cut indication (e.g., TBM) and adequate drug regimen is in place.
+      </div>
+    </div>
+
+    <h2>7.2 Special Caution: HIV-Positive Patients</h2>
+    <ul>
+      <li>Higher risk of <strong>opportunistic infections</strong> (CMV, PCP, cryptococcal meningitis)
+          with steroid use.</li>
+      <li>Rule out <strong>cryptococcal meningitis</strong> before starting steroids for presumed
+          TBM in HIV patients — CrAg (cryptococcal antigen) test is mandatory.</li>
+      <li>INDEX-TB: In HIV+ TBM — steroids are a <em>conditional recommendation with very low
+          quality evidence</em>; clinical judgement required.</li>
+      <li>Monitor CD4 count and viral load closely during steroid course.</li>
+    </ul>
+
+    <h2>7.3 Rifampicin Drug Interaction (Critical)</h2>
+    <div class="danger-box">
+      &#9888;&nbsp;<strong>Important Drug Interaction:</strong> Rifampicin is a potent inducer of
+      CYP3A4 — it <strong>accelerates metabolism of corticosteroids</strong> (especially
+      prednisolone) by 45–70%. This means:
+      <ul style="margin-top:6px;">
+        <li>Standard prednisolone doses may be <strong>sub-therapeutic</strong> when given with rifampicin.</li>
+        <li>Some guidelines suggest <strong>doubling the prednisolone dose</strong> or using
+            dexamethasone (less affected by rifampicin induction).</li>
+        <li>Dexamethasone is the preferred steroid for TBM partly because it is less
+            subject to this interaction.</li>
+        <li>Monitor clinical response carefully; dose upward titration may be required.</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 8 — SIDE EFFECTS
+═══════════════════════════════════════════ -->
+<div class="card">
+  <div class="card-header">&#128203; &nbsp;8. Adverse Effects of Corticosteroids in TB Management</div>
+  <div class="card-body">
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>System</th>
+            <th>Adverse Effect</th>
+            <th>Clinical Significance</th>
+            <th>Management</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Metabolic</td>
+            <td>Hyperglycaemia / Steroid-induced DM</td>
+            <td class="se-severe">Severe — worsens TB prognosis</td>
+            <td>Monitor BSL; insulin if needed</td>
+          </tr>
+          <tr>
+            <td>Metabolic</td>
+            <td>Hypokalaemia, sodium retention</td>
+            <td class="se-mod">Moderate</td>
+            <td>Electrolyte monitoring; potassium supplements</td>
+          </tr>
+          <tr>
+            <td>Cardiovascular</td>
+            <td>Hypertension, fluid retention</td>
+            <td class="se-mod">Moderate</td>
+            <td>BP monitoring; antihypertensives if required</td>
+          </tr>
+          <tr>
+            <td>GI</td>
+            <td>Peptic ulcer, GI bleed</td>
+            <td class="se-severe">Severe if unprotected</td>
+            <td>Co-prescribe PPI (omeprazole/pantoprazole)</td>
+          </tr>
+          <tr>
+            <td>Immunological</td>
+            <td>Dissemination of latent infections (fungi, strongyloides, CMV)</td>
+            <td class="se-severe">Potentially life-threatening</td>
+            <td>Screen before use; empirical anti-parasitic in endemic areas</td>
+          </tr>
+          <tr>
+            <td>Musculoskeletal</td>
+            <td>Osteoporosis, AVN hip</td>
+            <td class="se-mod">Significant with prolonged use</td>
+            <td>Calcium + Vit D3; bisphosphonates for long-term use</td>
+          </tr>
+          <tr>
+            <td>Neuropsychiatric</td>
+            <td>Psychosis, mood changes, insomnia</td>
+            <td class="se-mod">Moderate</td>
+            <td>Psychiatric referral; reduce dose if severe</td>
+          </tr>
+          <tr>
+            <td>Endocrine</td>
+            <td>HPA axis suppression, Cushingoid features</td>
+            <td class="se-mod">Moderate with prolonged use</td>
+            <td>Slow taper; do not abruptly stop</td>
+          </tr>
+          <tr>
+            <td>Ophthalmic</td>
+            <td>Posterior subcapsular cataract, glaucoma</td>
+            <td>Mild–Moderate (long-term)</td>
+            <td>Ophthalmology review for prolonged courses</td>
+          </tr>
+          <tr>
+            <td>Growth (Paediatric)</td>
+            <td>Growth retardation</td>
+            <td class="se-mod">Significant in children</td>
+            <td>Use minimum effective dose; monitor growth parameters</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="tbl-caption">Table 3: Adverse effects of corticosteroids in TB and their management</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 9 — MONITORING
+═══════════════════════════════════════════ -->
+<div class="card">
+  <div class="card-header">&#128269; &nbsp;9. Monitoring Protocol During Corticosteroid Therapy in TB</div>
+  <div class="card-body">
+
+    <h2>Before Starting Corticosteroids</h2>
+    <ul>
+      <li>Confirm adequate ATT has been started (or start simultaneously).</li>
+      <li>Fasting blood glucose and HbA1c — screen for DM.</li>
+      <li>Blood pressure, weight, electrolytes (Na, K), renal function tests.</li>
+      <li>In HIV+ patients: CD4 count, CrAg (cryptococcal antigen), viral load.</li>
+      <li>Chest X-ray and baseline ophthalmology review (if anticipated long course).</li>
+      <li>Rule out strongyloidiasis in endemic areas (Ivermectin prophylaxis may be considered).</li>
+    </ul>
+
+    <h2>During Corticosteroid Therapy</h2>
+    <div class="steps">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div><strong>Weekly (First Month):</strong> Blood glucose, blood pressure,
+        weight, serum electrolytes. Clinical neurological assessment in TBM (GCS, focal deficits).</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div><strong>Every 2 Weeks:</strong> Assess for signs of secondary infection —
+        fever pattern, new symptoms. Hepatic function tests (steroid + ATT drug interaction
+        monitoring).</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div><strong>Monthly:</strong> Full blood count, renal function, LFTs, lipid profile
+        (if on prolonged steroids). In pericardial TB: echocardiography to assess effusion
+        resolution and early constriction.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div><strong>In TBM specifically:</strong> Monitor GCS, cranial nerve palsies, repeat
+        neuroimaging if clinical deterioration. Watch for paradoxical worsening (IRIS-like
+        response after steroid taper).</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">5</div>
+        <div><strong>During Taper:</strong> Gradual dose reduction — do NOT stop abruptly
+        (risk of adrenal crisis). Educate patient on sick-day rules. Watch for rebound
+        inflammation.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">6</div>
+        <div><strong>After Stopping Steroids:</strong> Continue ATT to full course completion.
+        Reassess HPA axis if course was &gt;3–4 weeks. ACTH stimulation test if prolonged course
+        or clinical features of adrenal insufficiency post-taper.</div>
+      </div>
+    </div>
+
+    <div class="tbl-wrap" style="margin-top:16px;">
+      <table>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Baseline</th>
+            <th>Weekly &#215;4</th>
+            <th>Fortnightly</th>
+            <th>Monthly</th>
+            <th>At End of Course</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Blood glucose / HbA1c</td>
+            <td style="text-align:center;">&#10004;</td>
+            <td style="text-align:center;">&#10004;</td>
+            <td style="text-align:center;">&#10004;</td>
+            <td style="text-align:center;">&#10004;</td>
+            <td style="text-align:center;">&#10004;</td>
+          </tr>
+          <tr>
+            <td>Blood pressure &amp; weight</td>
+            <td style="text-align:center;">&#10004;</td>
+            <td style="text-align:center;">&#10004;</td>
+            <td style="text-align:center;">&#10004;</td>
+            <td style="text-align:center;">&#10004;</td>
+            <td style="text-align:center;"></td>
+          </tr>
+          <tr>
+            <td>Serum electrolytes</td>
+            <td style="text-align:center;">&#10004;</td>
+            <td style="text-align:center;">&#10004;</td>
+            <td style="text-align:center;"></td>
+            <td style="text-align:center;">&#10004;</td>
+            <td style="text-align:center;"></td>
+          </tr>         
+          <tr>
+            <td>Liver function tests</td>
+            <td style="text-align:center;">&#10004;</td>
+            <td style="text-align:center;"></td>
+            <td style="text-align:center;">&#10004;</td>
+            <td style="text-align:center;">&#10004;</td>
+            <td style="text-align:center;">&#10004;</td>
+          </tr>
+          <tr>
+            <td>Renal function tests</td>
+            <td style="text-align:center;">&#10004;</td>
+            <td style="text-align:center;"></td>
+            <td style="text-align:center;"></td>
+            <td style="text-align:center;">&#10004;</td>
+            <td style="text-align:center;">&#10004;</td>
+          </tr>
+          <tr>
+            <td>GCS / Neurological exam (TBM)</td>
+            <td style="text-align:center;">&#10004;</td>
+            <td style="text-align:center;">&#10004;</td>
+            <td style="text-align:center;">&#10004;</td>
+            <td style="text-align:center;"></td>
+            <td style="text-align:center;"></td>
+          </tr>
+          <tr>
+            <td>Echocardiography (Pericardial TB)</td>
+            <td style="text-align:center;">&#10004;</td>
+            <td style="text-align:center;"></td>
+            <td style="text-align:center;"></td>
+            <td style="text-align:center;">&#10004;</td>
+            <td style="text-align:center;">&#10004;</td>
+          </tr>
+          <tr>
+            <td>CD4 / CrAg (HIV+ patients)</td>
+            <td style="text-align:center;">&#10004;</td>
+            <td style="text-align:center;"></td>
+            <td style="text-align:center;"></td>
+            <td style="text-align:center;">&#10004;</td>
+            <td style="text-align:center;"></td>
+          </tr>
+          <tr>
+            <td>Ophthalmology review</td>
+            <td style="text-align:center;">&#10004;</td>
+            <td style="text-align:center;"></td>
+            <td style="text-align:center;"></td>
+            <td style="text-align:center;"></td>
+            <td style="text-align:center;">&#10004;</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="tbl-caption">Table 4: Monitoring schedule during corticosteroid therapy in tuberculosis</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 10 — PERICARDIAL TB ALGORITHM
+═══════════════════════════════════════════ -->
+<div class="card">
+  <div class="card-header">&#10084;&#65039; &nbsp;10. Management Algorithm: Tuberculous Pericarditis with Corticosteroids</div>
+  <div class="card-body">
+
+    <div class="flowchart-wrap">
+      <svg width="660" height="480" viewBox="0 0 660 480"
+           xmlns="http://www.w3.org/2000/svg"
+           font-family="Segoe UI, Arial, sans-serif" font-size="12">
+        <defs>
+          <marker id="a3" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+            <path d="M0,0 L0,7 L9,3.5 z" fill="#1a3c5e"/>
+          </marker>
+          <marker id="a3r" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+            <path d="M0,0 L0,7 L9,3.5 z" fill="#c0392b"/>
+          </marker>
+        </defs>
+
+        <!-- Title -->
+        <text x="330" y="20" text-anchor="middle" font-weight="bold" font-size="13" fill="#1a3c5e">
+          Tuberculous Pericarditis: Management Algorithm (NTEP / INDEX-TB)
+        </text>
+
+        <!-- Box 1 -->
+        <rect x="185" y="32" width="290" height="44" rx="8" fill="#1a3c5e"/>
+        <text x="330" y="50" text-anchor="middle" fill="#fff" font-weight="bold">Suspected Pericardial TB</text>
+        <text x="330" y="66" text-anchor="middle" fill="#f4a261" font-size="11">
+          Chest pain + dyspnoea + pericardial rub + fever + elevated JVP
+        </text>
+
+        <line x1="330" y1="76" x2="330" y2="102" stroke="#1a3c5e" stroke-width="2" marker-end="url(#a3)"/>
+
+        <!-- Box 2: Investigate -->
+        <rect x="165" y="102" width="330" height="52" rx="8" fill="#2e7d9f"/>
+        <text x="330" y="122" text-anchor="middle" fill="#fff" font-weight="bold">Investigate</text>
+        <text x="330" y="138" text-anchor="middle" fill="#e8f4fd" font-size="11">
+          ECG | Echocardiography | CXR | Pericardiocentesis (if large effusion)
+        </text>
+        <text x="330" y="151" text-anchor="middle" fill="#f4a261" font-size="10.5">
+          Pericardial fluid: ADA, AFB smear/culture, GeneXpert (MTB/RIF), cytology
+        </text>
+
+        <line x1="330" y1="154" x2="330" y2="178" stroke="#1a3c5e" stroke-width="2" marker-end="url(#a3)"/>
+
+        <!-- Diamond: HIV Status -->
+        <polygon points="330,178 470,212 330,246 190,212" fill="#fff3cd" stroke="#f4a261" stroke-width="2"/>
+        <text x="330" y="208" text-anchor="middle" font-weight="bold" fill="#1a3c5e">HIV Status?</text>
+        <text x="330" y="226" text-anchor="middle" fill="#1a3c5e" font-size="11">Check HIV test</text>
+
+        <!-- Left — HIV Negative -->
+        <line x1="190" y1="212" x2="80" y2="212" stroke="#1a3c5e" stroke-width="2" marker-end="url(#a3)"/>
+        <text x="135" y="205" text-anchor="middle" fill="#27ae60" font-size="11" font-weight="bold">HIV (–)</text>
+        <rect x="10" y="228" width="140" height="52" rx="8" fill="#e8f8f0" stroke="#27ae60" stroke-width="2"/>
+        <text x="80" y="248" text-anchor="middle" fill="#1a3c5e" font-weight="bold">ATT + Prednisolone</text>
+        <text x="80" y="262" text-anchor="middle" fill="#27ae60" font-size="11">60 mg/day tapered</text>
+        <text x="80" y="275" text-anchor="middle" fill="#27ae60" font-size="11">over 6–8 weeks</text>
+
+        <!-- Right — HIV Positive -->
+        <line x1="470" y1="212" x2="580" y2="212" stroke="#1a3c5e" stroke-width="2" marker-end="url(#a3)"/>
+        <text x="525" y="205" text-anchor="middle" fill="#c0392b" font-size="11" font-weight="bold">HIV (+)</text>
+        <rect x="510" y="228" width="140" height="52" rx="8" fill="#fde8e8" stroke="#c0392b" stroke-width="2"/>
+        <text x="580" y="248" text-anchor="middle" fill="#1a3c5e" font-weight="bold">ATT + ART</text>
+        <text x="580" y="262" text-anchor="middle" fill="#c0392b" font-size="11">Steroids: conditional</text>
+        <text x="580" y="275" text-anchor="middle" fill="#c0392b" font-size="11">individual decision</text>
+
+        <!-- Merge down -->
+        <line x1="80" y1="280" x2="80" y2="330" stroke="#1a3c5e" stroke-width="1.5"/>
+        <line x1="80" y1="330" x2="580" y2="330" stroke="#1a3c5e" stroke-width="1.5"/>
+        <line x1="580" y1="280" x2="580" y2="330" stroke="#1a3c5e" stroke-width="1.5"/>
+        <line x1="330" y1="330" x2="330" y2="352" stroke="#1a3c5e" stroke-width="2" marker-end="url(#a3)"/>
+
+        <!-- Box: Follow Up Echo -->
+        <rect x="165" y="352" width="330" height="44" rx="8" fill="#2e7d9f"/>
+        <text x="330" y="370" text-anchor="middle" fill="#fff" font-weight="bold">Follow-up Echocardiography</text>
+        <text x="330" y="386" text-anchor="middle" fill="#e8f4fd" font-size="11">
+          At 4–6 weeks and end of ATT — assess for constrictive pericarditis
+        </text>
+
+        <line x1="330" y1="396" x2="330" y2="420" stroke="#1a3c5e" stroke-width="2" marker-end="url(#a3)"/>
+
+        <!-- Diamond: Constriction? -->
+        <polygon points="330,420 450,445 330,470 210,445" fill="#fde8e8" stroke="#c0392b" stroke-width="2"/>
+        <text x="330" y="441" text-anchor="middle" font-weight="bold" fill="#c0392b">Constrictive</text>
+        <text x="330" y="458" text-anchor="middle" font-weight="bold" fill="#c0392b">Pericarditis?</text>
+
+        <!-- Yes -->
+        <line x1="450" y1="445" x2="590" y2="445" stroke="#c0392b" stroke-width="2" marker-end="url(#a3r)"/>
+        <text x="520" y="438" text-anchor="middle" fill="#c0392b" font-size="11" font-weight="bold">Yes</text>
+        <rect x="555" y="428" width="100" height="34" rx="7" fill="#fde8e8" stroke="#c0392b" stroke-width="2"/>
+        <text x="605" y="447" text-anchor="middle" fill="#c0392b" font-weight="bold" font-size="11">Pericardiectomy</text>
+        <text x="605" y="459" text-anchor="middle" fill="#c0392b" font-size="10">Consider surgical</text>
+
+        <!-- No -->
+        <line x1="210" y1="445" x2="80" y2="445" stroke="#27ae60" stroke-width="2" marker-end="url(#a3)"/>
+        <text x="145" y="438" text-anchor="middle" fill="#27ae60" font-size="11" font-weight="bold">No</text>
+        <rect x="5" y="428" width="110" height="34" rx="7" fill="#e8f8f0" stroke="#27ae60" stroke-width="2"/>
+        <text x="60" y="447" text-anchor="middle" fill="#27ae60" font-weight="bold" font-size="11">Continue ATT</text>
+        <text x="60" y="459" text-anchor="middle" fill="#27ae60" font-size="10">to completion</text>
+      </svg>
+    </div>
+
+    <div class="info-box">
+      &#128204;&nbsp;<strong>INDEX-TB on Pericardial TB:</strong> The IMPI trial (2014) showed
+      that prednisolone reduced constrictive pericarditis (NNT = 11) in HIV-negative patients
+      but showed no significant mortality benefit in HIV-positive patients. Hence, steroid use
+      in HIV-positive pericardial TB remains a <em>conditional, individualised</em> decision
+      as per INDEX-TB guidelines.
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 11 — SPECIAL SITUATIONS
+═══════════════════════════════════════════ -->
+<div class="card">
+  <div class="card-header">&#128204; &nbsp;11. Special Situations &amp; Practical Considerations</div>
+  <div class="card-body">
+
+    <h2>11.1 Corticosteroids in Paediatric TB</h2>
+    <ul>
+      <li>Indicated in <strong>TBM, pericardial TB, and endobronchial TB</strong> in children.</li>
+      <li>Endobronchial TB with <strong>segmental/lobar collapse</strong> — prednisolone
+          1–2 mg/kg/day for 6–8 weeks prevents progressive stenosis.</li>
+      <li>In <strong>miliary TB with respiratory failure</strong> in infants — short-course
+          steroids may be life-saving.</li>
+      <li>NTEP Paediatric Module: Dexamethasone preferred for TBM in children; careful
+          growth monitoring during and after steroid course.</li>
+      <li>Avoid prolonged steroid use without clear indication — growth retardation and
+          HPA axis suppression are major concerns.</li>
+    </ul>
+
+    <h2>11.2 Corticosteroids in Drug-Resistant TB (DR-TB)</h2>
+    <ul>
+      <li>Steroids may be used in <strong>DR-TB with TBM or pericardial involvement</strong>
+          — the indication is the site of disease, not the drug sensitivity pattern.</li>
+      <li>However, exercise <strong>greater caution</strong> in MDR-TB as bactericidal
+          activity of second-line drugs is lower — adequate drug coverage must be assured.</li>
+      <li>No evidence supports routine steroid use in uncomplicated MDR-TB.</li>
+      <li>NTEP DR-TB Module: Follow same site-specific indications as drug-susceptible TB.</li>
+    </ul>
+
+    <h2>11.3 Paradoxical Worsening (TB-IRIS) — Steroid Protocol</h2>
+    <ul>
+      <li><strong>Definition:</strong> Clinical deterioration after starting ART in HIV-TB
+          patients due to rapid immune reconstitution — "unmasking" or "paradoxical" IRIS.</li>
+      <li>Features: Enlarging lymph nodes, worsening respiratory symptoms, new CNS
+          involvement, high fever.</li>
+      <li>Management (INDEX-TB / NTEP):
+        <ol>
+          <li>Do NOT stop ART or ATT.</li>
+          <li>NSAIDs for mild IRIS.</li>
+          <li>Prednisolone 1.5 mg/kg/day for 2 weeks → 0.75 mg/kg/day for 2 weeks
+              (total 4 weeks) for moderate-severe IRIS.</li>
+          <li>In CNS-IRIS: Dexamethasone preferred; neurosurgical input if hydrocephalus.</li>
+        </ol>
+      </li>
+    </ul>
+
+    <h2>11.4 Steroid Taper — Why Gradual?</h2>
+    <div class="highlight">
+      &#9888;&nbsp;Abrupt cessation of corticosteroids after a course longer than 3 weeks
+      risks <strong>adrenal crisis</strong> (hypotension, hypoglycaemia, electrolyte imbalance)
+      due to HPA axis suppression. Taper reduces this risk. Typical taper:
+      <ul style="margin-top:6px;">
+        <li>Prednisolone: Reduce by <strong>10 mg every 1–2 weeks</strong> from full dose.</li>
+        <li>Dexamethasone: Stepwise reduction over 4–6 weeks.</li>
+        <li>Below 10 mg prednisolone: Reduce by <strong>1–2 mg every 2 weeks</strong>
+            (most critical phase).</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 12 — QUICK SUMMARY TABLE
+═══════════════════════════════════════════ -->
+<div class="card">
+  <div class="card-header">&#9989; &nbsp;12. Quick Revision Summary — Corticosteroids in TB</div>
+  <div class="card-body">
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Key Fact</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Primary Purpose</td>
+            <td>Suppress host immunopathology; NOT anti-mycobacterial</td>
+          </tr>
+          <tr>
+            <td>Must Always Be Given With</td>
+            <td>Standard ATT (NTEP regimen) — NEVER as monotherapy</td>
+          </tr>
+          <tr>
+            <td>Strongest Indication</td>
+            <td>TB Meningitis (all grades) — Strong recommendation, High evidence</td>
+          </tr>
+          <tr>
+            <td>Second Indication</td>
+            <td>Tuberculous Pericarditis — Conditional, Moderate evidence</td>
+          </tr>
+          <tr>
+            <td>Mandatory Indication</td>
+            <td>Adrenal TB causing Addison's disease — physiological replacement</td>
+          </tr>
+          <tr>
+            <td>NOT Recommended (NTEP/INDEX-TB)</td>
+            <td>Pleural TB, Lymph node TB, Abdominal TB — insufficient evidence</td>
+          </tr>
+          <tr>
+            <td>Preferred Drug for TBM</td>
+            <td>Dexamethasone (less affected by rifampicin CYP3A4 induction)</td>
+          </tr>
+          <tr>
+            <td>Rifampicin Interaction</td>
+            <td>Rifampicin reduces prednisolone levels by 45–70% — consider dose increase or use dexamethasone</td>
+          </tr>
+          <tr>
+            <td>HIV + TBM</td>
+            <td>Steroids: Conditional recommendation (very low evidence); rule out cryptococcal meningitis first</td>
+          </tr>
+          <tr>
+            <td>TB-IRIS Treatment</td>
+            <td>Prednisolone 1.5 mg/kg/day × 2 weeks → 0.75 mg/kg/day × 2 weeks; DO NOT stop ART/ATT</td>
+          </tr>
+          <tr>
+            <td>TBM ATT Duration (NTEP)</td>
+            <td>12 months total (2HRZE + 10HR); steroid only for initial 6–8 weeks</td>
+          </tr>
+          <tr>
+            <td>Taper Rule</td>
+            <td>Never stop abruptly if course &gt;3 weeks — risk of adrenal crisis</td>
+          </tr>
+          <tr>
+            <td>Critical Monitoring</td>
+            <td>Blood glucose, BP, electrolytes, LFT; ophthalmology for prolonged courses</td>
+          </tr>
+          <tr>
+            <td>Paediatric Specific Indication</td>
+            <td>Endobronchial TB — to prevent progressive bronchial stenosis</td>
+          </tr>
+          <tr>
+            <td>DR-TB with TBM / Pericardial TB</td>
+            <td>Steroids still indicated for site-specific reasons; ensure adequate drug coverage</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="tbl-caption">Table 5: Quick revision summary — corticosteroid adjunct in tuberculosis</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 13 — EXAM MEMORY AIDS
+═══════════════════════════════════════════ -->
+<div class="card">
+  <div class="card-header">&#127775; &nbsp;13. Exam Memory Aids &amp; High-Yield Points</div>
+  <div class="card-body">
+
+    <h2>"STEROID in TB" — Mnemonic for Indications</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Letter</th>
+            <th>Stands For</th>
+            <th>Indication</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="font-size:1.1rem;color:#2e7d9f;">S</strong></td>
+            <td>Serositis (Pericardium)</td>
+            <td>Tuberculous pericarditis — prevents constriction</td>
+          </tr>
+          <tr>
+            <td><strong style="font-size:1.1rem;color:#2e7d9f;">T</strong></td>
+            <td>TB Meningitis</td>
+            <td>Definite, strongest indication — reduces mortality</td>
+          </tr>
+          <tr>
+            <td><strong style="font-size:1.1rem;color:#2e7d9f;">E</strong></td>
+            <td>Endobronchial TB</td>
+            <td>Paediatric — prevents bronchial stenosis</td>
+          </tr>
+          <tr>
+            <td><strong style="font-size:1.1rem;color:#2e7d9f;">R</strong></td>
+            <td>Reconstitution (IRIS)</td>
+            <td>TB-IRIS in HIV patients starting ART</td>
+          </tr>
+          <tr>
+            <td><strong style="font-size:1.1rem;color:#2e7d9f;">O</strong></td>
+            <td>Over-reaction (Hypersensitivity)</td>
+            <td>Severe drug allergy to ATT agents</td>
+          </tr>
+          <tr>
+            <td><strong style="font-size:1.1rem;color:#2e7d9f;">I</strong></td>
+            <td>Insufficiency (Adrenal)</td>
+            <td>Addison's disease from bilateral adrenal TB</td>
+          </tr>
+          <tr>
+            <td><strong style="font-size:1.1rem;color:#2e7d9f;">D</strong></td>
+            <td>Disseminated / Severe (Miliary)</td>
+            <td>Miliary TB with ARDS — selected, individualised</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="tbl-caption">Table 6: "STEROID" mnemonic for corticosteroid indications in TB</p>
+    </div>
+
+    <h2>High-Yield Exam Points (Most Commonly Asked)</h2>
+    <ul>
+      <li>&#9733;&nbsp;<strong>TBM is the NUMBER ONE indication</strong> — always mention first in any exam answer.</li>
+      <li>&#9733;&nbsp;<strong>Dexamethasone is preferred</strong> over prednisolone in TBM — less CYP3A4 induction by rifampicin.</li>
+      <li>&#9733;&nbsp;<strong>Rifampicin reduces prednisolone levels</strong> by 45–70% — critical pharmacokinetic interaction.</li>
+      <li>&#9733;&nbsp;<strong>NEVER use steroids without ATT</strong> — can cause fulminant TB dissemination.</li>
+      <li>&#9733;&nbsp;<strong>INDEX-TB explicitly does NOT recommend</strong> steroids for pleural TB — common exam trap.</li>
+      <li>&#9733;&nbsp;<strong>In HIV + TBM</strong> — always rule out cryptococcal meningitis (CrAg test) before steroids.</li>
+      <li>&#9733;&nbsp;<strong>TBM ATT duration = 12 months</strong> (NTEP) — longer than standard pulmonary TB (6 months).</li>
+      <li>&#9733;&nbsp;<strong>IRIS steroids</strong> — do NOT stop ART or ATT; prednisolone 1.5 mg/kg × 2 weeks.</li>
+      <li>&#9733;&nbsp;<strong>Adrenal TB = lifelong hydrocortisone + fludrocortisone</strong> replacement if permanent damage.</li>
+      <li>&#9733;&nbsp;<strong>Pericardial TB in HIV-negative</strong> — steroids reduce constrictive pericarditis (NNT = 11, IMPI trial).</li>
+    </ul>
+
+    <div class="green-box">
+      &#128218;&nbsp;<strong>NTEP 2023 Guideline Summary on Steroids:</strong> Corticosteroids are
+      recommended adjuncts in <strong>TB meningitis (strong), tuberculous pericarditis (conditional),
+      and adrenal TB (mandatory replacement)</strong>. Their use in pleural TB, lymph node TB,
+      and abdominal TB is <strong>not supported</strong> by sufficient evidence and is not recommended
+      as routine practice in the Indian national programme.
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 14 — REFERENCES
+═══════════════════════════════════════════ -->
+<div class="card">
+  <div class="card-header">&#128218; &nbsp;14. References &amp; Source Guidelines</div>
+  <div class="card-body">
+    <ol>
+      <li><strong>NTEP (National TB Elimination Programme) Technical &amp; Operational Guidelines
+          for Tuberculosis Control, India (2016, Updated 2023).</strong>
+          Central TB Division, Ministry of Health and Family Welfare, Government of India.</li>
+      <li><strong>INDEX-TB Guidelines: Guidelines on Extra-pulmonary Tuberculosis for India.</strong>
+          ICMR, Central TB Division &amp; WHO-India (2016). New Delhi.</li>
+      <li><strong>NTEP Paediatric TB Guidelines.</strong> Central TB Division, MoHFW,
+          Government of India.</li>
+      <li><strong>Fishman's Pulmonary Diseases and Disorders</strong> (5th Edition).
+          McGraw-Hill; Chapter on Tuberculosis — Adjunct Therapy.</li>
+      <li><strong>Harrison's Principles of Internal Medicine</strong> (21st Edition).
+          McGraw-Hill; Tuberculosis Chapter — Corticosteroid Adjuncts.</li>
+      <li><strong>Crofton and Douglas's Respiratory Diseases</strong> (5th Edition).
+          Blackwell Science — Tuberculosis: Special Situations.</li>
+      <li><strong>Thwaites GE et al.</strong> Dexamethasone for the treatment of tuberculous
+          meningitis in adolescents and adults. <em>New England Journal of Medicine</em>
+          2004;351:1741–1751.</li>
+      <li><strong>Mayosi BM et al. (IMPI Trial).</strong> Prednisolone and
+          Mycobacterium indicus pranii in tuberculous pericarditis.
+          <em>New England Journal of Medicine</em> 2014;371:1121–1130.</li>
+      <li><strong>Meintjes G et al.</strong> Randomized placebo-controlled trial of prednisone
+          for paradoxical TB-associated immune reconstitution inflammatory syndrome.
+          <em>AIDS</em> 2010;24(15):2381–2390.</li>
+    </ol>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<div class="page-footer">
+  <strong>Corticosteroid Adjunct Treatment in Tuberculosis — 10 Marks Answer</strong><br/>
+  Source: NTEP Guidelines (India) | INDEX-TB Guidelines (ICMR/CTD) |
+  Standard Respiratory Textbooks<br/>
+  <span style="color:#2e7d9f;">For Academic &amp; Educational Use Only</span>
+</div>
+
+</div><!-- end .wrapper -->
+</body>
+</html>
