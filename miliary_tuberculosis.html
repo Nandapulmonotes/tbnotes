@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Miliary Tuberculosis – 10 Marks</title>
+  <style>
+    /* ── Base ── */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f0f4f8;
+      color: #1a1a2e;
+      line-height: 1.75;
+      padding: 20px;
+    }
+
+    /* ── Page wrapper ── */
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      overflow: hidden;
+    }
+
+    /* ── Header ── */
+    .header {
+      background: linear-gradient(135deg, #1b4f72, #2e86c1);
+      color: #fff;
+      padding: 36px 40px 28px;
+    }
+    .header h1 {
+      font-size: 2rem;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    .header .sub {
+      font-size: 0.95rem;
+      opacity: 0.85;
+    }
+    .marks-badge {
+      display: inline-block;
+      background: #f39c12;
+      color: #fff;
+      border-radius: 20px;
+      padding: 3px 14px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-top: 10px;
+    }
+
+    /* ── Content ── */
+    .content { padding: 32px 40px 48px; }
+
+    /* ── Section headings ── */
+    h2 {
+      font-size: 1.22rem;
+      color: #1b4f72;
+      border-left: 5px solid #2e86c1;
+      padding-left: 12px;
+      margin: 32px 0 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    h3 {
+      font-size: 1.05rem;
+      color: #154360;
+      margin: 18px 0 8px;
+      font-weight: 700;
+    }
+
+    /* ── Bullet lists ── */
+    ul { padding-left: 22px; margin-bottom: 10px; }
+    ul li { margin-bottom: 5px; }
+    ul li::marker { color: #2e86c1; font-size: 1.1em; }
+
+    /* ── Definition box ── */
+    .def-box {
+      background: #eaf4fb;
+      border: 2px solid #2e86c1;
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 10px 0 18px;
+    }
+    .def-box p { margin: 0; font-size: 0.97rem; }
+
+    /* ── Highlight box ── */
+    .highlight-box {
+      background: #fef9e7;
+      border-left: 5px solid #f39c12;
+      border-radius: 8px;
+      padding: 13px 18px;
+      margin: 12px 0;
+      font-size: 0.95rem;
+    }
+
+    /* ── Warning / important box ── */
+    .warn-box {
+      background: #fdedec;
+      border-left: 5px solid #e74c3c;
+      border-radius: 8px;
+      padding: 13px 18px;
+      margin: 12px 0;
+      font-size: 0.95rem;
+    }
+
+    /* ── Tables ── */
+    .tbl-wrap { overflow-x: auto; margin: 16px 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    thead tr { background: #1b4f72; color: #fff; }
+    th, td { padding: 9px 13px; border: 1px solid #c0d6e8; text-align: left; vertical-align: top; }
+    tbody tr:nth-child(even) { background: #eaf4fb; }
+    tbody tr:hover { background: #d6eaf8; }
+
+    /* ── Flowchart (pure CSS) ── */
+    .flowchart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      margin: 20px auto;
+      max-width: 560px;
+    }
+    .fc-box {
+      background: #2e86c1;
+      color: #fff;
+      border-radius: 10px;
+      padding: 11px 22px;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 600;
+      width: 100%;
+      position: relative;
+    }
+    .fc-box.alt  { background: #1b4f72; }
+    .fc-box.warn { background: #e74c3c; }
+    .fc-box.green{ background: #1e8449; }
+    .fc-box.amber{ background: #d68910; }
+    .fc-arrow {
+      width: 3px;
+      height: 28px;
+      background: #7fb3d3;
+      margin: 0 auto;
+      position: relative;
+    }
+    .fc-arrow::after {
+      content: '';
+      position: absolute;
+      bottom: -7px;
+      left: -6px;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-top: 9px solid #7fb3d3;
+    }
+    .fc-label {
+      font-size: 0.78rem;
+      color: #555;
+      text-align: center;
+      margin: -2px 0 2px;
+    }
+
+    /* ── Two-column grid ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 12px 0;
+    }
+    .card {
+      background: #eaf4fb;
+      border-radius: 9px;
+      padding: 14px 16px;
+      border-top: 4px solid #2e86c1;
+    }
+    .card h4 { color: #1b4f72; font-size: 0.95rem; margin-bottom: 8px; }
+    .card ul { padding-left: 18px; }
+
+    /* ── Drug regimen table ── */
+    .drug-phase {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin: 14px 0;
+    }
+    .phase-box {
+      flex: 1;
+      min-width: 220px;
+      border-radius: 10px;
+      padding: 14px 18px;
+      color: #fff;
+    }
+    .phase-box.intensive { background: #1b4f72; }
+    .phase-box.continuation { background: #1e8449; }
+    .phase-box h4 { font-size: 1rem; margin-bottom: 8px; }
+    .phase-box ul { padding-left: 18px; }
+
+    /* ── Footer ── */
+    .footer {
+      background: #1b4f72;
+      color: #aed6f1;
+      text-align: center;
+      padding: 14px;
+      font-size: 0.82rem;
+    }
+
+    /* ── Responsive ── */
+    @media(max-width: 620px){
+      .content { padding: 22px 18px 36px; }
+      .two-col { grid-template-columns: 1fr; }
+      .header { padding: 24px 20px 18px; }
+      .header h1 { font-size: 1.45rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══════════════ HEADER ══════════════ -->
+  <div class="header">
+    <h1>Miliary Tuberculosis</h1>
+    <div class="sub">Respiratory Medicine · Long Answer · Indian Standard Textbooks &amp; NTEP Guidelines</div>
+    <div class="marks-badge">10 MARKS</div>
+  </div>
+
+  <div class="content">
+
+    <!-- ══════════════ DEFINITION ══════════════ -->
+    <h2>1. Definition</h2>
+    <div class="def-box">
+      <p>
+        <strong>Miliary TB (MTB)</strong> is a life-threatening form of TB resulting from
+        <em>massive haematogenous dissemination</em> of <em>Mycobacterium tuberculosis</em> (Mtb),
+        producing <strong>uniform, discrete, millet-seed–sized (1–2 mm) nodules</strong>
+        diffusely scattered throughout the lungs and other viscera.
+        <br><br>
+        <strong>Disseminated TB (DTB)</strong> refers to concurrent involvement of
+        <em>at least two non-contiguous organ sites</em>, or involvement of blood / bone marrow by TB.
+        <em>(Sharma &amp; Mohan; NTEP 2023)</em>
+      </p>
+    </div>
+
+    <!-- ══════════════ EPIDEMIOLOGY ══════════════ -->
+    <h2>2. Epidemiology</h2>
+    <ul>
+      <li>Accounts for <strong>&lt;2%</strong> of all TB cases in clinical studies; up to <strong>20%</strong> in autopsy series</li>
+      <li>India remains a high-burden country — NTEP 2023 estimates ~2.8 million TB cases/year</li>
+      <li><strong>Age shift:</strong> Classically children; now also adolescents, young adults, and elderly (cryptic form)</li>
+      <li><strong>Gender:</strong> Males predominate; recent series show female preponderance owing to better healthcare access</li>
+      <li><strong>Risk factors driving resurgence:</strong> HIV/AIDS pandemic, widespread immunosuppressants, TNF-α inhibitors, diabetes mellitus</li>
+      <li>BCG vaccination has substantially reduced MTB and TB meningitis in children</li>
+    </ul>
+
+    <!-- ══════════════ PATHOGENESIS ══════════════ -->
+    <h2>3. Pathogenesis</h2>
+
+    <!-- FLOWCHART -->
+    <div class="flowchart">
+      <div class="fc-box alt">Primary / Post-primary TB Focus (Lung or Extrapulmonary)</div>
+      <div class="fc-arrow"></div>
+      <div class="fc-box">Caseous Necrosis → Erosion of Blood / Lymphatic Vessel Wall<br><small>(Weigert's Focus — intimal caseous vasculitis)</small></div>
+      <div class="fc-arrow"></div>
+      <div class="fc-box alt">Massive Lymphohaematogenous Dissemination of Mtb</div>
+      <div class="fc-arrow"></div>
+      <div class="fc-box">Embolisation to Vascular Beds of Multiple Organs</div>
+      <div class="fc-arrow"></div>
+      <div class="fc-box green">Uniform 1–2 mm Granulomatous Foci — "Miliary Pattern"</div>
+    </div>
+
+    <h3>Key Immunopathology</h3>
+    <ul>
+      <li><strong>Th1 response</strong> (CD4+ T cells, IFN-γ, IL-12) → granuloma formation → protective</li>
+      <li><strong>Th2 predominance</strong> in MTB → inhibits granuloma → favours dissemination</li>
+      <li><strong>Non-reactive MTB:</strong> No granulomas; necrotic foci teeming with bacilli → seen in severe immunosuppression (ARDS, septic shock picture)</li>
+      <li>HIV → ↓ CD4+ cells → ↓ Th1 → ↑ risk of MTB, especially when CD4 &lt;200/µL</li>
+      <li>IRIS: Paradoxical worsening in HIV patients started on HAART</li>
+    </ul>
+
+    <!-- ══════════════ PREDISPOSING FACTORS ══════════════ -->
+    <h2>4. Predisposing / Associated Conditions</h2>
+    <div class="two-col">
+      <div class="card">
+        <h4>Host Factors</h4>
+        <ul>
+          <li>HIV / AIDS (CD4 &lt;200)</li>
+          <li>Malnutrition</li>
+          <li>Diabetes mellitus</li>
+          <li>Chronic renal failure / dialysis</li>
+          <li>Underlying malignancy</li>
+          <li>Silicosis</li>
+          <li>Pregnancy / postpartum</li>
+          <li>Extremes of age (infants, elderly)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Iatrogenic / Drug-Related</h4>
+        <ul>
+          <li>Corticosteroids</li>
+          <li>Immunosuppressants / cytotoxics</li>
+          <li>TNF-α inhibitors (infliximab, etanercept)</li>
+          <li>Intravesical BCG therapy (bladder Ca)</li>
+          <li>Organ transplantation</li>
+          <li>Extracorporeal shockwave lithotripsy</li>
+          <li>Cardiac valve homograft replacement</li>
+          <li>Post-gastrectomy</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ══════════════ CLINICAL FEATURES ══════════════ -->
+    <h2>5. Clinical Features</h2>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Adults (%)</th>
+            <th>Children (%)</th>
+            <th>Clinical Significance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Fever (evening rise)</td><td>35–100</td><td>61–98</td><td>Most consistent sign</td></tr>
+          <tr><td>Weight loss / Anorexia</td><td>20–100</td><td>4–81</td><td>Dominant in cryptic form</td></tr>
+          <tr><td>Cough / Dyspnoea</td><td>27–100</td><td>17–90</td><td>Pulmonary involvement</td></tr>
+          <tr><td>Night sweats</td><td>8–100</td><td>8–75</td><td>Less frequent in children</td></tr>
+          <tr><td>Headache</td><td>2–18</td><td>2–8</td><td>Signifies meningitis</td></tr>
+          <tr><td>Abdominal pain</td><td>5–19</td><td>3–15</td><td>Signifies abdominal spread</td></tr>
+          <tr><td>Hepatomegaly</td><td>14–62</td><td>39–82</td><td>More common in children</td></tr>
+          <tr><td>Splenomegaly</td><td>2–32</td><td>24–54</td><td>More common in children</td></tr>
+          <tr><td>Lymphadenopathy</td><td>2–30</td><td>5</td><td>Peripheral / intrathoracic</td></tr>
+          <tr><td>Choroidal tubercles</td><td>2–12</td><td>2–5</td><td><strong>Pathognomonic</strong> — fundoscopy after mydriatic</td></tr>
+          <tr><td>Neurological signs</td><td>3–26</td><td>19–35</td><td>TBM in 10–30% adults</td></tr>
+          <tr><td>Chills / Rigors</td><td>15–28</td><td>ND</td><td>Mimics sepsis / malaria</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="highlight-box">
+      <strong>Choroidal Tubercles:</strong> Bilateral, pale, grey-white, oblong patches ~1/4 optic disc diameter,
+      within 2 cm of optic disc. <em>Pathognomonic</em> of MTB — mandatory ophthalmoscopy with mydriasis in all suspected cases.
+    </div>
+
+    <h3>Classical vs Cryptic MTB</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Feature</th><th>Classical MTB</th><th>Cryptic MTB (Proudfoot 1969)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Age</td><td>Mostly &lt;40 years</td><td>Mostly &gt;60 years</td></tr>
+          <tr><td>Fever</td><td>Present &gt;90%</td><td>Usually absent</td></tr>
+          <tr><td>Weight loss</td><td>Present 60–80%</td><td>Dominant feature</td></tr>
+          <tr><td>Meningitis</td><td>20–30% adults; 30–40% children</td><td>Rare (unless terminal)</td></tr>
+          <tr><td>Chest X-ray</td><td>Classical miliary pattern common</td><td>Often normal</td></tr>
+          <tr><td>HRCT</td><td>Confirmatory if CXR equivocal</td><td><strong>Essential</strong> for diagnosis</td></tr>
+          <tr><td>TST</td><td>Positive ~60%</td><td>Rarely positive</td></tr>
+          <tr><td>Diagnosis</td><td>Invasive procedures</td><td>Often only at autopsy</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ══════════════ DIAGNOSIS ══════════════ -->
+    <h2>6. Diagnosis (NTEP 2023 / Sharma &amp; Mohan)</h2>
+
+    <h3>Diagnostic Criteria for MTB</h3>
+    <ul>
+      <li><strong>(i)</strong> Clinical presentation: fever with evening rise, weight loss, anorexia, tachycardia, night sweats &gt;6 weeks, responding to ATT</li>
+      <li><strong>(ii)</strong> Classical miliary pattern on chest radiograph</li>
+      <li><strong>(iii)</strong> Bilateral diffuse reticulonodular lesions on CXR or HRCT</li>
+      <li><strong>(iv)</strong> Microbiological / histopathological evidence of TB</li>
+    </ul>
+
+    <!-- DIAGNOSTIC FLOWCHART -->
+    <h3>Diagnostic Algorithm</h3>
+    <div class="flowchart">
+      <div class="fc-box alt">Clinical Suspicion: Prolonged fever + constitutional symptoms + risk factors</div>
+      <div class="fc-arrow"></div>
+      <div class="fc-box">Chest X-Ray (PA view)</div>
+      <div class="fc-arrow"></div>
+      <div class="fc-box amber">Classical Miliary Pattern?</div>
+      <div class="fc-label">If YES → proceed below &nbsp;|&nbsp; If NO / equivocal → HRCT Chest</div>
+      <div class="fc-arrow"></div>
+      <div class="fc-box">Sputum AFB smear + Culture (LJ / MGIT) + GeneXpert (CBNAAT)</div>
+      <div class="fc-arrow"></div>
+      <div class="fc-box alt">Other body fluids: BAL, CSF, Urine, Gastric aspirate, Ascitic / Pleural / Pericardial fluid</div>
+      <div class="fc-arrow"></div>
+      <div class="fc-box">Biopsy: Lymph node / Liver / Bone marrow / Transbronchial lung biopsy (TBLB)</div>
+      <div class="fc-arrow"></div>
+      <div class="fc-box amber">Still no diagnosis? → Ophthalmoscopy · TST · IGRA · PET-CT</div>
+      <div class="fc-arrow"></div>
+      <div class="fc-box warn">Diagnosis elusive in sick patient → Empirical ATT (Trial of treatment)</div>
+      <div class="fc-arrow"></div>
+      <div class="fc-box green">START ANTI-TB TREATMENT — do NOT withhold for negative tests</div>
+    </div>
+
+    <h3>Diagnostic Yield of Common Tests</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Method / Site</th><th>Smear + Culture Yield</th><th>Histopathology Yield</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Sputum</td><td>~41%</td><td>—</td></tr>
+          <tr><td>Bronchoscopy (BAL + TBLB)</td><td>~47%</td><td>~70%</td></tr>
+          <tr><td>Gastric lavage</td><td>~61%</td><td>—</td></tr>
+          <tr><td>Bone marrow biopsy</td><td>~67%</td><td>~30%</td></tr>
+          <tr><td>Liver biopsy</td><td>—</td><td>~89%</td></tr>
+          <tr><td>Lymph node biopsy</td><td>—</td><td>~91%</td></tr>
+          <tr><td>CSF (smear + culture)</td><td>~21–40%</td><td>—</td></tr>
+          <tr><td>Urine</td><td>~33%</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Radiology Summary</h3>
+    <ul>
+      <li><strong>CXR (PA):</strong> 1–2 mm uniform, discrete, pinpoint opacities — "snowstorm" appearance; sensitivity ~60–70%, specificity 97–100%</li>
+      <li><strong>HRCT chest:</strong> Superior — shows miliary nodules, interlobular septal thickening, ground-glass opacities, tree-in-bud pattern, lymphadenopathy; nodules 2–3 mm</li>
+      <li><strong>CECT abdomen:</strong> Hypodense lesions in liver / spleen, peritoneal/omental nodules, psoas abscess, intra-abdominal lymphadenopathy</li>
+      <li><strong>MRI brain:</strong> Multiple hyperintense enhancing disk-like lesions (tuberculomas); mandatory if CNS involvement suspected</li>
+      <li><strong>PET-CT / PET-MRI:</strong> Defines disease extent in DTB/MTB; assesses activity of residual lesions post-treatment</li>
+    </ul>
+
+    <h3>Laboratory Findings</h3>
+    <div class="two-col">
+      <div class="card">
+        <h4>Haematological</h4>
+        <ul>
+          <li>Normocytic normochromic anaemia (~50%)</li>
+          <li>Leucocytosis or leucopenia</li>
+          <li>Thrombocytopenia / thrombocytosis</li>
+          <li>Leukaemoid reaction (rare)</li>
+          <li>Haemophagocytic lymphohistiocytosis</li>
+          <li>DIC in acute septicemic form</li>
+          <li>Elevated ESR, elevated CRP</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Biochemical</h4>
+        <ul>
+          <li>Hyponatraemia (SIADH) — prognostic</li>
+          <li>Hypoalbuminaemia — poor prognosis</li>
+          <li>↑ Alkaline phosphatase (83%)</li>
+          <li>↑ Transaminases (42%)</li>
+          <li>Hyperbilirubinaemia</li>
+          <li>Hypercalcaemia (uncommon)</li>
+          <li>Hypoxaemia (PaO₂ &lt;60) ~40%</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="warn-box">
+      <strong>TST / Tuberculin Skin Test:</strong> Negative in 20–74% of MTB patients (anergy).
+      A negative TST <em>never</em> excludes MTB. IGRA also has limited sensitivity.
+      TST often becomes positive <em>after</em> successful therapy.
+    </div>
+
+    <!-- ══════════════ DIFFERENTIAL DIAGNOSIS ══════════════ -->
+    <h2>7. Differential Diagnosis — Miliary Pattern on CXR</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Category</th><th>Conditions</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Infections</strong></td><td>Histoplasmosis, Coccidioidomycosis, Blastomycosis, Cryptococcosis, Varicella pneumonia, CMV, Pneumocystis jirovecii, Staphylococcal bacteraemia, Nocardiosis, Legionellosis, Melioidosis, Brucellosis</td></tr>
+          <tr><td><strong>Malignant</strong></td><td>Bronchoalveolar carcinoma, Lymphangitis carcinomatosa, Metastatic carcinoma (thyroid, kidney), Lymphoma</td></tr>
+          <tr><td><strong>Immunoinflammatory</strong></td><td>Sarcoidosis (non-caseating granulomas, bilateral hilar adenopathy), Hypersensitivity pneumonitis, Connective tissue disorders</td></tr>
+          <tr><td><strong>Inhalation / Occupational</strong></td><td>Silicosis, Pneumoconiosis, Talc granulomatosis</td></tr>
+          <tr><td><strong>Others</strong></td><td>Pulmonary alveolar microlithiasis, Amyloidosis, Haemosiderosis, E-cigarette / vaping injury</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ══════════════ TREATMENT ══════════════ -->
+    <h2>8. Treatment (NTEP 2023 / WHO / ATS-CDC-IDSA)</h2>
+
+    <div class="highlight-box">
+      <strong>Principle:</strong> Untreated MTB/DTB is <em>uniformly fatal within one year</em>.
+      Do NOT delay treatment pending confirmation in a sick patient with high clinical suspicion.
+    </div>
+
+    <h3>Standard NTEP Drug Regimen (Drug-Susceptible MTB)</h3>
+    <div class="drug-phase">
+      <div class="phase-box intensive">
+        <h4>Intensive Phase — 2 months</h4>
+        <ul>
+          <li>Isoniazid (H)</li>
+          <li>Rifampicin (R)</li>
+          <li>Pyrazinamide (Z)</li>
+          <li>Ethambutol (E)</li>
+        </ul>
+        <p style="margin-top:10px; font-size:0.85rem; opacity:0.9;">Daily FDC under DOTS</p>
+      </div>
+      <div class="phase-box continuation">
+        <h4>Continuation Phase</h4>
+        <ul>
+          <li>Isoniazid (H) + Rifampicin (R)</li>
+          <li><strong>4 months</strong> — standard MTB (no meningitis)</li>
+          <li><strong>7–10 months</strong> — with TB meningitis</li>
+          <li><strong>7 months</strong> — with bone &amp; joint TB</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Guideline</th><th>Standard MTB</th><th>MTB + TBM</th><th>MTB + Bone/Joint TB</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>WHO 2022 / NTEP 2023</td><td>2HRZE + 4HR</td><td>2HRZE + 7–10HR</td><td>2HRZE + 7HR</td></tr>
+          <tr><td>ATS/CDC/IDSA 2016</td><td>2HRZE + 4HR</td><td>2HRZE + 7–10HR</td><td>—</td></tr>
+          <tr><td>NICE 2016</td><td>2HRZE + 4HR</td><td>2HRZE + 10HR</td><td>—</td></tr>
+          <tr><td>INDEX-TB Guidelines</td><td>6 months</td><td>≥9 months</td><td>12 months (up to 18)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Adjunctive Corticosteroids</h3>
+    <ul>
+      <li><strong>Absolute indication:</strong> Adrenal insufficiency (Addison's disease from TB
+)</li>
+      <li><strong>Strong recommendation:</strong> TB meningitis — Dexamethasone 0.4 mg/kg/day × 4 weeks tapering over 8 weeks</li>
+      <li><strong>TB pericarditis:</strong> Prednisolone 60 mg/day tapering over 6–8 weeks (reduces effusion, prevents constriction)</li>
+      <li><strong>MTB with ARDS / severe hypoxaemia:</strong> Prednisolone 1–2 mg/kg/day × 4–6 weeks</li>
+      <li><strong>MTB with severe pleural effusion / peritonitis:</strong> Short-course corticosteroids may be used</li>
+      <li><strong>Steroid dose for TBM (NTEP 2023):</strong> Dexamethasone 0.3–0.4 mg/kg/day IV × 4 weeks → oral taper × 4 weeks</li>
+    </ul>
+
+    <div class="warn-box">
+      <strong>Drug Susceptibility Testing (DST):</strong> MANDATORY in ALL MTB patients as per NTEP 2023.
+      GeneXpert MTB/RIF (CBNAAT) is the <em>first-line rapid test</em> — detects Mtb &amp;
+      Rifampicin resistance simultaneously within 2 hours.
+      If RIF-resistant → treat as RR-TB / MDR-TB per NTEP protocol.
+    </div>
+
+    <h3>MTB in Special Situations</h3>
+
+    <!-- ─── FLOWCHART: HIV + MTB Management ─── -->
+    <h3>Management Algorithm: MTB + HIV Co-infection</h3>
+    <div class="flowchart">
+      <div class="fc-box warn">MTB Diagnosed in HIV-positive Patient</div>
+      <div class="fc-arrow"></div>
+      <div class="fc-box alt">Start Anti-TB Treatment (ATT) FIRST — Do NOT delay</div>
+      <div class="fc-arrow"></div>
+      <div class="fc-box amber">When to Start HAART?</div>
+      <div class="fc-label">CD4 &lt;50/µL → Start HAART within 2 weeks of ATT</div>
+      <div class="fc-arrow"></div>
+      <div class="fc-label">CD4 50–200/µL → Start HAART within 2–8 weeks of ATT</div>
+      <div class="fc-arrow"></div>
+      <div class="fc-box alt">Preferred HAART Regimen: TDF + 3TC + EFV (600 mg/day)<br><small>(Efavirenz preferred over Nevirapine due to ↓ drug interactions with Rifampicin)</small></div>
+      <div class="fc-arrow"></div>
+      <div class="fc-box amber">Monitor for IRIS (Immune Reconstitution Inflammatory Syndrome)</div>
+      <div class="fc-arrow"></div>
+      <div class="fc-box green">IRIS → Continue ATT + HAART + Corticosteroids if severe</div>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Special Situation</th>
+            <th>Modification / Recommendation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>MTB + HIV</strong></td>
+            <td>Standard 6-month ATT; HAART within 2 weeks if CD4 &lt;50; EFV preferred (not NVP)</td>
+          </tr>
+          <tr>
+            <td><strong>MTB + Pregnancy</strong></td>
+            <td>Do NOT use Streptomycin (ototoxic to fetus); standard 2HRZE + 4HR is safe; Pyridoxine 25 mg/day mandatory; breastfeeding allowed</td>
+          </tr>
+          <tr>
+            <td><strong>MTB + Hepatic disease</strong></td>
+            <td>If severe hepatitis: use 2SHE + 6HE; monitor LFTs monthly; Pyrazinamide most hepatotoxic — remove first</td>
+          </tr>
+          <tr>
+            <td><strong>MTB + Renal failure</strong></td>
+            <td>H, R, Z — no dose adjustment; E + S — dose reduce / avoid; Dialysis — dose after session</td>
+          </tr>
+          <tr>
+            <td><strong>MTB + Diabetes</strong></td>
+            <td>Strict glycaemic control essential; Rifampicin lowers blood sugar levels; monitor closely; standard ATT</td>
+          </tr>
+          <tr>
+            <td><strong>MTB + TNF-α inhibitor use</strong></td>
+            <td>Suspend TNF-α inhibitor; start ATT immediately; resume only after 2 months of ATT (expert opinion)</td>
+          </tr>
+          <tr>
+            <td><strong>MTB + Organ transplant</strong></td>
+            <td>Standard ATT; monitor Rifampicin–cyclosporin interaction (↑ cyclosporin dose needed 3–5×)</td>
+          </tr>
+          <tr>
+            <td><strong>Paediatric MTB</strong></td>
+            <td>Weight-based dosing per NTEP 2023 child FDC; 2HRZE + 4HR (6HR if meningitis); Pyridoxine supplementation</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ══════════════ DRUG-RESISTANT MTB ══════════════ -->
+    <h2>9. Drug-Resistant MTB (NTEP 2023)</h2>
+    <ul>
+      <li>If GeneXpert detects <strong>Rifampicin resistance (RR-TB)</strong> → treat as <strong>MDR-TB</strong> until DST report available</li>
+      <li><strong>Shorter BPaLM regimen (NTEP 2023 / WHO 2022):</strong> Bedaquiline + Pretomanid + Linezolid + Moxifloxacin × 6 months</li>
+      <li><strong>Standard longer regimen:</strong> 6–8 months intensive (Bdq + Lfx/Mfx + Cs/Cfz + Z + Am/Km) + 12 months continuation</li>
+      <li>MTB with XDR-TB: individualized regimen, 18–20 months minimum</li>
+      <li>All RR/MDR-TB patients: DST to second-line drugs mandatory; baseline audiometry, ECG (QTc) monitoring</li>
+    </ul>
+
+    <!-- ══════════════ COMPLICATIONS ══════════════ -->
+    <h2>10. Complications</h2>
+    <div class="two-col">
+      <div class="card">
+        <h4>Pulmonary Complications</h4>
+        <ul>
+          <li>Acute Respiratory Distress Syndrome (ARDS) — 3–11%</li>
+          <li>Acute respiratory failure / mechanical ventilation</li>
+          <li>Pulmonary hypertension</li>
+          <li>Spontaneous pneumothorax</li>
+          <li>Pleural effusion / empyema</li>
+          <li>Bronchopneumonia / superinfection</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Extrapulmonary Complications</h4>
+        <ul>
+          <li>TB meningitis / Tuberculoma</li>
+          <li>Pericarditis / Cardiac tamponade</li>
+          <li>TB peritonitis / Ileus</li>
+          <li>Hepatic failure (granulomatous hepatitis)</li>
+          <li>Addisonian crisis (adrenal TB)</li>
+          <li>Pancytopenia (bone marrow involvement)</li>
+          <li>DIC / Septic shock</li>
+          <li>Haemophagocytic lymphohistiocytosis (HLH)</li>
+          <li>Multi-organ dysfunction syndrome (MODS)</li>
+          <li>IRIS in HIV co-infection</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ══════════════ MONITORING ══════════════ -->
+    <h2>11. Monitoring During Treatment</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Frequency</th>
+            <th>Reason</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Symptoms assessment</td><td>Monthly</td><td>Clinical response, IRIS, ADRs</td></tr>
+          <tr><td>Weight</td><td>Monthly</td><td>Nutritional status &amp; dose adjustment</td></tr>
+          <tr><td>Liver function tests</td><td>Monthly (baseline + 2, 4, 6 weeks)</td><td>Drug-induced hepatotoxicity</td></tr>
+          <tr><td>Sputum AFB smear + culture</td><td>End of 2nd month, 5th month, end</td><td>Microbiological response</td></tr>
+          <tr><td>CBNAAT / DST</td><td>If smear positive at 2 months</td><td>Drug resistance screening</td></tr>
+          <tr><td>CBC</td><td>Baseline, 2 months, then 3-monthly</td><td>Anaemia, thrombocytopenia, leucopenia</td></tr>
+          <tr><td>Serum electrolytes (Na+)</td><td>Baseline &amp; when clinically indicated</td><td>SIADH, poor prognosis marker</td></tr>
+          <tr><td>Visual acuity / colour vision</td><td>Monthly (on Ethambutol)</td><td>Ethambutol optic neuritis</td></tr>
+          <tr><td>Blood glucose</td><td>Baseline &amp; monthly in diabetics</td><td>Rifampicin lowers glucose</td></tr>
+          <tr><td>Chest X-ray</td><td>End of Intensive Phase, End of Treatment</td><td>Radiological response</td></tr>
+          <tr><td>Ophthalmoscopy</td><td>Baseline; repeat if worsening</td><td>Choroidal tubercles response</td></tr>
+          <tr><td>ECG / QTc</td><td>In DR-TB (Bdq, Mfx, Cfz)</td><td>QT prolongation monitoring</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ══════════════ PROGNOSIS ══════════════ -->
+    <h2>12. Prognosis &amp; Outcomes</h2>
+    <ul>
+      <li><strong>Overall mortality:</strong> 15–30% in modern series (despite treatment); up to <strong>60%</strong> in HIV co-infected patients</li>
+      <li><strong>Untreated MTB:</strong> Near 100% fatality within 6–12 months — "pthisis florida"</li>
+      <li>Early initiation of ATT is the <em>single most important</em> factor determining survival</li>
+    </ul>
+
+    <h3>Poor Prognostic Indicators</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Clinical</th><th>Laboratory</th><th>Disease-Related</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <ul>
+                <li>Delayed diagnosis (&gt;4 weeks)</li>
+                <li>Age &gt;60 years</li>
+                <li>HIV / AIDS (CD4 &lt;50)</li>
+                <li>Cryptic form</li>
+                <li>ARDS / respiratory failure</li>
+                <li>Coma / altered sensorium</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Hyponatraemia (&lt;130 mEq/L)</li>
+                <li>Hypoalbuminaemia (&lt;2.5 g/dL)</li>
+                <li>Thrombocytopenia</li>
+                <li>Leucopenia or leukaemoid reaction</li>
+                <li>DIC</li>
+                <li>Severe hypoxaemia (PaO₂ &lt;60)</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>TB meningitis coexistence</li>
+                <li>Multi-organ dysfunction</li>
+                <li>HLH complicating MTB</li>
+                <li>Drug-resistant MTB (RR/MDR/XDR)</li>
+                <li>Non-reactive histology</li>
+                <li>Persistence of miliary shadows &gt;3 months</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ══════════════ NTEP KEY POINTS ══════════════ -->
+    <h2>13. Key NTEP 2023 Highlights for MTB</h2>
+    <div class="highlight-box">
+      <strong>NTEP (National Tuberculosis Elimination Programme) 2023 — India's roadmap to eliminate TB by 2025</strong>
+    </div>
+    <ul>
+      <li><strong>Universal DST:</strong> All TB patients (including MTB) must undergo GeneXpert (CBNAAT) at diagnosis — available at all District TB centres</li>
+      <li><strong>Nikshay portal:</strong> Mandatory notification of all TB cases including MTB within 24 hours — civil and private practitioners both obligated</li>
+      <li><strong>Nikshay Poshan Yojana:</strong> ₹500/month nutritional support to all TB patients during treatment</li>
+      <li><strong>FDC tablets:</strong> Fixed-dose combination tablets in 3 weight bands (adult) and 4 weight bands (paediatric) for accurate weight-based dosing</li>
+      <li><strong>New shorter regimens:</strong> BPaLM / BPaL for MDR/XDR-TB patients; reduces treatment duration from 18–20 months to 6 months</li>
+      <li><strong>Preventive therapy (TPT):</strong> 6H or 3HP (3 months weekly INH + Rifapentine) for household contacts of MTB patients and PLHIV</li>
+      <li><strong>Expanded diagnostic network:</strong> CBNAAT at block level, NAAT platforms (TrueNat) at PHC level under NTEP 2023</li>
+      <li><strong>Target:</strong> 90% reduction in TB incidence and 95% reduction in TB deaths by 2025 (India's National Strategic Plan)</li>
+    </ul>
+
+    <!-- ══════════════ MEMORY AIDS ══════════════ -->
+    <h2>14. High-Yield Memory Aids</h2>
+    <div class="two-col">
+      <div class="card">
+        <h4>Causes of Miliary TB — "IMPAIRED"</h4>
+        <ul>
+          <li><strong>I</strong> — Immunosuppression (HIV, steroids)</li>
+          <li><strong>M</strong> — Malignancy</li>
+          <li><strong>P</strong> — Post-primary reactivation</li>
+          <li><strong>A</strong> — Age extremes (infants, elderly)</li>
+          <li><strong>I</strong> — Intravesical BCG therapy</li>
+          <li><strong>R</strong> — Renal / hepatic failure</li>
+          <li><strong>E</strong> — End-stage organ disease</li>
+          <li><strong>D</strong> — Diabetes mellitus</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Investigations — "CLUE-BAL"</h4>
+        <ul>
+          <li><strong>C</strong> — Choroidal tubercles (fundoscopy)</li>
+          <li><strong>L</strong> — Liver biopsy (highest histopathological yield)</li>
+          <li><strong>U</strong> — Urine AFB</li>
+          <li><strong>E</strong> — ECHO (pericardial TB)</li>
+          <li><strong>B</strong> — Bone marrow biopsy</li>
+          <li><strong>A</strong> — ARDS work-up (BAL + TBLB)</li>
+          <li><strong>L</strong> — Lumbar puncture (CSF for TBM)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <strong>Examiner's Favourite Points:</strong>
+      <ul style="margin-top:8px;">
+        <li>Choroidal tubercles = only <em>pathognomonic</em> sign of MTB</li>
+        <li>Cryptic MTB = older patients, no fever, normal TST, normal CXR — diagnosed at autopsy</li>
+        <li>TST negative in &gt;50% MTB — NEVER exclude MTB on basis of negative TST</li>
+        <li>TB meningitis extends continuation phase to 7–10 months</li>
+        <li>HIV + MTB → start ATT first, then HAART within 2 weeks if CD4 &lt;50</li>
+        <li>Rifampicin + Cyclosporin → markedly ↓ cyclosporin levels → dose adjustment</li>
+        <li>NTEP 2023 mandates universal DST and CBNAAT as first-line test</li>
+      </ul>
+    </div>
+
+    <!-- ══════════════ REFERENCES ══════════════ -->
+    <h2>15. References</h2>
+    <ul>
+      <li>Sharma SK, Mohan A. <em>Textbook of Respiratory Medicine</em>, 3rd ed. New Delhi: Jaypee; 2017. Chapter on Miliary Tuberculosis.</li>
+      <li>Jindal SK, Shankar PS, Raoof S et al. <em>Textbook of Pulmonary and Critical Care Medicine</em>. New Delhi: Jaypee; 2011.</li>
+      <li>Prasad R, Gupta N, Singh A, Kumar R. <em>Miliary Tuberculosis: New Insights into an Old Disease.</em> Lung India 2010; 27(1): 26–31.</li>
+      <li>Ministry of Health &amp; Family Welfare, India. <em>National Tuberculosis Elimination Programme — Technical and Operational Guidelines for TB Control</em>, 5th ed. New Delhi: MOHFW; 2023.</li>
+      <li>World Health Organization. <em>WHO Consolidated Guidelines on Tuberculosis: Module 4 — Treatment</em>. Geneva: WHO; 2022.</li>
+      <li>Sharma SK, Mohan A, Sharma A. <em>Miliary Tuberculosis: A New Look at an Old Foe.</em> J Clin Exp Hepatol 2014; 4(Suppl 1): S150–S161.</li>
+      <li>INDEX-TB Guidelines. <em>Index of National Drug Regimens for Extrapulmonary Tuberculosis.</em> New Delhi: Ministry of Health, India; 2016.</li>
+    </ul>
+
+  </div><!-- /content -->
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <div class="footer">
+    Miliary Tuberculosis · 10-Mark Answer · Based on Sharma &amp; Mohan · Jindal et al. · NTEP India 2023 Guidelines
+    <br>For academic &amp; educational purposes only
+  </div>
+
+</div><!-- /page -->
+</body>
+</html>
