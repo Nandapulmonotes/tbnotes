@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vaccines in Tuberculosis (10 Marks)</title>
+  <style>
+    /* ── Base ── */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f4f6fb;
+      color: #1a1a2e;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* ── Page wrapper ── */
+    .page {
+      max-width: 900px;
+      margin: 30px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      padding: 40px 48px 60px 48px;
+    }
+
+    /* ── Header ── */
+    .main-title {
+      text-align: center;
+      background: linear-gradient(135deg, #1a237e, #1565c0, #0288d1);
+      color: #fff;
+      padding: 22px 16px 16px 16px;
+      border-radius: 10px;
+      margin-bottom: 28px;
+    }
+    .main-title h1 { font-size: 1.7em; letter-spacing: 1px; }
+    .main-title p  { font-size: 0.93em; opacity: 0.88; margin-top: 5px; }
+
+    .marks-badge {
+      display: inline-block;
+      background: #ffd600;
+      color: #1a237e;
+      font-weight: 700;
+      font-size: 0.85em;
+      padding: 3px 14px;
+      border-radius: 20px;
+      margin-top: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── Section headings ── */
+    h2 {
+      font-size: 1.12em;
+      color: #fff;
+      background: linear-gradient(90deg, #1565c0, #0288d1);
+      padding: 7px 16px;
+      border-radius: 6px;
+      margin: 28px 0 10px 0;
+      letter-spacing: 0.4px;
+    }
+    h3 {
+      font-size: 1em;
+      color: #1565c0;
+      margin: 18px 0 6px 0;
+      border-left: 4px solid #0288d1;
+      padding-left: 10px;
+    }
+
+    /* ── Bullet lists ── */
+    ul { margin: 6px 0 6px 22px; }
+    ul li { margin-bottom: 5px; }
+    ul li::marker { color: #1565c0; }
+    ul ul { margin-top: 4px; }
+    ul ul li::marker { color: #0288d1; }
+
+    /* ── Key point box ── */
+    .keybox {
+      background: #e3f2fd;
+      border-left: 5px solid #1565c0;
+      border-radius: 6px;
+      padding: 10px 16px;
+      margin: 12px 0;
+      font-size: 0.96em;
+    }
+    .keybox strong { color: #1565c0; }
+
+    .warnbox {
+      background: #fff3e0;
+      border-left: 5px solid #e65100;
+      border-radius: 6px;
+      padding: 10px 16px;
+      margin: 12px 0;
+      font-size: 0.95em;
+    }
+    .warnbox strong { color: #e65100; }
+
+    /* ── Tables ── */
+    .tbl-wrap { overflow-x: auto; margin: 14px 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88em;
+    }
+    thead tr { background: #1565c0; color: #fff; }
+    thead th { padding: 9px 10px; text-align: left; }
+    tbody tr:nth-child(even) { background: #e8f4fd; }
+    tbody tr:nth-child(odd)  { background: #fff; }
+    tbody td { padding: 7px 10px; border-bottom: 1px solid #d0e4f7; }
+
+    /* ── Flowchart (CSS-only) ── */
+    .flow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 20px 0;
+      gap: 0;
+    }
+    .flow-box {
+      background: #1565c0;
+      color: #fff;
+      border-radius: 8px;
+      padding: 9px 24px;
+      min-width: 260px;
+      max-width: 420px;
+      text-align: center;
+      font-size: 0.90em;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(21,101,192,0.18);
+    }
+    .flow-box.light {
+      background: #e3f2fd;
+      color: #1a237e;
+      border: 2px solid #1565c0;
+    }
+    .flow-box.green {
+      background: #e8f5e9;
+      color: #1b5e20;
+      border: 2px solid #2e7d32;
+    }
+    .flow-box.orange {
+      background: #fff3e0;
+      color: #bf360c;
+      border: 2px solid #e65100;
+    }
+    .flow-box.red {
+      background: #ffebee;
+      color: #b71c1c;
+      border: 2px solid #c62828;
+    }
+    .flow-arrow {
+      font-size: 1.5em;
+      color: #1565c0;
+      line-height: 1.1;
+      margin: 2px 0;
+    }
+    .flow-row {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      align-items: flex-start;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 2px 0;
+    }
+    .flow-row .flow-box { min-width: 160px; }
+
+    /* ── Phase badge ── */
+    .phase {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 0.78em;
+      font-weight: 700;
+      margin-left: 5px;
+    }
+    .ph1  { background: #e0f7fa; color: #006064; }
+    .ph2a { background: #f3e5f5; color: #4a148c; }
+    .ph2b { background: #fff3e0; color: #bf360c; }
+    .ph3  { background: #ffebee; color: #b71c1c; }
+
+    /* ── Caption ── */
+    .caption {
+      text-align: center;
+      font-size: 0.80em;
+      color: #555;
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: 40px;
+      border-top: 2px solid #e3f2fd;
+      padding-top: 14px;
+      font-size: 0.82em;
+      color: #888;
+      text-align: center;
+    }
+
+    /* Print */
+    @media print {
+      body { background: #fff; }
+      .page { box-shadow: none; padding: 10px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ════════════ HEADER ════════════ -->
+  <div class="main-title">
+    <h1>&#x1F489; Vaccines in Tuberculosis</h1>
+    <p>Respiratory Medicine &nbsp;|&nbsp; Structured Long-Answer Note</p>
+    <span class="marks-badge">10 MARKS</span>
+  </div>
+
+  <!-- ════════════ 1. INTRODUCTION ════════════ -->
+  <h2>1. Introduction</h2>
+  <ul>
+    <li>Tuberculosis (TB) remains one of the most fatal infectious diseases globally; an effective vaccine is critical for its control.</li>
+    <li><strong>Bacille Calmette-Guérin (BCG)</strong> is the <em>only available and widely used</em> TB vaccine, developed &gt;100 years ago.</li>
+    <li>Despite widespread use (&gt;3 billion children vaccinated), BCG efficacy is <strong>highly variable (0–80%)</strong> across populations.</li>
+    <li>Key challenge: absence of an effective vaccine makes global TB eradication unlikely on chemotherapy alone.</li>
+    <li>The immune correlate of protection against TB is <strong>not fully defined</strong>, complicating vaccine development.</li>
+  </ul>
+
+  <div class="keybox">
+    <strong>Key Fact:</strong> Only ~10% of Mtb-infected individuals develop active disease; the remaining 90% control infection effectively — proof that protective immunity is biologically achievable.
+  </div>
+
+  <!-- ════════════ 2. BCG VACCINE ════════════ -->
+  <h2>2. BCG Vaccine — History, Composition &amp; Mechanism</h2>
+
+  <h3>A. Historical Background</h3>
+  <ul>
+    <li>Developed by <strong>Albert Calmette and Camille Guérin</strong>, 1908–1921, by serial passaging of <em>Mycobacterium bovis</em> for 13 years (231 passages).</li>
+    <li>First human use: 1921 (neonates at Charité, Paris).</li>
+    <li>Included in WHO Expanded Programme on Immunisation (EPI) in <strong>1974</strong>.</li>
+    <li><strong>Lübeck Disaster (1930):</strong> 251 neonates received BCG contaminated with virulent Mtb → 72 deaths. Led to stricter manufacturing standards.</li>
+    <li>India: BCG Vaccine Laboratory established in <strong>Chennai, 1948</strong>; currently manufactures Danish 1331 strain.</li>
+  </ul>
+
+  <h3>B. Composition &amp; Strains</h3>
+  <ul>
+    <li>Live, attenuated strain of <em>M. bovis</em>.</li>
+    <li>Worldwide: Danish 1331, Tokyo 172-1, Russian BCG-I are most used (supplied by UNICEF).</li>
+    <li>Strains classified as <strong>"Early"</strong> (closer to Pasteur original) and <strong>"Late"</strong> (more deletions/mutations) — differ in immunogenicity.</li>
+    <li>Dose: 0.05 ml (&lt;1 month); 0.1 ml (&gt;1 month); <strong>strictly intradermal</strong> route.</li>
+    <li>Storage: +2°C to +8°C; protected from light; shelf life 24 months.</li>
+  </ul>
+
+  <h3>C. Mechanism of Protection</h3>
+  <ul>
+    <li>BCG does <em>not</em> prevent infection but <strong>reduces uncontrolled multiplication and hematogenous dissemination</strong>.</li>
+    <li>Generates primarily <strong>CD4+ T-cell (Th1) response</strong> → IFN-γ and IL-2 production → macrophage activation.</li>
+    <li>Also stimulates limited CD8+ CTL and γ/δ T-cell responses.</li>
+    <li>BCG-induced immunity wanes over time; memory T-cell pool is gradually lost.</li>
+    <li>Low dose → exclusive Th1 response; high dose → mixed Th1/Th2 → reduced DTH, less protection.</li>
+  </ul>
+
+  <!-- ════════════ 3. BCG EFFICACY TRIALS ════════════ -->
+  <h2>3. Controlled Trials on BCG — Summary Table</h2>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Trial / Location</th>
+          <th>Year</th>
+          <th>Age Group</th>
+          <th>Follow-up</th>
+          <th>Protective Efficacy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>North American Indians</td><td>1935–38</td><td>1–15 yrs</td><td>9–11 yrs</td><td><strong>80%</strong></td></tr>
+        <tr><td>British MRC (UK)</td><td>1950–52</td><td>14–15½ yrs</td><td>15 yrs</td><td><strong>78%</strong></td></tr>
+        <tr><td>Madanapalle, South India</td><td>1950–55</td><td>All ages</td><td>9–14 yrs</td><td><strong>31%</strong></td></tr>
+        <tr><td>Puerto Rico</td><td>1949–51</td><td>All ages</td><td>5½ yrs</td><td><strong>31%</strong></td></tr>
+        <tr><td>Georgia–Alabama, USA</td><td>1950</td><td>5–14 yrs</td><td>14 yrs</td><td><strong>14%</strong></td></tr>
+        <tr><td>Georgia, USA</td><td>1947</td><td>6–17 yrs</td><td>12–23 yrs</td><td><strong>None (0%)</strong></td></tr>
+        <tr><td><strong>Chingleput, Tamil Nadu</strong></td><td>1968–71</td><td>All ages</td><td>10 yrs</td><td><strong>0%</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="caption">Table 1: Seven major BCG controlled trials — protective efficacy varies from 0% to 80%</p>
+
+  <div class="warnbox">
+    <strong>Chingleput Trial (Landmark):</strong> Conducted in 3,60,000 persons across Tamil Nadu. BCG showed <strong>zero protection</strong> against adult pulmonary TB. Hypotheses: high pre-existing environmental mycobacterial exposure, low virulence of local Mtb strains, and high re-infection rate.
+  </div>
+
+  <!-- ════════════ 4. REASONS FOR VARIABLE EFFICACY ════════════ -->
+  <h2>4. Reasons for Variable BCG Efficacy</h2>
+  <ul>
+    <li><strong>Host factors:</strong> Age, nutritional status, genetic polymorphisms (IFN-γ receptor, HLA-DR, NRAMP, NOD2, Vitamin D receptor)</li>
+    <li><strong>BCG strain differences:</strong> Genotypic/phenotypic variation across manufacturing labs</li>
+    <li><strong>Mtb strain variation:</strong> Beijing strain — prevalent in Asia, more virulent, associated with outbreaks in BCG-vaccinated populations</li>
+    <li><strong>Environmental mycobacteria (NTM):</strong> Pre-existing sensitisation may mask or block BCG effect</li>
+    <li><strong>HIV co-infection:</strong> Progressive CD4+ decline impairs BCG-induced immunity; BCG may cause disseminated disease in HIV+ children</li>
+    <li><strong>Co-infections:</strong> Schistosomiasis, hookworm → downregulate T-cell responses → reduce BCG efficacy</li>
+    <li><strong>Immune status &amp; re-infection:</strong> In high-burden areas, exogenous re-infection may overwhelm BCG-induced immunity</li>
+  </ul>
+
+  <!-- ════════════ 5. BCG RECOMMENDATIONS ════════════ -->
+  <h2>5. BCG Recommendations (India &amp; Global)</h2>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Country / Body</th><th>Recommendation</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>India (UIP / IAP)</td><td>Universal vaccination at birth (institutional) or at 6 weeks; catch-up till 5 years</td></tr>
+        <tr><td>WHO (EPI)</td><td>Single dose at birth in endemic countries; not recommended in HIV-infected infants (symptomatic)</td></tr>
+        <tr><td>UK</td><td>Babies born in high-incidence areas or with family history from high-TB-burden countries</td></tr>
+        <tr><td>Australia</td><td>Aboriginal neonates in high-incidence areas; travellers to endemic countries</td></tr>
+        <tr><td>USA / Canada</td><td>Not routine; only exceptional circumstances (high-risk infants, MDR-TB exposure)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="caption">Table 2: Country-wise BCG vaccination recommendations</p>
+
+  <ul>
+    <li>Re-vaccination not recommended (no added benefit; mycobacterial sensitisation may lower BCG efficacy).</li>
+    <li>BCG + measles/MMR: minimum 4-week gap between two live vaccines.</li>
+    <li><strong>Contraindications:</strong> Symptomatic HIV/AIDS, primary immunodeficiency, active TB, immunosuppressive therapy.</li>
+  </ul>
+
+  <!-- ════════════ 6. NEW VACCINE STRATEGIES ════════════ -->
+  <h2>6. Strategies for New TB Vaccine Development</h2>
+
+  <!-- FLOWCHART: Vaccination Strategies -->
+  <div class="flow">
+    <div class="flow-box">&#x1F9EC; NEW TB VACCINE DEVELOPMENT STRATEGIES</div>
+    <div class="flow-arrow">&#x25BC;</div>
+    <div class="flow-row">
+      <div class="flow-box light">&#x1F501; Recombinant BCG (rBCG)</div>
+      <div class="flow-box light">&#x1F9EC; Live Attenuated Mtb Mutants</div>
+      <div class="flow-box light">&#x1F4A1; Subunit Vaccines</div>
+    </div>
+    <div class="flow-row">
+      <div class="flow-box light">&#x1F9EC; DNA Vaccines</div>
+      <div class="flow-box light">&#x1F3AF; Epitope-Based Vaccines</div>
+      <div class="flow-box light">&#x1F489; Prime-Boost Strategies</div>
+    </div>
+    <div class="flow-row">
+      <div class="flow-box light">&#x1F9EC; Atypical Mycobacterial Vaccines (NTM)</div>
+      <div class="flow-box light">&#x1F9EA; Immunotherapeutic Vaccines</div>
+    </div>
+  </div>
+  <p class="caption">Figure 1: Overview of new TB vaccine development strategies</p>
+
+  <h3>A. Recombinant BCG (rBCG)</h3>
+  <ul>
+    <li>BCG engineered to express immunodominant Mtb antigens (e.g., ESAT-6, MPB-64, 30–32 kDa protein, 16 kDa HspX).</li>
+    <li>Lost RD1–RD16 genomic regions (encoding 129 ORFs) can be partially restored for enhanced antigenicity.</li>
+    <li><em>Caution:</em> Full RD1 re-introduction → virulence in immunocompromised mice.</li>
+    <li><strong>VPM1002 (rBCGΔUreC::Hly):</strong> Expresses listeriolysin of <em>Listeria monocytogenes</em> → escapes phagolysosome → enhances MHC class I (CD8+) responses → better cytotoxic T-cell response. <span class="phase ph2a">Phase IIa</span></li>
+    <li>rBCG expressing human Th1 cytokines (IFN-γ, IL-2, IL-12) — improved Th1 but insufficient protection.</li>
+  </ul>
+
+  <h3>B. Live Attenuated Mtb Mutants &amp; Auxotrophs</h3>
+  <ul>
+    <li>Rationale: Vaccine antigenically identical to pathogen → better protection.</li>
+    <li><strong>Auxotrophic mutants</strong> (leucine, tryptophan, proline, pantothenate): Cleared from immunocompromised hosts; cannot replicate in vivo without exogenous amino acids.</li>
+    <li><strong>panCD mutant</strong>: Highly attenuated; safe in SCID &amp; IFN-γ deficient mice; induces long-term memory.</li>
+    <li><strong>MTBVAC</strong>: Live attenuated Mtb with deletion of <em>phoP</em> and <em>fadD26</em> virulence genes. <span class="phase ph2a">Phase IIa</span></li>
+    <li>Ideal: ≥2 unlinked gene deletions; must survive long enough to generate immunity; balance attenuation vs immunogenicity.</li>
+  </ul>
+
+  <h3>C. Subunit Vaccines</h3>
+  <ul>
+    <li>Comprise secretory (culture filtrate) and non-secretory proteins, lipids, carbohydrates.</li>
+    <li>Adjuvants critical: DDA, MPL-A, AS01E, IC31, CAF01 → enhance Th1 response.</li>
+    <li><strong>ESAT-6</strong> alone — no protection; with DDA+MPL-A → protection equivalent to BCG.</li>
+    <li><strong>M72/AS01E:</strong> Fusion of Mtb antigens 32A + 39A; <strong>54% protection</strong> against active pulmonary TB in Mtb-infected adults. <span class="phase ph2b">Phase IIb</span></li>
+    <li><strong>H4:IC31</strong> (Ag85B + TB10.4), <strong>H56:IC31</strong> (Ag85B + ESAT-6 + Rv2660c): Currently in Phase IIa trials.</li>
+  </ul>
+
+  <h3>D. DNA Vaccines</h3>
+  <ul>
+    <li>Intramuscular injection of mammalian expression vector → continuous antigen expression → potent cellular (MHC class I) immunity.</li>
+    <li>Antigens used: Ag85 complex, 65 kDa HSP, ESAT-6, MPT-64, PstS, PPE proteins, HspX (latency antigen).</li>
+    <li>Fusion DNA vaccines (Ag85B + ESAT-6 or MPT-64) → protection ≥ BCG in mice.</li>
+    <li><em>Concerns:</em> Antibiotic resistance markers in plasmid backbone, risk of genomic integration, anti-DNA autoimmunity → currently no human clinical trials.</li>
+  </ul>
+
+  <h3>E. Epitope-Based Vaccines</h3>
+  <ul>
+    <li>Exclusive delivery of immunodominant T-cell epitopes of single/multiple proteins.</li>
+    <li>Eliminates toxic/immunosuppressive regions; epitopes can be engineered for desired response.</li>
+    <li>Identified by bioinformatics ("reverse vaccinology") or by T-cell screening using overlapping peptides.</li>
+    <li>Multi-epitope vaccines incorporating conserved epitopes across pathogens under evaluation; none in clinical trials yet.</li>
+  </ul>
+
+  <h3>F. Prime-Boost Immunisation Strategies</h3>
+
+  <!-- FLOWCHART: Prime-Boost -->
+  <div class="flow">
+    <div class="flow-box">PRIME with BCG (or rBCG / DNA vaccine)</div>
+    <div class="flow-arrow">&#x25BC;</div>
+    <div class="flow-box light">Wait — Memory T-cell pool established</div>
+    <div class="flow-arrow">&#x25BC;</div>
+    <div class="flow-box">BOOST with different antigen-delivery system<br/><small>(MVA85A / Subunit protein / Viral vector / DNA vaccine)</small></div>
+    <div class="flow-arrow">&#x25BC;</div>
+    <div class="flow-row">
+      <div class="flow-box green">&#x2191; Antigen-specific T cells</div>
+      <div class="flow-box green">&#x2191; High-avidity T cells</div>
+      <div class="flow-box green">&#x2191; CD4+ &amp; CD8+ responses</div>
+    </div>
+    <div class="flow-arrow">&#x25BC;</div>
+    <div class="flow-box green">SYNERGISTIC (not merely additive) enhanced protection</div>
+  </div>
+  <p class="caption">Figure 2: Heterologous Prime-Boost strategy in TB vaccination</p>
+
+  <ul>
+    <li><strong>Homologous boosting</strong> (same vaccine repeated) → strong humoral; poor cellular immunity. Repeated BCG — no benefit.</li>
+    <li><strong>Heterologous boosting</strong> → synergistic cellular immunity.</li>
+    <li><strong>MVA85A (Modified Vaccinia Ankara expressing Antigen 85A):</strong>
+      <ul>
+        <li>BCG prime → MVA85A boost: ~300-fold reduction in lung bacillary load in mice.</li>
+        <li>Only strategy that significantly prolonged guinea pig survival in EU TB vaccine program.</li>
+        <li><strong>First new-generation TB vaccine in human trials.</strong></li>
+        <li>Phase IIb in South African infants: Safe &amp; immunogenic but <strong>no protection</strong> — highlighted inadequacy of current immunological correlates.</li>
+      </ul>
+    </li>
+    <li>Ag85A protein boost in BCG-vaccinated aged mice → restored resistance to levels of young animals.</li>
+  </ul>
+
+  <h3>G. Atypical Mycobacterial (NTM) Vaccines</h3>
+  <ul>
+    <li><em>M. microti:</em> 77% protection (comparable to BCG) in prophylactic human trials in infants.</li>
+    <li><em>M. vaccae:</em> Killed/live preparation; used in prophylactic and immunotherapeutic mode. <span class="phase ph3">Phase III</span></li>
+    <li><em>Mycobacterium indicus pranii (M. w):</em> Reduced bacillary load in mice, prevented granulomas in guinea pigs; 61.5% reduction in TB incidence in leprosy trial population — but <strong>failed Phase III TB trial</strong>.</li>
+    <li><strong>DAR-901</strong> (heat-inactivated whole-cell NTM): Protection against definite TB in HIV+ participants. Phase II in Tanzania planned.</li>
+  </ul>
+
+  <!-- ════════════ 7. VACCINE PIPELINE TABLE ════════════ -->
+  <h2>7. TB Vaccine Development Pipeline (2018)</h2>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Vaccine</th><th>Type</th><th>Strategy</th><th>Sponsor</th><th>Phase</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Ad5Ag85A</td><td>Viral vector (Ad5)</td><td>Boost</td><td>McMaster / CanSino</td><td><span class="phase ph1">I</span></td></tr>
+        <tr><td>ChAdOx1.85A + MVA85A</td><td>Viral vector</td><td>Boost</td><td>Oxford University</td><td><span class="phase ph1">I</span></td></tr>
+        <tr><td>MTBVAC</td><td>Live attenuated Mtb</td><td>Prime</td><td>Biofabri / Zaragoza</td><td><span class="phase ph2a">IIa</span></td></tr>
+        <tr><td>VPM1002</td><td>Live rBCG</td><td>Prime</td><td>SII / MPIIB / TBVI</td><td><span class="phase ph2a">IIa</span></td></tr>
+        <tr><td>H56:IC31</td><td>Protein/adjuvant</td><td>Boost</td><td>SSI / Aeras</td><td><span class="phase ph2a">IIa</span></td></tr>
+        <tr><td>H4:IC31</td><td>Protein/adjuvant</td><td>Boost</td><td>SSI / Sanofi / Aeras</td><td><span class="phase ph2a">IIa</span></td></tr>
+        <tr><td>ID93 + GLA-SE</td><td>Protein/adjuvant</td><td>Boost</td><td>IDRI / Aeras</td><td><span class="phase ph2a">IIa</span></td></tr>
+        <tr><td>RUTI</td><td>Fragmented Mt
+b (liposomal)</td><td>Therapeutic</td><td>Archivel Farma</td><td><span class="phase ph2a">IIa</span></td></tr>
+        <tr><td><strong>M72/AS01E</strong></td><td>Protein/adjuvant</td><td>Boost</td><td>GSK / IAVI</td><td><span class="phase ph2b">IIb ✔</span></td></tr>
+        <tr><td>DAR-901</td><td>Killed NTM whole-cell</td><td>Prime</td><td>Dartmouth / Aeras</td><td><span class="phase ph2a">IIa</span></td></tr>
+        <tr><td>MVA85A</td><td>Viral vector (MVA)</td><td>Boost</td><td>Oxford University</td><td><span class="phase ph2b">IIb</span></td></tr>
+        <tr><td>Vaccae</td><td>Killed M. vaccae</td><td>Therapeutic</td><td>AnHui Longcom</td><td><span class="phase ph3">III</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="caption">Table 3: TB Vaccine Development Pipeline — selected candidates as of 2018–2024</p>
+
+  <!-- ════════════ 8. IMMUNOTHERAPEUTIC VACCINES ════════════ -->
+  <h2>8. Immunotherapeutic (Post-Exposure) Vaccines</h2>
+
+  <ul>
+    <li>Designed for use <strong>after</strong> Mtb infection or during active TB treatment to boost host immunity.</li>
+    <li>Goal: Reduce treatment duration, prevent relapse, and address drug-resistant TB.</li>
+  </ul>
+
+  <h3>A. M. vaccae (SRL-172)</h3>
+  <ul>
+    <li>Heat-killed suspension of <em>M. vaccae</em>; intradermal injection.</li>
+    <li>Proposed: Th2 → Th1 switch; downregulates excessive immunopathology.</li>
+    <li>Multiple Phase III trials showed <strong>no significant benefit</strong> when added to standard chemotherapy in HIV-positive and HIV-negative patients.</li>
+    <li>Currently, oral inactivated <em>M. vaccae</em> (INMUNE-201) under re-evaluation in Phase III — AnHui Longcom, China.</li>
+  </ul>
+
+  <h3>B. RUTI (Fragmented Mtb)</h3>
+  <ul>
+    <li>Fragmented, detoxified whole <em>M. tuberculosis</em> cells in liposomal formulation.</li>
+    <li>Aims to generate polyantigenic Th1/Th2/Th17 immune response against latent antigens.</li>
+    <li>Designed as therapeutic booster after 1-month INH preventive therapy.</li>
+    <li>Phase IIa trial in HIV-negative &amp; HIV-positive latently infected adults — immunogenic &amp; safe. <span class="phase ph2a">Phase IIa complete</span></li>
+  </ul>
+
+  <h3>C. Mycobacterium indicus pranii (MIP / M. w)</h3>
+  <ul>
+    <li>Heat-killed preparation; used in India for both leprosy and TB.</li>
+    <li>Demonstrated reduced bacillary load in mice; 61.5% protection in leprosy trial population.</li>
+    <li><strong>Phase III TB trial in India: Failed</strong> — no significant protection against TB in leprosy-endemic population.</li>
+    <li>Possible role as an immunoadjunct with MDR-TB regimens — under study.</li>
+  </ul>
+
+  <!-- ════════════ 9. IDEAL TB VACCINE CRITERIA ════════════ -->
+  <h2>9. Criteria for an Ideal TB Vaccine</h2>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Criterion</th><th>Details</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Protective efficacy</td><td>≥80% against pulmonary TB in all age groups and all geographic areas</td></tr>
+        <tr><td>Durability</td><td>Long-lasting protection (&gt;10 years), ideally lifelong</td></tr>
+        <tr><td>Broad population coverage</td><td>Effective in HIV-infected, malnourished, diabetic, and elderly individuals</td></tr>
+        <tr><td>Safe in immunocompromised</td><td>No risk of disseminated disease in HIV-positive neonates/adults</td></tr>
+        <tr><td>Manufacturing feasibility</td><td>Stable, affordable, compatible with EPI cold chain in LMICs</td></tr>
+        <tr><td>Compatibility</td><td>Does not interfere with TST / IGRA diagnostic tests</td></tr>
+        <tr><td>Protection against latency</td><td>Prevents reactivation of latent TB infection (LTBI)</td></tr>
+        <tr><td>Immune correlates</td><td>Clear, measurable immune surrogate of protection</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="caption">Table 4: Criteria for an ideal TB vaccine</p>
+
+  <!-- ════════════ 10. IMMUNOLOGICAL CORRELATES ════════════ -->
+  <h2>10. Immunological Correlates of Protection</h2>
+
+  <ul>
+    <li>A key roadblock: <strong>no validated biomarker</strong> predicts vaccine-induced protection against TB in humans.</li>
+    <li><strong>IFN-γ production by T cells:</strong> Historically used but poor predictor of vaccine efficacy (as shown by MVA85A trial).</li>
+    <li>Emerging candidates for correlates:</li>
+    <ul>
+      <li>Polyfunctional CD4+ T cells (co-producing IFN-γ + TNF-α + IL-2)</li>
+      <li>Central memory T cells (T<sub>CM</sub>)</li>
+      <li>Th17 cells (IL-17) — mucosal protection and neutrophil recruitment</li>
+      <li>CD8+ T cells and γδ T cells</li>
+      <li>IgG antibodies against Mtb surface antigens (antibody-mediated protection — emerging concept)</li>
+      <li>Systems vaccinology markers (transcriptomics, metabolomics)</li>
+    </ul>
+    <li>WHO — established <em>Correlates of Risk</em> (COR) working group to define surrogate endpoints.</li>
+  </ul>
+
+  <!-- ════════════ 11. FLOWCHART — TB VACCINE ROLE ACROSS DISEASE SPECTRUM ════════════ -->
+  <h2>11. Role of Vaccine Across the TB Disease Spectrum</h2>
+
+  <div class="flow">
+    <div class="flow-box">&#x1F9A0; Mtb Exposure / Infection</div>
+    <div class="flow-arrow">&#x25BC;</div>
+    <div class="flow-row">
+      <div class="flow-box green">
+        <strong>No infection</strong><br/>
+        <small>(Pre-exposure vaccine<br/>e.g., BCG, MTBVAC)</small>
+      </div>
+      <div class="flow-box orange">
+        <strong>Latent TB Infection (LTBI)</strong><br/>
+        <small>90% of exposed</small>
+      </div>
+    </div>
+    <div class="flow-arrow">&#x25BC;</div>
+    <div class="flow-row">
+      <div class="flow-box light">
+        Post-exposure vaccine<br/>
+        <small>(H56:IC31, RUTI, M72/AS01E)</small><br/>
+        Prevent LTBI → Active TB
+      </div>
+      <div class="flow-box red">
+        <strong>Active TB</strong><br/>
+        <small>10% lifetime risk</small>
+      </div>
+    </div>
+    <div class="flow-arrow">&#x25BC;</div>
+    <div class="flow-box orange">
+      Therapeutic vaccine as adjunct<br/>
+      <small>(M. vaccae, MIP, RUTI)</small><br/>
+      Shorten treatment, prevent relapse, aid MDR-TB therapy
+    </div>
+    <div class="flow-arrow">&#x25BC;</div>
+    <div class="flow-box green">&#x2714; TB Control / Elimination Goal</div>
+  </div>
+  <p class="caption">Figure 3: Vaccine strategies targeted at different stages of TB disease continuum</p>
+
+  <!-- ════════════ 12. BCG AND HIV ════════════ -->
+  <h2>12. BCG and HIV Co-infection — Special Considerations</h2>
+
+  <ul>
+    <li><strong>Disseminated BCG disease (BCGosis):</strong> Fatal complication in HIV-infected infants given BCG at birth.</li>
+    <li>WHO (2007): BCG contraindicated in <em>symptomatic</em> HIV-infected infants; give to asymptomatic HIV-exposed infants.</li>
+    <li>In high-burden countries, benefit-risk ratio favours BCG in HIV-exposed (not confirmed HIV-infected) neonates.</li>
+    <li>BCG-induced immunity wanes 10x faster in HIV-infected children than HIV-uninfected children.</li>
+    <li>Novel vaccines for HIV/TB co-infected populations: require replication-deficient vectors or protein-only subunit approaches (no live organisms).</li>
+    <li>VPM1002 and MTBVAC are being specifically evaluated for safety in HIV-positive individuals in Phase II.</li>
+  </ul>
+
+  <!-- ════════════ 13. INDIA-SPECIFIC POINTS ════════════ -->
+  <h2>13. India-Specific Points</h2>
+
+  <ul>
+    <li>India has the <strong>highest TB burden globally</strong>; accounts for ~27% of world's incident TB cases (WHO 2023).</li>
+    <li>BCG Policy: Universal at birth; BCG Vaccine Laboratory, Chennai produces Danish 1331 strain for national supply.</li>
+    <li>Chingleput ICMR trial — landmark demonstration of BCG failure in a high-endemicity setting.</li>
+    <li>India-developed <strong>Mycobacterium indicus pranii (MIP/M.w)</strong> vaccine failed Phase III RCT.</li>
+    <li><strong>VPM1002</strong> — Phase II/III safety trial in India in collaboration with Serum Institute of India (SII).</li>
+    <li>National TB Elimination Programme (NTEP) 2025 target integrates BCG coverage as a core indicator.</li>
+    <li>India's <strong>ICMR</strong> and <strong>Tuberculosis Research Centre (TRC), Chennai</strong> are global partners in multiple vaccine trials.</li>
+  </ul>
+
+  <!-- ════════════ 14. SUMMARY / QUICK REVISION TABLE ════════════ -->
+  <h2>14. Quick Revision Summary</h2>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Topic</th><th>Key Point</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>BCG developer</td><td>Calmette &amp; Guérin (1921); attenuated M. bovis</td></tr>
+        <tr><td>BCG efficacy range</td><td>0–80%; best in UK, North America; 0% in Chingleput, India</td></tr>
+        <tr><td>BCG protects best against</td><td>TB meningitis &amp; miliary TB in children (~80%); poor for adult pulmonary TB</td></tr>
+        <tr><td>BCG contraindications</td><td>Symptomatic HIV, PID, active TB, immunosuppression</td></tr>
+        <tr><td>Most promising new vaccine</td><td>M72/AS01E (54% efficacy, Phase IIb) — only licensed-track subunit vaccine</td></tr>
+        <tr><td>Only new vaccine in Phase IIb</td><td>M72/AS01E (GSK/Gates); MVA85A failed Phase IIb (2013)</td></tr>
+        <tr><td>Prime-boost best example</td><td>BCG prime → MVA85A boost → synergistic protection</td></tr>
+        <tr><td>DNA vaccine challenge</td><td>Antibiotic resistance genes, risk of integration, no human trials yet</td></tr>
+        <tr><td>Immunotherapeutic vaccines</td><td>M. vaccae, RUTI, MIP — used as treatment adjuncts</td></tr>
+        <tr><td>Correlate of protection</td><td>Not defined; IFN-γ alone insufficient — polyfunctional T cells more relevant</td></tr>
+        <tr><td>India pipeline</td><td>VPM1002 (Phase II, SII); MIP failed Phase III; TRC Chennai trials</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="caption">Table 5: Quick revision — high-yield facts for examination</p>
+
+  <!-- ════════════ 15. REFERENCES ════════════ -->
+  <h2>15. Standard References</h2>
+  <ul>
+    <li>Jindal SK (Ed.). <em>Textbook of Pulmonary and Critical Care Medicine</em>, 2nd ed. Jaypee Brothers, 2011. Chapter: Vaccines in TB.</li>
+    <li>Murray &amp; Nadel. <em>Textbook of Respiratory Medicine</em>, 7th ed. Elsevier, 2022.</li>
+    <li>Sharma SK, Mohan A. <em>Tuberculosis</em>, 3rd ed. Jaypee Brothers, 2020.</li>
+    <li>WHO Global Tuberculosis Report 2023. World Health Organization, Geneva.</li>
+    <li>Andersen P, Scriba TJ. Moving tuberculosis vaccines from theory to practice. <em>Nature Reviews Immunology</em> 2019;19:550–562.</li>
+    <li>Van Der Meeren O, et al. Phase 2b Controlled Trial of M72/AS01E Vaccine to Prevent Tuberculosis. <em>NEJM</em> 2018;379:1621–1634.</li>
+    <li>Trunz BB, Fine PEM, Dye C. Effect of BCG vaccination on childhood tuberculous meningitis. <em>Lancet</em> 2006;367:1173–1180.</li>
+    <li>Kashyap RS, et al. BCG vaccination policies in India: a review. <em>Indian Journal of Tuberculosis</em> 2020;67:3–9.</li>
+  </ul>
+
+  <!-- ════════════ FOOTER ════════════ -->
+  <div class="footer">
+    <p>Structured for Respiratory Medicine — Long Answer (10 Marks) &nbsp;|&nbsp; Covers BCG, New Strategies, Pipeline, India-specific Points</p>
+    <p style="margin-top:4px;">References: Jindal's Pulmonary Medicine &bull; Sharma &amp; Mohan TB Textbook &bull; WHO TB Report 2023 &bull; NEJM M72 Trial 2018</p>
+  </div>
+
+</div><!-- end .page -->
+</body>
+</html>
