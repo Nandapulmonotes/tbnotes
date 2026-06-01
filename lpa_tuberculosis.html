@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Line Probe Assay in TB Diagnosis – 10 Marks</title>
+  <style>
+    /* ===== BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0d1117;
+      color: #c9d1d9;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 15px;
+      line-height: 1.75;
+      padding: 0 0 60px 0;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: linear-gradient(135deg, #161b22 0%, #1f2937 100%);
+      border-bottom: 3px solid #f97316;
+      padding: 36px 40px 28px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2rem;
+      color: #f97316;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    header .subtitle {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      font-style: italic;
+    }
+    header .badge {
+      display: inline-block;
+      margin-top: 12px;
+      background: #f97316;
+      color: #0d1117;
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 4px 14px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+    }
+
+    /* ===== LAYOUT ===== */
+    .container { max-width: 960px; margin: 0 auto; padding: 30px 24px; }
+
+    /* ===== SECTION CARD ===== */
+    .section {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-left: 4px solid #f97316;
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin-bottom: 28px;
+    }
+    .section h2 {
+      color: #f97316;
+      font-size: 1.15rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section h2 .icon { font-size: 1.3rem; }
+    .section h3 {
+      color: #38bdf8;
+      font-size: 1rem;
+      margin: 18px 0 10px;
+      border-bottom: 1px dashed #30363d;
+      padding-bottom: 4px;
+    }
+
+    /* ===== BULLETS ===== */
+    ul { padding-left: 20px; }
+    ul li { margin-bottom: 7px; color: #c9d1d9; }
+    ul li::marker { color: #f97316; }
+    ul.sub { margin-top: 6px; }
+    ul.sub li::marker { color: #38bdf8; }
+
+    /* ===== HIGHLIGHT BOXES ===== */
+    .box-orange {
+      background: #1e1107;
+      border: 1px solid #f97316;
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin: 14px 0;
+    }
+    .box-blue {
+      background: #0a1929;
+      border: 1px solid #38bdf8;
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin: 14px 0;
+    }
+    .box-green {
+      background: #0a1f0f;
+      border: 1px solid #22c55e;
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin: 14px 0;
+    }
+    .box-red {
+      background: #1f0a0a;
+      border: 1px solid #ef4444;
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin: 14px 0;
+    }
+    .box-orange p, .box-blue p, .box-green p, .box-red p { margin: 0; font-size: 0.92rem; }
+    .box-orange strong { color: #f97316; }
+    .box-blue strong { color: #38bdf8; }
+    .box-green strong { color: #22c55e; }
+    .box-red strong { color: #ef4444; }
+
+    /* ===== TABLE ===== */
+    .tbl-wrap { overflow-x: auto; margin: 16px 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      min-width: 520px;
+    }
+    thead tr { background: #f97316; }
+    thead th { color: #0d1117; padding: 10px 12px; text-align: left; font-weight: 700; }
+    tbody tr:nth-child(even) { background: #1c2330; }
+    tbody tr:nth-child(odd)  { background: #161b22; }
+    tbody td { padding: 9px 12px; border-bottom: 1px solid #30363d; color: #c9d1d9; vertical-align: top; }
+    .tag-r { color: #ef4444; font-weight: 700; }
+    .tag-s { color: #22c55e; font-weight: 700; }
+    .tag-i { color: #facc15; font-weight: 700; }
+
+    /* ===== FLOWCHART (pure CSS/HTML) ===== */
+    .flow-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      margin: 20px 0;
+    }
+    .flow-box {
+      background: #1e2a3a;
+      border: 2px solid #38bdf8;
+      border-radius: 8px;
+      padding: 10px 22px;
+      text-align: center;
+      font-size: 0.88rem;
+      color: #e2e8f0;
+      min-width: 280px;
+      max-width: 480px;
+      width: 100%;
+    }
+    .flow-box.orange { border-color: #f97316; background: #1e1107; color: #fed7aa; }
+    .flow-box.green  { border-color: #22c55e; background: #0a1f0f; color: #bbf7d0; }
+    .flow-box.red    { border-color: #ef4444; background: #1f0a0a; color: #fecaca; }
+    .flow-box.yellow { border-color: #facc15; background: #1a1700; color: #fef08a; }
+    .flow-arrow {
+      color: #64748b;
+      font-size: 1.6rem;
+      line-height: 1;
+      margin: 2px 0;
+    }
+    .flow-split {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      width: 100%;
+      flex-wrap: wrap;
+      margin: 0;
+    }
+    .flow-split .flow-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      flex: 1;
+      min-width: 180px;
+    }
+    .flow-label { font-size: 0.78rem; color: #94a3b8; text-align: center; margin: 2px 0 4px; }
+
+    /* ===== STRIP DIAGRAM ===== */
+    .strip-diagram {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 2px solid #30363d;
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 16px 0;
+      font-size: 0.85rem;
+    }
+    .strip-row {
+      display: flex;
+      align-items: stretch;
+      border-bottom: 1px solid #30363d;
+    }
+    .strip-row:last-child { border-bottom: none; }
+    .strip-num {
+      background: #1c2330;
+      color: #64748b;
+      font-size: 0.75rem;
+      width: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border-right: 1px solid #30363d;
+    }
+    .strip-name {
+      padding: 7px 10px;
+      flex: 1;
+      color: #c9d1d9;
+      background: #161b22;
+    }
+    .strip-type {
+      padding: 7px 10px;
+      width: 90px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.78rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ctrl  { background: #1e2a3a; color: #38bdf8; }
+    .wt    { background: #1a1f10; color: #86efac; }
+    .mut   { background: #1f1010; color: #fca5a5; }
+
+    /* ===== KEY-VALUE PAIRS ===== */
+    .kv { display: flex; flex-wrap: wrap; gap: 10px; margin: 10px 0; }
+    .kv-item {
+      background: #1c2330;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 8px 14px;
+      flex: 1;
+      min-width: 160px;
+    }
+    .kv-item .k { color: #94a3b8; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .kv-item .v { color: #f97316; font-size: 1rem; font-weight: 700; }
+
+    /* ===== COMPARISON GRID ===== */
+    .cmp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 14px 0;
+    }
+    @media (max-width: 600px) { .cmp-grid { grid-template-columns: 1fr; } }
+    .cmp-card {
+      border-radius: 8px;
+      padding: 16px 18px;
+    }
+    .cmp-card.blue  { background: #0a1929; border: 1px solid #38bdf8; }
+    .cmp-card.orange{ background: #1e1107; border: 1px solid #f97316; }
+    .cmp-card h4 { margin-bottom: 10px; font-size: 0.95rem; }
+    .cmp-card.blue  h4 { color: #38bdf8; }
+    .cmp-card.orange h4 { color: #f97316; }
+    .cmp-card ul { padding-left: 16px; }
+    .cmp-card ul li { font-size: 0.87rem; margin-bottom: 5px; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      color: #4b5563;
+      font-size: 0.8rem;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #21262d;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ======================================================= HEADER -->
+<header>
+  <h1>Line Probe Assay (LPA) in Tuberculosis Diagnosis</h1>
+  <p class="subtitle">FL-LPA (GenoType MTBDRplus) &amp; SL-LPA (GenoType MTBDRsl) — NTEP India</p>
+  <span class="badge">10 MARKS | STRUCTURED ANSWER</span>
+</header>
+
+<div class="container">
+
+<!-- ================================================== 1. INTRODUCTION -->
+<div class="section">
+  <h2><span class="icon">📌</span>1. Introduction &amp; Definition</h2>
+  <ul>
+    <li><strong>Line Probe Assay (LPA)</strong> is a <strong>WHO-endorsed, NTEP-recommended rapid molecular test</strong> for detection of Mycobacterium tuberculosis complex (MTBC) and drug resistance mutations directly from clinical specimens or culture isolates.</li>
+    <li>It is a <strong>hybridisation-based NAAT (Nucleic Acid Amplification Test)</strong> using biotinylated primers and nitrocellulose paper strips bearing specific DNA probes.</li>
+    <li>Two types are in clinical use under NTEP India:
+      <ul class="sub">
+        <li><strong>FL-LPA</strong> (First-Line LPA) — GenoType MTBDRplus V2 → detects resistance to Rifampicin (R) &amp; Isoniazid (H)</li>
+        <li><strong>SL-LPA</strong> (Second-Line LPA) — GenoType MTBDRsl V2 → detects resistance to Fluoroquinolones (FQ) &amp; Second-Line Injectable Drugs (SLIDs)</li>
+      </ul>
+    </li>
+    <li>Both are manufactured by <strong>Hain Lifescience, Germany</strong> and are the only <strong>WHO-pre-qualified LPA tests</strong>.</li>
+  </ul>
+  <div class="box-orange">
+    <p><strong>NTEP Position:</strong> Under India's Revised NTEP/PMDT guidelines, LPA (FL &amp; SL) is placed at <strong>Intermediate Reference Laboratories (IRLs)</strong> and selected designated microscopy centres (DMCs). It is the standard of care for rapid MDR-TB and Pre-XDR-TB diagnosis prior to liquid culture DST.</p>
+  </div>
+</div>
+
+<!-- ================================================== 2. PRINCIPLE -->
+<div class="section">
+  <h2><span class="icon">⚗️</span>2. Principle of Line Probe Assay</h2>
+  <h3>Basic Molecular Mechanism</h3>
+  <ul>
+    <li>Based on <strong>Reverse Hybridisation</strong> technology combined with PCR amplification.</li>
+    <li>Sample DNA is extracted → PCR-amplified using <strong>biotinylated primers</strong> targeting resistance-determining gene regions.</li>
+    <li>Amplicons (PCR products) are then <strong>denatured</strong> and <strong>hybridised</strong> to membrane-bound oligonucleotide probes on a nitrocellulose strip.</li>
+    <li>Probe-amplicon binding → colorimetric reaction via <strong>streptavidin–alkaline phosphatase</strong> system → <strong>visible coloured bands</strong> on the strip.</li>
+  </ul>
+  <h3>Two Types of Probes</h3>
+  <div class="cmp-grid">
+    <div class="cmp-card blue">
+      <h4>🟢 Wild Type (WT) Probes</h4>
+      <ul>
+        <li>Target <em>normal (unmutated)</em> gene sequences</li>
+        <li><strong>Band present = gene is normal (sensitive)</strong></li>
+        <li><strong>Band absent = mutation likely → resistance inferred</strong></li>
+        <li>Cover the full susceptibility region of each gene</li>
+      </ul>
+    </div>
+    <div class="cmp-card orange">
+      <h4>🔴 Mutant (MUT) Probes</h4>
+      <ul>
+        <li>Target <em>specific known mutation sequences</em></li>
+        <li><strong>Band present = specific mutation detected → resistance confirmed</strong></li>
+        <li>Band absent = that specific mutation not present</li>
+        <li>Identify clinically significant resistance mutations</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FLOWCHART: LPA PROCEDURE -->
+  <h3>Step-by-Step LPA Procedure (Flowchart)</h3>
+  <div class="flow-wrap">
+    <div class="flow-box orange"><strong>STEP 1:</strong> DNA Extraction from Sputum / Culture Isolate<br/><small>(Chemical lysis + centrifugation)</small></div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-box"><strong>STEP 2:</strong> PCR Amplification with Biotinylated Primers<br/><small>(Targets rpoB, katG, inhA for FL-LPA;<br/>gyrA, gyrB, rrs, eis for SL-LPA)</small></div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-box"><strong>STEP 3:</strong> Denaturation of PCR Products (Amplicons)</div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-box"><strong>STEP 4:</strong> Reverse Hybridisation onto Nitrocellulose Strip<br/><small>(Amplicons bind to complementary probes on strip)</small></div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-box"><strong>STEP 5:</strong> Streptavidin–AP Colorimetric Detection<br/><small>(Bound probes develop visible colour bands)</small></div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-box green"><strong>STEP 6:</strong> Strip Reading &amp; Interpretation<br/><small>Compare band pattern to reference card</small></div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-split">
+      <div class="flow-col">
+        <div class="flow-label">All WT bands present, No MUT</div>
+        <div class="flow-box green" style="font-size:0.82rem;min-width:140px">✅ Resistance NOT Detected<br/>(Susceptible)</div>
+      </div>
+      <div class="flow-col">
+        <div class="flow-label">MUT band present / WT band absent</div>
+        <div class="flow-box red" style="font-size:0.82rem;min-width:140px">❌ Resistance DETECTED /<br/>Resistance INFERRED</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================== 3. FL-LPA -->
+<div class="section">
+  <h2><span class="icon">🔬</span>3. First-Line LPA (FL-LPA) — GenoType MTBDRplus V2</h2>
+
+  <h3>Target Genes &amp; Resistance Detection</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Drug</th>
+          <th>Target Gene</th>
+          <th>Specific Region / Codons</th>
+          <th>WT Probes</th>
+          <th>MUT Probes</th>
+          <th>Resistance Level</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Rifampicin (R)</strong></td>
+          <td>rpoB</td>
+          <td>RRDR — codons 505–533 (81 bp core)</td>
+          <td>8</td>
+          <td>4 (MUT1–4)</td>
+          <td class="tag-r">High-level RR</td>
+        </tr>
+        <tr>
+          <td><strong>Isoniazid (H) — High level</strong></td>
+          <td>katG</td>
+          <td>Codon 315</td>
+          <td>1</td>
+          <td>2 (MUT1, MUT2)</td>
+          <td class="tag-r">High-level HR</td>
+        </tr>
+        <tr>
+          <td><strong>Isoniazid (H) — Low level</strong></td>
+          <td>inhA promoter</td>
+          <td>–16 to –8 nucleotides upstream</td>
+          <td>2</td>
+          <td>4 (MUT1–4)</td>
+          <td class="tag-i">Low-level HR</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Strip Diagram — FL-LPA (GenoType MTBDRplus V2)</h3>
+  <div class="strip-diagram">
+    <div class="strip-row">
+      <div class="strip-num">1</div>
+      <div class="strip-name">Conjugate Control (CC)</div>
+      <div class="strip-type ctrl">CONTROL</div>
+    </div>
+    <div class="strip-row">
+      <div class="strip-num">2</div>
+      <div class="strip-name">Amplification Control (AC)</div>
+      <div class="strip-type ctrl">CONTROL</div>
+    </div>
+    <div class="strip-row">
+      <div class="strip-num">3</div>
+      <div class="strip-name">TUB — MTBC Identification Band</div>
+      <div class="strip-type ctrl">CONTROL</div>
+    </div>
+    <div class="strip-row">
+      <div class="strip-num">4–11</div>
+      <div class="strip-name">rpoB WT1–WT8 (Rifampicin susceptibility)</div>
+      <div class="strip-type wt">WT PROBE</div>
+    </div>
+    <div class="strip-row">
+      <div class="strip-num">12–15</div>
+      <div class="strip-name">rpoB MUT1–MUT4 (specific R mutations)</div>
+      <div class="strip-type mut">MUT PROBE</div>
+    </div>
+    <div class="strip-row">
+      <div class="strip-num">16</div>
+      <div class="strip-name">katG WT (Isoniazid susceptibility — codon 315)</div>
+      <div class="strip-type wt">WT PROBE</div>
+    </div>
+    <div class="strip-row">
+      <div class="strip-num">17–18</div>
+      <div class="strip-name">katG MUT1–MUT2 (High-level INH mutation)</div>
+      <div class="strip-type mut">MUT PROBE</div>
+    </div>
+    <div class="strip-row">
+      <div class="strip-num">19–20</div>
+      <div class="strip-name">inhA WT1–WT2 (Isoniazid — promoter region)</div>
+      <div class="strip-type wt">WT PROBE</div>
+    </div>
+    <div class="strip-row">
+      <div class="strip-num">21–24</div>
+      <div class="strip-name">inhA MUT1–MUT4 (Low-level INH mutation)</div>
+      <div class="strip-type mut">MUT PROBE</div>
+    </div>
+  </div>
+  <p style="color:#64748b;font-size:0.8rem;margin-top:6px;">📝 Total: 24 bands = 3 controls + 11 WT probes + 10 MUT probes on FL-LPA strip</p>
+
+  <h3>NTEP India — Indications for FL-LPA</h3>
+  <ul>
+    <li>All <strong>presumptive RR-TB / MDR-TB</strong> patients (as upfront test before liquid culture DST)</li>
+    <li>Direct testing from <strong>AFB smear-positive sputum</strong> (sensitivity comparable to culture isolate)</li>
+    <li>Indirect testing from <strong>culture isolates</strong> (any smear status)</li>
+    <li>HIV-positive patients, paediatric TB, EPTB (selected specimens)</li>
+    <li><strong>Not recommended</strong> for smear-negative specimens (low sensitivity)</li>
+  </ul>
+
+  <h3>Performance Characteristics of FL-LPA (NTEP/Textbook Data)</h3>
+  <div class="kv">
+    <div class="kv-item"><div class="k">Sensitivity for RIF resistance</div><div class="v">~95%</div></div>
+    <div class="kv-item"><div class="k">Specificity for RIF resistance</div><div class="v">~98%</div></div>
+    <div class="kv-item"><div class="k">Sensitivity for INH resistance (overall)</div><div class="v">~90%</div></div>
+    <div class="kv-item"><div class="k">MDR-TB detection sensitivity</div><div class="v">98.8%</div></div>
+    <div class="kv-item"><div class="k">MDR-TB detection specificity</div><div class="v">100%</div></div>
+    <div class="kv-item"><div class="k">Turnaround Time (TAT)</div><div class="v">24–48 hrs</div></div>
+    <div class="kv-item"><div class="k">Samples / run (high throughput)</div><div class="v">Up to 48</div></div>
+  </div>
+</div>
+
+<!-- ================================================== 4. SL-LPA -->
+<div class="section">
+  <h2><span class="icon">🧬</span>4. Second-Line LPA (SL-LPA) — GenoType MTBDRsl V2</h2>
+
+  <h3>Target Genes &amp; Resistance Detection</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Drug Class</th>
+          <th>Target Gene</th>
+          <th>Specific Region / Position</th>
+          <th>Resistance Detected</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Fluoroquinolones (FQ)</strong></td>
+          <td>gyrA</td>
+          <td>QRDR: codons 85–96</td>
+          <td>Ofloxacin, Levofloxacin, Moxifloxacin (partial)</td>
+        </tr>
+        <tr>
+          <td><strong>Fluoroquinolones (FQ)</strong></td>
+          <td>gyrB</td>
+          <td>Codons 536–541</td>
+          <td>Additional FQ resistance</td>
+        </tr>
+        <tr>
+          <td><strong>SLIDs (Amikacin/Kanamycin/Capreomycin)</strong></td>
+          <td>rrs</td>
+          <td>Positions 1401, 1402, 1484</td>
+          <td>Aminoglycosides &amp; Capreomycin</td>
+        </tr>
+        <tr>
+          <td><strong>SLIDs — low-level Kanamycin</strong></td>
+          <td>eis promoter</td>
+          <td>–37 to –2 nucleotides upstream</td>
+          <td>Low-level Kanamycin resistance</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box-blue">
+    <p><strong>SL-LPA V2 Advantage:</strong> Version 2.0 includes <em>eis promoter</em> probes which improves kanamycin resistance detection sensitivity from <strong>~50%</strong> (V1) to <strong>~96%</strong> (V2). This is critical for Pre-XDR-TB diagnosis under NTEP.</p>
+  </div>
+
+  <h3>NTEP India — Indications for SL-LPA</h3>
+  <ul>
+    <li>All confirmed <strong>RR-TB / MDR-TB patients</strong> before initiating second-line treatment</li>
+    <li>Can be performed directly on <strong>smear-positive AND smear-negative</strong> sputum (unlike FL-LPA)</li>
+    <li>Also on MDR-TB confirmed culture isolates (indirect testing)</li>
+    <li>Used to <strong>exclude FQ and SLID resistance</strong> before starting the shorter MDR-TB regimen</li>
+    <li>Detection of <strong>Pre-XDR-TB</strong> (MDR + FQ resistance) and <strong>XDR-TB</strong> patterns</li>
+    <li><strong>Not reliable</strong> for extrapulmonary specimens (low sensitivity)</li>
+  </ul>
+
+  <h3>Performance Characteristics of SL-LPA V2</h3>
+  <div class="kv">
+    <div class="kv-item"><div class="k">FQ resistance sensitivity (OFX/LFX)</div><div class="v">~90.7%</div></div>
+    <div class="kv-item"><div class="k">FQ resistance specificity</div><div class="v">~98.1%</div></div>
+    <div class="kv-item"><div class="k">Kanamycin sensitivity (V2)</div><div class="v">~96%</div></div>
+            <div class="kv-item"><div class="k">Amikacin sensitivity (rrs)</div><div class="v">~95%</div></div>
+        <div class="kv-item"><div class="k">Capreomycin sensitivity</div><div class="v">~94%</div></div>
+        <div class="kv-item"><div class="k">Turnaround Time (TAT)</div><div class="v">24–48 hrs</div></div>
+      </div>
+</div>
+
+<!-- ================================================== 5. INTERPRETATION -->
+<div class="section">
+  <h2><span class="icon">📋</span>5. Interpretation of LPA Results</h2>
+
+  <h3>FL-LPA Result Interpretation Table</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>rpoB WT</th>
+          <th>rpoB MUT</th>
+          <th>katG / inhA</th>
+          <th>Interpretation</th>
+          <th>NTEP Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tag-s">All present</td>
+          <td>Absent</td>
+          <td>WT present, MUT absent</td>
+          <td class="tag-s">Susceptible TB (H &amp; R)</td>
+          <td>Standard DOTS — 2HRZE/4HR</td>
+        </tr>
+        <tr>
+          <td class="tag-r">≥1 absent</td>
+          <td>Present</td>
+          <td>Any</td>
+          <td class="tag-r">RIF Resistant + Mutation Identified</td>
+          <td>Initiate MDR-TB regimen; send SL-LPA</td>
+        </tr>
+        <tr>
+          <td class="tag-r">≥1 absent</td>
+          <td>Absent</td>
+          <td>Any</td>
+          <td class="tag-r">RIF Resistance Inferred (novel mutation)</td>
+          <td>Treat as RR-TB; send liquid culture + DST</td>
+        </tr>
+        <tr>
+          <td class="tag-s">All present</td>
+          <td>Absent</td>
+          <td>katG/inhA MUT present</td>
+          <td class="tag-i">INH mono-resistant TB</td>
+          <td>Regimen with E, Z, FQ ± higher-dose INH</td>
+        </tr>
+        <tr>
+          <td class="tag-r">≥1 absent</td>
+          <td>Any</td>
+          <td>katG/inhA MUT present</td>
+          <td class="tag-r">MDR-TB (RIF + INH resistant)</td>
+          <td>MDR regimen + urgent SL-LPA</td>
+        </tr>
+        <tr>
+          <td colspan="3" style="color:#64748b;">CC or AC control band absent</td>
+          <td class="tag-i">INVALID RESULT</td>
+          <td>Repeat test; check DNA quality</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>SL-LPA Result Interpretation Table</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>gyrA/gyrB WT</th>
+          <th>gyrA/gyrB MUT</th>
+          <th>rrs/eis WT</th>
+          <th>rrs/eis MUT</th>
+          <th>Interpretation</th>
+          <th>NTEP Classification</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tag-s">Present</td>
+          <td>Absent</td>
+          <td class="tag-s">Present</td>
+          <td>Absent</td>
+          <td class="tag-s">No FQ / SLID resistance</td>
+          <td>MDR-TB — use standard or shorter regimen</td>
+        </tr>
+        <tr>
+          <td class="tag-r">Absent</td>
+          <td>Present</td>
+          <td class="tag-s">Present</td>
+          <td>Absent</td>
+          <td class="tag-r">FQ resistant, SLID susceptible</td>
+          <td><strong>Pre-XDR-TB</strong> — Individualised BPaL/BPaLM</td>
+        </tr>
+        <tr>
+          <td class="tag-s">Present</td>
+          <td>Absent</td>
+          <td class="tag-r">Absent</td>
+          <td>Present</td>
+          <td class="tag-r">SLID resistant, FQ susceptible</td>
+          <td>MDR-TB — avoid injectable; use FQ-based longer regimen</td>
+        </tr>
+        <tr>
+          <td class="tag-r">Absent</td>
+          <td>Present</td>
+          <td class="tag-r">Absent</td>
+          <td>Present</td>
+          <td class="tag-r">FQ + SLID resistant</td>
+          <td><strong>XDR-TB</strong> — BPaLM/novel drug regimen</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box-red">
+    <p><strong>Important NTEP Note — Pre-XDR-TB Definition (Updated 2021):</strong> WHO and NTEP revised the XDR-TB definition in 2021. <strong>Pre-XDR-TB</strong> = MDR/RR-TB + resistance to any FQ. <strong>XDR-TB</strong> = MDR/RR-TB + FQ resistance + resistance to at least one of Bedaquiline or Linezolid. SL-LPA is the <em>primary diagnostic tool</em> to classify patients into these categories under NTEP.</p>
+  </div>
+</div>
+
+<!-- ================================================== 6. NTEP ALGORITHM FLOWCHART -->
+<div class="section">
+  <h2><span class="icon">🔁</span>6. NTEP Diagnostic Algorithm — LPA Placement (Flowchart)</h2>
+  <div class="flow-wrap">
+
+    <div class="flow-box orange"><strong>Presumptive TB Patient</strong><br/><small>Cough &gt;2 weeks, constitutional symptoms, contact with TB case, HIV+, etc.</small></div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-box"><strong>UPFRONT TESTING</strong><br/>CBNAAT (Xpert MTB/RIF) at DMC level<br/><small>or FL-LPA at IRL level</small></div>
+    <div class="flow-arrow">▼</div>
+
+    <div class="flow-split">
+      <div class="flow-col">
+        <div class="flow-label">MTB Detected / RIF Sensitive</div>
+        <div class="flow-box green" style="font-size:0.82rem;">✅ Drug-Sensitive TB (DS-TB)<br/>Initiate 2HRZE/4HR (CAT-I)</div>
+      </div>
+      <div class="flow-col">
+        <div class="flow-label">MTB Detected / RIF Resistant</div>
+        <div class="flow-box red" style="font-size:0.82rem;">❗ RR-TB / Presumptive MDR-TB<br/>→ Send for FL-LPA at IRL</div>
+      </div>
+    </div>
+
+    <div class="flow-arrow" style="margin-top:10px;">▼ (RR-TB pathway)</div>
+    <div class="flow-box"><strong>FL-LPA (GenoType MTBDRplus V2)</strong><br/><small>Detects rpoB, katG, inhA mutations</small></div>
+    <div class="flow-arrow">▼</div>
+
+    <div class="flow-split">
+      <div class="flow-col">
+        <div class="flow-label">RIF Sensitive (rpoB WT intact)</div>
+        <div class="flow-box green" style="font-size:0.82rem;">Check INH status:<br/>• INH Sensitive → DS-TB regimen<br/>• INH Resistant → Hr-TB regimen</div>
+      </div>
+      <div class="flow-col">
+        <div class="flow-label">RIF Resistant Confirmed (MDR-TB)</div>
+        <div class="flow-box red" style="font-size:0.82rem;">MDR-TB Confirmed<br/>→ Send for <strong>SL-LPA</strong> immediately</div>
+      </div>
+    </div>
+
+    <div class="flow-arrow" style="margin-top:10px;">▼ (MDR-TB pathway)</div>
+    <div class="flow-box"><strong>SL-LPA (GenoType MTBDRsl V2)</strong><br/><small>Detects gyrA, gyrB, rrs, eis mutations</small></div>
+    <div class="flow-arrow">▼</div>
+
+    <div class="flow-split">
+      <div class="flow-col">
+        <div class="flow-label">No FQ / SLID resistance</div>
+        <div class="flow-box green" style="font-size:0.82rem;">✅ MDR-TB (susceptible to FQ)<br/>→ Shorter MDR regimen (4-6 months)<br/><small>BPaL / Bedaquiline-based</small></div>
+      </div>
+      <div class="flow-col">
+        <div class="flow-label">FQ resistance detected</div>
+        <div class="flow-box red" style="font-size:0.82rem;">❌ Pre-XDR-TB / XDR-TB<br/>→ BPaLM / Individualised regimen<br/><small>+ Liquid culture DST confirmation</small></div>
+      </div>
+    </div>
+
+    <div class="flow-arrow" style="margin-top:10px;">▼</div>
+    <div class="flow-box yellow"><strong>Liquid Culture DST (MGIT 960 / LJ)</strong> at NRL/IRL<br/><small>For all MDR/Pre-XDR/XDR for phenotypic confirmation and new drug susceptibility (Bdq, Lzd, Cfz)</small></div>
+  </div>
+</div>
+
+<!-- ================================================== 7. COMPARISON TABLE -->
+<div class="section">
+  <h2><span class="icon">⚖️</span>7. Comparison: FL-LPA vs SL-LPA vs Xpert MTB/RIF vs Culture DST</h2>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Parameter</th>
+          <th>FL-LPA (MTBDRplus)</th>
+          <th>SL-LPA (MTBDRsl)</th>
+          <th>Xpert MTB/RIF Ultra</th>
+          <th>Liquid Culture DST (MGIT)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Level of Testing</strong></td>
+          <td>IRL / selected DMC</td>
+          <td>IRL / NRL</td>
+          <td>DMC / peripheral lab</td>
+          <td>NRL / IRL</td>
+        </tr>
+        <tr>
+          <td><strong>Drugs Detected</strong></td>
+          <td>R, H</td>
+          <td>FQ, SLID (Amikacin, Kanamycin, Capreomycin)</td>
+          <td>R only (rifampicin)</td>
+          <td>R, H, E, Z, FQ, injectables, Bdq, Lzd, etc.</td>
+        </tr>
+        <tr>
+          <td><strong>Direct from Sputum</strong></td>
+          <td>Smear + only</td>
+          <td>Smear + AND Smear −</td>
+          <td>Any (smear + or −)</td>
+          <td>Requires prior culture</td>
+        </tr>
+        <tr>
+          <td><strong>Turnaround Time</strong></td>
+          <td>24–48 hrs</td>
+          <td>24–48 hrs</td>
+          <td>2 hrs</td>
+          <td>2–6 weeks</td>
+        </tr>
+        <tr>
+          <td><strong>Sensitivity (overall)</strong></td>
+          <td>~95% (RIF), ~90% (INH)</td>
+          <td>~90% (FQ), ~96% (KAN)</td>
+          <td>~95% (smear +), ~80% (smear −)</td>
+          <td>Gold standard (~100%)</td>
+        </tr>
+        <tr>
+          <td><strong>Specificity</strong></td>
+          <td>~98–100%</td>
+          <td>~97–98%</td>
+          <td>~98%</td>
+          <td>Gold standard (~100%)</td>
+        </tr>
+        <tr>
+          <td><strong>Novel/Unknown Mutations</strong></td>
+          <td>Partially detected (WT loss)</td>
+          <td>Partially detected (WT loss)</td>
+          <td>Partially detected</td>
+          <td>Fully detected (phenotypic)</td>
+        </tr>
+        <tr>
+          <td><strong>Throughput</strong></td>
+          <td>Up to 48 samples/run</td>
+          <td>Up to 48 samples/run</td>
+          <td>Up to 16/instrument/day</td>
+          <td>Limited (labour-intensive)</td>
+        </tr>
+        <tr>
+          <td><strong>Biosafety Requirement</strong></td>
+          <td>BSL-2</td>
+          <td>BSL-2</td>
+          <td>BSL-2</td>
+          <td>BSL-3</td>
+        </tr>
+        <tr>
+          <td><strong>Cost (approx, India)</strong></td>
+          <td>Moderate</td>
+          <td>Moderate</td>
+          <td>Low–Moderate</td>
+          <td>High</td>
+        </tr>
+        <tr>
+          <td><strong>NTEP Classification Ability</strong></td>
+          <td>DS-TB / Hr-TB / RR-TB / MDR-TB</td>
+          <td>MDR-TB / Pre-XDR-TB / XDR-TB</td>
+          <td>DS-TB / RR-TB (R only)</td>
+          <td>Complete DST profile</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ================================================== 8. ADVANTAGES & LIMITATIONS -->
+<div class="section">
+  <h2><span class="icon">✅</span>8. Advantages &amp; Limitations of LPA</h2>
+  <div class="cmp-grid">
+    <div class="cmp-card blue">
+      <h4>✅ Advantages</h4>
+      <ul>
+        <li>Rapid TAT (24–48 hrs) vs 6 weeks for culture DST — <strong>crucial for early MDR-TB treatment</strong></li>
+        <li>High sensitivity and specificity (especially for rifampicin)</li>
+        <li>Detects <strong>both presence and identity</strong> of specific mutations</li>
+        <li>Simultaneous detection of MTB complex + drug resistance in one test</li>
+        <li><strong>High throughput</strong> — up to 48 samples per run, cost-effective at scale</li>
+        <li>Only BSL-2 facility needed (unlike culture DST requiring BSL-3)</li>
+        <li>SL-LPA V2 detects <em>eis promoter</em> mutations, improving low-level kanamycin detection</li>
+        <li>Guides decision on <strong>shorter MDR-TB regimen</strong> eligibility (NTEP)</li>
+        <li>Reduces time to effective treatment, improving outcomes and limiting transmission</li>
+        <li>Validated for direct testing on clinical specimens (FL-LPA on smear-positive sputum)</li>
+      </ul>
+    </div>
+    <div class="cmp-card orange">
+      <h4>❌ Limitations</h4>
+      <ul>
+        <li><strong>FL-LPA not reliable</strong> on smear-negative sputum or EPTB specimens</li>
+        <li>Detects only <em>known</em> mutations — novel/rare mutations causing resistance may be <strong>missed</strong></li>
+        <li>Cannot detect resistance to Ethambutol (embB), Pyrazinamide, or newer drugs (Bdq, Lzd, Cfz)</li>
+        <li>SL-LPA V2 has <strong>lower sensitivity for capreomycin</strong> compared to amikacin/kanamycin</li>
+        <li>False resistance: heteroresistance may cause <strong>partial or faint bands</strong> — difficult to interpret</li>
+        <li>Requires dedicated lab with PCR infrastructure and trained personnel</li>
+        <li><strong>Cannot determine MIC (minimum inhibitory concentration)</strong> — phenotypic DST needed for confirmation</li>
+        <li>Does not detect <em>pe/ppe gene mutations</em> causing some INH resistance phenotypes</li>
+        <li>Cannot differentiate viable from non-viable bacilli (unlike culture)</li>
+        <li>Contamination risk if pre-PCR and post-PCR areas are not separated</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================== 9. QUALITY CONTROL -->
+<div class="section">
+  <h2><span class="icon">🛡️</span>9. Quality Control &amp; Biosafety in LPA (NTEP Standards)</h2>
+
+  <h3>Internal Controls on Each Strip</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Control Band</th>
+          <th>Purpose</th>
+          <th>Expected Result</th>
+          <th>If Absent — Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Conjugate Control (CC)</strong></td>
+          <td>Confirms conjugate &amp; colorimetric detection reagents working</td>
+          <td class="tag-s">Always Present</td>
+          <td>Discard; repeat entire run</td>
+        </tr>
+        <tr>
+          <td><strong>Amplification Control (AC)</strong></td>
+          <td>Confirms DNA extraction &amp; PCR amplification successful</td>
+          <td class="tag-s">Always Present</td>
+          <td>Repeat DNA extraction; check inhibitors</td>
+        </tr>
+        <tr>
+          <td><strong>TUB Band</strong></td>
+          <td>Confirms MTBC-specific amplicon present</td>
+          <td class="tag-s">Present if MTBC detected</td>
+          <td>If absent but AC present → NTM / non-MTBC</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>External Quality Assurance (EQA) under NTEP</h3>
+  <ul>
+    <li><strong>Blinded panel testing</strong> — NRL supplies known control strains quarterly to all IRLs</li>
+    <li><strong>On-site evaluation</strong> — Annual supervisory visits by NRL to IRL performing LPA</li>
+    <li><strong>Proficiency testing</strong> — Minimum acceptable performance: &ge;90% concordance with reference results</li>
+    <li>All LPA results must be entered into <strong>Ni-kshay portal</strong> (NTEP digital surveillance platform)</li>
+    <li>Discordant results between LPA and phenotypic DST must be <strong>reported to NRL</strong> for investigation</li>
+  </ul>
+
+  <h3>Biosafety Requirements</h3>
+  <ul>
+    <li>Processing of sputum for DNA extraction — <strong>BSL-2 facility</strong> with biosafety cabinet (Class II)</li>
+    <li>All post-PCR steps can be performed at BSL-2 open bench with strict zone separation</li>
+    <li>Separate pre-PCR, PCR, and post-PCR areas mandatory to prevent amplicon contamination</li>
+    <li>All liquid waste treated with 1% hypochlorite before disposal</li>
+  </ul>
+</div>
+
+<!-- ================================================== 10. NEWER DEVELOPMENTS -->
+<div class="section">
+  <h2><span class="icon">🚀</span>10. Newer Developments &amp; Future Perspective</h2>
+  <ul>
+    <li><strong>GenoType MTBDR Plus V3</strong> (in evaluation): Includes additional probes for embB (Ethambutol resistance) and pncA (Pyrazinamide) — expands drug coverage significantly.</li>
+    <li><strong>Whole Genome Sequencing (WGS)</strong>: Emerging as a comprehensive resistance profiling tool; NTEP has initiated pilot WGS programmes at select NRLs to supplement and eventually replace LPA in high-burden settings.</li>
+    <li><strong>Targeted Next-Generation Sequencing (tNGS)</strong>: Platforms like Deeplex-MycTB can detect resistance to 13+ drugs simultaneously from direct sputum — being validated for programmatic use.</li>
+    <li><strong>Truenat MTB-RIF Dx</strong>: Chip-based real-time PCR available at peripheral levels; complements but does not replace LPA for comprehensive resistance profiling.</li>
+    <li>Despite newer tools, LPA (FL &amp; SL) remains the <strong>operational backbone</strong> of NTEP's rapid DST strategy for the foreseeable future due to proven reliability, throughput, and cost-effectiveness.</li>
+  </ul>
+
+  <div class="box-green">
+    <p><strong>NTEP 2024 Strategic Position:</strong> Under the <em>National Strategic Plan for TB Elimination 2017–2025</em> and PMDT guidelines, LPA (FL + SL) testing is mandated for <strong>100% of RR-TB/MDR-TB patients</strong> before treatment initiation. India has scaled LPA capacity to &gt;80 functional IRLs nationwide, processing over 1 lakh LPA tests annually, making it the world's largest programmatic LPA deployment.</p>
+  </div>
+</div>
+
+<!-- ================================================== 11. SUMMARY TABLE -->
+<div class="section">
+  <h2><span class="icon">📊</span>11. Quick-Revision Summary — FL-LPA vs SL-LPA</h2>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>FL-LPA (MTBDRplus V2)</th>
+          <th>SL-LPA (MTBDRsl V2)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Full name</strong></td>
+          <td>GenoType MTBDRplus Version 2</td>
+          <td>GenoType MTBDRsl Version 2</td>
+        </tr>
+        <tr>
+          <td><strong>Target drugs</strong></td>
+          <td>Rifampicin (R) + Isoniazid (H)</td>
+          <td>Fluoroquinolones + SLIDs (Amikacin, Kanamycin, Capreomycin)</td>
+        </tr>
+        <tr>
+          <td><strong>Target genes</strong></td>
+          <td>rpoB, katG, inhA promoter</td>
+          <td>gyrA, gyrB, rrs, eis promoter</td>
+        </tr>
+        <tr>
+          <td><strong>Diagnosis achieved</strong></td>
+          <td>DS-TB / Hr-TB / RR-TB / MDR-TB</td>
+          <td>MDR-TB / Pre-XDR-TB / XDR-TB classification</td>
+        </tr>
+        <tr>
+          <td><strong>Direct sputum</strong></td>
+          <td>Smear-positive only</td>
+          <td>Smear-positive AND smear-negative</td>
+        </tr>
+        <tr>
+          <td><strong>No. of probes (approx)</strong></td>
+          <td>24 bands (3 control + 11 WT + 10 MUT)</td>
+          <td>27 bands (3 control + 12 WT + 12 MUT)</td>
+        </tr>
+        <tr>
+          <td><strong>When to perform</strong></td>
+          <td>At RR-TB diagnosis (upfront/reflex after Xpert)</td>
+          <td>After MDR-TB confirmed on FL-LPA / Xpert</td>
+        </tr>
+        <tr>
+          <td><strong>Key new feature in V2</strong></td>
+          <td>Improved inhA promoter coverage</td>
+          <td>Added eis promoter (↑ kanamycin sensitivity)</td>
+        </tr>
+        <tr>
+          <td><strong>NTEP placement</strong></td>
+          <td>IRL (Intermediate Reference Lab)</td>
+          <td>IRL / NRL</td>
+        </tr>
+        <tr>
+          <td><strong>Gold standard confirmation</strong></td>
+          <td colspan="2" style="text-align:center;">Liquid Culture + Phenotypic DST (MGIT 960) at NRL — always required for full DST profile</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ================================================== 12. CONCLUSION -->
+<div class="section">
+  <h2><span class="icon">🎯</span>12. Conclusion</h2>
+  <ul>
+    <li>Line Probe Assay (FL-LPA and SL-LPA) represents a <strong>paradigm shift</strong> in TB diagnostics — enabling same-week treatment decisions for MDR-TB and Pre-XDR-TB, replacing the traditional 6–8 week wait for culture DST.</li>
+    <li>Under <strong>India's NTEP</strong>, the sequential use of <strong>FL-LPA followed by SL-LPA</strong> forms the cornerstone of Programmatic Management of Drug-Resistant TB (PMDT).</li>
+    <li>FL-LPA detects <strong>MDR-TB</strong> by identifying rpoB (rifampicin) and katG/inhA (isoniazid) mutations; SL-LPA then classifies patients into <strong>MDR / Pre-XDR / XDR-TB</strong> by detecting gyrA/gyrB and rrs/eis mutations.</li>
+    <li>Despite minor limitations (smear positivity requirement for FL-LPA, inability to detect novel mutations), LPA remains <strong>the most operationally feasible, rapid, validated molecular DST tool</strong> at the IRL level in India's TB elimination programme.</li>
+    <li>Its role will continue alongside emerging technologies (WGS, tNGS) as India marches toward the <strong>TB-Free India goal by 2025 and the End TB Strategy target of 2030</strong>.</li>
+  </ul>
+
+  <div class="box-orange">
+    <p><strong>Examiner's Takeaway:</strong> LPA = Rapid molecular DST by reverse hybridisation. FL-LPA (rpoB + katG + inhA) → MDR-TB diagnosis. SL-LPA (gyrA + gyrB + rrs + eis) → Pre-XDR/XDR-TB classification. Both placed at IRL level under NTEP. TAT 24–48 hrs vs 6 weeks for culture. Mandatory for all RR-TB patients in India before treatment initiation.</p>
+  </div>
+</div>
+
+<!-- ================================================== REFERENCES -->
+<div class="section" style="border-left-color:#64748b;">
+  <h2 style="color:#94a3b8;"><span class="icon">📚</span>References (NTEP &amp; Standard Textbooks)</h2>
+  <ul style="color:#64748b; font-size:0.88rem;">
+    <li>NTEP / PMDT India — <em>Guidelines for PMDT in India, 2021 (Revised)</em>, Central TB Division, MoHFW, Government of India</li>
+    <li>NTEP — <em>Module for Laboratory Technicians (LPA &amp; NAAT), 2022</em>, Central TB Division</li>
+    <li>Revised National Tuberculosis Elimination Programme — <em>Technical &amp; Operational Guidelines for TB Control, 2023</em></li>
+    <li>Harrison's Principles of Internal Medicine, 21st Edition — Chapter on Tuberculosis (Diagnosis and Drug Resistance)</li>
+    <li>Fishman's Pulmonary Diseases and Disorders, 5th Edition — Chapter: Microbiological Diagnosis of TB</li>
+    <li>Murray &amp; Nadel's Textbook of Respiratory Medicine, 7th Edition — Drug-resistant Tuberculosis</li>
+    <li>Hain Lifescience GenoType MTBDRplus V2.0 &amp; MTBDRsl V2.0 — <em>Package Inserts and Interpretation Manuals</em></li>
+  </ul>
+</div>
+
+</div><!-- /container -->
+
+<footer>
+  <p>Structured Answer | Line Probe Assay (FL-LPA &amp; SL-LPA) | TB Diagnosis | NTEP India Guidelines</p>
+  <p style="margin-top:4px;">For Academic &amp; Examination Purposes Only — Based on NTEP Guidelines &amp; Standard Respiratory Textbooks</p>
+</footer>
+
+</body>
+
+</html>
