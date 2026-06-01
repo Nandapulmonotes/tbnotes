@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sputum Microscopy in TB Diagnosis | PULMO NOTES HUB</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --surface2: #1c2330;
+      --border: #30363d;
+      --accent: #58a6ff;
+      --accent2: #f78166;
+      --accent3: #3fb950;
+      --accent4: #d2a679;
+      --text: #c9d1d9;
+      --text-muted: #8b949e;
+      --heading: #e6edf3;
+      --tag-bg: #1f3a5f;
+      --warn: #e3b341;
+      --warn-bg: #272115;
+      --table-head: #1f2d3d;
+      --highlight: #2d333b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      padding: 0 0 60px 0;
+    }
+    /* HEADER BLOCK */
+    .header-block {
+      background: linear-gradient(135deg, #0d2137 0%, #1a3a5c 60%, #0d1117 100%);
+      border-bottom: 2px solid var(--accent);
+      padding: 28px 40px 22px 40px;
+    }
+    .hub-label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .note-title {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--heading);
+      margin-bottom: 4px;
+    }
+    .note-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .meta-tag {
+      background: var(--tag-bg);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 4px;
+      padding: 2px 10px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .meta-tag.green { background: #1a3d2b; color: var(--accent3); border-color: var(--accent3); }
+    .meta-tag.orange { background: #3d2a1a; color: var(--accent4); border-color: var(--accent4); }
+    .meta-tag.red { background: #3d1a1a; color: var(--accent2); border-color: var(--accent2); }
+
+    /* LAYOUT */
+    .container { max-width: 960px; margin: 0 auto; padding: 30px 30px 0 30px; }
+
+    /* SECTIONS */
+    h2 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--accent);
+      border-left: 4px solid var(--accent);
+      padding-left: 12px;
+      margin: 32px 0 14px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--accent4);
+      margin: 20px 0 8px 0;
+      padding-left: 4px;
+      border-bottom: 1px dashed var(--border);
+      padding-bottom: 4px;
+    }
+    h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent3);
+      margin: 14px 0 6px 0;
+    }
+
+    /* BULLETS */
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 10px;
+    }
+    ul li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 5px;
+      color: var(--text);
+    }
+    ul li::before {
+      content: "▸";
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    ul ul { margin-top: 4px; padding-left: 10px; }
+    ul ul li::before { content: "–"; color: var(--accent4); }
+    ul ul ul li::before { content: "·"; color: var(--text-muted); }
+
+    /* TABLES */
+    .table-wrap { overflow-x: auto; margin: 14px 0 20px 0; border-radius: 6px; border: 1px solid var(--border); }
+    table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+    thead tr { background: var(--table-head); }
+    th {
+      padding: 9px 14px;
+      text-align: left;
+      color: var(--accent);
+      font-weight: 700;
+      border-bottom: 2px solid var(--accent);
+      white-space: nowrap;
+    }
+    td {
+      padding: 8px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    tr:nth-child(even) td { background: var(--surface); }
+    tr:last-child td { border-bottom: none; }
+    .green { color: var(--accent3); font-weight: 600; }
+    .red { color: var(--accent2); font-weight: 600; }
+    .yellow { color: var(--warn); font-weight: 600; }
+    .blue { color: var(--accent); }
+
+    /* FLOWCHART */
+    .flowchart {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px 16px;
+      margin: 16px 0 20px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+    .fc-box {
+      border-radius: 6px;
+      padding: 9px 22px;
+      font-size: 13px;
+      font-weight: 600;
+      text-align: center;
+      min-width: 260px;
+      max-width: 420px;
+    }
+    .fc-start { background: #1a3a5c; border: 2px solid var(--accent); color: var(--accent); border-radius: 30px; }
+    .fc-process { background: var(--surface2); border: 1.5px solid var(--border); color: var(--heading); }
+    .fc-decision { background: #272115; border: 2px solid var(--warn); color: var(--warn); border-radius: 0; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); padding: 18px 40px; min-width: 280px; }
+    .fc-decision-wrap { display: flex; flex-direction: column; align-items: center; position: relative; width: 100%; }
+    .fc-positive { background: #1a3d2b; border: 1.5px solid var(--accent3); color: var(--accent3); }
+    .fc-negative { background: #3d1a1a; border: 1.5px solid var(--accent2); color: var(--accent2); }
+    .fc-end { background: #2d1a3d; border: 2px solid #a371f7; color: #a371f7; border-radius: 30px; }
+    .fc-arrow {
+      font-size: 20px;
+      color: var(--text-muted);
+      line-height: 1;
+      margin: 2px 0;
+    }
+    .fc-row { display: flex; gap: 24px; align-items: flex-start; justify-content: center; margin: 2px 0; }
+    .fc-branch { display: flex; flex-direction: column; align-items: center; gap: 0; }
+    .fc-label { font-size: 11px; color: var(--text-muted); margin: 1px 0; font-style: italic; }
+
+    /* CALLOUT */
+    .callout {
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 14px 0;
+      border-left: 4px solid;
+      font-size: 13.5px;
+    }
+    .callout.blue { background: #0d2137; border-color: var(--accent); color: var(--text); }
+    .callout.green { background: #1a3d2b; border-color: var(--accent3); color: var(--text); }
+    .callout.yellow { background: var(--warn-bg); border-color: var(--warn); color: var(--text); }
+    .callout.red { background: #3d1a1a; border-color: var(--accent2); color: var(--text); }
+    .callout strong { color: inherit; }
+
+    /* DIAGRAM: ZN Stain visual */
+    .zn-visual {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      margin: 14px 0;
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .zn-circle {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      border: 3px solid;
+      flex-shrink: 0;
+    }
+    .zn-bg { background: #2a1a00; border-color: #7a4a00; color: #e3a040; }
+    .zn-afb { background: #3d1a1a; border-color: #c04040; color: #f87171; }
+    .zn-desc { flex: 1; min-width: 180px; }
+    .zn-desc p { font-size: 13px; color: var(--text); margin-bottom: 6px; }
+
+    /* GRADING visual */
+    .grade-bar-wrap { margin: 12px 0; }
+    .grade-bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+    .grade-label { width: 100px; font-size: 12px; color: var(--text-muted); text-align: right; flex-shrink: 0; }
+    .grade-bar { height: 18px; border-radius: 3px; display: flex; align-items: center; padding-left: 8px; font-size: 11px; font-weight: 700; color: #fff; }
+    .grade-note { font-size: 11px; color: var(--text-muted); }
+
+    /* SOURCES */
+    .sources {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-top: 32px;
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+    .sources strong { color: var(--accent4); }
+
+    hr { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+  </style>
+</head>
+<body>
+
+<div class="header-block">
+  <div class="hub-label">PULMO NOTES HUB · pulmo-infect</div>
+  <div class="note-title">Sputum Microscopy in Tuberculosis Diagnosis</div>
+  <div class="note-sub">Pulmonary Infections · NTEP-Aligned · Examination Answer</div>
+  <div class="meta-row">
+    <span class="meta-tag">10 Marks</span>
+    <span class="meta-tag green">~1100 Words</span>
+    <span class="meta-tag orange">NTEP 2021 / TOG 2016</span>
+    <span class="meta-tag red">High Yield</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- INTRODUCTION -->
+  <h2>1. Introduction</h2>
+  <ul>
+    <li>Sputum smear microscopy is the <strong>cornerstone of TB diagnosis</strong> in India and resource-limited settings — simple, rapid, inexpensive, and highly specific</li>
+    <li>Remains the <strong>primary bacteriological tool</strong> for diagnosis of pulmonary TB in the programmatic setting under NTEP</li>
+    <li>Detects <em>Mycobacterium tuberculosis</em> (MTB) and other mycobacteria as <strong>Acid-Fast Bacilli (AFB)</strong> based on the property of <strong>acid-fastness</strong> — retention of carbol fuchsin dye despite decolourisation with acid-alcohol</li>
+    <li>Acid-fastness due to high mycolic acid content of the mycobacterial cell wall — forms a waxy lipid-rich barrier</li>
+    <li>Requires approximately <strong>5,000–10,000 bacilli/mL</strong> of sputum for positivity (lower sensitivity than culture)</li>
+  </ul>
+
+  <!-- SPUTUM COLLECTION -->
+  <h2>2. Sputum Collection — NTEP Protocol</h2>
+
+  <h3>A. Specimen Type</h3>
+  <ul>
+    <li>Early morning sputum (EMS) — best quality, highest bacillary load</li>
+    <li>Spot sputum — collected at the time of visit to the health facility</li>
+    <li>NTEP currently recommends <strong>two sputum specimens</strong>: one spot + one early morning</li>
+    <li>Minimum volume: <strong>3–5 mL</strong> of mucopurulent material</li>
+  </ul>
+
+  <h3>B. Ideal Sputum Characteristics</h3>
+  <ul>
+    <li>Mucopurulent or blood-tinged — not saliva or post-nasal drip</li>
+    <li>Collected in wide-mouthed, leak-proof, labeled container</li>
+    <li>Patient instructed to take deep breath and cough forcefully from chest</li>
+    <li>Collected in open air or well-ventilated area to minimize nosocomial transmission</li>
+  </ul>
+
+  <h3>C. Special Situations</h3>
+  <ul>
+    <li><strong>Non-expectorating patients:</strong> chest physiotherapy, nebulized hypertonic saline (sputum induction)</li>
+    <li><strong>Paediatric patients:</strong> gastric lavage aspirate (early morning, 3 consecutive days) or nasopharyngeal aspirate</li>
+    <li><strong>Extrapulmonary TB:</strong> appropriate specimens — CSF, pleural fluid, lymph node aspirate, urine (renal TB)</li>
+  </ul>
+
+  <hr/>
+
+  <!-- STAINING TECHNIQUES -->
+  <h2>3. Staining Techniques</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Ziehl-Neelsen (ZN) Stain</th>
+          <th>Fluorescence (LED) Microscopy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Dye used</td>
+          <td>Carbol fuchsin (red)</td>
+          <td>Auramine O / Auramine-Rhodamine</td>
+        </tr>
+        <tr>
+          <td>Microscope</td>
+          <td>Bright-field (×100, oil immersion)</td>
+          <td>LED fluorescence microscope (×40)</td>
+        </tr>
+        <tr>
+          <td>AFB appearance</td>
+          <td class="red">Red rods on blue background</td>
+          <td class="yellow">Bright yellow-green rods on dark field</td>
+        </tr>
+        <tr>
+          <td>Reading time/slide</td>
+          <td>~15–20 minutes (300 fields)</td>
+          <td>~5–7 minutes (40–60 fields)</td>
+        </tr>
+        <tr>
+          <td>Sensitivity</td>
+          <td>~60–70%</td>
+          <td class="green">~10% higher than ZN</td>
+        </tr>
+        <tr>
+          <td>Specificity</td>
+          <td>~98%</td>
+          <td>~95% (slightly lower)</td>
+        </tr>
+        <tr>
+          <td>NTEP preference</td>
+          <td>Used where FM unavailable</td>
+          <td class="green">Preferred (NTEP 2021)</td>
+        </tr>
+        <tr>
+          <td>Confirmatory step</td>
+          <td>Direct reading</td>
+          <td>Positive slides confirmed by ZN</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout yellow">
+    <strong>⚠ NTEP Policy (2021):</strong> LED fluorescence microscopy is the <strong>preferred method</strong> at Intermediate Reference Laboratories (IRLs) and designated microscopy centres (DMCs) with requisite infrastructure. ZN staining is the fallback at peripheral labs.
+  </div>
+
+  <!-- ZN STAIN DIAGRAM -->
+  <h3>ZN Staining — Step-by-Step Procedure</h3>
+
+  <div class="zn-visual">
+    <div>
+      <div class="zn-circle zn-bg">
+        <span style="font-size:22px;">🔬</span>
+        <span>Background<br/>(Methylene Blue)<br/>Blue</span>
+      </div>
+    </div>
+    <div>
+      <div class="zn-circle zn-afb">
+        <span style="font-size:22px;">🦠</span>
+        <span>AFB<br/>(Carbol Fuchsin)<br/>Red rods</span>
+      </div>
+    </div>
+    <div class="zn-desc">
+      <p><strong style="color:var(--accent4);">Steps of ZN Staining:</strong></p>
+      <p>1. Smear preparation → heat fix → flood with <strong>carbol fuchsin</strong>, steam heat 3–5 min</p>
+      <p>2. Decolourise with <strong>3% acid-alcohol</strong> (30–60 sec) → wash with water</p>
+      <p>3. Counterstain with <strong>methylene blue</strong> or malachite green (2 min) → wash → dry</p>
+      <p>4. Examine under oil immersion (×100 objective) — read minimum <strong>100 fields</strong></p>
+      <p style="color:var(--accent2);font-size:12px;">✦ AFB appear: slender, beaded, slightly curved rods, 1–4 µm</p>
+    </div>
+  </div>
+
+  <!-- SMEAR GRADING -->
+  <h2>4. Smear Grading — RNTCP / NTEP Scale</h2>
+
+  <div class="callout blue">
+    NTEP uses the <strong>WHO/IUATLD grading scale</strong> for AFB reporting. This is standardized across all DMCs.
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Grade</th>
+          <th>AFB Count (ZN Microscopy)</th>
+          <th>Report</th>
+          <th>Significance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong style="color:var(--accent2);">Negative</strong></td>
+          <td>No AFB seen in 100 fields</td>
+          <td>Negative (0)</td>
+          <td>TB not excluded — repeat or culture</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--warn);">Scanty</strong></td>
+          <td>1–9 AFB per 100 fields</td>
+          <td>Scanty (exact count)</td>
+          <td>Report exact number; repeat smear</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--accent3);">1+</strong></td>
+          <td>10–99 AFB per 100 fields</td>
+          <td>1+ Positive</td>
+          <td>Low positive</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--accent3);">2+</strong></td>
+          <td>1–10 AFB per field (in 50 fields)</td>
+          <td>2+ Positive</td>
+          <td>Moderate positive</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--accent3);">3+</strong></td>
+          <td>&gt;10 AFB per field (in 20 fields)</td>
+          <td>3+ Positive</td>
+          <td>High positive — highly infectious</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Grading Bars -->
+  <div class="grade-bar-wrap">
+    <div class="grade-bar-row">
+      <div class="grade-label">Scanty</div>
+      <div class="grade-bar" style="width:10%; background:#5c4a00;">1–9</div>
+      <div class="grade-note">per 100 fields</div>
+    </div>
+    <div class="grade-bar-row">
+      <div class="grade-label">1+</div>
+      <div class="grade-bar" style="width:30%; background:#2d6a4f;">10–99</div>
+      <div class="grade-note">per 100 fields</div>
+    </div>
+    <div class="grade-bar-row">
+      <div class="grade-label">2+</div>
+      <div class="grade-bar" style="width:55%; background:#1e8040;">1–10</div>
+      <div class="grade-note">per field (50 fields)</div>
+    </div>
+    <div class="grade-bar-row">
+      <div class="grade-label">3+</div>
+      <div class="grade-bar" style="width:85%; background:#145a30;">&gt;10</div>
+      <div class="grade-note">per field (20 fields)</div>
+    </div>
+  </div>
+
+  <div class="callout red">
+    <strong>⚠ Key Point:</strong> "Scanty" results must be reported with the <em>exact count</em> — NOT merely as "scanty." Standardised reporting is mandatory under NTEP quality assurance.
+  </div>
+
+  <!-- DIAGNOSTIC FLOWCHART -->
+  <h2>5. NTEP Diagnostic Algorithm — Sputum Microscopy Role</h2>
+
+  <div class="flowchart">
+    <div class="fc-box fc-start">Presumptive Pulmonary TB<br/>(Cough ≥2 weeks + other symptoms)</div>
+    <div class="fc-arrow">↓</div>
+    <div class="fc-box fc-process">Collect 2 Sputum Specimens<br/>(Spot + Early Morning)</div>
+    <div class="fc-arrow">↓</div>
+    <div class="fc-box fc-process">Send to DMC — Sputum Smear Microscopy<br/>(LED-FM preferred / ZN fallback)</div>
+    <div class="fc-arrow">↓</div>
+
+    <!-- Decision: Smear Positive or Negative -->
+    <div style="background:#272115;border:2px solid var(--warn);color:var(--warn);border-radius:6px;padding:9px 22px;font-size:13px;font-weight:700;min-width:260px;text-align:center;">
+      SMEAR RESULT?
+    </div>
+    <div class="fc-arrow">↓</div>
+
+    <div class="fc-row">
+      <div class="fc-branch">
+        <div class="fc-box fc-positive">SMEAR POSITIVE<br/>(Any grade ≥Scanty)</div>
+        <div class="fc-arrow">↓</div>
+        <div class="fc-box fc-process">Send for Rapid Molecular Test<br/>(CBNAAT/TrueNat) — mandatory</div>
+        <div class="fc-arrow">↓</div>
+        <div class="fc-box fc-process">Assess for DS-TB or DR-TB<br/>Initiate Treatment per NTEP</div>
+        <div class="fc-arrow">↓</div>
+        <div class="fc-box fc-positive">DS-TB: 2HRZE/4HRE<br/>DR-TB: Refer to DRTB centre</div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:0;">
+        <div style="font-size:13px;color:var(--text-muted);font-style:italic;margin-top:6px;">OR</div>
+      </div>
+
+      <div class="fc-branch">
+        <div class="fc-box fc-negative">SMEAR NEGATIVE</div>
+        <div class="fc-arrow">↓</div>
+        <div class="fc-box fc-process">CXR + Clinical Assessment</div>
+        <div class="fc-arrow">↓</div>
+        <div style="background:#272115;border:2px solid var(--warn);color:var(--warn);border-radius:6px;padding:9px 16px;font-size:12px;font-weight:700;text-align:center;">
+          Radiological evidence<br/>of TB?
+        </div>
+        <div class="fc-arrow">↓</div>
+        <div class="fc-row" style="gap:12px;">
+          <div class="fc-branch">
+            <div style="font-size:11px;color:var(--accent3);">YES</div>
+            <div class="fc-box fc-positive" style="font-size:12px;min-width:130px;">Send CBNAAT/<br/>Culture (MGIT)</div>
+          </div>
+          <div class="fc-branch">
+            <div style="font-size:11px;color:var(--accent2);">NO</div>
+            <div class="fc-box fc-negative" style="font-size:12px;min-width:130px;">Antibiotics trial;<br/>re-evaluate</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fc-arrow">↓</div>
+    <div class="fc-box fc-end">NTEP Case Notification + Treatment</div>
+  </div>
+
+  <!-- SENSITIVITY & SPECIFICITY -->
+  <h2>6. Diagnostic Performance</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Parameter</th>
+          <th>ZN Microscopy</th>
+          <th>LED-FM</th>
+          <th>Culture (MGIT)</th>
+          <th>CBNAAT</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Sensitivity</td>
+          <td class="yellow">60–70%</td>
+          <td class="yellow">70–80%</td>
+          <td class="green">80–90%</td>
+          <td class="green">88%</td>
+        </tr>
+        <tr>
+          <td>Specificity</td>
+          <td class="green">~98%</td>
+          <td class="green">~95%</td>
+          <td class="green">&gt;98%</td>
+          <td class="green">99%</td>
+        </tr>
+        <tr>
+          <td>Turnaround</td>
+          <td class="green">1–2 hrs</td>
+          <td class="green">1–2 hrs</td>
+          <td class="red">2–6 weeks (LJ)<br/>1–3 wks (MGIT)</td>
+          <td class="green">2–4 hrs</td>
+        </tr>
+        <tr>
+          <td>Cost</td>
+          <td class="green">Very low</td>
+          <td class="yellow">Moderate</td>
+          <td class="yellow">Moderate</td>
+          <td class="red">Higher</td>
+        </tr>
+        <tr>
+          <td>DST possible?</td>
+          <td class="red">No</td>
+          <td class="red">No</td>
+          <td class="green">Yes (full DST)</td>
+          <td class="yellow">RIF only (CBNAAT)</td>
+        </tr>
+        <tr>
+          <td>Detects MTB only?</td>
+          <td class="red">No (NTM+)</td>
+          <td class="red">No (NTM+)</td>
+          <td class="red">No (speciation needed)</td>
+          <td class="green">Yes (MTB-specific)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- LIMITATIONS -->
+  <h2>7. Limitations of Sputum Microscopy</h2>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:10px;">
+    <div>
+      <h4>📉 Analytical Limitations</h4>
+      <ul>
+        <li>Cannot distinguish MTB from NTM — both appear AFB positive</li>
+        <li>Cannot provide Drug Sensitivity Testing (DST)</li>
+        <li>Requires high bacillary load (~10,000/mL) — low sensitivity in early disease</li>
+        <li>Smear-negative TB: sputum-scarce HIV-TB, paediatric TB, EPTB, cavitating disease healing</li>
+        <li>Morphologically viable and dead bacilli both stain positive (cannot assess viability)</li>
+      </ul>
+    </div>
+    <div>
+      <h4>⚙️ Operational Limitations</h4>
+      <ul>
+        <li>Quality depends on smear preparation and staining technique</li>
+        <li>Reader skill variability — external quality assurance (EQA) mandatory</li>
+        <li>Poor quality sputum (saliva) gives false negatives</li>
+        <li>Decolorization time critically affects result</li>
+        <li>High HIV-TB coinfection burden → higher smear-negative rates in India</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout blue">
+    <strong>NTM Pitfall:</strong> Non-tuberculous mycobacteria (MAC, M. kansasii) are AFB positive on ZN. Positive smear ≠ TB diagnosis — clinical, radiological, and molecular correlation is essential per NTEP guidelines.
+  </div>
+
+  <!-- QUALITY ASSURANCE -->
+  <h2>8. Quality Assurance in NTEP Microscopy Network</h2>
+
+  <ul>
+    <li><strong>EQA (External Quality Assurance):</strong> Panel testing, blinded rechecking, and on-site evaluation — quarterly at DMC level</li>
+    <li><strong>Blinded Rechecking:</strong> 10% of all slides (both positive and negative) rechecked by supervisory laboratory</li>
+    <li><strong>Lot Quality Assurance Sampling (LQAS):</strong> Used in some settings to assess laboratory performance</li>
+    <li><strong>Designated Microscopy Centres (DMCs):</strong> NTEP-accredited labs with standardised SOP, trained staff, maintained equipment</li>
+    <li><strong>Panel testing:</strong> Known positive/negative panels sent to DMCs to assess sensitivity/specificity</li>
+    <li><strong>Error rate monitoring:</strong> Major errors (&gt;2%) trigger re-training and corrective action</li>
+  </ul>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>QA Activity</th>
+          <th>Performed By</th>
+          <th>Frequency</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Blinded rechecking</td>
+          <td>District/IRL</td>
+          <td>Quarterly (10% slides)</td>
+        </tr>
+        <tr>
+          <td>On-site evaluation</td>
+          <td>District TB officer / Lab supervisor</td>
+          <td>Biannual</td>
+        </tr>
+        <tr>
+          <td>Panel testing</td>
+          <td>IRL / NRL</td>
+          <td>Quarterly</td>
+        </tr>
+        <tr>
+          <td>Proficiency testing</td>
+          <td>National Reference Lab (NRL, JALMA)</td>
+          <td>Annual</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SMEAR MONITORING -->
+  <h2>9. Role of Follow-up Smear Microscopy in Treatment Monitoring</h2>
+
+  <div class="callout yellow">
+    <strong>NTEP DS-TB Regimen:</strong> 2HRZE (Intensive Phase) / 4HRE (Continuation Phase). Smear follow-up at end of IP is <em>no longer mandatory</em> for all patients per updated NTEP guidelines — clinical response and weight gain are key outcome parameters. However, smear at end of IP is done in <strong>sputum-positive patients</strong> to assess bacteriological response.
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Monitoring Point</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>End of Intensive Phase (2 months)</td>
+          <td>Smear in baseline smear-positive patients; if positive → extend IP or reassess for DR-TB</td>
+        </tr>
+        <tr>
+          <td>End of Treatment (6 months)</td>
+          <td>Smear + culture if available → Treatment Outcome assessment</td>
+        </tr>
+        <tr>
+          <td>Treatment Outcome: Cure</td>
+          <td>Completed treatment + bacteriological confirmation of cure (smear/culture negative at end of treatment + at ≥1 earlier occasion)</td>
+        </tr>
+        <tr>
+          <td>Treatment Failure (smear)</td>
+          <td>Smear positive at month 5 or later → send for DST, escalate to DR-TB pathway</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SMEAR IN HIV-TB -->
+  <h2>10. Special Considerations</h2>
+
+  <h3>A. HIV-TB Coinfection</h3>
+  <ul>
+    <li>Smear-negative TB is disproportionately common in PLHIV — 30–50% of HIV-TB may be smear negative</li>
+    <li>Due to reduced cavitation, lower bacillary load, atypical radiological picture</li>
+    <li>NTEP mandates <strong>CBNAAT (TrueNat/GeneXpert)</strong> as the primary test in PLHIV with presumptive TB — not smear alone</li>
+    <li>Smear negative result does not exclude TB in an HIV-positive patient</li>
+  </ul>
+
+  <h3>B. Paediatric TB</h3>
+  <ul>
+    <li>Paucibacillary disease — most children are smear negative</li>
+    <li>Gastric lavage AFB culture preferred over smear in children under 5</li>
+    <li>Diagnosis relies on clinical scoring (Stegen-Toledo criteria), Mantoux, CXR, contact history</li>
+  </ul>
+
+  <h3>C. Smear Positive, Culture Negative ("Dead Bacilli")</h3>
+  <ul>
+    <li>Can occur post-treatment — dead AFB stain positive but do not grow in culture</li>
+    <li>Does not necessarily indicate treatment failure — clinical context essential</li>
+  </ul>
+
+  <hr/>
+
+  <!-- SUMMARY TABLE -->
+  <h2>Summary: Quick Revision Table</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Aspect</th>
+          <th>Key Point</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Principle</td>
+          <td>Acid-fastness of mycobacteria (mycolic acid cell wall) — retain carbol fuchsin after acid-alcohol decolorisation</td>
+        </tr>
+        <tr>
+          <td>Preferred method (NTEP)</td>
+          <td>LED Fluorescence Microscopy (FM) — auramine O</td>
+        </tr>
+        <tr>
+          <td>Bacillary load required</td>
+          <td>5,000–10,000 AFB/mL sputum</td>
+        </tr>
+        <tr>
+          <td>Sensitivity / Specificity</td>
+          <td>60–70% / ~98% (ZN); 70–80% / ~95% (LED-FM)</td>
+        </tr>
+        <tr>
+          <td>Grading (NTEP/WHO)</td>
+          <td>Negative → Scanty (1–9/100 fields) → 1+ → 2+ → 3+</td>
+        </tr>
+        <tr>
+          <td>Cannot do</td>
+          <td>Species identification, DST, viability assessment</td>
+        </tr>
+        <tr>
+          <td>Role in NTEP algorithm</td>
+          <td>First-line test; all positives → CBNAAT; negatives → CXR → CBNAAT/culture</td>
+        </tr>
+        <tr>
+          <td>QA mechanism</td>
+          <td>EQA: blinded rechecking (10%), panel testing, on-site evaluation</td>
+        </tr>
+        <tr>
+          <td>Follow-up smear</td>
+          <td>End of IP in baseline smear-positive; end of treatment for outcome classification</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout green">
+    <strong>✅ Examiner's Point:</strong> Though CBNAAT/TrueNat and culture have higher sensitivity, smear microscopy remains operationally indispensable in India's NTEP framework — scalable, low-cost, rapid, and deliverable at peripheral DMC level. It is the <em>gatekeeper</em> to the diagnostic cascade, not the final arbiter.
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sources">
+    <strong>Sources &amp; References:</strong><br/>
+    1. National TB Elimination Programme (NTEP) — India TB Report 2021; TB India 2023<br/>
+    2. RNTCP Technical and Operational Guidelines (TOG) for Tuberculosis Control, 2016<br/>
+    3. Park's Textbook of Preventive and Social Medicine, 26th Edition — TB chapter<br/>
+    4. Harrison's Principles of Internal Medicine, 21st Edition — Mycobacterial Diseases<br/>
+    5. Murray &amp; Nadel's Textbook of Respiratory Medicine, 7th Edition<br/>
+    6. Textbook of Pulmonary Medicine — Jindal et al., 3rd Edition<br/>
+    7. NTEP PMDT Guidelines 2021 — Programmatic Management of Drug-Resistant TB
+  </div>
+
+</div><!-- /container -->
+</body>
+</html>
